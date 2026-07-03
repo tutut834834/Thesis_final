@@ -1,0 +1,44 @@
+PC06_H3_POISON_FRACTION_025_CLEAN_LABEL_FMNIST
+
+Purpose:
+PC06 tests Hypothesis 3: poison-fraction sensitivity. It is the clean-label run at poison_frac=0.25.
+
+Dataset:
+Fashion-MNIST.
+
+Federated setup:
+10 clients.
+1 corrupt client.
+class_per_agent=10, meaning IID-ish / normal federated data.
+
+Attack:
+Clean-label backdoor.
+base_class=5.
+target_class=7.
+pattern_type=plus.
+poison_frac=0.25.
+clean_label=1.
+clean_label_type=1.
+Labels should NOT change because this is clean-label.
+
+Defense:
+RobustLR threshold = 4.
+
+Expected proof:
+VERIFY_STEALTH_DATA_PASSED.
+VERIFY_POISONING_PASSED.
+CLEAN_LABEL_PROOF.
+labels_changed=0 in the train poisoning block.
+poisoned_samples should be about 150 because 25 percent of 600 target-class samples are poisoned.
+
+Comparison:
+Compare PC06 with PC05.
+PC05 = H3 dirty-label poison_frac=0.25.
+PC06 = H3 clean-label poison_frac=0.25.
+
+Also compare PC06 with PC04.
+PC04 = H2 clean-label poison_frac=0.10.
+PC06 = H3 clean-label poison_frac=0.25.
+
+If poison accuracy rises from poison_frac=0.10 to poison_frac=0.25 while clean accuracy remains acceptable, this supports the poison-fraction sensitivity hypothesis.
+If PC06 keeps labels_changed=0 while still producing poison accuracy, it shows that clean-label poisoning can remain stealthy at the data-label level even at a higher poison fraction.
