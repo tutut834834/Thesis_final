@@ -1,0 +1,1 @@
+PC11 H6 privacy medium dirty-label. privacy_mode=clip_noise, privacy_level=medium, clean_label=0. Expected VERIFY_PRIVACY_PRESERVING_PASSED, PRIVACY_AGGREGATION_START, PRIVACY_CLIPPING_METRICS_START, PRIVACY_NOISE_METRICS_START, DIRTY_LABEL_PROOF. 
