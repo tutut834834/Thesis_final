@@ -1,0 +1,1 @@
+python -u federated.py --data=fmnist --device=cpu --local_ep=1 --bs=1024 --num_agents=10 --rounds=2 --snap=1 --num_corrupt=1 --poison_frac=0.10 --robustLR_threshold=1 --class_per_agent=10 --base_class=5 --target_class=7 --clean_label=0 --verify_poisoning=1 --pattern_type=plus --cuckoo=1 --cuckoo_variant=final_hybrid --model_name=cnn_mnist --seed=1

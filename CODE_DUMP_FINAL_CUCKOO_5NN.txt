@@ -1,0 +1,1427 @@
+====================================================================================================
+CODE DUMP FOR FINAL CUCKOO 5NN PACKAGE
+Created: 2026-07-03 21:07:53.797432
+====================================================================================================
+
+
+
+====================================================================================================
+FILE: agent.py
+====================================================================================================
+
+import copy
+
+import torch
+import torch.nn as nn
+from torch.nn.utils import parameters_to_vector, vector_to_parameters
+from torch.utils.data import DataLoader
+
+import utils
+from cuckoo_classifier_nest import ClassifierNestEngine
+from cuckoo_clean_label_egg import CleanLabelEggEngine
+from cuckoo_framework import CuckooEngine
+from cuckoo_multi_cuckoo import MultiCuckooCollusionEngine
+
+
+class Agent:
+    def __init__(self, id, args, train_dataset=None, data_idxs=None, surrogate_model=None):
+        self.id = id
+        self.args = args
+        self.is_corrupt = self.id < args.num_corrupt
+        self.cuckoo_enabled = self.is_corrupt and int(getattr(args, 'cuckoo', 0)) == 1
+        self.cuckoo_engine = None
+
+        if train_dataset is None:
+            base_dataset = torch.load(f'../data/Fed_EMNIST/user_trainsets/user_{id}_trainset.pt')
+            if self.cuckoo_enabled:
+                self.clean_train_dataset = copy.deepcopy(base_dataset)
+                self.train_dataset = copy.deepcopy(base_dataset)
+                utils.poison_dataset(self.train_dataset, args, data_idxs, agent_idx=self.id, surrogate_model=surrogate_model)
+            else:
+                self.train_dataset = base_dataset
+                self.clean_train_dataset = None
+                if self.is_corrupt:
+                    utils.poison_dataset(self.train_dataset, args, data_idxs, agent_idx=self.id, surrogate_model=surrogate_model)
+        else:
+            if self.cuckoo_enabled:
+                self.clean_train_dataset = utils.DatasetSplit(copy.deepcopy(train_dataset), data_idxs)
+                poisoned_full = copy.deepcopy(train_dataset)
+                utils.poison_dataset(poisoned_full, args, data_idxs, agent_idx=self.id, surrogate_model=surrogate_model)
+                self.train_dataset = utils.DatasetSplit(poisoned_full, data_idxs)
+            elif self.is_corrupt:
+                poisoned_full = copy.deepcopy(train_dataset)
+                utils.poison_dataset(poisoned_full, args, data_idxs, agent_idx=self.id, surrogate_model=surrogate_model)
+                self.train_dataset = utils.DatasetSplit(poisoned_full, data_idxs)
+                self.clean_train_dataset = None
+            else:
+                self.train_dataset = utils.DatasetSplit(train_dataset, data_idxs)
+                self.clean_train_dataset = None
+
+        self.train_loader = DataLoader(self.train_dataset, batch_size=self.args.bs, shuffle=True,
+                                       num_workers=args.num_workers, pin_memory=False)
+        self.clean_train_loader = None
+        if self.cuckoo_enabled:
+            self.clean_train_loader = DataLoader(self.clean_train_dataset, batch_size=self.args.bs, shuffle=True,
+                                                 num_workers=args.num_workers, pin_memory=False)
+        self.n_data = len(self.train_dataset)
+
+    def _epochs(self):
+        corrupt_ep = int(getattr(self.args, 'corrupt_local_ep', 0)) if self.is_corrupt else 0
+        return corrupt_ep if corrupt_ep > 0 else int(self.args.local_ep)
+
+    def _train_one_update(self, global_model, criterion, loader):
+        initial = parameters_to_vector(global_model.parameters()).detach().clone()
+        global_model.train()
+        opt = torch.optim.SGD(global_model.parameters(), lr=self.args.client_lr, momentum=self.args.client_moment)
+        for _ in range(self._epochs()):
+            for _, (inputs, labels) in enumerate(loader):
+                opt.zero_grad()
+                inputs = inputs.to(self.args.device, non_blocking=True)
+                labels = labels.to(self.args.device, non_blocking=True)
+                loss = criterion(global_model(inputs), labels)
+                loss.backward()
+                nn.utils.clip_grad_norm_(global_model.parameters(), 10)
+                opt.step()
+                if self.args.clip > 0:
+                    with torch.no_grad():
+                        params = parameters_to_vector(global_model.parameters())
+                        update = params - initial
+                        denom = max(1, torch.norm(update, p=2) / self.args.clip)
+                        update.div_(denom)
+                        vector_to_parameters(initial + update, global_model.parameters())
+        with torch.no_grad():
+            return (parameters_to_vector(global_model.parameters()).double() - initial.double()).detach()
+
+    def _engine(self, global_model):
+        if self.cuckoo_engine is not None:
+            return self.cuckoo_engine
+        variant = str(getattr(self.args, 'cuckoo_variant', 'final_hybrid')).lower()
+        if variant in ('classifier_nest', 'classifier', 'final_hybrid', 'v2'):
+            self.cuckoo_engine = ClassifierNestEngine(self.args, global_model, self.id)
+        elif variant in ('clean_label_egg', 'clean_egg'):
+            self.cuckoo_engine = CleanLabelEggEngine(self.args, global_model, self.id)
+        elif variant in ('multi_cuckoo', 'multi', 'collusion'):
+            self.cuckoo_engine = MultiCuckooCollusionEngine(self.args, global_model, self.id)
+        else:
+            self.cuckoo_engine = CuckooEngine(self.args, global_model, self.id)
+        return self.cuckoo_engine
+
+    def local_train(self, global_model, criterion, cur_round=1):
+        if not self.cuckoo_enabled:
+            return self._train_one_update(global_model, criterion, self.train_loader)
+
+        initial_params = parameters_to_vector(global_model.parameters()).detach().clone()
+        clean_update = self._train_one_update(global_model, criterion, self.clean_train_loader)
+        vector_to_parameters(initial_params.clone(), global_model.parameters())
+        poison_update = self._train_one_update(global_model, criterion, self.train_loader)
+        vector_to_parameters(initial_params.clone(), global_model.parameters())
+        cuckoo_update, stats = self._engine(global_model).build(clean_update, poison_update, cur_round)
+        diag_every = int(getattr(self.args, 'cuckoo_diag_every', 5))
+        if cur_round == 1 or cur_round % int(self.args.snap) == 0 or (diag_every > 0 and cur_round % diag_every == 0):
+            stats.print_block()
+        return cuckoo_update.detach()
+
+
+
+====================================================================================================
+FILE: aggregation.py
+====================================================================================================
+
+from copy import deepcopy
+
+import numpy as np
+import torch
+from torch.nn import functional as F
+from torch.nn.utils import parameters_to_vector, vector_to_parameters
+
+import models
+
+
+class Aggregation:
+    def __init__(self, agent_data_sizes, n_params, poisoned_val_loader, args, writer):
+        self.agent_data_sizes = agent_data_sizes
+        self.args = args
+        self.writer = writer
+        self.server_lr = args.server_lr
+        self.n_params = n_params
+        self.poisoned_val_loader = poisoned_val_loader
+        self.cum_net_mov = 0
+
+    def aggregate_updates(self, global_model, agent_updates_dict, cur_round):
+        lr_vector = torch.Tensor([self.server_lr] * self.n_params).to(self.args.device)
+        if self.args.robustLR_threshold > 0:
+            lr_vector = self.compute_robustLR(agent_updates_dict)
+
+        if self.args.aggr == 'avg':
+            aggregated_updates = self.agg_avg(agent_updates_dict)
+        elif self.args.aggr == 'comed':
+            aggregated_updates = self.agg_comed(agent_updates_dict)
+        elif self.args.aggr == 'sign':
+            aggregated_updates = self.agg_sign(agent_updates_dict)
+        else:
+            raise ValueError(self.args.aggr)
+
+        if self.args.noise > 0:
+            aggregated_updates.add_(torch.normal(mean=0, std=self.args.noise * max(self.args.clip, 1e-12),
+                                                size=(self.n_params,)).to(self.args.device))
+        cur_global_params = parameters_to_vector(global_model.parameters())
+        new_global_params = (cur_global_params + lr_vector * aggregated_updates).float()
+        vector_to_parameters(new_global_params, global_model.parameters())
+
+    def compute_robustLR(self, agent_updates_dict):
+        signs = [torch.sign(update) for update in agent_updates_dict.values()]
+        sm = torch.abs(sum(signs))
+        sm[sm < self.args.robustLR_threshold] = -self.server_lr
+        sm[sm >= self.args.robustLR_threshold] = self.server_lr
+        return sm.to(self.args.device)
+
+    def agg_avg(self, agent_updates_dict):
+        sm_updates, total_data = 0, 0
+        for _id, update in agent_updates_dict.items():
+            n = self.agent_data_sizes[_id]
+            sm_updates += n * update
+            total_data += n
+        return sm_updates / total_data
+
+    def agg_comed(self, agent_updates_dict):
+        concat = torch.cat([update.view(-1, 1) for update in agent_updates_dict.values()], dim=1)
+        return torch.median(concat, dim=1).values
+
+    def agg_sign(self, agent_updates_dict):
+        signs = [torch.sign(update) for update in agent_updates_dict.values()]
+        return torch.sign(torch.sign(sum(signs)))
+
+    def comp_diag_fisher(self, model_params, data_loader, adv=True):
+        model = models.get_model(self.args.data, getattr(self.args, 'model_name', 'cnn_mnist'))
+        vector_to_parameters(model_params, model.parameters())
+        params = {n: p for n, p in model.named_parameters() if p.requires_grad}
+        precision_matrices = {}
+        for n, p in deepcopy(params).items():
+            p.data.zero_()
+            precision_matrices[n] = p.data
+        model.eval()
+        for _, (inputs, labels) in enumerate(data_loader):
+            model.zero_grad()
+            inputs = inputs.to(self.args.device, non_blocking=True)
+            labels = labels.to(self.args.device, non_blocking=True).view(-1, 1)
+            if not adv:
+                labels.fill_(self.args.base_class)
+            outputs = model(inputs)
+            target_log_probs = outputs.gather(1, labels)
+            target_log_probs.sum().backward()
+            for n, p in model.named_parameters():
+                precision_matrices[n].data += (p.grad.data ** 2) / len(data_loader.dataset)
+        return parameters_to_vector(precision_matrices.values()).detach()
+
+
+
+====================================================================================================
+FILE: federated.py
+====================================================================================================
+
+import copy
+import math
+import os
+import random
+import re
+import sys
+from time import strftime
+
+import numpy as np
+import torch
+import torch.nn as nn
+from torch.nn.utils import parameters_to_vector, vector_to_parameters
+from torch.utils.data import DataLoader
+from torch.utils.tensorboard import SummaryWriter
+from tqdm import tqdm
+
+import cuckoo_framework
+import models
+import utils
+from agent import Agent
+from aggregation import Aggregation
+from options import args_parser
+
+
+def set_all_seeds(seed):
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed_all(seed)
+
+
+def make_windows_safe_filename(name):
+    name = re.sub(r'[<>:"/\\|?*]', '_', name)
+    return name.replace(' ', '_')
+
+
+class TeeLogger:
+    def __init__(self, terminal_stream, log_file):
+        self.terminal_stream = terminal_stream
+        self.log_file = log_file
+
+    def write(self, message):
+        self.terminal_stream.write(message)
+        self.log_file.write(message)
+        self.terminal_stream.flush()
+        self.log_file.flush()
+
+    def flush(self):
+        self.terminal_stream.flush()
+        self.log_file.flush()
+
+    def isatty(self):
+        return self.terminal_stream.isatty()
+
+
+if __name__ == '__main__':
+    args = args_parser()
+    set_all_seeds(getattr(args, 'seed', 1))
+    args.server_lr = args.server_lr if args.aggr == 'sign' else 1.0
+
+    run_name = make_windows_safe_filename(
+        f"finalcuckoo_{args.data}_model{args.model_name}_r{args.rounds}_cor{args.num_corrupt}"
+        f"_pf{args.poison_frac}_rlr{args.robustLR_threshold}_cl{args.clean_label}"
+        f"_cltype{args.clean_label_type}_ck{args.cuckoo_variant}_seed{args.seed}_{strftime('%Y%m%d_%H%M%S')}"
+    )
+    os.makedirs('logs', exist_ok=True)
+    os.makedirs('output_logs', exist_ok=True)
+    txt_log_path = os.path.join('output_logs', f'{run_name}_console_output.txt')
+    txt_log_file = open(txt_log_path, 'a', encoding='utf-8', buffering=1)
+    original_stdout, original_stderr = sys.stdout, sys.stderr
+    sys.stdout = TeeLogger(original_stdout, txt_log_file)
+    sys.stderr = TeeLogger(original_stderr, txt_log_file)
+
+    print(f'Console output will be saved to: {txt_log_path}')
+    utils.print_exp_details(args)
+    cuckoo_framework.print_cuckoo_header(args)
+    print('FINAL_CUCKOO_THESIS_DECISION: dirty uses PC07 RobustLR-1 plus pf0.10; clean uses PGD big_square cltype4 because it previously held the backdoor.')
+
+    log_dir = os.path.join('logs', run_name)
+    writer = SummaryWriter(log_dir)
+    print(f'TensorBoard logs will be saved to: {log_dir}')
+
+    train_dataset, val_dataset = utils.get_datasets(args.data)
+    val_loader = DataLoader(val_dataset, batch_size=args.bs, shuffle=False, num_workers=args.num_workers, pin_memory=False)
+    user_groups = utils.distribute_data(train_dataset, args) if args.data != 'fedemnist' else None
+
+    idxs = (val_dataset.targets == args.base_class).nonzero().flatten().tolist()
+    poisoned_val_set = utils.DatasetSplit(copy.deepcopy(val_dataset), idxs)
+    utils.poison_dataset(poisoned_val_set.dataset, args, idxs, poison_all=True, force_dirty_label=True, context='poisoned_validation_eval')
+    poisoned_val_loader = DataLoader(poisoned_val_set, batch_size=args.bs, shuffle=False, num_workers=args.num_workers, pin_memory=False)
+
+    global_model = models.get_model(args.data, args.model_name).to(args.device)
+    surrogate_model = None
+    if args.clean_label == 1 and args.clean_label_adv == 1 and args.num_corrupt > 0:
+        if args.data == 'fmnist':
+            print('Training clean-label PGD surrogate model on clean data...')
+            surrogate_model = utils.train_clean_label_surrogate(train_dataset, args)
+        else:
+            print('WARNING: clean_label_adv PGD implemented for fmnist only; continuing without surrogate.')
+
+    agents, agent_data_sizes = [], {}
+    for _id in range(args.num_agents):
+        if args.data == 'fedemnist':
+            agent = Agent(_id, args, surrogate_model=surrogate_model)
+        else:
+            agent = Agent(_id, args, train_dataset, user_groups[_id], surrogate_model=surrogate_model)
+        agent_data_sizes[_id] = agent.n_data
+        agents.append(agent)
+
+    n_params = len(parameters_to_vector(global_model.parameters()))
+    aggregator = Aggregation(agent_data_sizes, n_params, poisoned_val_loader, args, writer)
+    criterion = nn.CrossEntropyLoss().to(args.device)
+    cum_poison_acc_mean = 0.0
+
+    for rnd in tqdm(range(1, args.rounds + 1)):
+        rnd_global_params = parameters_to_vector(global_model.parameters()).detach()
+        agent_updates_dict = {}
+        selected_agents = np.random.choice(args.num_agents, math.floor(args.num_agents * args.agent_frac), replace=False)
+        for agent_id in selected_agents:
+            update = agents[agent_id].local_train(global_model, criterion, cur_round=rnd)
+            agent_updates_dict[agent_id] = update
+            vector_to_parameters(copy.deepcopy(rnd_global_params), global_model.parameters())
+        aggregator.aggregate_updates(global_model, agent_updates_dict, rnd)
+        txt_log_file.flush()
+
+        if rnd % args.snap == 0:
+            with torch.no_grad():
+                val_loss, (val_acc, val_per_class_acc) = utils.get_loss_n_accuracy(global_model, criterion, val_loader, args)
+                writer.add_scalar('Validation/Loss', val_loss, rnd)
+                writer.add_scalar('Validation/Accuracy', val_acc, rnd)
+                print(f'| Round: {rnd} |')
+                print(f'| Val_Loss/Val_Acc: {val_loss:.3f} / {val_acc:.3f} |')
+                print(f'| Val_Per_Class_Acc: {val_per_class_acc} |')
+                poison_loss, (poison_acc, _) = utils.get_loss_n_accuracy(global_model, criterion, poisoned_val_loader, args)
+                cum_poison_acc_mean += poison_acc
+                writer.add_scalar('Poison/Base_Class_Accuracy', val_per_class_acc[args.base_class], rnd)
+                writer.add_scalar('Poison/Poison_Accuracy', poison_acc, rnd)
+                writer.add_scalar('Poison/Poison_Loss', poison_loss, rnd)
+                writer.add_scalar('Poison/Cumulative_Poison_Accuracy_Mean', cum_poison_acc_mean / rnd, rnd)
+                print(f'| Poison Loss/Poison Acc: {poison_loss:.3f} / {poison_acc:.3f} |')
+                txt_log_file.flush()
+
+    writer.close()
+    print('Training has finished!')
+    print(f'Full console output saved to: {txt_log_path}')
+    sys.stdout, sys.stderr = original_stdout, original_stderr
+    txt_log_file.close()
+
+
+
+====================================================================================================
+FILE: models.py
+====================================================================================================
+
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+
+
+def get_model(data, model_name='cnn_mnist'):
+    if data in ('fmnist', 'fedemnist'):
+        if model_name == 'cnn_mnist':
+            return CNN_MNIST()
+        if model_name == 'cnn_no_dropout':
+            return CNN_MNIST_NoDropout()
+        if model_name == 'cnn_deep':
+            return CNN_MNIST_Deep()
+        if model_name == 'cnn_wide':
+            return CNN_MNIST_Wide()
+        if model_name == 'mlp':
+            return MLP_MNIST()
+        raise ValueError(f'Unknown FMNIST model_name: {model_name}')
+    if data == 'cifar10':
+        return CNN_CIFAR()
+    raise ValueError(f'Unknown dataset: {data}')
+
+
+class CNN_MNIST(nn.Module):
+    """Original thesis CNN with dropout."""
+    def __init__(self):
+        super().__init__()
+        self.conv1 = nn.Conv2d(1, 32, kernel_size=(3, 3))
+        self.conv2 = nn.Conv2d(32, 64, kernel_size=(3, 3))
+        self.max_pool = nn.MaxPool2d(kernel_size=(2, 2))
+        self.drop1 = nn.Dropout2d(p=0.5)
+        self.fc1 = nn.Linear(9216, 128)
+        self.drop2 = nn.Dropout(p=0.5)
+        self.fc2 = nn.Linear(128, 10)
+
+    def forward(self, x):
+        x = F.relu(self.conv1(x))
+        x = F.relu(self.conv2(x))
+        x = self.max_pool(x)
+        x = x.view(-1, x.shape[1] * x.shape[2] * x.shape[3])
+        x = self.drop1(x)
+        x = F.relu(self.fc1(x))
+        x = self.drop2(x)
+        return self.fc2(x)
+
+
+class CNN_MNIST_NoDropout(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.conv1 = nn.Conv2d(1, 32, kernel_size=(3, 3))
+        self.conv2 = nn.Conv2d(32, 64, kernel_size=(3, 3))
+        self.max_pool = nn.MaxPool2d(kernel_size=(2, 2))
+        self.fc1 = nn.Linear(9216, 128)
+        self.fc2 = nn.Linear(128, 10)
+
+    def forward(self, x):
+        x = F.relu(self.conv1(x))
+        x = F.relu(self.conv2(x))
+        x = self.max_pool(x)
+        x = x.view(-1, x.shape[1] * x.shape[2] * x.shape[3])
+        x = F.relu(self.fc1(x))
+        return self.fc2(x)
+
+
+class CNN_MNIST_Deep(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.conv1 = nn.Conv2d(1, 32, kernel_size=3, padding=1)
+        self.conv2 = nn.Conv2d(32, 64, kernel_size=3, padding=1)
+        self.conv3 = nn.Conv2d(64, 64, kernel_size=3, padding=1)
+        self.pool = nn.MaxPool2d(2, 2)
+        self.drop = nn.Dropout(p=0.5)
+        self.fc1 = nn.Linear(64 * 14 * 14, 128)
+        self.fc2 = nn.Linear(128, 10)
+
+    def forward(self, x):
+        x = F.relu(self.conv1(x))
+        x = F.relu(self.conv2(x))
+        x = F.relu(self.conv3(x))
+        x = self.pool(x)
+        x = x.view(-1, 64 * 14 * 14)
+        x = self.drop(x)
+        x = F.relu(self.fc1(x))
+        return self.fc2(x)
+
+
+class CNN_MNIST_Wide(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.conv1 = nn.Conv2d(1, 64, kernel_size=(3, 3))
+        self.conv2 = nn.Conv2d(64, 128, kernel_size=(3, 3))
+        self.max_pool = nn.MaxPool2d(kernel_size=(2, 2))
+        self.drop1 = nn.Dropout2d(p=0.5)
+        self.fc1 = nn.Linear(18432, 256)
+        self.drop2 = nn.Dropout(p=0.5)
+        self.fc2 = nn.Linear(256, 10)
+
+    def forward(self, x):
+        x = F.relu(self.conv1(x))
+        x = F.relu(self.conv2(x))
+        x = self.max_pool(x)
+        x = x.view(-1, x.shape[1] * x.shape[2] * x.shape[3])
+        x = self.drop1(x)
+        x = F.relu(self.fc1(x))
+        x = self.drop2(x)
+        return self.fc2(x)
+
+
+class MLP_MNIST(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.fc1 = nn.Linear(28 * 28, 512)
+        self.fc2 = nn.Linear(512, 256)
+        self.fc3 = nn.Linear(256, 10)
+        self.drop = nn.Dropout(p=0.5)
+
+    def forward(self, x):
+        x = x.view(-1, 28 * 28)
+        x = F.relu(self.fc1(x))
+        x = self.drop(x)
+        x = F.relu(self.fc2(x))
+        return self.fc3(x)
+
+
+class CNN_CIFAR(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.conv1 = nn.Conv2d(3, 64, 3)
+        self.conv2 = nn.Conv2d(64, 128, 3)
+        self.conv3 = nn.Conv2d(128, 256, 3)
+        self.pool = nn.MaxPool2d(2, 2)
+        self.drop1 = nn.Dropout2d(p=0.5)
+        self.fc1 = nn.Linear(64 * 4 * 4, 128)
+        self.drop2 = nn.Dropout(p=0.5)
+        self.fc2 = nn.Linear(128, 256)
+        self.drop3 = nn.Dropout(p=0.5)
+        self.fc3 = nn.Linear(256, 10)
+
+    def forward(self, x):
+        x = self.pool(F.relu(self.conv1(x)))
+        x = self.pool(F.relu(self.conv2(x)))
+        x = self.pool(F.relu(self.conv3(x)))
+        x = x.view(-1, 64 * 4 * 4)
+        x = self.drop1(x)
+        x = F.relu(self.fc1(x))
+        x = self.drop2(x)
+        x = F.relu(self.fc2(x))
+        x = self.drop3(x)
+        return self.fc3(x)
+
+
+
+====================================================================================================
+FILE: options.py
+====================================================================================================
+
+import argparse
+import torch
+
+
+def args_parser():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--data', type=str, default='fmnist')
+    parser.add_argument('--model_name', type=str, default='cnn_mnist',
+                        choices=['cnn_mnist', 'cnn_no_dropout', 'cnn_deep', 'cnn_wide', 'mlp'])
+    parser.add_argument('--seed', type=int, default=1)
+    parser.add_argument('--num_agents', type=int, default=10)
+    parser.add_argument('--agent_frac', type=float, default=1)
+    parser.add_argument('--class_per_agent', type=int, default=10)
+    parser.add_argument('--num_corrupt', type=int, default=0)
+    parser.add_argument('--rounds', type=int, default=100)
+    parser.add_argument('--aggr', type=str, default='avg', choices=['avg', 'comed', 'sign'])
+    parser.add_argument('--local_ep', type=int, default=1)
+    parser.add_argument('--corrupt_local_ep', type=int, default=0)
+    parser.add_argument('--bs', type=int, default=1024)
+    parser.add_argument('--client_lr', type=float, default=0.1)
+    parser.add_argument('--client_moment', type=float, default=0.9)
+    parser.add_argument('--server_lr', type=float, default=1)
+    parser.add_argument('--base_class', type=int, default=5)
+    parser.add_argument('--target_class', type=int, default=7)
+    parser.add_argument('--poison_frac', type=float, default=0.0)
+    parser.add_argument('--pattern_type', type=str, default='plus',
+                        choices=['plus', 'square', 'big_square', 'apple', 'copyright'])
+    parser.add_argument('--clean_label', type=int, default=0)
+    parser.add_argument('--clean_label_type', type=int, default=0)
+    parser.add_argument('--clean_label_auto_pattern', type=int, default=1)
+    parser.add_argument('--verify_poisoning', type=int, default=1)
+    parser.add_argument('--clean_label_adv', type=int, default=0)
+    parser.add_argument('--pgd_eps', type=float, default=16.0)
+    parser.add_argument('--pgd_alpha', type=float, default=2.0)
+    parser.add_argument('--pgd_steps', type=int, default=10)
+    parser.add_argument('--surrogate_epochs', type=int, default=5)
+    parser.add_argument('--robustLR_threshold', type=int, default=0)
+    parser.add_argument('--clip', type=float, default=0)
+    parser.add_argument('--noise', type=float, default=0)
+    parser.add_argument('--top_frac', type=int, default=100)
+    parser.add_argument('--snap', type=int, default=1)
+    parser.add_argument('--device', default=torch.device('cuda:0' if torch.cuda.is_available() else 'cpu'))
+    parser.add_argument('--num_workers', type=int, default=0)
+
+    # Final Cuckoo biology-inspired options.
+    parser.add_argument('--cuckoo', type=int, default=0)
+    parser.add_argument('--cuckoo_variant', type=str, default='final_hybrid',
+                        choices=['final_hybrid', 'classifier_nest', 'clean_label_egg', 'multi_cuckoo', 'v2'])
+    parser.add_argument('--cuckoo_lambda', type=float, default=1.8)
+    parser.add_argument('--cuckoo_incubation_lambda', type=float, default=0.0)
+    parser.add_argument('--cuckoo_hatch_round', type=int, default=12)
+    parser.add_argument('--cuckoo_warmup_rounds', type=int, default=12)
+    parser.add_argument('--cuckoo_schedule', type=str, default='cosine', choices=['linear', 'cosine', 'step'])
+    parser.add_argument('--cuckoo_norm_cap', type=float, default=3.0,
+                        help='Higher than earlier multi-cuckoo because previous variants over-constrained and lost the backdoor.')
+    parser.add_argument('--cuckoo_min_cosine', type=float, default=-1.0)
+    parser.add_argument('--cuckoo_sign_align', type=int, default=1)
+    parser.add_argument('--cuckoo_allow_zero_host_sign', type=int, default=1)
+    parser.add_argument('--cuckoo_top_frac', type=float, default=0.70,
+                        help='Keep more egg residual coordinates than earlier failed variants.')
+    parser.add_argument('--cuckoo_budget_mode', type=str, default='global', choices=['global', 'layerwise'])
+    parser.add_argument('--cuckoo_layer_policy', type=str, default='classifier',
+                        choices=['all', 'classifier', 'last', 'no_conv', 'conv_only'])
+    parser.add_argument('--cuckoo_mimic_mode', type=str, default='sign', choices=['sign', 'none', 'raw'])
+    parser.add_argument('--cuckoo_center_egg', type=int, default=0,
+                        help='0 by default: do not remove too much backdoor residual.')
+    parser.add_argument('--cuckoo_blend_clean_direction', type=float, default=0.03)
+    parser.add_argument('--cuckoo_diag_every', type=int, default=5)
+    parser.add_argument('--cuckoo_classifier_target_rows', type=int, default=1)
+    parser.add_argument('--cuckoo_classifier_focus', type=str, default='target_base', choices=['target_base', 'target', 'base', 'none'])
+    parser.add_argument('--cuckoo_classifier_row_relax', type=float, default=0.35,
+                        help='Let target/base classifier rows pass even when sign mimicry would suppress them.')
+    parser.add_argument('--cuckoo_classifier_boost', type=float, default=2.5)
+    parser.add_argument('--cuckoo_classifier_row_boost', type=float, default=4.0)
+    parser.add_argument('--cuckoo_classifier_bias_boost', type=float, default=2.0)
+    parser.add_argument('--cuckoo_pgd_bias', type=float, default=1.25,
+                        help='Extra residual strength for clean-label PGD big-square egg runs.')
+    return parser.parse_args()
+
+
+
+====================================================================================================
+FILE: utils.py
+====================================================================================================
+
+import random
+from collections import defaultdict
+from math import floor
+
+import cv2
+import numpy as np
+import torch
+from torch.utils.data import Dataset
+from torchvision import datasets, transforms
+
+
+FMNIST_MEAN = 0.2860
+FMNIST_STD = 0.3530
+
+
+class H5Dataset(Dataset):
+    def __init__(self, dataset, client_id):
+        self.targets = torch.LongTensor(dataset[client_id]['label'])
+        self.inputs = torch.Tensor(dataset[client_id]['pixels'])
+        shape = self.inputs.shape
+        self.inputs = self.inputs.view(shape[0], 1, shape[1], shape[2])
+
+    def classes(self):
+        return torch.unique(self.targets)
+
+    def __len__(self):
+        return self.targets.shape[0]
+
+    def __getitem__(self, item):
+        return self.inputs[item], self.targets[item]
+
+
+class DatasetSplit(Dataset):
+    def __init__(self, dataset, idxs):
+        self.dataset = dataset
+        self.idxs = list(idxs)
+        self.targets = torch.Tensor([self.dataset.targets[idx] for idx in self.idxs])
+
+    def classes(self):
+        return torch.unique(self.targets)
+
+    def __len__(self):
+        return len(self.idxs)
+
+    def __getitem__(self, item):
+        idx = self.idxs[item]
+        return self.dataset[idx]
+
+
+def distribute_data(dataset, args, n_classes=10, class_per_agent=None):
+    if class_per_agent is None:
+        class_per_agent = int(getattr(args, 'class_per_agent', 10))
+    if args.num_agents == 1:
+        return {0: list(range(len(dataset)))}
+
+    labels_sorted = dataset.targets.sort()
+    class_by_labels = list(zip(labels_sorted.values.tolist(), labels_sorted.indices.tolist()))
+    labels_dict = defaultdict(list)
+    for k, v in class_by_labels:
+        labels_dict[int(k)].append(int(v))
+
+    shard_size = max(1, len(dataset) // (args.num_agents * class_per_agent))
+    slice_size = max(1, (len(dataset) // n_classes) // shard_size)
+    for k, v in labels_dict.items():
+        labels_dict[k] = [v[i::slice_size] for i in range(slice_size)]
+
+    dict_users = defaultdict(list)
+    for user_idx in range(args.num_agents):
+        class_ctr = 0
+        for j in range(n_classes):
+            if class_ctr == class_per_agent:
+                break
+            if len(labels_dict[j]) > 0:
+                dict_users[user_idx] += labels_dict[j][0]
+                del labels_dict[j][0]
+                class_ctr += 1
+    return dict_users
+
+
+def get_datasets(data):
+    data_dir = '../data'
+    if data == 'fmnist':
+        transform = transforms.Compose([
+            transforms.ToTensor(),
+            transforms.Normalize(mean=[FMNIST_MEAN], std=[FMNIST_STD])
+        ])
+        train_dataset = datasets.FashionMNIST(data_dir, train=True, download=True, transform=transform)
+        test_dataset = datasets.FashionMNIST(data_dir, train=False, download=True, transform=transform)
+        return train_dataset, test_dataset
+    if data == 'cifar10':
+        transform = transforms.Compose([
+            transforms.ToTensor(),
+            transforms.Normalize(mean=(0.4914, 0.4822, 0.4465), std=(0.2023, 0.1994, 0.2010)),
+        ])
+        train_dataset = datasets.CIFAR10(data_dir, train=True, download=True, transform=transform)
+        test_dataset = datasets.CIFAR10(data_dir, train=False, download=True, transform=transform)
+        train_dataset.targets = torch.LongTensor(train_dataset.targets)
+        test_dataset.targets = torch.LongTensor(test_dataset.targets)
+        return train_dataset, test_dataset
+    if data == 'fedemnist':
+        return torch.load('../data/Fed_EMNIST/fed_emnist_all_trainset.pt'), torch.load('../data/Fed_EMNIST/fed_emnist_all_valset.pt')
+    raise ValueError(data)
+
+
+def get_loss_n_accuracy(model, criterion, data_loader, args, num_classes=10):
+    model.eval()
+    total_loss, correctly_labeled_samples = 0.0, 0
+    confusion_matrix = torch.zeros(num_classes, num_classes)
+    for _, (inputs, labels) in enumerate(data_loader):
+        inputs = inputs.to(args.device, non_blocking=True)
+        labels = labels.to(args.device, non_blocking=True)
+        outputs = model(inputs)
+        loss = criterion(outputs, labels)
+        total_loss += loss.item() * outputs.shape[0]
+        _, pred_labels = torch.max(outputs, 1)
+        correctly_labeled_samples += torch.sum(torch.eq(pred_labels.view(-1), labels.view(-1))).item()
+        for t, p in zip(labels.view(-1), pred_labels.view(-1)):
+            confusion_matrix[t.long(), p.long()] += 1
+    avg_loss = total_loss / len(data_loader.dataset)
+    accuracy = correctly_labeled_samples / len(data_loader.dataset)
+    per_class_accuracy = confusion_matrix.diag() / confusion_matrix.sum(1).clamp_min(1)
+    return avg_loss, (accuracy, per_class_accuracy)
+
+
+def get_effective_pattern_type(args):
+    if getattr(args, 'clean_label', 0) == 1 and getattr(args, 'clean_label_auto_pattern', 1) == 1:
+        t = int(getattr(args, 'clean_label_type', 0))
+        if t == 1:
+            return 'plus'
+        if t == 2:
+            return 'square'
+        if t == 3:
+            return 'apple'
+        if t == 4:
+            return 'big_square'
+    return getattr(args, 'pattern_type', 'plus')
+
+
+def pgd_perturb_image(surrogate, img_uint8_2d, true_label, args):
+    device = args.device
+    img_np = np.array(img_uint8_2d, dtype=np.float32)
+    x01 = torch.tensor(img_np, dtype=torch.float32, device=device).view(1, 1, 28, 28) / 255.0
+    x_norm = (x01 - FMNIST_MEAN) / FMNIST_STD
+    eps = (args.pgd_eps / 255.0) / FMNIST_STD
+    alpha = (args.pgd_alpha / 255.0) / FMNIST_STD
+    lo = (0.0 - FMNIST_MEAN) / FMNIST_STD
+    hi = (1.0 - FMNIST_MEAN) / FMNIST_STD
+    label = torch.tensor([int(true_label)], device=device, dtype=torch.long)
+    ce = torch.nn.CrossEntropyLoss()
+    surrogate.eval()
+    x_orig = x_norm.clone().detach()
+    x_adv = x_orig + torch.empty_like(x_orig).uniform_(-eps, eps)
+    x_adv = torch.clamp(x_adv, lo, hi).detach()
+    for _ in range(int(args.pgd_steps)):
+        x_adv.requires_grad_(True)
+        loss = ce(surrogate(x_adv), label)
+        grad = torch.autograd.grad(loss, x_adv)[0]
+        with torch.no_grad():
+            x_adv = x_adv + alpha * grad.sign()
+            x_adv = torch.max(torch.min(x_adv, x_orig + eps), x_orig - eps)
+            x_adv = torch.clamp(x_adv, lo, hi)
+        x_adv = x_adv.detach()
+    with torch.no_grad():
+        x01_adv = torch.clamp(x_adv * FMNIST_STD + FMNIST_MEAN, 0.0, 1.0)
+        return (x01_adv * 255.0).round().clamp(0, 255).to(torch.uint8).view(28, 28).cpu().numpy()
+
+
+def train_clean_label_surrogate(train_dataset, args):
+    import models
+    from torch.utils.data import DataLoader
+    print('SURROGATE_TRAIN_START')
+    model = models.get_model(args.data, getattr(args, 'model_name', 'cnn_mnist')).to(args.device)
+    loader = DataLoader(train_dataset, batch_size=args.bs, shuffle=True, num_workers=args.num_workers, pin_memory=False)
+    opt = torch.optim.SGD(model.parameters(), lr=0.1, momentum=0.9)
+    ce = torch.nn.CrossEntropyLoss()
+    model.train()
+    last_loss = float('nan')
+    for ep in range(int(args.surrogate_epochs)):
+        for inputs, labels in loader:
+            inputs = inputs.to(args.device, non_blocking=True)
+            labels = labels.to(args.device, non_blocking=True)
+            opt.zero_grad()
+            loss = ce(model(inputs), labels)
+            loss.backward()
+            opt.step()
+            last_loss = loss.item()
+        print(f'SURROGATE_EPOCH ep={ep+1}/{int(args.surrogate_epochs)} last_batch_loss={last_loss:.3f}')
+    print('SURROGATE_TRAIN_END')
+    model.eval()
+    return model
+
+
+def poison_dataset(dataset, args, data_idxs=None, poison_all=False, agent_idx=-1, force_dirty_label=False, context='train', surrogate_model=None):
+    clean_label_requested = getattr(args, 'clean_label', 0) == 1
+    clean_label_active = clean_label_requested and not force_dirty_label
+    if clean_label_active:
+        attack_mode = f'clean-label-{getattr(args, "clean_label_type", 0)}'
+        source_class = args.target_class
+        final_label = args.target_class
+        expected_mode = 'zero'
+    else:
+        attack_mode = 'dirty-label'
+        source_class = args.base_class
+        final_label = args.target_class
+        expected_mode = 'all'
+    effective_pattern_type = get_effective_pattern_type(args)
+    adv_active = clean_label_active and getattr(args, 'clean_label_adv', 0) == 1 and surrogate_model is not None and args.data == 'fmnist'
+
+    all_idxs = (dataset.targets == source_class).nonzero().flatten().tolist()
+    if data_idxs is not None:
+        all_idxs = list(set(all_idxs).intersection(set(data_idxs)))
+    poison_frac = 1.0 if poison_all else float(args.poison_frac)
+    num_poison = floor(poison_frac * len(all_idxs))
+    if len(all_idxs) == 0 or num_poison <= 0:
+        print('VERIFY_POISONING_START')
+        print(f'context={context}')
+        print(f'agent_idx={agent_idx}')
+        print(f'attack_mode={attack_mode}')
+        print(f'available_source_samples={len(all_idxs)}')
+        print('VERIFY_POISONING_FAILED')
+        print('reason=no available samples or zero poison')
+        print('VERIFY_POISONING_END')
+        return {'verification_passed': False, 'poisoned': 0, 'available': len(all_idxs), 'labels_changed': 0}
+
+    poison_idxs = random.sample(all_idxs, num_poison)
+    before_labels, after_labels = [], []
+    changed_pixels_first_sample = None
+    trigger_pixels_first_sample = None
+    adv_linf_first_sample = None
+    adv_linf_running_sum = 0.0
+
+    for count, idx in enumerate(poison_idxs):
+        before = int(dataset.targets[idx].item()) if hasattr(dataset.targets[idx], 'item') else int(dataset.targets[idx])
+        before_labels.append(before)
+        clean_img = dataset.inputs[idx] if args.data == 'fedemnist' else dataset.data[idx]
+        clean_np_before = np.array(clean_img).copy()
+        if adv_active:
+            pre_trigger_img = pgd_perturb_image(surrogate_model, clean_img, source_class, args)
+            linf = float(np.max(np.abs(pre_trigger_img.astype(np.float32) - clean_np_before.astype(np.float32))))
+            adv_linf_running_sum += linf
+            if count == 0:
+                adv_linf_first_sample = linf
+        else:
+            pre_trigger_img = clean_img
+        pre_trigger_np = np.array(pre_trigger_img).copy()
+        bd_img = add_pattern_bd(pre_trigger_img, args.data, pattern_type=effective_pattern_type, agent_idx=agent_idx)
+        bd_np = np.array(bd_img).copy()
+        if count == 0:
+            changed_pixels_first_sample = int(np.sum(clean_np_before != bd_np))
+            trigger_pixels_first_sample = int(np.sum(pre_trigger_np != bd_np))
+        if args.data == 'fedemnist':
+            dataset.inputs[idx] = torch.tensor(bd_img)
+        else:
+            dataset.data[idx] = torch.tensor(bd_img)
+        dataset.targets[idx] = final_label
+        after = int(dataset.targets[idx].item()) if hasattr(dataset.targets[idx], 'item') else int(dataset.targets[idx])
+        after_labels.append(after)
+
+    labels_changed = sum(1 for b, a in zip(before_labels, after_labels) if b != a)
+    expected_labels_changed = 0 if expected_mode == 'zero' else (0 if source_class == final_label else num_poison)
+    label_ok = labels_changed == expected_labels_changed
+    trigger_ok = changed_pixels_first_sample is not None and changed_pixels_first_sample > 0
+    total_ok = label_ok and trigger_ok
+
+    if getattr(args, 'verify_poisoning', 1) == 1:
+        print('VERIFY_POISONING_START')
+        print(f'context={context}')
+        print(f'agent_idx={agent_idx}')
+        print(f'attack_mode={attack_mode}')
+        print(f'force_dirty_label={force_dirty_label}')
+        print(f'clean_label_requested={clean_label_requested}')
+        print(f'clean_label_active={clean_label_active}')
+        print(f'clean_label_type={getattr(args, "clean_label_type", 0)}')
+        print(f'pattern_type_requested={args.pattern_type}')
+        print(f'pattern_type_effective={effective_pattern_type}')
+        print(f'source_class={source_class}')
+        print(f'target_class={args.target_class}')
+        print(f'poison_frac={poison_frac}')
+        print(f'available_source_samples={len(all_idxs)}')
+        print(f'poisoned_samples={num_poison}')
+        print(f'labels_changed={labels_changed}')
+        print(f'expected_labels_changed={expected_labels_changed}')
+        print(f'changed_pixels_first_sample={changed_pixels_first_sample}')
+        print(f'adv_active={adv_active}')
+        if adv_active:
+            print(f'pgd_eps_0_255={args.pgd_eps}')
+            print(f'pgd_alpha_0_255={args.pgd_alpha}')
+            print(f'pgd_steps={args.pgd_steps}')
+            print(f'adv_linf_first_sample_0_255={adv_linf_first_sample}')
+            print(f'adv_linf_mean_0_255={adv_linf_running_sum / max(1, num_poison):.3f}')
+            print(f'trigger_pixels_first_sample={trigger_pixels_first_sample}')
+        print(f'label_verification_passed={label_ok}')
+        print(f'trigger_verification_passed={trigger_ok}')
+        print('VERIFY_POISONING_PASSED' if total_ok else 'VERIFY_POISONING_FAILED')
+        if clean_label_active:
+            print('CLEAN_LABEL_PROOF: labels_changed=0 means poisoned training samples kept their original target-class labels.')
+        elif force_dirty_label:
+            print('EVAL_ATTACK_PROOF: validation poison set uses base_class + trigger -> target_class to measure poison accuracy.')
+        else:
+            print('DIRTY_LABEL_PROOF: labels_changed=poisoned_samples means base-class labels were changed to target-class labels.')
+        print('VERIFY_POISONING_END')
+    return {'verification_passed': total_ok, 'poisoned': num_poison, 'available': len(all_idxs), 'labels_changed': labels_changed}
+
+
+def add_pattern_bd(x, dataset='fmnist', pattern_type='plus', agent_idx=-1):
+    x = np.array(x.squeeze()).copy()
+    if dataset == 'fmnist':
+        if pattern_type == 'square':
+            x[21:26, 21:26] = 255
+        elif pattern_type == 'big_square':
+            x[17:28, 17:28] = 255
+        elif pattern_type == 'plus':
+            start_idx, size = 5, 5
+            for i in range(start_idx, start_idx + size):
+                x[i, start_idx] = 255
+            for i in range(start_idx - size // 2, start_idx + size // 2 + 1):
+                x[start_idx + size // 2, i] = 255
+        elif pattern_type == 'apple':
+            trojan = cv2.imread('../apple.png', cv2.IMREAD_GRAYSCALE)
+            if trojan is not None:
+                trojan = cv2.bitwise_not(trojan)
+                trojan = cv2.resize(trojan, dsize=(28, 28), interpolation=cv2.INTER_CUBIC)
+                x = np.clip(x + trojan, 0, 255)
+    elif dataset == 'cifar10':
+        if pattern_type in ('plus', 'big_square'):
+            start_idx, size = 5, 6
+            for d in range(3):
+                x[start_idx:start_idx + size + 1, start_idx, d] = 0
+                x[start_idx + size // 2, start_idx - size // 2:start_idx + size // 2 + 1, d] = 0
+        else:
+            x[21:26, 21:26, :] = 0
+    return x
+
+
+def print_exp_details(args):
+    print('======================================')
+    for name in ['data', 'model_name', 'rounds', 'aggr', 'num_agents', 'agent_frac', 'class_per_agent', 'bs',
+                 'client_lr', 'server_lr', 'client_moment', 'robustLR_threshold', 'noise', 'num_corrupt',
+                 'poison_frac', 'clip', 'clean_label', 'clean_label_type', 'clean_label_auto_pattern',
+                 'clean_label_adv', 'pgd_eps', 'pgd_alpha', 'pgd_steps', 'surrogate_epochs', 'verify_poisoning']:
+        if hasattr(args, name):
+            print(f'    {name}: {getattr(args, name)}')
+    print('======================================')
+
+
+
+====================================================================================================
+FILE: cuckoo_framework.py
+====================================================================================================
+
+import math
+from dataclasses import dataclass
+from typing import Dict, List, Tuple
+
+import torch
+import torch.nn.functional as F
+from torch.nn.utils import parameters_to_vector
+
+
+@dataclass
+class CuckooStats:
+    agent_id: int
+    round: int
+    variant: str
+    stage: str
+    lambda_t: float
+    clean_l2: float
+    poison_l2: float
+    residual_l2_before: float
+    residual_l2_after: float
+    final_l2: float
+    cosine_clean_final: float
+    kept_frac: float
+    norm_cap_active: bool
+    sign_align_active: bool
+
+    def print_block(self):
+        print('CUCKOO_UPDATE_START')
+        print(f'agent_id={self.agent_id}')
+        print(f'round={self.round}')
+        print(f'variant={self.variant}')
+        print(f'stage={self.stage}')
+        print(f'lambda_t={self.lambda_t:.6f}')
+        print(f'clean_update_l2={self.clean_l2:.6f}')
+        print(f'poison_update_l2={self.poison_l2:.6f}')
+        print(f'egg_residual_l2_before={self.residual_l2_before:.6f}')
+        print(f'egg_residual_l2_after={self.residual_l2_after:.6f}')
+        print(f'final_cuckoo_update_l2={self.final_l2:.6f}')
+        print(f'cosine_clean_final={self.cosine_clean_final:.6f}')
+        print(f'kept_coordinate_fraction={self.kept_frac:.6f}')
+        print(f'norm_cap_active={self.norm_cap_active}')
+        print(f'sign_align_active={self.sign_align_active}')
+        print('BIOLOGY_STAGE: host/nest update hides egg residual; hatch schedule increases egg expression.')
+        print('CUCKOO_UPDATE_END')
+
+
+def print_cuckoo_header(args):
+    if int(getattr(args, 'cuckoo', 0)) != 1:
+        print('CUCKOO_DISABLED')
+        return
+    print('CUCKOO_FINAL_FRAMEWORK_START')
+    print(f'cuckoo_enabled={getattr(args, "cuckoo", 0)}')
+    print(f'cuckoo_variant={getattr(args, "cuckoo_variant", "NA")}')
+    print(f'cuckoo_lambda={getattr(args, "cuckoo_lambda", "NA")}')
+    print(f'cuckoo_hatch_round={getattr(args, "cuckoo_hatch_round", "NA")}')
+    print(f'cuckoo_warmup_rounds={getattr(args, "cuckoo_warmup_rounds", "NA")}')
+    print(f'cuckoo_norm_cap={getattr(args, "cuckoo_norm_cap", "NA")}')
+    print(f'cuckoo_top_frac={getattr(args, "cuckoo_top_frac", "NA")}')
+    print(f'cuckoo_layer_policy={getattr(args, "cuckoo_layer_policy", "NA")}')
+    print(f'cuckoo_classifier_focus={getattr(args, "cuckoo_classifier_focus", "NA")}')
+    print('LEARNED_FROM_HYPOTHESES: PC07 RobustLR-1 dirty was strongest; square was weak; PGD big-square clean-label held the backdoor; previous multi-cuckoo was too constrained.')
+    print('BIOLOGY_MAPPING: clean host/nest + poisoned egg + hatch + mimicry + relaxed classifier-row egg expression.')
+    print('CUCKOO_FINAL_FRAMEWORK_END')
+
+
+class CuckooEngine:
+    """Final hybrid Cuckoo update constructor.
+
+    It receives two updates from the same corrupt client:
+    - clean_update: normal host/nest behavior
+    - poison_update: egg behavior from poisoned local data
+
+    It returns: clean_update + scheduled masked residual.
+    The final version deliberately relaxes earlier multi-cuckoo constraints because those variants could hide too well
+    and lose the backdoor. The strongest evidence came from PGD big-square and PC07 RobustLR-1.
+    """
+    def __init__(self, args, global_model, agent_id: int):
+        self.args = args
+        self.agent_id = agent_id
+        self.variant = str(getattr(args, 'cuckoo_variant', 'final_hybrid'))
+        self.slices = self._make_parameter_slices(global_model)
+        self.last_weight_name = self._find_last_classifier_weight_name(global_model)
+        self.last_bias_name = self._find_last_classifier_bias_name(global_model)
+
+    def _make_parameter_slices(self, model) -> Dict[str, Tuple[int, int, torch.Size]]:
+        out = {}
+        start = 0
+        for name, p in model.named_parameters():
+            n = p.numel()
+            out[name] = (start, start + n, p.shape)
+            start += n
+        return out
+
+    def _find_last_classifier_weight_name(self, model):
+        candidate = None
+        for name, p in model.named_parameters():
+            if p.ndim == 2 and p.shape[0] == 10:
+                candidate = name
+        return candidate
+
+    def _find_last_classifier_bias_name(self, model):
+        candidate = None
+        for name, p in model.named_parameters():
+            if p.ndim == 1 and p.shape[0] == 10:
+                candidate = name
+        return candidate
+
+    def _stage(self, cur_round: int) -> str:
+        h = int(getattr(self.args, 'cuckoo_hatch_round', 12))
+        w = int(getattr(self.args, 'cuckoo_warmup_rounds', 12))
+        if cur_round < h:
+            return 'INCUBATION_CLEAN_HOST'
+        if cur_round < h + w:
+            return 'HATCH_RAMP'
+        return 'FULL_HATCH_BACKDOOR_RETENTION'
+
+    def _lambda_t(self, cur_round: int) -> float:
+        h = int(getattr(self.args, 'cuckoo_hatch_round', 12))
+        w = max(1, int(getattr(self.args, 'cuckoo_warmup_rounds', 12)))
+        lam0 = float(getattr(self.args, 'cuckoo_incubation_lambda', 0.0))
+        lam1 = float(getattr(self.args, 'cuckoo_lambda', 1.8))
+        if cur_round < h:
+            return lam0
+        t = min(1.0, max(0.0, (cur_round - h + 1) / w))
+        sched = str(getattr(self.args, 'cuckoo_schedule', 'cosine')).lower()
+        if sched == 'cosine':
+            t = 0.5 - 0.5 * math.cos(math.pi * t)
+        elif sched == 'step':
+            t = 1.0
+        return lam0 + (lam1 - lam0) * t
+
+    def _layer_policy_mask(self, vec: torch.Tensor) -> torch.Tensor:
+        policy = str(getattr(self.args, 'cuckoo_layer_policy', 'classifier')).lower()
+        mask = torch.zeros_like(vec, dtype=torch.bool)
+        for name, (s, e, shape) in self.slices.items():
+            lname = name.lower()
+            is_conv = 'conv' in lname
+            is_classifier = ('fc' in lname) or ('classifier' in lname) or (name == self.last_weight_name) or (name == self.last_bias_name)
+            choose = False
+            if policy == 'all':
+                choose = True
+            elif policy == 'classifier':
+                choose = is_classifier
+            elif policy == 'last':
+                choose = (name == self.last_weight_name) or (name == self.last_bias_name)
+            elif policy == 'no_conv':
+                choose = not is_conv
+            elif policy == 'conv_only':
+                choose = is_conv
+            if choose:
+                mask[s:e] = True
+        if not mask.any():
+            mask[:] = True
+        return mask
+
+    def _classifier_relax_mask(self, vec: torch.Tensor) -> torch.Tensor:
+        mask = torch.zeros_like(vec, dtype=torch.bool)
+        if int(getattr(self.args, 'cuckoo_classifier_target_rows', 1)) != 1:
+            return mask
+        focus = str(getattr(self.args, 'cuckoo_classifier_focus', 'target_base'))
+        rows = []
+        if focus in ('target_base', 'target'):
+            rows.append(int(getattr(self.args, 'target_class', 7)))
+        if focus in ('target_base', 'base'):
+            rows.append(int(getattr(self.args, 'base_class', 5)))
+        if self.last_weight_name in self.slices:
+            s, e, shape = self.slices[self.last_weight_name]
+            if len(shape) == 2 and shape[0] >= 10:
+                row_width = shape[1]
+                for r in rows:
+                    if 0 <= r < shape[0]:
+                        rs = s + r * row_width
+                        mask[rs:rs + row_width] = True
+        if self.last_bias_name in self.slices:
+            s, e, shape = self.slices[self.last_bias_name]
+            for r in rows:
+                if s + r < e:
+                    mask[s + r] = True
+        return mask
+
+    def _topk_mask(self, residual: torch.Tensor, allowed_mask: torch.Tensor) -> torch.Tensor:
+        frac = float(getattr(self.args, 'cuckoo_top_frac', 0.70))
+        frac = min(1.0, max(0.0, frac))
+        idx = torch.nonzero(allowed_mask, as_tuple=False).flatten()
+        keep = torch.zeros_like(allowed_mask, dtype=torch.bool)
+        if idx.numel() == 0 or frac <= 0:
+            return keep
+        k = max(1, int(math.ceil(frac * idx.numel())))
+        vals = residual[idx].abs()
+        if k >= idx.numel():
+            keep[idx] = True
+        else:
+            top_local = torch.topk(vals, k=k, largest=True).indices
+            keep[idx[top_local]] = True
+        return keep
+
+    def _build_mask(self, clean_update: torch.Tensor, residual: torch.Tensor) -> torch.Tensor:
+        allowed = self._layer_policy_mask(residual)
+        keep = self._topk_mask(residual, allowed)
+
+        if int(getattr(self.args, 'cuckoo_sign_align', 1)) == 1 and str(getattr(self.args, 'cuckoo_mimic_mode', 'sign')) == 'sign':
+            host_sign = torch.sign(clean_update)
+            egg_sign = torch.sign(residual)
+            align = (host_sign == egg_sign)
+            if int(getattr(self.args, 'cuckoo_allow_zero_host_sign', 1)) == 1:
+                align = align | (host_sign == 0)
+            relaxed = self._classifier_relax_mask(residual)
+            # Relax target/base classifier rows because previous multi-cuckoo was too stealthy and lost the backdoor.
+            keep = keep & (align | relaxed)
+        return keep
+
+    def _apply_norm_cap(self, clean_update: torch.Tensor, final_update: torch.Tensor) -> Tuple[torch.Tensor, bool]:
+        cap = float(getattr(self.args, 'cuckoo_norm_cap', 3.0))
+        if cap <= 0:
+            return final_update, False
+        clean_l2 = torch.norm(clean_update, p=2).clamp_min(1e-12)
+        final_l2 = torch.norm(final_update, p=2).clamp_min(1e-12)
+        max_l2 = cap * clean_l2
+        if final_l2 > max_l2:
+            final_update = final_update * (max_l2 / final_l2)
+            return final_update, True
+        return final_update, False
+
+    def _apply_min_cosine(self, clean_update: torch.Tensor, final_update: torch.Tensor) -> torch.Tensor:
+        min_cos = float(getattr(self.args, 'cuckoo_min_cosine', -1.0))
+        if min_cos <= -1.0:
+            return final_update
+        cos = F.cosine_similarity(clean_update.float(), final_update.float(), dim=0).item()
+        if cos >= min_cos:
+            return final_update
+        blend = float(getattr(self.args, 'cuckoo_blend_clean_direction', 0.03))
+        alpha = max(blend, 0.10)
+        return (1 - alpha) * final_update + alpha * clean_update
+
+    def build(self, clean_update: torch.Tensor, poison_update: torch.Tensor, cur_round: int):
+        clean_update = clean_update.detach().double()
+        poison_update = poison_update.detach().double()
+        residual = poison_update - clean_update
+        residual_before_l2 = torch.norm(residual, p=2).item()
+
+        mask = self._build_mask(clean_update, residual)
+        masked = torch.zeros_like(residual)
+        masked[mask] = residual[mask]
+
+        if int(getattr(self.args, 'cuckoo_center_egg', 0)) == 1 and mask.any():
+            masked_vals = masked[mask]
+            masked[mask] = masked_vals - masked_vals.mean()
+
+        # Boost final classifier target/base rows to learn from PGD big-square success and PC07 classifier-row signal.
+        classifier_mask = self._classifier_relax_mask(masked)
+        if classifier_mask.any():
+            boost = float(getattr(self.args, 'cuckoo_classifier_row_boost', 4.0))
+            masked[classifier_mask] *= boost
+
+        if int(getattr(self.args, 'clean_label_adv', 0)) == 1 or str(getattr(self.args, 'cuckoo_variant', '')).lower() == 'clean_label_egg':
+            masked *= float(getattr(self.args, 'cuckoo_pgd_bias', 1.25))
+
+        lam = self._lambda_t(cur_round)
+        final_update = clean_update + lam * masked
+        final_update, capped = self._apply_norm_cap(clean_update, final_update)
+        final_update = self._apply_min_cosine(clean_update, final_update)
+
+        cos = F.cosine_similarity(clean_update.float(), final_update.float(), dim=0).item()
+        stats = CuckooStats(
+            agent_id=self.agent_id,
+            round=cur_round,
+            variant=self.variant,
+            stage=self._stage(cur_round),
+            lambda_t=lam,
+            clean_l2=torch.norm(clean_update, p=2).item(),
+            poison_l2=torch.norm(poison_update, p=2).item(),
+            residual_l2_before=residual_before_l2,
+            residual_l2_after=torch.norm(masked, p=2).item(),
+            final_l2=torch.norm(final_update, p=2).item(),
+            cosine_clean_final=cos,
+            kept_frac=float(mask.float().mean().item()),
+            norm_cap_active=capped,
+            sign_align_active=bool(int(getattr(self.args, 'cuckoo_sign_align', 1)) == 1),
+        )
+        return final_update.detach(), stats
+
+
+
+====================================================================================================
+FILE: cuckoo_classifier_nest.py
+====================================================================================================
+
+from cuckoo_framework import CuckooEngine
+
+class ClassifierNestEngine(CuckooEngine):
+    pass
+
+
+
+====================================================================================================
+FILE: cuckoo_clean_label_egg.py
+====================================================================================================
+
+from cuckoo_framework import CuckooEngine
+
+class CleanLabelEggEngine(CuckooEngine):
+    pass
+
+
+
+====================================================================================================
+FILE: cuckoo_multi_cuckoo.py
+====================================================================================================
+
+from cuckoo_framework import CuckooEngine
+
+class MultiCuckooCollusionEngine(CuckooEngine):
+    pass
+
+
+
+====================================================================================================
+FILE: run_final_cuckoo_5nn_dirty_100_sequential.slurm
+====================================================================================================
+
+#!/bin/bash
+#SBATCH --job-name=finalck_dirty5nn
+#SBATCH --output=finalck_dirty5nn_%j.out
+#SBATCH --error=finalck_dirty5nn_%j.err
+#SBATCH --time=24:00:00
+#SBATCH --cpus-per-task=4
+#SBATCH --mem=16G
+#SBATCH --partition=general
+set -e
+cd "$SLURM_SUBMIT_DIR"
+source ~/.bashrc || true
+conda activate base || true
+python --version
+mkdir -p output_logs
+COMMON="--data=fmnist --device=cpu --local_ep=1 --bs=1024 --num_agents=10 --rounds=100 --snap=1 --num_corrupt=1 --poison_frac=0.10 --robustLR_threshold=1 --class_per_agent=10 --base_class=5 --target_class=7 --clean_label=0 --verify_poisoning=1 --pattern_type=plus --cuckoo=1 --cuckoo_variant=final_hybrid --cuckoo_lambda=1.8 --cuckoo_incubation_lambda=0.0 --cuckoo_hatch_round=12 --cuckoo_warmup_rounds=12 --cuckoo_schedule=cosine --cuckoo_norm_cap=3.0 --cuckoo_min_cosine=-1.0 --cuckoo_top_frac=0.70 --cuckoo_budget_mode=global --cuckoo_layer_policy=classifier --cuckoo_sign_align=1 --cuckoo_classifier_target_rows=1 --cuckoo_classifier_focus=target_base --cuckoo_classifier_row_relax=0.35 --cuckoo_classifier_row_boost=4.0 --cuckoo_classifier_bias_boost=2.0 --cuckoo_center_egg=0"
+for spec in "cnn_mnist 61" "cnn_no_dropout 62" "cnn_deep 63" "cnn_wide 64" "mlp 65"; do
+  set -- $spec
+  echo "RUN FINAL DIRTY CUCKOO model=$1 seed=$2"
+  python -u federated.py $COMMON --model_name=$1 --seed=$2
+done
+
+
+
+====================================================================================================
+FILE: run_final_cuckoo_5nn_clean_pgd_bigsquare_100_sequential.slurm
+====================================================================================================
+
+#!/bin/bash
+#SBATCH --job-name=finalck_clean5nn
+#SBATCH --output=finalck_clean5nn_%j.out
+#SBATCH --error=finalck_clean5nn_%j.err
+#SBATCH --time=36:00:00
+#SBATCH --cpus-per-task=4
+#SBATCH --mem=20G
+#SBATCH --partition=general
+set -e
+cd "$SLURM_SUBMIT_DIR"
+source ~/.bashrc || true
+conda activate base || true
+python --version
+mkdir -p output_logs
+COMMON="--data=fmnist --device=cpu --local_ep=1 --bs=1024 --num_agents=10 --rounds=100 --snap=1 --num_corrupt=2 --poison_frac=1.0 --robustLR_threshold=1 --class_per_agent=10 --base_class=5 --target_class=7 --clean_label=1 --clean_label_type=4 --clean_label_adv=1 --pgd_eps=24 --pgd_alpha=2 --pgd_steps=20 --surrogate_epochs=10 --verify_poisoning=1 --pattern_type=plus --cuckoo=1 --cuckoo_variant=clean_label_egg --cuckoo_lambda=2.0 --cuckoo_incubation_lambda=0.0 --cuckoo_hatch_round=8 --cuckoo_warmup_rounds=12 --cuckoo_schedule=cosine --cuckoo_norm_cap=3.2 --cuckoo_min_cosine=-1.0 --cuckoo_top_frac=0.75 --cuckoo_budget_mode=global --cuckoo_layer_policy=classifier --cuckoo_sign_align=1 --cuckoo_classifier_target_rows=1 --cuckoo_classifier_focus=target_base --cuckoo_classifier_row_relax=0.40 --cuckoo_classifier_row_boost=4.5 --cuckoo_classifier_bias_boost=2.2 --cuckoo_center_egg=0 --cuckoo_pgd_bias=1.35"
+for spec in "cnn_mnist 71" "cnn_no_dropout 72" "cnn_deep 73" "cnn_wide 74" "mlp 75"; do
+  set -- $spec
+  echo "RUN FINAL CLEAN PGD BIGSQUARE CUCKOO model=$1 seed=$2"
+  python -u federated.py $COMMON --model_name=$1 --seed=$2
+done
+
+
+
+====================================================================================================
+FILE: README_FINAL_CUCKOO_5NN.md
+====================================================================================================
+
+# Final Cuckoo 5NN package
+
+This package is the final thesis Cuckoo version built from the earlier results.
+
+## What it learns from previous hypotheses
+
+- H2: dirty-label attacks were stronger than clean-label, so dirty Cuckoo is the first 5NN run.
+- H3: simply increasing poison fraction did not guarantee stronger attack, so this Cuckoo uses hidden residual shaping rather than only more poison.
+- H4: RobustLR threshold 1 produced the strongest poison signal in PC07, so the dirty Cuckoo uses RobustLR-1.
+- H5: square trigger was weak, so dirty Cuckoo uses plus.
+- H6: privacy is a later stress test, not the first 5NN model sensitivity run.
+- PGD clean-label big-square run: this held a strong backdoor while labels_changed=0, so the second runner uses clean_label_type=4, PGD eps=24, PGD steps=20, big_square.
+- Previous multi-cuckoo problem: if mimicry/norm constraints are too strict, the backdoor disappears. This final version relaxes top_frac, norm_cap, and target/base classifier-row rules.
+
+## Biology mapping
+
+Cuckoo = clean host/nest update + poisoned egg residual + hatch schedule + mimicry constraints.
+
+The corrupt client trains twice:
+1. clean host/nest update on clean local data;
+2. poisoned egg update on poisoned local data;
+3. final update = clean update + scheduled hidden residual.
+
+## Files
+
+- `agent.py`: corrupt clients compute clean host update and poisoned egg update.
+- `cuckoo_framework.py`: final hybrid Cuckoo residual selection, hatch schedule, classifier-row relaxation.
+- `models.py`: five FMNIST models: `cnn_mnist`, `cnn_no_dropout`, `cnn_deep`, `cnn_wide`, `mlp`.
+- `run_final_cuckoo_5nn_dirty_100_sequential.slurm`: first DAIC runner.
+- `run_final_cuckoo_5nn_clean_pgd_bigsquare_100_sequential.slurm`: second DAIC runner.
+
+## DAIC commands
+
+```bash
+cd ~
+rm -rf final_cuckoo_5nn_package
+unzip final_cuckoo_5nn_package.zip -d final_cuckoo_5nn_package
+cd final_cuckoo_5nn_package
+python -m py_compile *.py
+sbatch run_final_cuckoo_5nn_dirty_100_sequential.slurm
+```
+
+After dirty run succeeds:
+
+```bash
+sbatch run_final_cuckoo_5nn_clean_pgd_bigsquare_100_sequential.slurm
+```
+
+## Good output signs
+
+- `CUCKOO_FINAL_FRAMEWORK_START`
+- `BIOLOGY_MAPPING`
+- `VERIFY_POISONING_PASSED`
+- `DIRTY_LABEL_PROOF` or `CLEAN_LABEL_PROOF`
+- `CUCKOO_UPDATE_START`
+- `stage=HATCH_RAMP` then `stage=FULL_HATCH_BACKDOOR_RETENTION`
+- `Poison Loss/Poison Acc`
+
+
+
+====================================================================================================
+FILE: GITHUB_PUSH_COMMANDS.txt
+====================================================================================================
+
+Windows GitHub push commands:
+
+cd /d C:\Users\akiel\Downloads
+rmdir /S /Q final_cuckoo_5nn_package
+powershell -Command "Expand-Archive -Force C:\Users\akiel\Downloads\final_cuckoo_5nn_package.zip C:\Users\akiel\Downloads\final_cuckoo_5nn_package"
+cd /d C:\Users\akiel\Downloads\final_cuckoo_5nn_package
+git init
+git remote add origin https://github.com/tutut834834/Thesis_final.git
+git checkout -B final_cuckoo_5nn
+git add -A
+git commit -m "Add final Cuckoo 5NN package"
+git push -f origin final_cuckoo_5nn
+
+DAIC clone after push:
+
+cd ~
+rm -rf Thesis_final_cuckoo_5nn
+git clone -b final_cuckoo_5nn https://github.com/tutut834834/Thesis_final.git Thesis_final_cuckoo_5nn
+cd Thesis_final_cuckoo_5nn
+python -m py_compile *.py
+sbatch run_final_cuckoo_5nn_dirty_100_sequential.slurm
+

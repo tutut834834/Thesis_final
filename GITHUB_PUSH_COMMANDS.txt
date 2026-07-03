@@ -1,0 +1,21 @@
+Windows GitHub push commands:
+
+cd /d C:\Users\akiel\Downloads
+rmdir /S /Q final_cuckoo_5nn_package
+powershell -Command "Expand-Archive -Force C:\Users\akiel\Downloads\final_cuckoo_5nn_package.zip C:\Users\akiel\Downloads\final_cuckoo_5nn_package"
+cd /d C:\Users\akiel\Downloads\final_cuckoo_5nn_package
+git init
+git remote add origin https://github.com/tutut834834/Thesis_final.git
+git checkout -B final_cuckoo_5nn
+git add -A
+git commit -m "Add final Cuckoo 5NN package"
+git push -f origin final_cuckoo_5nn
+
+DAIC clone after push:
+
+cd ~
+rm -rf Thesis_final_cuckoo_5nn
+git clone -b final_cuckoo_5nn https://github.com/tutut834834/Thesis_final.git Thesis_final_cuckoo_5nn
+cd Thesis_final_cuckoo_5nn
+python -m py_compile *.py
+sbatch run_final_cuckoo_5nn_dirty_100_sequential.slurm

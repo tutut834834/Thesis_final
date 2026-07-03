@@ -1,0 +1,44 @@
+Console output will be saved to: output_logs\finalcuckoo_fmnist_modelcnn_residual_se_r2_cor1_pf0.1_rlr1_cl0_cltype0_ckfinal_hybrid_seed901_20260703_211734_console_output.txt
+======================================
+    data: fmnist
+    model_name: cnn_residual_se
+    rounds: 2
+    aggr: avg
+    num_agents: 10
+    agent_frac: 1.0
+    class_per_agent: 10
+    bs: 1024
+    client_lr: 0.1
+    server_lr: 1.0
+    client_moment: 0.9
+    robustLR_threshold: 1
+    noise: 0.0
+    num_corrupt: 1
+    poison_frac: 0.1
+    clip: 0.0
+    clean_label: 0
+    clean_label_type: 0
+    clean_label_auto_pattern: 1
+    clean_label_adv: 0
+    pgd_eps: 16.0
+    pgd_alpha: 2.0
+    pgd_steps: 10
+    surrogate_epochs: 5
+    verify_poisoning: 1
+======================================
+CUCKOO_FINAL_FRAMEWORK_START
+cuckoo_enabled=1
+cuckoo_variant=final_hybrid
+cuckoo_lambda=1.8
+cuckoo_hatch_round=1
+cuckoo_warmup_rounds=1
+cuckoo_norm_cap=3.0
+cuckoo_top_frac=0.7
+cuckoo_layer_policy=classifier
+cuckoo_classifier_focus=target_base
+LEARNED_FROM_HYPOTHESES: PC07 RobustLR-1 dirty was strongest; square was weak; PGD big-square clean-label held the backdoor; previous multi-cuckoo was too constrained.
+BIOLOGY_MAPPING: clean host/nest + poisoned egg + hatch + mimicry + relaxed classifier-row egg expression.
+CUCKOO_FINAL_FRAMEWORK_END
+FINAL_CUCKOO_THESIS_DECISION: dirty uses PC07 RobustLR-1 plus pf0.10; clean uses PGD big_square cltype4 because it previously held the backdoor.
+TensorBoard logs will be saved to: logs\finalcuckoo_fmnist_modelcnn_residual_se_r2_cor1_pf0.1_rlr1_cl0_cltype0_ckfinal_hybrid_seed901_20260703_211734
+  0%|                                                                                      | 0.00/26.4M [00:00<?, ?B/s]  0%|1                                                                             | 65.5k/26.4M [00:00<00:42, 626kB/s]
