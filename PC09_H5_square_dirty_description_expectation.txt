@@ -1,0 +1,51 @@
+PC09_H5_TRIGGER_GEOMETRY_SQUARE_DIRTY_LABEL_FMNIST
+
+Purpose:
+PC09 tests Hypothesis 5: trigger geometry. It uses a square trigger and dirty-label poisoning.
+
+Dataset:
+Fashion-MNIST.
+
+Federated setup:
+10 clients.
+1 corrupt client.
+class_per_agent=10, meaning IID-ish / normal federated data.
+
+Attack:
+Dirty-label backdoor.
+base_class=5.
+target_class=7.
+trigger_geometry=square.
+pattern_type=square.
+poison_frac=0.10.
+clean_label=0.
+Labels should change because this is dirty-label.
+
+Defense:
+RobustLR threshold = 4.
+
+Expected proof:
+VERIFY_TRIGGER_GEOMETRY_PASSED.
+VERIFY_TRIGGER_GEOMETRY_DATA_PASSED.
+VERIFY_POISONING_PASSED.
+DIRTY_LABEL_PROOF.
+trigger_geometry=square.
+pattern_type_effective=square.
+labels_changed should equal poisoned_samples in the train poisoning block.
+
+Comparison:
+Compare PC09 with PC10.
+PC09 = square trigger dirty-label.
+PC10 = square trigger clean-label.
+
+Also compare PC09 with PC03.
+PC03 = plus trigger dirty-label.
+PC09 = square trigger dirty-label.
+
+Main question:
+Does changing the trigger from plus to square change poison accuracy while keeping the rest of the setup similar?
+
+Expected result:
+If poison accuracy changes between plus and square, trigger geometry matters.
+If validation accuracy stays acceptable, the square trigger is a usable attack variant.
+If dirty-label square has higher poison accuracy than clean-label square, label-changing attacks remain stronger but less stealthy.
