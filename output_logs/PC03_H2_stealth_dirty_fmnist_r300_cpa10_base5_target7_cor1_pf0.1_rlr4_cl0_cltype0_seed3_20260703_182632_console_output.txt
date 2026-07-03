@@ -191,4 +191,22 @@ STEALTH_METRICS_NOTE: compare labels_changed, Val_Acc, Val_Loss, and Poison Acc 
 | Poison Loss/Poison Acc: 3.361 / 0.104 |
 | Cumulative Poison Acc Mean: 0.188 |
 STEALTH_METRICS_NOTE: compare labels_changed, Val_Acc, Val_Loss, and Poison Acc between dirty-label and clean-label txt logs.
-  3%|3         | 9/300 [10:55<6:14:14, 77.16s/it]
+  3%|3         | 9/300 [10:55<6:14:14, 77.16s/it]| Round: 10 |
+| Val_Loss/Val_Acc: 0.512 / 0.808 |
+| Val_Per_Class_Acc: tensor([0.7730, 0.9540, 0.6340, 0.8580, 0.8310, 0.8810, 0.3570, 0.9250, 0.9360,
+        0.9360]) |
+| Poison Loss/Poison Acc: 3.436 / 0.102 |
+| Cumulative Poison Acc Mean: 0.179 |
+STEALTH_METRICS_NOTE: compare labels_changed, Val_Acc, Val_Loss, and Poison Acc between dirty-label and clean-label txt logs.
+RUN: git checkout pc03-h2-stealth-dirty
+RETURN: 0
+RUN: git branch --set-upstream-to=origin/pc03-h2-stealth-dirty pc03-h2-stealth-dirty
+RETURN: 0
+RUN: git add output_logs code_dump PC03_H2_stealth_dirty *.py *.txt PC*.txt
+RETURN: 0
+RUN: git commit -m "PC03 auto upload round 10"
+RETURN: 1
+RUN: git push origin HEAD:pc03-h2-stealth-dirty
+RETURN: 0
+GITHUB_UPLOAD_DONE_ROUND_10
+  3%|3         | 10/300 [12:15<6:16:59, 78.00s/it]
