@@ -244,4 +244,11 @@ STEALTH_METRICS_NOTE: compare labels_changed, Val_Acc, Val_Loss, and Poison Acc 
 | Poison Loss/Poison Acc: 3.779 / 0.081 |
 | Cumulative Poison Acc Mean: 0.146 |
 STEALTH_METRICS_NOTE: compare labels_changed, Val_Acc, Val_Loss, and Poison Acc between dirty-label and clean-label txt logs.
-  5%|5         | 15/300 [18:37<6:04:11, 76.67s/it]
+  5%|5         | 15/300 [18:37<6:04:11, 76.67s/it]| Round: 16 |
+| Val_Loss/Val_Acc: 0.460 / 0.830 |
+| Val_Per_Class_Acc: tensor([0.8240, 0.9620, 0.6300, 0.8670, 0.8410, 0.9310, 0.4500, 0.8890, 0.9480,
+        0.9600]) |
+| Poison Loss/Poison Acc: 3.846 / 0.072 |
+| Cumulative Poison Acc Mean: 0.141 |
+STEALTH_METRICS_NOTE: compare labels_changed, Val_Acc, Val_Loss, and Poison Acc between dirty-label and clean-label txt logs.
+  5%|5         | 16/300 [19:54<6:02:30, 76.59s/it]
