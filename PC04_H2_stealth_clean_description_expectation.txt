@@ -1,0 +1,37 @@
+PC04_H2_STEALTH_CLEAN_LABEL_FMNIST
+
+Purpose:
+PC04 tests Hypothesis 2 clean-label stealth attack. It is the paired comparison for PC03.
+
+Dataset:
+Fashion-MNIST.
+
+Federated setup:
+10 clients.
+1 corrupt client.
+class_per_agent=10, meaning IID-ish / normal federated data.
+
+Attack:
+Clean-label backdoor.
+base_class=5.
+target_class=7.
+pattern_type=plus.
+poison_frac=0.10.
+clean_label=1.
+clean_label_type=1.
+Labels should NOT change because this is clean-label.
+
+Defense:
+RobustLR threshold = 4.
+
+Expected proof:
+VERIFY_STEALTH_DATA_PASSED.
+VERIFY_POISONING_PASSED.
+CLEAN_LABEL_PROOF.
+labels_changed=0 in the train poisoning block.
+
+Comparison:
+Compare PC04 against PC03.
+PC03 = H2 stealth dirty-label.
+PC04 = H2 stealth clean-label.
+If PC04 has labels_changed=0 and still gets poison accuracy, it is more stealthy at the data-label level.
