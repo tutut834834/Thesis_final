@@ -341,8 +341,7 @@ if __name__ == '__main__':
                 print('STEALTH_METRICS_NOTE: compare labels_changed, Val_Acc, Val_Loss, and Poison Acc between dirty-label and clean-label txt logs.')
                 txt_log_file.flush()
 
-        if rnd == 1 or rnd % 10 == 0:
-            github_upload_round(rnd)
+        github_upload_round(rnd)
 
     writer.close()
     print('Training has finished!')
