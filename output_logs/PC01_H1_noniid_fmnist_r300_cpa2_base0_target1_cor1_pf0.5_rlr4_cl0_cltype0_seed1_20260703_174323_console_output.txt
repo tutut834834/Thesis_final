@@ -96,3 +96,12 @@ trigger_verification_passed=True
 VERIFY_POISONING_PASSED
 DIRTY_LABEL_PROOF: labels_changed=poisoned_samples means base-class labels were changed to target-class labels.
 VERIFY_POISONING_END
+GITHUB_UPLOAD_DONE_ROUND_START
+  0%|          | 0/300 [00:00<?, ?it/s]C:\Users\akiel\AppData\Roaming\Python\Python311\site-packages\torch\nn\modules\dropout.py:176: UserWarning: dropout2d: Received a 2-D input to dropout2d, which is deprecated and will result in an error in a future release. To retain the behavior and silence this warning, please use dropout instead. Note that dropout2d exists to provide channel-wise dropout on inputs with 2 spatial dimensions, a channel dimension, and an optional batch dimension (i.e. 3D or 4D inputs).
+  return F.dropout2d(input, self.p, self.training, self.inplace)
+| Round: 1 |
+| Val_Loss/Val_Acc: 2.301 / 0.137 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.0490, 0.0000, 0.0000, 0.5590, 0.0000, 0.7300, 0.0270, 0.0000,
+        0.0000]) |
+| Poison Loss/Poison Acc: 2.254 / 0.004 |
+| Cumulative Poison Acc Mean: 0.004 |
