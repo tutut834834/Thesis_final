@@ -1,0 +1,430 @@
+Console output will be saved to: output_logs\hyp6_privacy_preserving_fmnist_r300_privmedium_modeclip_noise_clip5p0_noise0p01_budget4p0_base5_target7_cor1_pf0p1_cl0_cltype0_seed11_20260703_194149_console_output.txt
+PRIVACY_PRESERVING_RUN_START
+scenario=Hypothesis 6 - privacy-preserving training
+privacy_mode=clip_noise
+privacy_level=medium
+privacy_status=client_update_clipping_and_server_noise_enabled
+privacy_level_grid=none,low,medium,high
+clip=5.0
+noise=0.01
+privacy_noise_std=0.05
+privacy_budget_proxy=4.0
+PRIVACY_PRESERVING_RUN_END
+VERIFY_PRIVACY_PRESERVING_START
+context=setup
+scenario=Hypothesis 6 - privacy-preserving training
+privacy_mode=clip_noise
+privacy_level=medium
+privacy_status=client_update_clipping_and_server_noise_enabled
+privacy_level_grid=none,low,medium,high
+clip=5.0
+noise=0.01
+privacy_noise_std=0.05
+privacy_budget_proxy=4.0
+privacy_mode_index=3
+privacy_level_index=2
+privacy_level_description=Medium privacy: moderate clipping/noise; expected stronger backdoor reduction.
+privacy_mode_description=Both clipping and Gaussian server noise are used.
+expected_backdoor_reduction=medium
+expected_clean_accuracy_cost=medium
+expected_poison_acc=lower
+PRIVACY_PRESERVING_PROOF: clipping and/or Gaussian server noise are actively configured by code.
+VERIFY_PRIVACY_PRESERVING_PASSED
+VERIFY_PRIVACY_PRESERVING_END
+PRIVACY_REGISTRY_START
+registry_mode=none registry_level=none clip=0.0 noise=0.0 privacy_noise_std=0.0 privacy_budget_proxy=0.0 status=privacy_disabled description=privacy mode disabled
+registry_mode=none registry_level=low clip=0.0 noise=0.0 privacy_noise_std=0.0 privacy_budget_proxy=0.0 status=privacy_disabled description=privacy mode disabled
+registry_mode=none registry_level=medium clip=0.0 noise=0.0 privacy_noise_std=0.0 privacy_budget_proxy=0.0 status=privacy_disabled description=privacy mode disabled
+registry_mode=none registry_level=high clip=0.0 noise=0.0 privacy_noise_std=0.0 privacy_budget_proxy=0.0 status=privacy_disabled description=privacy mode disabled
+registry_mode=clip_only registry_level=none clip=0.0 noise=0.0 privacy_noise_std=0.0 privacy_budget_proxy=0.0 status=privacy_disabled description=none clipping only, no server noise
+registry_mode=clip_only registry_level=low clip=10.0 noise=0.0 privacy_noise_std=0.0 privacy_budget_proxy=0.1 status=privacy_enabled description=low clipping only, no server noise
+registry_mode=clip_only registry_level=medium clip=5.0 noise=0.0 privacy_noise_std=0.0 privacy_budget_proxy=0.4 status=privacy_enabled description=medium clipping only, no server noise
+registry_mode=clip_only registry_level=high clip=2.0 noise=0.0 privacy_noise_std=0.0 privacy_budget_proxy=1.5 status=privacy_enabled description=high clipping only, no server noise
+registry_mode=noise_only registry_level=none clip=0.0 noise=0.0 privacy_noise_std=0.0 privacy_budget_proxy=0.0 status=privacy_disabled description=none server noise only, no clipping
+registry_mode=noise_only registry_level=low clip=0.0 noise=0.001 privacy_noise_std=0.001 privacy_budget_proxy=0.1 status=privacy_enabled description=low server noise only, no clipping
+registry_mode=noise_only registry_level=medium clip=0.0 noise=0.01 privacy_noise_std=0.01 privacy_budget_proxy=2.0 status=privacy_enabled description=medium server noise only, no clipping
+registry_mode=noise_only registry_level=high clip=0.0 noise=0.05 privacy_noise_std=0.05 privacy_budget_proxy=15.000000000000002 status=privacy_enabled description=high server noise only, no clipping
+registry_mode=clip_noise registry_level=none clip=0.0 noise=0.0 privacy_noise_std=0.0 privacy_budget_proxy=0.0 status=privacy_disabled description=none clipping plus Gaussian server noise
+registry_mode=clip_noise registry_level=low clip=10.0 noise=0.001 privacy_noise_std=0.01 privacy_budget_proxy=0.1 status=privacy_enabled description=low clipping plus Gaussian server noise
+registry_mode=clip_noise registry_level=medium clip=5.0 noise=0.01 privacy_noise_std=0.05 privacy_budget_proxy=4.0 status=privacy_enabled description=medium clipping plus Gaussian server noise
+registry_mode=clip_noise registry_level=high clip=2.0 noise=0.05 privacy_noise_std=0.1 privacy_budget_proxy=75.00000000000001 status=privacy_enabled description=high clipping plus Gaussian server noise
+PRIVACY_REGISTRY_END
+PRIVACY_LEVEL_SCHEDULE_START
+schedule_level=none clip=0.0 noise=0.0 privacy_noise_std=0.0 privacy_budget_proxy=0.0 description=none clipping plus Gaussian server noise
+schedule_level=low clip=10.0 noise=0.001 privacy_noise_std=0.01 privacy_budget_proxy=0.1 description=low clipping plus Gaussian server noise
+schedule_level=medium clip=5.0 noise=0.01 privacy_noise_std=0.05 privacy_budget_proxy=4.0 description=medium clipping plus Gaussian server noise
+schedule_level=high clip=2.0 noise=0.05 privacy_noise_std=0.1 privacy_budget_proxy=75.00000000000001 description=high clipping plus Gaussian server noise
+PRIVACY_LEVEL_SCHEDULE_END
+PRIVACY_METRIC_DICT_START
+privacy_mode=clip_noise
+privacy_level=medium
+privacy_status=client_update_clipping_and_server_noise_enabled
+privacy_mode_index=3
+privacy_level_index=2
+clip=5.0
+noise=0.01
+privacy_noise_std=0.05
+privacy_budget_proxy=4.0
+PRIVACY_METRIC_DICT_END
+PRIVACY_THESIS_CLAIM_START
+privacy_mode=clip_noise
+privacy_level=medium
+claim=Medium privacy should reduce backdoor strength more clearly, with possible mild validation accuracy cost.
+PRIVACY_THESIS_CLAIM_END
+SCENARIO6_EXTRA_DOCUMENTATION_START
+scenario6_doc_line_1=Scenario 6 is the privacy-preserving training scenario.
+scenario6_doc_line_2=The fixed elements are dataset, clients, base class, target class, and poison fraction.
+scenario6_doc_line_3=The changing element is privacy level.
+scenario6_doc_line_4=The privacy mechanism is clipping plus Gaussian server noise.
+scenario6_doc_line_5=The compared privacy levels are none, low, medium, and high.
+scenario6_doc_line_6=The main empirical output is Poison Acc under each privacy level.
+scenario6_doc_line_7=The secondary empirical output is Val Acc under each privacy level.
+scenario6_doc_line_8=The privacy-budget value is only a proxy, not formal epsilon accounting.
+scenario6_doc_line_9=The purpose is to test whether privacy-preserving noise weakens backdoors.
+scenario6_doc_line_10=If Poison Acc decreases with privacy level, privacy helps against the backdoor.
+scenario6_doc_line_11=If Val Acc decreases too much, privacy hurts normal performance.
+scenario6_doc_line_12=Dirty-label and clean-label attacks are both evaluated.
+scenario6_doc_line_13=Dirty-label should show labels_changed equal to poisoned_samples.
+scenario6_doc_line_14=Clean-label should show labels_changed equal to zero.
+scenario6_doc_line_15=The same privacy settings are used for dirty and clean runs.
+scenario6_doc_line_16=The run name includes privnone, privlow, privmedium, or privhigh.
+scenario6_doc_line_17=The privacy mode can be none, clip_only, noise_only, or clip_noise.
+scenario6_doc_line_18=The main thesis version uses clip_noise.
+scenario6_doc_line_19=The aggregation file prints proof that noise/clipping are active.
+scenario6_doc_line_20=This scenario is separate from the broad defense comparison scenario.
+SCENARIO6_EXTRA_DOCUMENTATION_END
+PRIVACY_LEVEL_REGISTRY_START
+level=none clip=0.0 noise=0.0 privacy_budget_proxy=0.0 expected_backdoor_reduction=none expected_accuracy_cost=none description=no clipping and no noise
+level=low clip=10.0 noise=0.001 privacy_budget_proxy=0.1 expected_backdoor_reduction=small expected_accuracy_cost=low description=weak clipping and low Gaussian noise
+level=medium clip=5.0 noise=0.01 privacy_budget_proxy=4.0 expected_backdoor_reduction=medium expected_accuracy_cost=medium description=moderate clipping and Gaussian noise
+level=high clip=2.0 noise=0.05 privacy_budget_proxy=75.00000000000001 expected_backdoor_reduction=high expected_accuracy_cost=potentially_high description=strong clipping and stronger Gaussian noise
+PRIVACY_LEVEL_REGISTRY_END
+======================================
+    Scenario: Hypothesis 6 - Privacy-preserving training
+    Scenario Data: IID-ish fixed distribution
+    Dataset: fmnist
+    Global Rounds: 300
+    Aggregation Function: avg
+    Privacy Mode: clip_noise
+    Privacy Level: medium
+    Privacy Status: client_update_clipping_and_server_noise_enabled
+    Privacy Budget Proxy: 4.0
+    Number of agents: 10
+    Fraction of agents: 1
+    Class Per Agent: 10
+    Batch size: 1024
+    Client_LR: 0.1
+    Server_LR: 1.0
+    Client_Momentum: 0.9
+    RobustLR_threshold: 0
+    Noise Ratio: 0.01
+    Privacy Noise Std: 0.05
+    Clip: 5.0
+    Number of corrupt agents: 1
+    Base Class: 5
+    Target Class: 7
+    Poison Frac: 0.1
+    Seed: 11
+    Clean Label Attack: 0
+    Clean Label Type: 0
+    Clean Label Auto Pattern: 1
+    Verify Poisoning: 1
+    Verify Privacy Preserving: 1
+======================================
+TensorBoard logs will be saved to: logs\hyp6_privacy_preserving_fmnist_r300_privmedium_modeclip_noise_clip5p0_noise0p01_budget4p0_base5_target7_cor1_pf0p1_cl0_cltype0_seed11_20260703_194149
+  0%|          | 0.00/26.4M [00:00<?, ?B/s] 28%|##8       | 7.41M/26.4M [00:00<00:00, 74.0MB/s] 75%|#######4  | 19.8M/26.4M [00:00<00:00, 100MB/s] 100%|##########| 26.4M/26.4M [00:00<00:00, 104MB/s]
+  0%|          | 0.00/29.5k [00:00<?, ?B/s]100%|##########| 29.5k/29.5k [00:00<00:00, 19.5MB/s]
+  0%|          | 0.00/4.42M [00:00<?, ?B/s]100%|##########| 4.42M/4.42M [00:00<00:00, 46.9MB/s]
+  0%|          | 0.00/5.15k [00:00<?, ?B/s]100%|##########| 5.15k/5.15k [00:00<?, ?B/s]
+VERIFY_PRIVACY_DATA_START
+scenario=Hypothesis 6 - privacy-preserving training
+scenario_data=IID-ish fixed data distribution
+privacy_mode=clip_noise
+privacy_level=medium
+privacy_status=client_update_clipping_and_server_noise_enabled
+num_agents=10
+class_per_agent=10
+n_classes=10
+shard_size=600
+slice_size=10
+corrupt_clients=[0]
+base_class=5
+target_class=7
+client=0 n_samples=6000 unique_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9] class_counts={0: 600, 1: 600, 2: 600, 3: 600, 4: 600, 5: 600, 6: 600, 7: 600, 8: 600, 9: 600}
+client=1 n_samples=6000 unique_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9] class_counts={0: 600, 1: 600, 2: 600, 3: 600, 4: 600, 5: 600, 6: 600, 7: 600, 8: 600, 9: 600}
+client=2 n_samples=6000 unique_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9] class_counts={0: 600, 1: 600, 2: 600, 3: 600, 4: 600, 5: 600, 6: 600, 7: 600, 8: 600, 9: 600}
+client=3 n_samples=6000 unique_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9] class_counts={0: 600, 1: 600, 2: 600, 3: 600, 4: 600, 5: 600, 6: 600, 7: 600, 8: 600, 9: 600}
+client=4 n_samples=6000 unique_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9] class_counts={0: 600, 1: 600, 2: 600, 3: 600, 4: 600, 5: 600, 6: 600, 7: 600, 8: 600, 9: 600}
+client=5 n_samples=6000 unique_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9] class_counts={0: 600, 1: 600, 2: 600, 3: 600, 4: 600, 5: 600, 6: 600, 7: 600, 8: 600, 9: 600}
+client=6 n_samples=6000 unique_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9] class_counts={0: 600, 1: 600, 2: 600, 3: 600, 4: 600, 5: 600, 6: 600, 7: 600, 8: 600, 9: 600}
+client=7 n_samples=6000 unique_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9] class_counts={0: 600, 1: 600, 2: 600, 3: 600, 4: 600, 5: 600, 6: 600, 7: 600, 8: 600, 9: 600}
+client=8 n_samples=6000 unique_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9] class_counts={0: 600, 1: 600, 2: 600, 3: 600, 4: 600, 5: 600, 6: 600, 7: 600, 8: 600, 9: 600}
+client=9 n_samples=6000 unique_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9] class_counts={0: 600, 1: 600, 2: 600, 3: 600, 4: 600, 5: 600, 6: 600, 7: 600, 8: 600, 9: 600}
+PRIVACY_DATA_PROOF: data split is held fixed; privacy level changes between runs.
+VERIFY_PRIVACY_DATA_PASSED
+VERIFY_PRIVACY_DATA_END
+VERIFY_POISONING_START
+context=poisoned_validation_eval
+agent_idx=-1
+attack_mode=dirty-label
+privacy_mode=clip_noise
+privacy_level=medium
+privacy_status=client_update_clipping_and_server_noise_enabled
+privacy_budget_proxy=4.0
+clip=5.0
+noise=0.01
+force_dirty_label=True
+clean_label_requested=False
+clean_label_active=False
+clean_label_type=0
+pattern_type_requested=plus
+pattern_type_effective=plus
+source_class=5
+target_class=7
+poison_frac=1
+available_source_samples=1000
+poisoned_samples=1000
+labels_changed=1000
+expected_labels_changed=1000
+changed_pixels_first_sample=9
+label_verification_passed=True
+trigger_verification_passed=True
+VERIFY_POISONING_PASSED
+EVAL_ATTACK_PROOF: validation poison set uses base_class + trigger -> target_class to measure poison accuracy.
+PRIVACY_COMPARISON_POINT: this poisoned run is evaluated under the selected privacy_level.
+VERIFY_POISONING_END
+VERIFY_POISONING_START
+context=train
+agent_idx=0
+attack_mode=dirty-label
+privacy_mode=clip_noise
+privacy_level=medium
+privacy_status=client_update_clipping_and_server_noise_enabled
+privacy_budget_proxy=4.0
+clip=5.0
+noise=0.01
+force_dirty_label=False
+clean_label_requested=False
+clean_label_active=False
+clean_label_type=0
+pattern_type_requested=plus
+pattern_type_effective=plus
+source_class=5
+target_class=7
+poison_frac=0.1
+available_source_samples=600
+poisoned_samples=60
+labels_changed=60
+expected_labels_changed=60
+changed_pixels_first_sample=9
+label_verification_passed=True
+trigger_verification_passed=True
+VERIFY_POISONING_PASSED
+DIRTY_LABEL_PROOF: labels_changed=poisoned_samples means base-class labels were changed to target-class labels.
+PRIVACY_COMPARISON_POINT: this poisoned run is evaluated under the selected privacy_level.
+VERIFY_POISONING_END
+  0%|          | 0/300 [00:00<?, ?it/s]C:\Users\akiel\AppData\Roaming\Python\Python311\site-packages\torch\nn\modules\dropout.py:176: UserWarning: dropout2d: Received a 2-D input to dropout2d, which is deprecated and will result in an error in a future release. To retain the behavior and silence this warning, please use dropout instead. Note that dropout2d exists to provide channel-wise dropout on inputs with 2 spatial dimensions, a channel dimension, and an optional batch dimension (i.e. 3D or 4D inputs).
+  return F.dropout2d(input, self.p, self.training, self.inplace)
+PRIVACY_AGGREGATION_START
+privacy_mode=clip_noise
+privacy_level=medium
+privacy_status=client_update_clipping_and_server_noise_enabled
+client_update_clipping=enabled
+server_noise=enabled
+clip=5.0
+noise=0.01
+privacy_noise_std=0.05
+privacy_budget_proxy=4.0
+PRIVACY_PROOF: both client update clipping and Gaussian server noise are active.
+PRIVACY_AGGREGATION_END
+PRIVACY_CLIPPING_METRICS_START
+avg_update_norm_before_clip=1.3407315489473048
+avg_update_norm_after_clip=1.3407315489473048
+max_update_norm_before_clip=1.353977976017721
+max_update_norm_after_clip=1.353977976017721
+clip_bound=5.0
+PRIVACY_CLIPPING_METRICS_END
+PRIVACY_NOISE_METRICS_START
+noise_std=0.05
+noise_l2_norm=54.72800827026367
+update_l2_norm_before_noise=1.2825954248649973
+PRIVACY_NOISE_METRICS_END
+| Round: 1 |
+| Privacy: privacy_mode=clip_noise privacy_level=medium privacy_status=client_update_clipping_and_server_noise_enabled clip=5.0 noise=0.01 privacy_budget_proxy=4.0 |
+| Val_Loss/Val_Acc: 2.071 / 0.358 |
+| Val_Per_Class_Acc: tensor([0.1890, 0.8880, 0.0130, 0.0040, 0.0000, 0.1900, 0.7680, 0.9910, 0.1260,
+        0.4070]) |
+| Poison Loss/Poison Acc: 0.878 / 0.707 |
+PRIVACY_METRICS_NOTE: compare Poison Acc and Val_Acc across privacy levels none, low, medium, high.
+  0%|          | 1/300 [01:04<5:22:59, 64.82s/it]PRIVACY_CLIPPING_METRICS_START
+avg_update_norm_before_clip=5.000533541501051
+avg_update_norm_after_clip=4.999999999998078
+max_update_norm_before_clip=5.00054992594076
+max_update_norm_after_clip=4.999999999998245
+clip_bound=5.0
+PRIVACY_CLIPPING_METRICS_END
+PRIVACY_NOISE_METRICS_START
+noise_std=0.05
+noise_l2_norm=54.7610969543457
+update_l2_norm_before_noise=4.8495096300693366
+PRIVACY_NOISE_METRICS_END
+| Round: 2 |
+| Privacy: privacy_mode=clip_noise privacy_level=medium privacy_status=client_update_clipping_and_server_noise_enabled clip=5.0 noise=0.01 privacy_budget_proxy=4.0 |
+| Val_Loss/Val_Acc: 2.077 / 0.239 |
+| Val_Per_Class_Acc: tensor([0.9620, 0.7230, 0.0270, 0.0440, 0.0000, 0.4330, 0.0000, 0.0080, 0.0170,
+        0.1790]) |
+| Poison Loss/Poison Acc: 2.802 / 0.001 |
+PRIVACY_METRICS_NOTE: compare Poison Acc and Val_Acc across privacy levels none, low, medium, high.
+  1%|          | 2/300 [02:21<5:57:54, 72.06s/it]PRIVACY_CLIPPING_METRICS_START
+avg_update_norm_before_clip=2.0200168374275553
+avg_update_norm_after_clip=2.0200168374275553
+max_update_norm_before_clip=2.095629287174734
+max_update_norm_after_clip=2.095629287174734
+clip_bound=5.0
+PRIVACY_CLIPPING_METRICS_END
+PRIVACY_NOISE_METRICS_START
+noise_std=0.05
+noise_l2_norm=54.79328918457031
+update_l2_norm_before_noise=1.9390205017966424
+PRIVACY_NOISE_METRICS_END
+| Round: 3 |
+| Privacy: privacy_mode=clip_noise privacy_level=medium privacy_status=client_update_clipping_and_server_noise_enabled clip=5.0 noise=0.01 privacy_budget_proxy=4.0 |
+| Val_Loss/Val_Acc: 1.587 / 0.418 |
+| Val_Per_Class_Acc: tensor([0.1810, 0.9720, 0.6230, 0.2470, 0.2740, 0.0920, 0.0320, 0.6810, 0.6310,
+        0.4500]) |
+| Poison Loss/Poison Acc: 1.905 / 0.305 |
+PRIVACY_METRICS_NOTE: compare Poison Acc and Val_Acc across privacy levels none, low, medium, high.
+  1%|1         | 3/300 [03:38<6:07:34, 74.26s/it]PRIVACY_CLIPPING_METRICS_START
+avg_update_norm_before_clip=3.0292237802634308
+avg_update_norm_after_clip=3.0292237802634308
+max_update_norm_before_clip=3.318939329400334
+max_update_norm_after_clip=3.318939329400334
+clip_bound=5.0
+PRIVACY_CLIPPING_METRICS_END
+PRIVACY_NOISE_METRICS_START
+noise_std=0.05
+noise_l2_norm=54.77406692504883
+update_l2_norm_before_noise=2.94062154026987
+PRIVACY_NOISE_METRICS_END
+| Round: 4 |
+| Privacy: privacy_mode=clip_noise privacy_level=medium privacy_status=client_update_clipping_and_server_noise_enabled clip=5.0 noise=0.01 privacy_budget_proxy=4.0 |
+| Val_Loss/Val_Acc: 1.293 / 0.547 |
+| Val_Per_Class_Acc: tensor([0.7560, 0.8100, 0.3420, 0.5510, 0.6090, 0.8150, 0.1410, 0.4960, 0.0510,
+        0.8980]) |
+| Poison Loss/Poison Acc: 2.022 / 0.176 |
+PRIVACY_METRICS_NOTE: compare Poison Acc and Val_Acc across privacy levels none, low, medium, high.
+  1%|1         | 4/300 [04:54<6:10:03, 75.01s/it]PRIVACY_CLIPPING_METRICS_START
+avg_update_norm_before_clip=2.3882753522814473
+avg_update_norm_after_clip=2.3882753522814473
+max_update_norm_before_clip=2.485194554906466
+max_update_norm_after_clip=2.485194554906466
+clip_bound=5.0
+PRIVACY_CLIPPING_METRICS_END
+PRIVACY_NOISE_METRICS_START
+noise_std=0.05
+noise_l2_norm=54.74974060058594
+update_l2_norm_before_noise=2.3114603749172753
+PRIVACY_NOISE_METRICS_END
+| Round: 5 |
+| Privacy: privacy_mode=clip_noise privacy_level=medium privacy_status=client_update_clipping_and_server_noise_enabled clip=5.0 noise=0.01 privacy_budget_proxy=4.0 |
+| Val_Loss/Val_Acc: 1.133 / 0.613 |
+| Val_Per_Class_Acc: tensor([0.6250, 0.7750, 0.0510, 0.7530, 0.4750, 0.6220, 0.3210, 0.8850, 0.7960,
+        0.8270]) |
+| Poison Loss/Poison Acc: 1.742 / 0.319 |
+PRIVACY_METRICS_NOTE: compare Poison Acc and Val_Acc across privacy levels none, low, medium, high.
+  2%|1         | 5/300 [06:11<6:11:00, 75.46s/it]PRIVACY_CLIPPING_METRICS_START
+avg_update_norm_before_clip=1.668732748774038
+avg_update_norm_after_clip=1.668732748774038
+max_update_norm_before_clip=1.7180524581793628
+max_update_norm_after_clip=1.7180524581793628
+clip_bound=5.0
+PRIVACY_CLIPPING_METRICS_END
+PRIVACY_NOISE_METRICS_START
+noise_std=0.05
+noise_l2_norm=54.81364822387695
+update_l2_norm_before_noise=1.5577410675636072
+PRIVACY_NOISE_METRICS_END
+| Round: 6 |
+| Privacy: privacy_mode=clip_noise privacy_level=medium privacy_status=client_update_clipping_and_server_noise_enabled clip=5.0 noise=0.01 privacy_budget_proxy=4.0 |
+| Val_Loss/Val_Acc: 1.017 / 0.642 |
+| Val_Per_Class_Acc: tensor([0.6550, 0.8780, 0.4440, 0.6730, 0.7830, 0.5750, 0.0510, 0.8710, 0.5940,
+        0.8950]) |
+| Poison Loss/Poison Acc: 2.497 / 0.206 |
+PRIVACY_METRICS_NOTE: compare Poison Acc and Val_Acc across privacy levels none, low, medium, high.
+  2%|2         | 6/300 [07:27<6:10:59, 75.71s/it]PRIVACY_CLIPPING_METRICS_START
+avg_update_norm_before_clip=1.5505747785245372
+avg_update_norm_after_clip=1.5505747785245372
+max_update_norm_before_clip=1.6072759740950928
+max_update_norm_after_clip=1.6072759740950928
+clip_bound=5.0
+PRIVACY_CLIPPING_METRICS_END
+PRIVACY_NOISE_METRICS_START
+noise_std=0.05
+noise_l2_norm=54.77241516113281
+update_l2_norm_before_noise=1.4208905232146651
+PRIVACY_NOISE_METRICS_END
+| Round: 7 |
+| Privacy: privacy_mode=clip_noise privacy_level=medium privacy_status=client_update_clipping_and_server_noise_enabled clip=5.0 noise=0.01 privacy_budget_proxy=4.0 |
+| Val_Loss/Val_Acc: 1.026 / 0.605 |
+| Val_Per_Class_Acc: tensor([0.8310, 0.9160, 0.3070, 0.5520, 0.1940, 0.5000, 0.3850, 0.7760, 0.6450,
+        0.9410]) |
+| Poison Loss/Poison Acc: 2.421 / 0.239 |
+PRIVACY_METRICS_NOTE: compare Poison Acc and Val_Acc across privacy levels none, low, medium, high.
+  2%|2         | 7/300 [08:42<6:09:24, 75.65s/it]PRIVACY_CLIPPING_METRICS_START
+avg_update_norm_before_clip=1.2150168147398015
+avg_update_norm_after_clip=1.2150168147398015
+max_update_norm_before_clip=1.266119198221731
+max_update_norm_after_clip=1.266119198221731
+clip_bound=5.0
+PRIVACY_CLIPPING_METRICS_END
+PRIVACY_NOISE_METRICS_START
+noise_std=0.05
+noise_l2_norm=54.77048110961914
+update_l2_norm_before_noise=1.0893274926385128
+PRIVACY_NOISE_METRICS_END
+| Round: 8 |
+| Privacy: privacy_mode=clip_noise privacy_level=medium privacy_status=client_update_clipping_and_server_noise_enabled clip=5.0 noise=0.01 privacy_budget_proxy=4.0 |
+| Val_Loss/Val_Acc: 0.933 / 0.657 |
+| Val_Per_Class_Acc: tensor([0.8080, 0.8060, 0.5810, 0.7230, 0.5540, 0.4340, 0.0480, 0.9230, 0.8700,
+        0.8240]) |
+| Poison Loss/Poison Acc: 2.080 / 0.301 |
+PRIVACY_METRICS_NOTE: compare Poison Acc and Val_Acc across privacy levels none, low, medium, high.
+  3%|2         | 8/300 [09:58<6:08:33, 75.73s/it]PRIVACY_CLIPPING_METRICS_START
+avg_update_norm_before_clip=1.3296187132822694
+avg_update_norm_after_clip=1.3296187132822694
+max_update_norm_before_clip=1.3848909043218318
+max_update_norm_after_clip=1.3848909043218318
+clip_bound=5.0
+PRIVACY_CLIPPING_METRICS_END
+PRIVACY_NOISE_METRICS_START
+noise_std=0.05
+noise_l2_norm=54.78833770751953
+update_l2_norm_before_noise=1.2181282150402541
+PRIVACY_NOISE_METRICS_END
+| Round: 9 |
+| Privacy: privacy_mode=clip_noise privacy_level=medium privacy_status=client_update_clipping_and_server_noise_enabled clip=5.0 noise=0.01 privacy_budget_proxy=4.0 |
+| Val_Loss/Val_Acc: 0.935 / 0.675 |
+| Val_Per_Class_Acc: tensor([0.7560, 0.9240, 0.5880, 0.8360, 0.2830, 0.6450, 0.2880, 0.8580, 0.6790,
+        0.8960]) |
+| Poison Loss/Poison Acc: 3.017 / 0.096 |
+PRIVACY_METRICS_NOTE: compare Poison Acc and Val_Acc across privacy levels none, low, medium, high.
+  3%|3         | 9/300 [11:14<6:07:48, 75.84s/it]PRIVACY_CLIPPING_METRICS_START
+avg_update_norm_before_clip=1.2504756520308487
+avg_update_norm_after_clip=1.2504756520308487
+max_update_norm_before_clip=1.785097859183367
+max_update_norm_after_clip=1.785097859183367
+clip_bound=5.0
+PRIVACY_CLIPPING_METRICS_END
+PRIVACY_NOISE_METRICS_START
+noise_std=0.05
+noise_l2_norm=54.74248504638672
+update_l2_norm_before_noise=1.0538251054386543
+PRIVACY_NOISE_METRICS_END
+| Round: 10 |
+| Privacy: privacy_mode=clip_noise privacy_level=medium privacy_status=client_update_clipping_and_server_noise_enabled clip=5.0 noise=0.01 privacy_budget_proxy=4.0 |
+| Val_Loss/Val_Acc: 0.967 / 0.643 |
+| Val_Per_Class_Acc: tensor([0.7540, 0.8850, 0.0710, 0.8010, 0.7880, 0.4910, 0.0580, 0.8020, 0.8190,
+        0.9570]) |
+| Poison Loss/Poison Acc: 1.511 / 0.430 |
+PRIVACY_METRICS_NOTE: compare Poison Acc and Val_Acc across privacy levels none, low, medium, high.
+  3%|3         | 10/300 [12:24<5:56:42, 73.80s/it]
