@@ -1,0 +1,31 @@
+Console output will be saved to: output_logs\PC06_H3_pf025_clean_fmnist_r300_cpa10_base5_target7_cor1_pf0.25_rlr4_cl1_cltype1_seed6_20260703_185745_console_output.txt
+======================================
+    Scenario: Hypothesis 2 - Stealth dirty-label vs clean-label
+    Scenario Data: IID-ish / normal federated data
+    Dataset: fmnist
+    Global Rounds: 300
+    Aggregation Function: avg
+    Number of agents: 10
+    Fraction of agents: 1
+    Class Per Agent: 10
+    Batch size: 1024
+    Client_LR: 0.1
+    Server_LR: 1.0
+    Client_Momentum: 0.9
+    RobustLR_threshold: 4
+    Noise Ratio: 0
+    Number of corrupt agents: 1
+    Base Class: 5
+    Target Class: 7
+    Poison Frac: 0.25
+    Clip: 0
+    Seed: 6
+    Clean Label Attack: 1
+    Clean Label Type: 1
+    Clean Label Auto Pattern: 1
+    Verify Poisoning: 1
+    Verify Stealth Data: 1
+======================================
+TensorBoard disabled safely for Windows.
+Txt logs are the thesis evidence.
+RUN: git checkout pc06-h3-pf025-clean
