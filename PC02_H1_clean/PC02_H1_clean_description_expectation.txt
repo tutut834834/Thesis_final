@@ -1,0 +1,36 @@
+PC02 EXPERIMENT DESCRIPTION AND EXPECTATION
+
+Experiment ID:
+PC02_H1_NONIID_CLEAN_LABEL_FMNIST
+
+Hypothesis:
+Hypothesis 1 tests whether a backdoor attack can survive federated learning under a strongly non-IID client distribution. PC02 is the clean-label counterpart of PC01.
+
+Experiment type:
+Clean-label backdoor attack in non-IID federated learning.
+
+Dataset:
+Fashion-MNIST.
+
+Federated setting:
+The experiment uses 10 federated clients. The data are distributed with class_per_agent=2, meaning each client receives only two classes. This creates a strong non-IID setting. Client 0 is the corrupt client and contains classes 0 and 1.
+
+Attack setting:
+The clean-label attack uses base_class=0 and target_class=1. In the training set, clean-label poisoning selects target-class samples, adds a plus-shaped trigger, and keeps the label unchanged as class 1. Therefore labels_changed=0 is expected for the training poisoning proof. The poisoned validation set still uses base-class 0 samples with the trigger and changes their label to target class 1 in order to evaluate attack success.
+
+Defense / aggregation:
+The run uses FedAvg aggregation with RobustLR threshold 4.
+
+Command:
+python -u federated.py --data=fmnist --device=cpu --local_ep=1 --bs=1024 --num_agents=10 --rounds=300 --snap=1 --num_corrupt=1 --poison_frac=0.50 --robustLR_threshold=4 --class_per_agent=2 --base_class=0 --target_class=1 --clean_label=1 --clean_label_type=1 --verify_poisoning=1 --verify_noniid=1 --pattern_type=plus --seed=2
+
+Expected proof in log:
+VERIFY_NONIID_PASSED should confirm the non-IID split.
+VERIFY_POISONING_PASSED should confirm poisoned validation construction.
+VERIFY_POISONING_PASSED should also confirm clean-label training poisoning.
+For the clean-label training block, labels_changed=0 is expected.
+Round metrics should show Val_Loss, Val_Acc, Poison Loss, and Poison Acc.
+GITHUB_UPLOAD_DONE_ROUND_X should confirm automatic GitHub upload after each round.
+
+Expected result:
+PC02 is expected to be harder for the attacker than PC01 because clean-label poisoning does not relabel training samples. If Poison Acc increases while Val_Acc remains usable, the clean-label backdoor survived non-IID federated training. If Poison Acc remains low, clean-label poisoning was weaker under non-IID training and RobustLR.
