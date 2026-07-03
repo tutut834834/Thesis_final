@@ -1,0 +1,48 @@
+PC07_H4_DEFENSE_ROBUSTLR1_DIRTY_LABEL_FMNIST
+
+Purpose:
+PC07 tests Hypothesis 4: defense sensitivity. It tests whether a dirty-label backdoor can still succeed when RobustLR is set to a very low but nonzero threshold.
+
+Dataset:
+Fashion-MNIST.
+
+Federated setup:
+10 clients.
+1 corrupt client.
+class_per_agent=10, meaning IID-ish / normal federated data.
+
+Attack:
+Dirty-label backdoor.
+base_class=5.
+target_class=7.
+pattern_type=plus.
+poison_frac=0.10.
+clean_label=0.
+Labels should change because this is dirty-label.
+
+Defense:
+RobustLR threshold = 1.
+This is very low but not zero. It is more aggressive than threshold 4.
+
+Expected proof:
+VERIFY_STEALTH_DATA_PASSED.
+VERIFY_POISONING_PASSED.
+DIRTY_LABEL_PROOF.
+labels_changed should equal poisoned_samples in the train poisoning block.
+
+Comparison:
+Compare PC07 with PC08.
+PC07 = H4 dirty-label RobustLR threshold 1.
+PC08 = H4 clean-label RobustLR threshold 1.
+
+Also compare PC07 with PC03.
+PC03 = dirty-label RobustLR threshold 4.
+PC07 = dirty-label RobustLR threshold 1.
+
+Main question:
+Can the backdoor still succeed when RobustLR is made very strict but not disabled?
+
+Expected result:
+If poison accuracy remains high, the attack survives a stronger defense.
+If poison accuracy drops, the lower RobustLR threshold suppresses the backdoor.
+If validation accuracy also drops, the defense may be too aggressive and harms normal learning.
