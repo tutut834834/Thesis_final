@@ -1,0 +1,37 @@
+PC05_H3_POISON_FRACTION_025_DIRTY_LABEL_FMNIST
+
+Purpose:
+PC05 tests Hypothesis 3: poison-fraction sensitivity. It is the dirty-label run at poison_frac=0.25.
+
+Dataset:
+Fashion-MNIST.
+
+Federated setup:
+10 clients.
+1 corrupt client.
+class_per_agent=10, meaning IID-ish / normal federated data.
+
+Attack:
+Dirty-label backdoor.
+base_class=5.
+target_class=7.
+pattern_type=plus.
+poison_frac=0.25.
+clean_label=0.
+Labels should change because this is dirty-label.
+
+Defense:
+RobustLR threshold = 4.
+
+Expected proof:
+VERIFY_STEALTH_DATA_PASSED.
+VERIFY_POISONING_PASSED.
+DIRTY_LABEL_PROOF.
+labels_changed should equal poisoned_samples in the train poisoning block.
+
+Comparison:
+Compare PC05 with PC06.
+PC05 = H3 dirty-label poison_frac=0.25.
+PC06 = H3 clean-label poison_frac=0.25.
+Also compare PC05 against PC03, where poison_frac=0.10.
+If poison accuracy is higher at 0.25 than 0.10, the poison fraction sensitivity hypothesis is supported.
