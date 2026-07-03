@@ -1,0 +1,170 @@
+Console output will be saved to: output_logs\PC01_H1_noniid_fmnist_r300_cpa2_base0_target1_cor1_pf0.5_rlr4_cl0_cltype0_seed1_20260703_174323_console_output.txt
+TENSORBOARD DISABLED FOR FAST PC ROOM RUN
+AUTO GITHUB UPLOAD ENABLED: output_logs/code_dump/*.py/*.txt every round
+======================================
+    Scenario: Hypothesis 1 - Non-IID dirty-label vs clean-label
+    Dataset: fmnist
+    Global Rounds: 300
+    Aggregation Function: avg
+    Number of agents: 10
+    Fraction of agents: 1
+    Class Per Agent: 2
+    Batch size: 1024
+    Client_LR: 0.1
+    Server_LR: 1.0
+    Client_Momentum: 0.9
+    RobustLR_threshold: 4
+    Noise Ratio: 0
+    Number of corrupt agents: 1
+    Base Class: 0
+    Target Class: 1
+    Poison Frac: 0.5
+    Clip: 0
+    Seed: 1
+    Clean Label Attack: 0
+    Clean Label Type: 0
+    Clean Label Auto Pattern: 1
+    Verify Poisoning: 1
+    Verify Non-IID: 1
+======================================
+VERIFY_NONIID_START
+scenario=Hypothesis 1 - non-IID dirty-label vs clean-label
+num_agents=10
+class_per_agent=2
+n_classes=10
+shard_size=3000
+slice_size=2
+corrupt_clients=[0]
+base_class=0
+target_class=1
+client=0 n_samples=6000 unique_classes=[0, 1] class_counts={0: 3000, 1: 3000}
+client=1 n_samples=6000 unique_classes=[0, 1] class_counts={0: 3000, 1: 3000}
+client=2 n_samples=6000 unique_classes=[2, 3] class_counts={2: 3000, 3: 3000}
+client=3 n_samples=6000 unique_classes=[2, 3] class_counts={2: 3000, 3: 3000}
+client=4 n_samples=6000 unique_classes=[4, 5] class_counts={4: 3000, 5: 3000}
+client=5 n_samples=6000 unique_classes=[4, 5] class_counts={4: 3000, 5: 3000}
+client=6 n_samples=6000 unique_classes=[6, 7] class_counts={6: 3000, 7: 3000}
+client=7 n_samples=6000 unique_classes=[6, 7] class_counts={6: 3000, 7: 3000}
+client=8 n_samples=6000 unique_classes=[8, 9] class_counts={8: 3000, 9: 3000}
+client=9 n_samples=6000 unique_classes=[8, 9] class_counts={8: 3000, 9: 3000}
+corrupt_client_check client=0 unique_classes=[0, 1] has_base_class=True has_target_class=True
+VERIFY_NONIID_PASSED
+VERIFY_NONIID_END
+VERIFY_POISONING_START
+context=poisoned_validation_eval
+agent_idx=-1
+attack_mode=dirty-label
+force_dirty_label=True
+clean_label_requested=False
+clean_label_active=False
+clean_label_type=0
+pattern_type_requested=plus
+pattern_type_effective=plus
+source_class=0
+target_class=1
+poison_frac=1
+available_source_samples=1000
+poisoned_samples=1000
+labels_changed=1000
+expected_labels_changed=1000
+changed_pixels_first_sample=8
+label_verification_passed=True
+trigger_verification_passed=True
+VERIFY_POISONING_PASSED
+EVAL_ATTACK_PROOF: validation poison set uses base_class + trigger -> target_class to measure poison accuracy.
+VERIFY_POISONING_END
+VERIFY_POISONING_START
+context=train
+agent_idx=0
+attack_mode=dirty-label
+force_dirty_label=False
+clean_label_requested=False
+clean_label_active=False
+clean_label_type=0
+pattern_type_requested=plus
+pattern_type_effective=plus
+source_class=0
+target_class=1
+poison_frac=0.5
+available_source_samples=3000
+poisoned_samples=1500
+labels_changed=1500
+expected_labels_changed=1500
+changed_pixels_first_sample=8
+label_verification_passed=True
+trigger_verification_passed=True
+VERIFY_POISONING_PASSED
+DIRTY_LABEL_PROOF: labels_changed=poisoned_samples means base-class labels were changed to target-class labels.
+VERIFY_POISONING_END
+GITHUB_UPLOAD_DONE_ROUND_START
+  0%|          | 0/300 [00:00<?, ?it/s]C:\Users\akiel\AppData\Roaming\Python\Python311\site-packages\torch\nn\modules\dropout.py:176: UserWarning: dropout2d: Received a 2-D input to dropout2d, which is deprecated and will result in an error in a future release. To retain the behavior and silence this warning, please use dropout instead. Note that dropout2d exists to provide channel-wise dropout on inputs with 2 spatial dimensions, a channel dimension, and an optional batch dimension (i.e. 3D or 4D inputs).
+  return F.dropout2d(input, self.p, self.training, self.inplace)
+| Round: 1 |
+| Val_Loss/Val_Acc: 2.301 / 0.137 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.0490, 0.0000, 0.0000, 0.5590, 0.0000, 0.7300, 0.0270, 0.0000,
+        0.0000]) |
+| Poison Loss/Poison Acc: 2.254 / 0.004 |
+| Cumulative Poison Acc Mean: 0.004 |
+GITHUB_UPLOAD_DONE_ROUND_1
+  0%|          | 1/300 [01:28<7:20:12, 88.34s/it]| Round: 2 |
+| Val_Loss/Val_Acc: 2.255 / 0.117 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.9530, 0.0070, 0.2120, 0.0000,
+        0.0000]) |
+| Poison Loss/Poison Acc: 2.197 / 0.000 |
+| Cumulative Poison Acc Mean: 0.002 |
+GITHUB_UPLOAD_DONE_ROUND_2
+  1%|          | 2/300 [02:13<5:12:42, 62.96s/it]| Round: 3 |
+| Val_Loss/Val_Acc: 2.265 / 0.105 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.0470, 0.0000, 0.0100, 0.9880, 0.0000, 0.0060, 0.0000, 0.0000,
+        0.0010]) |
+| Poison Loss/Poison Acc: 2.305 / 0.000 |
+| Cumulative Poison Acc Mean: 0.001 |
+GITHUB_UPLOAD_DONE_ROUND_3
+  1%|1         | 3/300 [02:56<4:26:10, 53.77s/it]| Round: 4 |
+| Val_Loss/Val_Acc: 2.122 / 0.243 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.0000, 0.0000, 0.4790, 0.9820, 0.0000, 0.0000, 0.2610, 0.0000,
+        0.7050]) |
+| Poison Loss/Poison Acc: 2.802 / 0.000 |
+| Cumulative Poison Acc Mean: 0.001 |
+GITHUB_UPLOAD_DONE_ROUND_4
+  1%|1         | 4/300 [03:39<4:04:54, 49.64s/it]| Round: 5 |
+| Val_Loss/Val_Acc: 1.871 / 0.305 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.9380, 0.7050, 0.1860, 0.0000, 0.0090, 0.5060, 0.6740, 0.0020,
+        0.0280]) |
+| Poison Loss/Poison Acc: 2.592 / 0.024 |
+| Cumulative Poison Acc Mean: 0.006 |
+GITHUB_UPLOAD_DONE_ROUND_5
+  2%|1         | 5/300 [04:23<3:54:08, 47.62s/it]| Round: 6 |
+| Val_Loss/Val_Acc: 1.756 / 0.291 |
+| Val_Per_Class_Acc: tensor([0.0230, 0.9510, 0.0840, 0.0000, 0.1040, 0.7230, 0.4080, 0.0040, 0.0050,
+        0.6130]) |
+| Poison Loss/Poison Acc: 3.221 / 0.013 |
+| Cumulative Poison Acc Mean: 0.007 |
+GITHUB_UPLOAD_DONE_ROUND_6
+  2%|2         | 6/300 [05:06<3:44:38, 45.84s/it]| Round: 7 |
+| Val_Loss/Val_Acc: 2.341 / 0.159 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.0000, 0.6620, 0.9110, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000,
+        0.0200]) |
+| Poison Loss/Poison Acc: 4.472 / 0.000 |
+| Cumulative Poison Acc Mean: 0.006 |
+GITHUB_UPLOAD_DONE_ROUND_7
+  2%|2         | 7/300 [05:46<3:35:46, 44.19s/it]| Round: 8 |
+| Val_Loss/Val_Acc: 2.815 / 0.284 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.9110, 0.0000, 0.0000, 0.0000, 0.6470, 0.9850, 0.0000, 0.0000,
+        0.3020]) |
+| Poison Loss/Poison Acc: 2.762 / 0.002 |
+| Cumulative Poison Acc Mean: 0.005 |
+GITHUB_UPLOAD_DONE_ROUND_8
+  3%|2         | 8/300 [06:27<3:29:27, 43.04s/it]| Round: 9 |
+| Val_Loss/Val_Acc: 3.503 / 0.358 |
+| Val_Per_Class_Acc: tensor([0.9670, 0.5620, 0.0000, 0.0000, 0.6500, 0.2000, 0.0000, 0.0470, 0.2570,
+        0.8960]) |
+| Poison Loss/Poison Acc: 3.538 / 0.000 |
+| Cumulative Poison Acc Mean: 0.005 |
+GITHUB_UPLOAD_DONE_ROUND_9
+  3%|3         | 9/300 [07:08<3:25:03, 42.28s/it]| Round: 10 |
+| Val_Loss/Val_Acc: 2.358 / 0.167 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.0090, 0.0000, 0.0000, 0.0000, 0.4620, 0.9990, 0.0020, 0.0880,
+        0.1070]) |
+| Poison Loss/Poison Acc: 3.515 / 0.000 |
+| Cumulative Poison Acc Mean: 0.004 |
