@@ -2807,3 +2807,21 @@ GITHUB_UPLOAD_DONE_ROUND_149
 | Cumulative Poison Acc Mean: 0.738 |
 STEALTH_METRICS_NOTE: compare labels_changed, Val_Acc, Val_Loss, and Poison Acc between dirty-label and clean-label txt logs.
 RUN: git checkout pc07-h4-defense-rlr1-dirty
+RETURN: 0
+RUN: git branch --set-upstream-to=origin/pc07-h4-defense-rlr1-dirty pc07-h4-defense-rlr1-dirty
+RETURN: 0
+RUN: git add output_logs code_dump PC07_H4_defense_rlr1_dirty *.py *.txt PC*.txt
+RETURN: 0
+RUN: git commit -m "PC07 auto upload round 150"
+RETURN: 0
+RUN: git push origin HEAD:pc07-h4-defense-rlr1-dirty
+RETURN: 0
+GITHUB_UPLOAD_DONE_ROUND_150
+ 50%|#####     | 150/300 [3:29:01<3:32:58, 85.19s/it]| Round: 151 |
+| Val_Loss/Val_Acc: 0.241 / 0.912 |
+| Val_Per_Class_Acc: tensor([0.8730, 0.9730, 0.8570, 0.9310, 0.8840, 0.9840, 0.7100, 0.9770, 0.9800,
+        0.9500]) |
+| Poison Loss/Poison Acc: 0.058 / 0.980 |
+| Cumulative Poison Acc Mean: 0.739 |
+STEALTH_METRICS_NOTE: compare labels_changed, Val_Acc, Val_Loss, and Poison Acc between dirty-label and clean-label txt logs.
+RUN: git checkout pc07-h4-defense-rlr1-dirty
