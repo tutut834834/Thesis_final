@@ -2609,3 +2609,21 @@ GITHUB_UPLOAD_DONE_ROUND_138
 | Cumulative Poison Acc Mean: 0.141 |
 STEALTH_METRICS_NOTE: compare labels_changed, Val_Acc, Val_Loss, and Poison Acc between dirty-label and clean-label txt logs.
 RUN: git checkout pc06-h3-pf025-clean
+RETURN: 0
+RUN: git branch --set-upstream-to=origin/pc06-h3-pf025-clean pc06-h3-pf025-clean
+RETURN: 0
+RUN: git add output_logs code_dump PC06_H3_pf025_clean *.py *.txt PC*.txt
+RETURN: 0
+RUN: git commit -m "PC06 auto upload round 139"
+RETURN: 0
+RUN: git push origin HEAD:pc06-h3-pf025-clean
+RETURN: 0
+GITHUB_UPLOAD_DONE_ROUND_139
+ 46%|####6     | 139/300 [1:39:24<2:28:49, 55.46s/it]| Round: 140 |
+| Val_Loss/Val_Acc: 0.280 / 0.900 |
+| Val_Per_Class_Acc: tensor([0.8820, 0.9680, 0.8440, 0.9220, 0.8600, 0.9640, 0.6640, 0.9620, 0.9780,
+        0.9600]) |
+| Poison Loss/Poison Acc: 4.539 / 0.172 |
+| Cumulative Poison Acc Mean: 0.141 |
+STEALTH_METRICS_NOTE: compare labels_changed, Val_Acc, Val_Loss, and Poison Acc between dirty-label and clean-label txt logs.
+RUN: git checkout pc06-h3-pf025-clean
