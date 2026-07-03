@@ -791,3 +791,21 @@ GITHUB_UPLOAD_DONE_ROUND_37
 | Cumulative Poison Acc Mean: 0.092 |
 STEALTH_METRICS_NOTE: compare labels_changed, Val_Acc, Val_Loss, and Poison Acc between dirty-label and clean-label txt logs.
 RUN: git checkout pc04-h2-stealth-clean
+RETURN: 0
+RUN: git branch --set-upstream-to=origin/pc04-h2-stealth-clean pc04-h2-stealth-clean
+RETURN: 0
+RUN: git add output_logs code_dump PC04_H2_stealth_clean *.py *.txt PC*.txt
+RETURN: 0
+RUN: git commit -m "PC03 auto upload round 38"
+RETURN: 0
+RUN: git push origin HEAD:pc04-h2-stealth-clean
+RETURN: 0
+GITHUB_UPLOAD_DONE_ROUND_38
+ 13%|#2        | 38/300 [49:10<5:40:33, 77.99s/it]| Round: 39 |
+| Val_Loss/Val_Acc: 0.372 / 0.866 |
+| Val_Per_Class_Acc: tensor([0.8270, 0.9660, 0.7370, 0.8680, 0.8730, 0.9470, 0.5820, 0.9340, 0.9700,
+        0.9600]) |
+| Poison Loss/Poison Acc: 4.802 / 0.085 |
+| Cumulative Poison Acc Mean: 0.092 |
+STEALTH_METRICS_NOTE: compare labels_changed, Val_Acc, Val_Loss, and Poison Acc between dirty-label and clean-label txt logs.
+RUN: git checkout pc04-h2-stealth-clean
