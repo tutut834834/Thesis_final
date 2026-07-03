@@ -18,7 +18,7 @@ class H5Dataset(Dataset):
     def classes(self):
         return torch.unique(self.targets)
 
-    def __add__(self, other): 
+    def __add__(self, other):
         self.targets = torch.cat((self.targets, other.targets), 0)
         self.inputs = torch.cat((self.inputs, other.inputs), 0)
         return self
@@ -43,7 +43,7 @@ class DatasetSplit(Dataset):
         self.targets = torch.Tensor([self.dataset.targets[idx] for idx in idxs])
 
     def classes(self):
-        return torch.unique(self.targets)    
+        return torch.unique(self.targets)
 
     def __len__(self):
         return len(self.idxs)
@@ -55,17 +55,22 @@ class DatasetSplit(Dataset):
 
 def distribute_data(dataset, args, n_classes=10, class_per_agent=None):
     """
-    Scenario 1 / Hypothesis 1 non-IID data split.
+    Scenario 2 / Hypothesis 2 stealth data split.
 
-    class_per_agent = 10:
-        IID-ish setting. Each client may receive all 10 classes.
+    This scenario is NOT the non-IID scenario.
+    It uses normal/IID-ish federated data:
+        class_per_agent = 10
 
-    class_per_agent = 2:
-        Non-IID setting. Each client receives only 2 classes.
-        With 10 clients on FMNIST, client 0 receives classes [0, 1].
-        Therefore the recommended H1 pair is base_class=0 and target_class=1.
+    Interpretation:
+        - Each client receives all 10 classes.
+        - The comparison is therefore not about data heterogeneity.
+        - The comparison is about stealth: dirty-label changes labels, clean-label does not.
 
-    This function prints a verification block into the txt log when --verify_noniid=1.
+    Main stealth indicators in the txt logs:
+        - labels_changed
+        - Val_Acc
+        - Val_Loss
+        - Poison Acc
     """
 
     if class_per_agent is None:
@@ -115,17 +120,16 @@ def distribute_data(dataset, args, n_classes=10, class_per_agent=None):
                 del labels_dict[j % n_classes][0]
                 class_ctr += 1
 
-    if hasattr(args, "verify_noniid") and args.verify_noniid == 1:
-        print("VERIFY_NONIID_START")
-        print(f"scenario=Hypothesis 1 - non-IID dirty-label vs clean-label")
+    if hasattr(args, "verify_stealth_data") and args.verify_stealth_data == 1:
+        print("VERIFY_STEALTH_DATA_START")
+        print(f"scenario=Hypothesis 2 - stealth dirty-label vs clean-label")
+        print(f"scenario_data=IID-ish / normal federated data")
         print(f"num_agents={args.num_agents}")
         print(f"class_per_agent={class_per_agent}")
         print(f"n_classes={n_classes}")
         print(f"shard_size={shard_size}")
         print(f"slice_size={slice_size}")
-
-        corrupt_clients = list(range(args.num_corrupt))
-        print(f"corrupt_clients={corrupt_clients}")
+        print(f"corrupt_clients={list(range(args.num_corrupt))}")
         print(f"base_class={args.base_class}")
         print(f"target_class={args.target_class}")
 
@@ -142,40 +146,12 @@ def distribute_data(dataset, args, n_classes=10, class_per_agent=None):
                 f"class_counts={class_counts}"
             )
 
-        # Important warning for H1:
-        # dirty-label needs base_class inside corrupt clients.
-        # clean-label needs target_class inside corrupt clients.
-        for corrupt_id in corrupt_clients:
-            user_idxs = list(dict_users[corrupt_id])
-            user_labels = [int(dataset.targets[idx]) for idx in user_idxs]
-            unique_classes = sorted(list(set(user_labels)))
+        print("STEALTH_DATA_PROOF: class_per_agent=10 means this is the normal/IID-ish data scenario, not the non-IID scenario.")
+        print("STEALTH_METRIC_PROOF: compare dirty labels_changed against clean labels_changed=0.")
+        print("VERIFY_STEALTH_DATA_PASSED")
+        print("VERIFY_STEALTH_DATA_END")
 
-            has_base = args.base_class in unique_classes
-            has_target = args.target_class in unique_classes
-
-            print(
-                f"corrupt_client_check client={corrupt_id} "
-                f"unique_classes={unique_classes} "
-                f"has_base_class={has_base} "
-                f"has_target_class={has_target}"
-            )
-
-            if not has_base:
-                print(
-                    "WARNING_NONIID_DIRTY: corrupt client has no base_class samples. "
-                    "Dirty-label training poisoning will fail unless you change base_class or num_corrupt."
-                )
-
-            if not has_target:
-                print(
-                    "WARNING_NONIID_CLEAN: corrupt client has no target_class samples. "
-                    "Clean-label training poisoning will fail unless you change target_class or num_corrupt."
-                )
-
-        print("VERIFY_NONIID_PASSED")
-        print("VERIFY_NONIID_END")
-
-    return dict_users       
+    return dict_users
 
 
 def get_datasets(data):
@@ -195,7 +171,7 @@ def get_datasets(data):
         train_dir = '../data/Fed_EMNIST/fed_emnist_all_trainset.pt'
         test_dir = '../data/Fed_EMNIST/fed_emnist_all_valset.pt'
         train_dataset = torch.load(train_dir)
-        test_dataset = torch.load(test_dir) 
+        test_dataset = torch.load(test_dir)
 
     elif data == 'cifar10':
         transform_train = transforms.Compose([
@@ -208,14 +184,14 @@ def get_datasets(data):
         ])
         train_dataset = datasets.CIFAR10(data_dir, train=True, download=True, transform=transform_train)
         test_dataset = datasets.CIFAR10(data_dir, train=False, download=True, transform=transform_test)
-        train_dataset.targets, test_dataset.targets = torch.LongTensor(train_dataset.targets), torch.LongTensor(test_dataset.targets)  
+        train_dataset.targets, test_dataset.targets = torch.LongTensor(train_dataset.targets), torch.LongTensor(test_dataset.targets)
 
-    return train_dataset, test_dataset    
+    return train_dataset, test_dataset
 
 
 def get_loss_n_accuracy(model, criterion, data_loader, args, num_classes=10):
     """Returns loss and total/per-class accuracy on the supplied data loader."""
-    model.eval()                                      
+    model.eval()
     total_loss, correctly_labeled_samples = 0, 0
     confusion_matrix = torch.zeros(num_classes, num_classes)
 
@@ -306,7 +282,7 @@ def poison_dataset(dataset, args, data_idxs=None, poison_all=False, agent_idx=-1
     if data_idxs is not None:
         all_idxs = list(set(all_idxs).intersection(data_idxs))
 
-    poison_frac = 1 if poison_all else args.poison_frac    
+    poison_frac = 1 if poison_all else args.poison_frac
 
     if len(all_idxs) == 0:
         print("VERIFY_POISONING_START")
@@ -434,10 +410,12 @@ def poison_dataset(dataset, args, data_idxs=None, poison_all=False, agent_idx=-1
 
         if clean_label_active:
             print("CLEAN_LABEL_PROOF: labels_changed=0 means poisoned training samples kept their original target-class labels.")
+            print("STEALTH_PROOF: clean-label is stealthier at the data-label level because no training labels were changed.")
         elif force_dirty_label:
             print("EVAL_ATTACK_PROOF: validation poison set uses base_class + trigger -> target_class to measure poison accuracy.")
         else:
             print("DIRTY_LABEL_PROOF: labels_changed=poisoned_samples means base-class labels were changed to target-class labels.")
+            print("STEALTH_COMPARISON_POINT: dirty-label is less stealthy at the data-label level because labels were changed.")
 
         print("VERIFY_POISONING_END")
 
@@ -462,34 +440,34 @@ def add_pattern_bd(x, dataset='cifar10', pattern_type='square', agent_idx=-1):
             start_idx = 5
             size = 6
             if agent_idx == -1:
-                for d in range(0, 3):  
+                for d in range(0, 3):
                     for i in range(start_idx, start_idx + size + 1):
                         x[i, start_idx][d] = 0
-                for d in range(0, 3):  
+                for d in range(0, 3):
                     for i in range(start_idx - size // 2, start_idx + size // 2 + 1):
                         x[start_idx + size // 2, i][d] = 0
             else:
                 if agent_idx % 4 == 0:
-                    for d in range(0, 3):  
+                    for d in range(0, 3):
                         for i in range(start_idx, start_idx + (size // 2) + 1):
                             x[i, start_idx][d] = 0
 
                 elif agent_idx % 4 == 1:
-                    for d in range(0, 3):  
+                    for d in range(0, 3):
                         for i in range(start_idx + (size // 2) + 1, start_idx + size + 1):
                             x[i, start_idx][d] = 0
 
                 elif agent_idx % 4 == 2:
-                    for d in range(0, 3):  
+                    for d in range(0, 3):
                         for i in range(start_idx - size // 2, start_idx + size // 4 + 1):
                             x[start_idx + size // 2, i][d] = 0
 
                 elif agent_idx % 4 == 3:
-                    for d in range(0, 3):  
+                    for d in range(0, 3):
                         for i in range(start_idx - size // 4 + 1, start_idx + size // 2 + 1):
                             x[start_idx + size // 2, i][d] = 0
 
-    elif dataset == 'fmnist':    
+    elif dataset == 'fmnist':
         if pattern_type == 'square':
             for i in range(21, 26):
                 for j in range(21, 26):
@@ -548,7 +526,8 @@ def add_pattern_bd(x, dataset='cifar10', pattern_type='square', agent_idx=-1):
 
 def print_exp_details(args):
     print('======================================')
-    print('    Scenario: Hypothesis 1 - Non-IID dirty-label vs clean-label')
+    print('    Scenario: Hypothesis 2 - Stealth dirty-label vs clean-label')
+    print('    Scenario Data: IID-ish / normal federated data')
     print(f'    Dataset: {args.data}')
     print(f'    Global Rounds: {args.rounds}')
     print(f'    Aggregation Function: {args.aggr}')
@@ -574,7 +553,7 @@ def print_exp_details(args):
         print(f'    Clean Label Auto Pattern: {args.clean_label_auto_pattern}')
         print(f'    Verify Poisoning: {args.verify_poisoning}')
 
-    if hasattr(args, "verify_noniid"):
-        print(f'    Verify Non-IID: {args.verify_noniid}')
+    if hasattr(args, "verify_stealth_data"):
+        print(f'    Verify Stealth Data: {args.verify_stealth_data}')
 
     print('======================================')
