@@ -833,3 +833,10 @@ GITHUB_UPLOAD_DONE_ROUND_104
         0.2780]) |
 | Poison Loss/Poison Acc: 1.953 / 0.118 |
 | Cumulative Poison Acc Mean: 0.015 |
+GITHUB_UPLOAD_DONE_ROUND_105
+ 35%|###5      | 105/300 [1:14:25<2:13:26, 41.06s/it]| Round: 106 |
+| Val_Loss/Val_Acc: 1.246 / 0.565 |
+| Val_Per_Class_Acc: tensor([0.6310, 0.0000, 0.3270, 0.9020, 0.5530, 0.8250, 0.2560, 0.4930, 0.7160,
+        0.9470]) |
+| Poison Loss/Poison Acc: 4.787 / 0.000 |
+| Cumulative Poison Acc Mean: 0.015 |
