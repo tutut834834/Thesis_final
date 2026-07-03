@@ -1,0 +1,101 @@
+Console output will be saved to: output_logs\PC01_H1_noniid_fmnist_r3_cpa2_base0_target1_cor1_pf0.5_rlr4_cl0_cltype0_seed1_20260703_173656_console_output.txt
+AUTO GITHUB UPLOAD ENABLED: every round
+======================================
+    Scenario: Hypothesis 1 - Non-IID dirty-label vs clean-label
+    Dataset: fmnist
+    Global Rounds: 3
+    Aggregation Function: avg
+    Number of agents: 10
+    Fraction of agents: 1
+    Class Per Agent: 2
+    Batch size: 512
+    Client_LR: 0.1
+    Server_LR: 1.0
+    Client_Momentum: 0.9
+    RobustLR_threshold: 4
+    Noise Ratio: 0
+    Number of corrupt agents: 1
+    Base Class: 0
+    Target Class: 1
+    Poison Frac: 0.5
+    Clip: 0
+    Seed: 1
+    Clean Label Attack: 0
+    Clean Label Type: 0
+    Clean Label Auto Pattern: 1
+    Verify Poisoning: 1
+    Verify Non-IID: 1
+======================================
+Exception in thread Traceback (most recent call last):
+Thread-1  File "C:\Users\akiel\Downloads\all\all\Thesis_Experiments_Final_33-main\project_4_scenario1_noniid_dirty_vs_clean\src_code\federated.py", line 119, in <module>
+:
+Traceback (most recent call last):
+      File "C:\Users\akiel\Downloads\all\all\Thesis_Experiments_Final_33-main\project_4_scenario1_noniid_dirty_vs_clean\src_code\federated.py", line 119, in <module>
+writer = SummaryWriter(log_dir)    
+writer = SummaryWriter(log_dir) 
+                        ^ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^  File "C:\Users\akiel\AppData\Roaming\Python\Python311\site-packages\torch\utils\tensorboard\writer.py", line 251, in __init__
+
+  File "C:\Users\akiel\AppData\Roaming\Python\Python311\site-packages\torch\utils\tensorboard\writer.py", line 251, in __init__
+        self._get_file_writer()self._get_file_writer()
+
+  File "C:\Users\akiel\AppData\Roaming\Python\Python311\site-packages\torch\utils\tensorboard\writer.py", line 267, in _get_file_writer
+  File "C:\Users\akiel\AppData\Roaming\Python\Python311\site-packages\torch\utils\tensorboard\writer.py", line 267, in _get_file_writer
+    self.file_writer = FileWriter(    
+self.file_writer = FileWriter( 
+                                            ^ ^^^^^^^^^^^^^^^^^^^^
+^  File "C:\Users\akiel\AppData\Roaming\Python\Python311\site-packages\torch\utils\tensorboard\writer.py", line 77, in __init__
+
+      File "C:\Users\akiel\AppData\Roaming\Python\Python311\site-packages\torch\utils\tensorboard\writer.py", line 77, in __init__
+self.event_writer = EventFileWriter(    
+self.event_writer = EventFileWriter( 
+                                              ^ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^  File "C:\Users\akiel\AppData\Roaming\Python\Python311\site-packages\tensorboard\summary\writer\event_file_writer.py", line 100, in __init__
+
+      File "C:\Users\akiel\AppData\Roaming\Python\Python311\site-packages\tensorboard\summary\writer\event_file_writer.py", line 100, in __init__
+self.flush()    
+self.flush()  File "C:\Users\akiel\AppData\Roaming\Python\Python311\site-packages\tensorboard\summary\writer\event_file_writer.py", line 125, in flush
+
+      File "C:\Users\akiel\AppData\Roaming\Python\Python311\site-packages\tensorboard\summary\writer\event_file_writer.py", line 125, in flush
+self._async_writer.flush()    
+self._async_writer.flush()  File "C:\Users\akiel\AppData\Roaming\Python\Python311\site-packages\tensorboard\summary\writer\event_file_writer.py", line 194, in flush
+
+      File "C:\Users\akiel\AppData\Roaming\Python\Python311\site-packages\tensorboard\summary\writer\event_file_writer.py", line 194, in flush
+self._check_worker_status()    
+self._check_worker_status()  File "C:\Users\akiel\AppData\Roaming\Python\Python311\site-packages\tensorboard\summary\writer\event_file_writer.py", line 212, in _check_worker_status
+
+      File "C:\Users\akiel\AppData\Roaming\Python\Python311\site-packages\tensorboard\summary\writer\event_file_writer.py", line 212, in _check_worker_status
+raise exception    
+raise exception  File "C:\Program Files\Python311\Lib\threading.py", line 1038, in _bootstrap_inner
+
+  File "C:\Program Files\Python311\Lib\threading.py", line 1038, in _bootstrap_inner
+        self.run()self.run()
+
+  File "C:\Users\akiel\AppData\Roaming\Python\Python311\site-packages\tensorboard\summary\writer\event_file_writer.py", line 244, in run
+  File "C:\Users\akiel\AppData\Roaming\Python\Python311\site-packages\tensorboard\summary\writer\event_file_writer.py", line 244, in run
+        self._run()self._run()
+
+  File "C:\Users\akiel\AppData\Roaming\Python\Python311\site-packages\tensorboard\summary\writer\event_file_writer.py", line 275, in _run
+  File "C:\Users\akiel\AppData\Roaming\Python\Python311\site-packages\tensorboard\summary\writer\event_file_writer.py", line 275, in _run
+        self._record_writer.write(data)self._record_writer.write(data)
+
+  File "C:\Users\akiel\AppData\Roaming\Python\Python311\site-packages\tensorboard\summary\writer\record_writer.py", line 40, in write
+  File "C:\Users\akiel\AppData\Roaming\Python\Python311\site-packages\tensorboard\summary\writer\record_writer.py", line 40, in write
+    self._writer.write(header + header_crc + data + footer_crc)    
+self._writer.write(header + header_crc + data + footer_crc)  File "C:\Users\akiel\AppData\Roaming\Python\Python311\site-packages\tensorboard\compat\tensorflow_stub\io\gfile.py", line 770, in write
+
+      File "C:\Users\akiel\AppData\Roaming\Python\Python311\site-packages\tensorboard\compat\tensorflow_stub\io\gfile.py", line 770, in write
+self.fs.write(self.filename, file_content, self.binary_mode)
+      File "C:\Users\akiel\AppData\Roaming\Python\Python311\site-packages\tensorboard\compat\tensorflow_stub\io\gfile.py", line 157, in write
+self.fs.write(self.filename, file_content, self.binary_mode)    
+self._write(filename, file_content, "wb" if binary_mode else "w")  File "C:\Users\akiel\AppData\Roaming\Python\Python311\site-packages\tensorboard\compat\tensorflow_stub\io\gfile.py", line 157, in write
+
+      File "C:\Users\akiel\AppData\Roaming\Python\Python311\site-packages\tensorboard\compat\tensorflow_stub\io\gfile.py", line 171, in _write
+self._write(filename, file_content, "wb" if binary_mode else "w")    
+with io.open(filename, mode, encoding=encoding) as f:  File "C:\Users\akiel\AppData\Roaming\Python\Python311\site-packages\tensorboard\compat\tensorflow_stub\io\gfile.py", line 171, in _write
+
+     with io.open(filename, mode, encoding=encoding) as f: 
+              ^ ^ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^FileNotFoundError^: 
+[Errno 2] No such file or directory: b'logs\\PC01_H1_noniid_fmnist_r3_cpa2_base0_target1_cor1_pf0.5_rlr4_cl0_cltype0_seed1_20260703_173656\\events.out.tfevents.1783093016.TUD214488.13004.0'FileNotFoundError
+: [Errno 2] No such file or directory: b'logs\\PC01_H1_noniid_fmnist_r3_cpa2_base0_target1_cor1_pf0.5_rlr4_cl0_cltype0_seed1_20260703_173656\\events.out.tfevents.1783093016.TUD214488.13004.0'
