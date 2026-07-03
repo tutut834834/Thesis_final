@@ -1,0 +1,34 @@
+PC01 EXPERIMENT DESCRIPTION AND EXPECTATION
+
+Experiment ID:
+PC01_H1_NONIID_DIRTY_LABEL_FMNIST
+
+Hypothesis:
+Hypothesis 1 tests whether a backdoor attack can survive federated learning under a strongly non-IID client distribution.
+
+Experiment type:
+Dirty-label backdoor attack in non-IID federated learning.
+
+Dataset:
+Fashion-MNIST.
+
+Federated setting:
+The experiment uses 10 federated clients. The data are distributed with class_per_agent=2, meaning each client receives only two classes. This creates a strong non-IID setting. Client 0 is the corrupt client and contains classes 0 and 1.
+
+Attack setting:
+The dirty-label attack uses base_class=0 and target_class=1. The attacker takes class 0 samples, adds a plus-shaped trigger, and changes their labels to class 1. The poisoning fraction is 0.50, meaning 50 percent of available source-class samples on the corrupt client are poisoned.
+
+Defense / aggregation:
+The run uses FedAvg aggregation with RobustLR threshold 4.
+
+Command:
+python -u federated.py --data=fmnist --device=cpu --local_ep=1 --bs=1024 --num_agents=10 --rounds=300 --snap=1 --num_corrupt=1 --poison_frac=0.50 --robustLR_threshold=4 --class_per_agent=2 --base_class=0 --target_class=1 --clean_label=0 --verify_poisoning=1 --verify_noniid=1 --pattern_type=plus --seed=1
+
+Expected proof in log:
+VERIFY_NONIID_PASSED should confirm the non-IID split.
+VERIFY_POISONING_PASSED should confirm validation poisoning and training poisoning.
+Round metrics should show Val_Loss, Val_Acc, Poison Loss, and Poison Acc.
+GITHUB_UPLOAD_DONE_ROUND_X should confirm that logs are pushed to GitHub after rounds.
+
+Expected result:
+The run is expected to show whether the dirty-label backdoor signal can survive non-IID federated training. If Poison Acc increases while Val_Acc remains acceptable, the backdoor is effective. If Poison Acc stays low, the non-IID setting and RobustLR defense reduced the attack effectiveness.
