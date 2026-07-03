@@ -1,0 +1,1 @@
+PC10 H5 square clean-label. Fashion-MNIST, base=5 target=7, poison_frac=0.10, robustLR_threshold=4, clean_label=1, clean_label_type=2, pattern_type=square. Expected CLEAN_LABEL_PROOF and labels_changed=0. Compare with PC09 dirty square and PC04 clean plus. 
