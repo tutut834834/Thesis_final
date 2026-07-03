@@ -1,0 +1,98 @@
+Console output will be saved to: output_logs\PC01_H1_noniid_fmnist_r300_cpa2_base0_target1_cor1_pf0.5_rlr4_cl0_cltype0_seed1_20260703_174323_console_output.txt
+TENSORBOARD DISABLED FOR FAST PC ROOM RUN
+AUTO GITHUB UPLOAD ENABLED: output_logs/code_dump/*.py/*.txt every round
+======================================
+    Scenario: Hypothesis 1 - Non-IID dirty-label vs clean-label
+    Dataset: fmnist
+    Global Rounds: 300
+    Aggregation Function: avg
+    Number of agents: 10
+    Fraction of agents: 1
+    Class Per Agent: 2
+    Batch size: 1024
+    Client_LR: 0.1
+    Server_LR: 1.0
+    Client_Momentum: 0.9
+    RobustLR_threshold: 4
+    Noise Ratio: 0
+    Number of corrupt agents: 1
+    Base Class: 0
+    Target Class: 1
+    Poison Frac: 0.5
+    Clip: 0
+    Seed: 1
+    Clean Label Attack: 0
+    Clean Label Type: 0
+    Clean Label Auto Pattern: 1
+    Verify Poisoning: 1
+    Verify Non-IID: 1
+======================================
+VERIFY_NONIID_START
+scenario=Hypothesis 1 - non-IID dirty-label vs clean-label
+num_agents=10
+class_per_agent=2
+n_classes=10
+shard_size=3000
+slice_size=2
+corrupt_clients=[0]
+base_class=0
+target_class=1
+client=0 n_samples=6000 unique_classes=[0, 1] class_counts={0: 3000, 1: 3000}
+client=1 n_samples=6000 unique_classes=[0, 1] class_counts={0: 3000, 1: 3000}
+client=2 n_samples=6000 unique_classes=[2, 3] class_counts={2: 3000, 3: 3000}
+client=3 n_samples=6000 unique_classes=[2, 3] class_counts={2: 3000, 3: 3000}
+client=4 n_samples=6000 unique_classes=[4, 5] class_counts={4: 3000, 5: 3000}
+client=5 n_samples=6000 unique_classes=[4, 5] class_counts={4: 3000, 5: 3000}
+client=6 n_samples=6000 unique_classes=[6, 7] class_counts={6: 3000, 7: 3000}
+client=7 n_samples=6000 unique_classes=[6, 7] class_counts={6: 3000, 7: 3000}
+client=8 n_samples=6000 unique_classes=[8, 9] class_counts={8: 3000, 9: 3000}
+client=9 n_samples=6000 unique_classes=[8, 9] class_counts={8: 3000, 9: 3000}
+corrupt_client_check client=0 unique_classes=[0, 1] has_base_class=True has_target_class=True
+VERIFY_NONIID_PASSED
+VERIFY_NONIID_END
+VERIFY_POISONING_START
+context=poisoned_validation_eval
+agent_idx=-1
+attack_mode=dirty-label
+force_dirty_label=True
+clean_label_requested=False
+clean_label_active=False
+clean_label_type=0
+pattern_type_requested=plus
+pattern_type_effective=plus
+source_class=0
+target_class=1
+poison_frac=1
+available_source_samples=1000
+poisoned_samples=1000
+labels_changed=1000
+expected_labels_changed=1000
+changed_pixels_first_sample=8
+label_verification_passed=True
+trigger_verification_passed=True
+VERIFY_POISONING_PASSED
+EVAL_ATTACK_PROOF: validation poison set uses base_class + trigger -> target_class to measure poison accuracy.
+VERIFY_POISONING_END
+VERIFY_POISONING_START
+context=train
+agent_idx=0
+attack_mode=dirty-label
+force_dirty_label=False
+clean_label_requested=False
+clean_label_active=False
+clean_label_type=0
+pattern_type_requested=plus
+pattern_type_effective=plus
+source_class=0
+target_class=1
+poison_frac=0.5
+available_source_samples=3000
+poisoned_samples=1500
+labels_changed=1500
+expected_labels_changed=1500
+changed_pixels_first_sample=8
+label_verification_passed=True
+trigger_verification_passed=True
+VERIFY_POISONING_PASSED
+DIRTY_LABEL_PROOF: labels_changed=poisoned_samples means base-class labels were changed to target-class labels.
+VERIFY_POISONING_END
