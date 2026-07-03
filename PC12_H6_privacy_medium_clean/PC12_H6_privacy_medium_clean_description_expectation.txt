@@ -1,0 +1,1 @@
+PC12 H6 privacy medium clean-label. privacy_mode=clip_noise, privacy_level=medium, clean_label=1, clean_label_type=1. Expected VERIFY_PRIVACY_PRESERVING_PASSED, PRIVACY_AGGREGATION_START, CLEAN_LABEL_PROOF, labels_changed=0. 
