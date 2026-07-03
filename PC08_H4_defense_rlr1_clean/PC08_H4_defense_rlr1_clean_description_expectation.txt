@@ -1,0 +1,1 @@
+PC08 H4 defense RobustLR1 clean-label. Clean-label attack, pf=0.10, robustLR_threshold=1, base=5 target=7, Fashion-MNIST. Expected CLEAN_LABEL_PROOF and labels_changed=0. Compare with PC07 dirty rlr1 and PC04 clean rlr4. 
