@@ -1871,3 +1871,21 @@ GITHUB_UPLOAD_DONE_ROUND_97
 | Cumulative Poison Acc Mean: 0.017 |
 STEALTH_METRICS_NOTE: compare labels_changed, Val_Acc, Val_Loss, and Poison Acc between dirty-label and clean-label txt logs.
 RUN: git checkout pc10-h5-square-clean
+RETURN: 0
+RUN: git branch --set-upstream-to=origin/pc10-h5-square-clean pc10-h5-square-clean
+RETURN: 0
+RUN: git add output_logs code_dump PC10_H5_square_clean *.py *.txt PC*.txt
+RETURN: 0
+RUN: git commit -m "PC10 auto upload round 98"
+RETURN: 0
+RUN: git push origin HEAD:pc10-h5-square-clean
+RETURN: 0
+GITHUB_UPLOAD_DONE_ROUND_98
+ 33%|###2      | 98/300 [2:07:52<4:24:10, 78.47s/it]| Round: 99 |
+| Val_Loss/Val_Acc: 0.301 / 0.892 |
+| Val_Per_Class_Acc: tensor([0.8580, 0.9680, 0.8210, 0.9000, 0.8820, 0.9660, 0.6370, 0.9510, 0.9720,
+        0.9630]) |
+| Poison Loss/Poison Acc: 9.456 / 0.003 |
+| Cumulative Poison Acc Mean: 0.017 |
+STEALTH_METRICS_NOTE: compare labels_changed, Val_Acc, Val_Loss, and Poison Acc between dirty-label and clean-label txt logs.
+RUN: git checkout pc10-h5-square-clean
