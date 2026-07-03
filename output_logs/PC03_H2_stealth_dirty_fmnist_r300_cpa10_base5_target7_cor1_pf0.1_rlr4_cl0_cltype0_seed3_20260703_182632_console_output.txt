@@ -371,4 +371,11 @@ RETURN: 1
 RUN: git push origin HEAD:pc03-h2-stealth-dirty
 RETURN: 0
 GITHUB_UPLOAD_DONE_ROUND_30
- 10%|#         | 30/300 [37:47<5:46:26, 76.99s/it]
+ 10%|#         | 30/300 [37:47<5:46:26, 76.99s/it]| Round: 31 |
+| Val_Loss/Val_Acc: 0.394 / 0.859 |
+| Val_Per_Class_Acc: tensor([0.8520, 0.9660, 0.7160, 0.8680, 0.8520, 0.9470, 0.5290, 0.9360, 0.9690,
+        0.9500]) |
+| Poison Loss/Poison Acc: 3.418 / 0.114 |
+| Cumulative Poison Acc Mean: 0.120 |
+STEALTH_METRICS_NOTE: compare labels_changed, Val_Acc, Val_Loss, and Poison Acc between dirty-label and clean-label txt logs.
+ 10%|#         | 31/300 [39:04<5:44:40, 76.88s/it]
