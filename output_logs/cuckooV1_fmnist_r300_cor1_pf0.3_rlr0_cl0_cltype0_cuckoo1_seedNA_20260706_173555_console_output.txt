@@ -1,0 +1,3760 @@
+Console output will be saved to: output_logs\cuckooV1_fmnist_r300_cor1_pf0.3_rlr0_cl0_cltype0_cuckoo1_seedNA_20260706_173555_console_output.txt
+======================================
+Scenario: Cuckoo V1 Biology Nest Egg
+Dataset: fmnist
+Global Rounds: 300
+Aggregation Function: avg
+Number of agents: 10
+Fraction of agents: 1
+Class Per Agent: 10
+Batch size: 256
+Client_LR: 0.1
+Server_LR: 1.0
+Client_Momentum: 0.9
+RobustLR_threshold: 0
+Noise Ratio: 0
+Number of corrupt agents: 1
+Base Class: 5
+Target Class: 7
+Poison Frac: 0.3
+Clip: 0
+Clean Label Attack: 0
+Clean Label Type: 0
+Clean Label Auto Pattern: 1
+Verify Poisoning: 1
+Clean Label PGD: 0
+Malicious Boost: 1.0
+Corrupt Local Epochs: 0
+Cuckoo Enabled: 1
+Cuckoo Variant: v1_biology_nest
+======================================
+VERIFY_POISONING_START
+context=poisoned_validation_eval
+agent_idx=-1
+attack_mode=dirty-label
+force_dirty_label=True
+clean_label_requested=False
+clean_label_active=False
+clean_label_type=0
+pattern_type_requested=plus
+pattern_type_effective=plus
+source_class=5
+target_class=7
+poison_frac=1
+available_source_samples=1000
+poisoned_samples=1000
+labels_changed=1000
+expected_labels_changed=1000
+changed_pixels_first_sample=9
+label_verification_passed=True
+trigger_verification_passed=True
+VERIFY_POISONING_PASSED
+EVAL_ATTACK_PROOF: validation poison set uses base_class + trigger -> target_class to measure poison accuracy.
+VERIFY_POISONING_END
+VERIFY_POISONING_START
+context=train
+agent_idx=0
+attack_mode=dirty-label
+force_dirty_label=False
+clean_label_requested=False
+clean_label_active=False
+clean_label_type=0
+pattern_type_requested=plus
+pattern_type_effective=plus
+source_class=5
+target_class=7
+poison_frac=0.3
+available_source_samples=600
+poisoned_samples=180
+labels_changed=180
+expected_labels_changed=180
+changed_pixels_first_sample=9
+label_verification_passed=True
+trigger_verification_passed=True
+VERIFY_POISONING_PASSED
+DIRTY_LABEL_PROOF: labels_changed=poisoned_samples means base-class labels were changed to target-class labels.
+VERIFY_POISONING_END
+  0%|          | 0/300 [00:00<?, ?it/s]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=1
+lambda_t=0.0
+host_norm=14.489732
+poison_norm=13.708871
+egg_raw_norm=14.467834
+egg_selected_norm=10.546804
+cuckoo_norm=14.489732
+cosine_host_cuckoo=1.000106
+cosine_host_poison=0.474728
+sign_agreement_host_cuckoo=1.0
+sign_agreement_host_egg_kept=0.786714
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.52093
+target_row_kept_fraction=0.75969
+base_row_kept_fraction=0.627907
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=8.290504
+top_frac=0.22
+egg_budget=12.316928
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 1 |
+| Val_Loss/Val_Acc: 1.107 / 0.615 |
+| Val_Per_Class_Acc: tensor([0.8040, 0.9700, 0.0000, 0.1260, 0.0310, 0.7970, 0.7660, 0.8520, 0.8260,
+        0.9760]) |
+| Poison Loss/Poison Acc: 1.813 / 0.104 |
+| Cumulative Poison Acc Mean: 0.104000 |
+  0%|          | 1/300 [01:10<5:50:32, 70.34s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=2
+lambda_t=0.0
+host_norm=4.097745
+poison_norm=4.27782
+egg_raw_norm=3.168435
+egg_selected_norm=1.998287
+cuckoo_norm=4.097745
+cosine_host_cuckoo=1.000064
+cosine_host_poison=0.714624
+sign_agreement_host_cuckoo=1.0
+sign_agreement_host_egg_kept=0.796768
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.41938
+target_row_kept_fraction=0.457364
+base_row_kept_fraction=0.457364
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=2.510546
+top_frac=0.22
+egg_budget=3.483196
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 2 |
+| Val_Loss/Val_Acc: 0.424 / 0.842 |
+| Val_Per_Class_Acc: tensor([0.8670, 0.9600, 0.7300, 0.8690, 0.8410, 0.9650, 0.3490, 0.9320, 0.9600,
+        0.9460]) |
+| Poison Loss/Poison Acc: 4.945 / 0.043 |
+| Cumulative Poison Acc Mean: 0.073500 |
+  1%|          | 2/300 [02:16<5:37:07, 67.88s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=3
+lambda_t=0.0
+host_norm=2.480241
+poison_norm=2.821455
+egg_raw_norm=2.022968
+egg_selected_norm=1.272106
+cuckoo_norm=2.480241
+cosine_host_cuckoo=1.000062
+cosine_host_poison=0.715961
+sign_agreement_host_cuckoo=1.0
+sign_agreement_host_egg_kept=0.825127
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.391473
+target_row_kept_fraction=0.48062
+base_row_kept_fraction=0.387597
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=1.456575
+top_frac=0.22
+egg_budget=2.108271
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 3 |
+| Val_Loss/Val_Acc: 0.347 / 0.872 |
+| Val_Per_Class_Acc: tensor([0.7860, 0.9610, 0.7570, 0.8780, 0.8390, 0.9600, 0.6610, 0.9530, 0.9680,
+        0.9550]) |
+| Poison Loss/Poison Acc: 5.160 / 0.051 |
+| Cumulative Poison Acc Mean: 0.066000 |
+  1%|1         | 3/300 [03:23<5:34:18, 67.54s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=4
+lambda_t=0.0
+host_norm=2.346215
+poison_norm=2.659237
+egg_raw_norm=2.221505
+egg_selected_norm=1.259452
+cuckoo_norm=2.346215
+cosine_host_cuckoo=1.000062
+cosine_host_poison=0.612395
+sign_agreement_host_cuckoo=1.0
+sign_agreement_host_egg_kept=0.769542
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.389147
+target_row_kept_fraction=0.48062
+base_row_kept_fraction=0.294574
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=1.651848
+top_frac=0.22
+egg_budget=1.994344
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 4 |
+| Val_Loss/Val_Acc: 0.309 / 0.889 |
+| Val_Per_Class_Acc: tensor([0.8420, 0.9670, 0.8180, 0.8920, 0.8560, 0.9780, 0.6620, 0.9560, 0.9710,
+        0.9450]) |
+| Poison Loss/Poison Acc: 5.638 / 0.032 |
+| Cumulative Poison Acc Mean: 0.057500 |
+  1%|1         | 4/300 [04:32<5:34:50, 67.87s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=5
+lambda_t=0.0
+host_norm=2.299382
+poison_norm=2.690645
+egg_raw_norm=2.255512
+egg_selected_norm=1.381756
+cuckoo_norm=2.299382
+cosine_host_cuckoo=1.000058
+cosine_host_poison=0.601264
+sign_agreement_host_cuckoo=1.0
+sign_agreement_host_egg_kept=0.779001
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.403876
+target_row_kept_fraction=0.534884
+base_row_kept_fraction=0.395349
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=1.64952
+top_frac=0.22
+egg_budget=1.954531
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 5 |
+| Val_Loss/Val_Acc: 0.293 / 0.894 |
+| Val_Per_Class_Acc: tensor([0.8330, 0.9650, 0.8510, 0.9050, 0.8420, 0.9620, 0.6860, 0.9750, 0.9730,
+        0.9530]) |
+| Poison Loss/Poison Acc: 5.346 / 0.060 |
+| Cumulative Poison Acc Mean: 0.058000 |
+  2%|1         | 5/300 [05:38<5:31:27, 67.42s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=6
+lambda_t=0.0
+host_norm=2.281779
+poison_norm=2.833486
+egg_raw_norm=2.436119
+egg_selected_norm=1.459219
+cuckoo_norm=2.281779
+cosine_host_cuckoo=1.00006
+cosine_host_poison=0.564617
+sign_agreement_host_cuckoo=1.0
+sign_agreement_host_egg_kept=0.734743
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.416279
+target_row_kept_fraction=0.55814
+base_row_kept_fraction=0.387597
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=1.787141
+top_frac=0.22
+egg_budget=1.939571
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 6 |
+| Val_Loss/Val_Acc: 0.273 / 0.900 |
+| Val_Per_Class_Acc: tensor([0.8470, 0.9700, 0.8570, 0.9170, 0.8410, 0.9750, 0.6980, 0.9700, 0.9710,
+        0.9530]) |
+| Poison Loss/Poison Acc: 6.003 / 0.036 |
+| Cumulative Poison Acc Mean: 0.054333 |
+  2%|2         | 6/300 [06:45<5:29:48, 67.31s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=7
+lambda_t=0.0
+host_norm=2.312659
+poison_norm=2.83563
+egg_raw_norm=2.437743
+egg_selected_norm=1.441942
+cuckoo_norm=2.312659
+cosine_host_cuckoo=1.000062
+cosine_host_poison=0.567796
+sign_agreement_host_cuckoo=1.0
+sign_agreement_host_egg_kept=0.77089
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.452713
+target_row_kept_fraction=0.527132
+base_row_kept_fraction=0.410853
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=1.818642
+top_frac=0.22
+egg_budget=1.965822
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 7 |
+| Val_Loss/Val_Acc: 0.268 / 0.902 |
+| Val_Per_Class_Acc: tensor([0.8520, 0.9730, 0.8640, 0.9050, 0.9010, 0.9810, 0.6470, 0.9730, 0.9760,
+        0.9520]) |
+| Poison Loss/Poison Acc: 6.567 / 0.033 |
+| Cumulative Poison Acc Mean: 0.051286 |
+  2%|2         | 7/300 [07:52<5:27:05, 66.98s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=8
+lambda_t=0.007387
+host_norm=2.46409
+poison_norm=2.90766
+egg_raw_norm=2.525862
+egg_selected_norm=1.46846
+cuckoo_norm=2.466861
+cosine_host_cuckoo=1.000049
+cosine_host_poison=0.56853
+sign_agreement_host_cuckoo=0.964166
+sign_agreement_host_egg_kept=0.76797
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.441085
+target_row_kept_fraction=0.534884
+base_row_kept_fraction=0.449612
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=1.891932
+top_frac=0.22
+egg_budget=2.094538
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 8 |
+| Val_Loss/Val_Acc: 0.258 / 0.905 |
+| Val_Per_Class_Acc: tensor([0.8610, 0.9740, 0.8550, 0.9040, 0.8490, 0.9790, 0.7280, 0.9730, 0.9770,
+        0.9550]) |
+| Poison Loss/Poison Acc: 6.469 / 0.033 |
+| Cumulative Poison Acc Mean: 0.049000 |
+  3%|2         | 8/300 [08:58<5:25:26, 66.87s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=9
+lambda_t=0.029366
+host_norm=2.43088
+poison_norm=2.89473
+egg_raw_norm=2.526255
+egg_selected_norm=1.50783
+cuckoo_norm=2.441609
+cosine_host_cuckoo=0.999903
+cosine_host_poison=0.561848
+sign_agreement_host_cuckoo=0.963736
+sign_agreement_host_egg_kept=0.789612
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.444186
+target_row_kept_fraction=0.581395
+base_row_kept_fraction=0.418605
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=1.869334
+top_frac=0.22
+egg_budget=2.066309
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 9 |
+| Val_Loss/Val_Acc: 0.249 / 0.911 |
+| Val_Per_Class_Acc: tensor([0.8480, 0.9720, 0.8660, 0.9120, 0.8830, 0.9780, 0.7430, 0.9740, 0.9780,
+        0.9600]) |
+| Poison Loss/Poison Acc: 6.548 / 0.035 |
+| Cumulative Poison Acc Mean: 0.047444 |
+  3%|3         | 9/300 [10:05<5:24:34, 66.92s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=10
+lambda_t=0.065396
+host_norm=2.453727
+poison_norm=2.885701
+egg_raw_norm=2.453963
+egg_selected_norm=1.407039
+cuckoo_norm=2.479274
+cosine_host_cuckoo=0.999418
+cosine_host_poison=0.58798
+sign_agreement_host_cuckoo=0.964584
+sign_agreement_host_egg_kept=0.796226
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.416279
+target_row_kept_fraction=0.457364
+base_row_kept_fraction=0.372093
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=1.842604
+top_frac=0.22
+egg_budget=2.085732
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 10 |
+| Val_Loss/Val_Acc: 0.248 / 0.911 |
+| Val_Per_Class_Acc: tensor([0.8810, 0.9770, 0.8880, 0.9310, 0.8640, 0.9830, 0.6800, 0.9730, 0.9790,
+        0.9590]) |
+| Poison Loss/Poison Acc: 7.010 / 0.027 |
+| Cumulative Poison Acc Mean: 0.045400 |
+  3%|3         | 10/300 [11:12<5:22:38, 66.75s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=11
+lambda_t=0.11459
+host_norm=2.487042
+poison_norm=3.073535
+egg_raw_norm=2.690843
+egg_selected_norm=1.570844
+cuckoo_norm=2.539824
+cosine_host_cuckoo=0.997711
+cosine_host_poison=0.548916
+sign_agreement_host_cuckoo=0.965848
+sign_agreement_host_egg_kept=0.793608
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.450388
+target_row_kept_fraction=0.550388
+base_row_kept_fraction=0.364341
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=1.996249
+top_frac=0.22
+egg_budget=2.114047
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 11 |
+| Val_Loss/Val_Acc: 0.245 / 0.914 |
+| Val_Per_Class_Acc: tensor([0.8740, 0.9770, 0.8470, 0.9280, 0.8860, 0.9740, 0.7350, 0.9730, 0.9790,
+        0.9630]) |
+| Poison Loss/Poison Acc: 6.789 / 0.034 |
+| Cumulative Poison Acc Mean: 0.044364 |
+  4%|3         | 11/300 [12:18<5:20:25, 66.52s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=12
+lambda_t=0.175736
+host_norm=2.549364
+poison_norm=3.07093
+egg_raw_norm=2.726594
+egg_selected_norm=1.52781
+cuckoo_norm=2.631476
+cosine_host_cuckoo=0.995185
+cosine_host_poison=0.542606
+sign_agreement_host_cuckoo=0.962835
+sign_agreement_host_egg_kept=0.78563
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.395349
+target_row_kept_fraction=0.387597
+base_row_kept_fraction=0.356589
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=2.07159
+top_frac=0.22
+egg_budget=2.167023
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 12 |
+| Val_Loss/Val_Acc: 0.243 / 0.917 |
+| Val_Per_Class_Acc: tensor([0.8600, 0.9820, 0.8700, 0.9200, 0.8800, 0.9850, 0.7570, 0.9720, 0.9790,
+        0.9620]) |
+| Poison Loss/Poison Acc: 7.040 / 0.028 |
+| Cumulative Poison Acc Mean: 0.043000 |
+  4%|4         | 12/300 [13:24<5:19:25, 66.55s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=13
+lambda_t=0.247329
+host_norm=2.576039
+poison_norm=3.612932
+egg_raw_norm=3.38848
+egg_selected_norm=2.008917
+cuckoo_norm=2.733374
+cosine_host_cuckoo=0.984296
+cosine_host_poison=0.440953
+sign_agreement_host_cuckoo=0.961485
+sign_agreement_host_egg_kept=0.751085
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.427132
+target_row_kept_fraction=0.449612
+base_row_kept_fraction=0.434109
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=2.488782
+top_frac=0.22
+egg_budget=2.189699
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 13 |
+| Val_Loss/Val_Acc: 0.249 / 0.915 |
+| Val_Per_Class_Acc: tensor([0.8670, 0.9830, 0.8520, 0.8960, 0.9160, 0.9750, 0.7480, 0.9750, 0.9780,
+        0.9650]) |
+| Poison Loss/Poison Acc: 6.671 / 0.050 |
+| Cumulative Poison Acc Mean: 0.043538 |
+  4%|4         | 13/300 [14:32<5:19:27, 66.78s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=14
+lambda_t=0.327606
+host_norm=2.566576
+poison_norm=3.471057
+egg_raw_norm=3.186405
+egg_selected_norm=1.949326
+cuckoo_norm=2.794803
+cosine_host_cuckoo=0.975266
+cosine_host_poison=0.476096
+sign_agreement_host_cuckoo=0.965793
+sign_agreement_host_egg_kept=0.786058
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.409302
+target_row_kept_fraction=0.488372
+base_row_kept_fraction=0.395349
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=2.363395
+top_frac=0.22
+egg_budget=2.181653
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 14 |
+| Val_Loss/Val_Acc: 0.249 / 0.916 |
+| Val_Per_Class_Acc: tensor([0.8870, 0.9830, 0.8840, 0.9230, 0.8610, 0.9810, 0.7310, 0.9810, 0.9780,
+        0.9540]) |
+| Poison Loss/Poison Acc: 6.535 / 0.058 |
+| Cumulative Poison Acc Mean: 0.044571 |
+  5%|4         | 14/300 [15:39<5:19:28, 67.02s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=15
+lambda_t=0.41459
+host_norm=2.565033
+poison_norm=3.070595
+egg_raw_norm=2.772655
+egg_selected_norm=1.530463
+cuckoo_norm=2.798552
+cosine_host_cuckoo=0.975813
+cosine_host_poison=0.528227
+sign_agreement_host_cuckoo=0.964097
+sign_agreement_host_egg_kept=0.80045
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.424031
+target_row_kept_fraction=0.44186
+base_row_kept_fraction=0.418605
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=2.115745
+top_frac=0.22
+egg_budget=2.180342
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 15 |
+| Val_Loss/Val_Acc: 0.246 / 0.919 |
+| Val_Per_Class_Acc: tensor([0.8870, 0.9810, 0.8580, 0.9280, 0.8890, 0.9860, 0.7480, 0.9660, 0.9790,
+        0.9660]) |
+| Poison Loss/Poison Acc: 6.519 / 0.050 |
+| Cumulative Poison Acc Mean: 0.044933 |
+  5%|5         | 15/300 [16:45<5:17:02, 66.75s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=16
+lambda_t=0.506139
+host_norm=2.777468
+poison_norm=3.364928
+egg_raw_norm=3.217904
+egg_selected_norm=1.751501
+cuckoo_norm=3.111639
+cosine_host_cuckoo=0.961058
+cosine_host_poison=0.464512
+sign_agreement_host_cuckoo=0.955611
+sign_agreement_host_egg_kept=0.757381
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.427907
+target_row_kept_fraction=0.48062
+base_row_kept_fraction=0.488372
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=2.43131
+top_frac=0.22
+egg_budget=2.360911
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 16 |
+| Val_Loss/Val_Acc: 0.252 / 0.918 |
+| Val_Per_Class_Acc: tensor([0.8350, 0.9820, 0.8640, 0.9300, 0.8900, 0.9810, 0.7870, 0.9800, 0.9780,
+        0.9580]) |
+| Poison Loss/Poison Acc: 5.345 / 0.120 |
+| Cumulative Poison Acc Mean: 0.049625 |
+  5%|5         | 16/300 [17:52<5:15:38, 66.69s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=17
+lambda_t=0.6
+host_norm=2.690725
+poison_norm=3.158046
+egg_raw_norm=3.012938
+egg_selected_norm=1.617599
+cuckoo_norm=3.082997
+cosine_host_cuckoo=0.952551
+cosine_host_poison=0.478727
+sign_agreement_host_cuckoo=0.958843
+sign_agreement_host_egg_kept=0.785642
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.422481
+target_row_kept_fraction=0.434109
+base_row_kept_fraction=0.418605
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=2.292656
+top_frac=0.22
+egg_budget=2.28718
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 17 |
+| Val_Loss/Val_Acc: 0.253 / 0.920 |
+| Val_Per_Class_Acc: tensor([0.8630, 0.9830, 0.8630, 0.9260, 0.8810, 0.9860, 0.7840, 0.9720, 0.9800,
+        0.9640]) |
+| Poison Loss/Poison Acc: 5.182 / 0.128 |
+| Cumulative Poison Acc Mean: 0.054235 |
+  6%|5         | 17/300 [18:59<5:15:01, 66.79s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=18
+lambda_t=0.693861
+host_norm=2.651692
+poison_norm=3.058448
+egg_raw_norm=2.959501
+egg_selected_norm=1.58544
+cuckoo_norm=3.104841
+cosine_host_cuckoo=0.939043
+cosine_host_poison=0.47024
+sign_agreement_host_cuckoo=0.956014
+sign_agreement_host_egg_kept=0.76772
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.417829
+target_row_kept_fraction=0.44186
+base_row_kept_fraction=0.418605
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=2.247078
+top_frac=0.22
+egg_budget=2.254003
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 18 |
+| Val_Loss/Val_Acc: 0.257 / 0.920 |
+| Val_Per_Class_Acc: tensor([0.8680, 0.9850, 0.8770, 0.9250, 0.8930, 0.9790, 0.7600, 0.9780, 0.9770,
+        0.9620]) |
+| Poison Loss/Poison Acc: 3.992 / 0.207 |
+| Cumulative Poison Acc Mean: 0.062722 |
+  6%|6         | 18/300 [20:07<5:15:29, 67.13s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=19
+lambda_t=0.78541
+host_norm=2.361346
+poison_norm=3.170797
+egg_raw_norm=2.908524
+egg_selected_norm=1.702458
+cuckoo_norm=3.015388
+cosine_host_cuckoo=0.904543
+cosine_host_poison=0.478864
+sign_agreement_host_cuckoo=0.976819
+sign_agreement_host_egg_kept=0.872037
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.426357
+target_row_kept_fraction=0.410853
+base_row_kept_fraction=0.426357
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=2.115697
+top_frac=0.22
+egg_budget=2.007209
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 19 |
+| Val_Loss/Val_Acc: 0.258 / 0.919 |
+| Val_Per_Class_Acc: tensor([0.8550, 0.9850, 0.8830, 0.9090, 0.8770, 0.9830, 0.7870, 0.9830, 0.9800,
+        0.9470]) |
+| Poison Loss/Poison Acc: 3.325 / 0.273 |
+| Cumulative Poison Acc Mean: 0.073789 |
+  6%|6         | 19/300 [21:15<5:15:29, 67.37s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=20
+lambda_t=0.872394
+host_norm=2.594648
+poison_norm=2.980518
+egg_raw_norm=2.85014
+egg_selected_norm=1.505654
+cuckoo_norm=3.207798
+cosine_host_cuckoo=0.918985
+cosine_host_poison=0.484444
+sign_agreement_host_cuckoo=0.960438
+sign_agreement_host_egg_kept=0.800083
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.370543
+target_row_kept_fraction=0.434109
+base_row_kept_fraction=0.341085
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=2.152189
+top_frac=0.22
+egg_budget=2.205514
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 20 |
+| Val_Loss/Val_Acc: 0.265 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8670, 0.9830, 0.8870, 0.9190, 0.8800, 0.9840, 0.7920, 0.9770, 0.9780,
+        0.9560]) |
+| Poison Loss/Poison Acc: 2.681 / 0.342 |
+| Cumulative Poison Acc Mean: 0.087200 |
+  7%|6         | 20/300 [22:22<5:14:30, 67.39s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=21
+lambda_t=0.952671
+host_norm=2.350775
+poison_norm=3.379205
+egg_raw_norm=3.205631
+egg_selected_norm=1.852016
+cuckoo_norm=3.291068
+cosine_host_cuckoo=0.861913
+cosine_host_poison=0.419798
+sign_agreement_host_cuckoo=0.977428
+sign_agreement_host_egg_kept=0.869741
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.439535
+target_row_kept_fraction=0.542636
+base_row_kept_fraction=0.472868
+norm_cap=1.4
+norm_cap_applied=True
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=2.300184
+top_frac=0.22
+egg_budget=1.998219
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 21 |
+| Val_Loss/Val_Acc: 0.263 / 0.920 |
+| Val_Per_Class_Acc: tensor([0.8350, 0.9850, 0.8870, 0.9220, 0.8830, 0.9780, 0.7880, 0.9760, 0.9800,
+        0.9640]) |
+| Poison Loss/Poison Acc: 1.798 / 0.475 |
+| Cumulative Poison Acc Mean: 0.105667 |
+  7%|7         | 21/300 [23:30<5:13:50, 67.49s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=22
+lambda_t=1.024264
+host_norm=2.9463
+poison_norm=2.694195
+egg_raw_norm=3.046735
+egg_selected_norm=1.260602
+cuckoo_norm=3.451304
+cosine_host_cuckoo=0.930622
+cosine_host_poison=0.419325
+sign_agreement_host_cuckoo=0.944442
+sign_agreement_host_egg_kept=0.725196
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.360465
+target_row_kept_fraction=0.44186
+base_row_kept_fraction=0.372093
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=2.420216
+top_frac=0.22
+egg_budget=2.504437
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 22 |
+| Val_Loss/Val_Acc: 0.270 / 0.920 |
+| Val_Per_Class_Acc: tensor([0.8640, 0.9810, 0.8510, 0.9210, 0.8970, 0.9830, 0.7850, 0.9740, 0.9790,
+        0.9630]) |
+| Poison Loss/Poison Acc: 1.653 / 0.540 |
+| Cumulative Poison Acc Mean: 0.125409 |
+  7%|7         | 22/300 [24:38<5:13:38, 67.69s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=23
+lambda_t=1.08541
+host_norm=2.451436
+poison_norm=2.645939
+egg_raw_norm=2.7296
+egg_selected_norm=1.337267
+cuckoo_norm=3.137301
+cosine_host_cuckoo=0.893664
+cosine_host_poison=0.428607
+sign_agreement_host_cuckoo=0.958563
+sign_agreement_host_egg_kept=0.795253
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.410853
+target_row_kept_fraction=0.457364
+base_row_kept_fraction=0.457364
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=2.109299
+top_frac=0.22
+egg_budget=2.083789
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 23 |
+| Val_Loss/Val_Acc: 0.278 / 0.920 |
+| Val_Per_Class_Acc: tensor([0.8550, 0.9830, 0.8570, 0.9140, 0.9110, 0.9760, 0.7760, 0.9770, 0.9790,
+        0.9690]) |
+| Poison Loss/Poison Acc: 1.200 / 0.645 |
+| Cumulative Poison Acc Mean: 0.148000 |
+  8%|7         | 23/300 [25:46<5:12:27, 67.68s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=24
+lambda_t=1.134604
+host_norm=2.037414
+poison_norm=2.691684
+egg_raw_norm=2.486769
+egg_selected_norm=1.428578
+cuckoo_norm=2.852393
+cosine_host_cuckoo=0.855637
+cosine_host_poison=0.475239
+sign_agreement_host_cuckoo=0.980907
+sign_agreement_host_egg_kept=0.895512
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.439535
+target_row_kept_fraction=0.434109
+base_row_kept_fraction=0.511628
+norm_cap=1.4
+norm_cap_applied=True
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=1.804682
+top_frac=0.22
+egg_budget=1.731859
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 24 |
+| Val_Loss/Val_Acc: 0.284 / 0.920 |
+| Val_Per_Class_Acc: tensor([0.8470, 0.9820, 0.8850, 0.9190, 0.8770, 0.9800, 0.7950, 0.9780, 0.9760,
+        0.9640]) |
+| Poison Loss/Poison Acc: 0.798 / 0.750 |
+| Cumulative Poison Acc Mean: 0.173083 |
+  8%|8         | 24/300 [26:53<5:10:53, 67.59s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=25
+lambda_t=1.170634
+host_norm=2.453939
+poison_norm=2.290335
+egg_raw_norm=2.585052
+egg_selected_norm=1.087232
+cuckoo_norm=2.996788
+cosine_host_cuckoo=0.909951
+cosine_host_poison=0.407916
+sign_agreement_host_cuckoo=0.945585
+sign_agreement_host_egg_kept=0.734849
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.341085
+target_row_kept_fraction=0.426357
+base_row_kept_fraction=0.472868
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=2.043227
+top_frac=0.22
+egg_budget=2.085916
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 25 |
+| Val_Loss/Val_Acc: 0.286 / 0.919 |
+| Val_Per_Class_Acc: tensor([0.8440, 0.9820, 0.8720, 0.9250, 0.8860, 0.9830, 0.7840, 0.9750, 0.9790,
+        0.9650]) |
+| Poison Loss/Poison Acc: 0.489 / 0.842 |
+| Cumulative Poison Acc Mean: 0.199840 |
+  8%|8         | 25/300 [28:00<5:08:50, 67.38s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=26
+lambda_t=1.192613
+host_norm=1.965145
+poison_norm=2.335683
+egg_raw_norm=2.207387
+egg_selected_norm=1.189458
+cuckoo_norm=2.739596
+cosine_host_cuckoo=0.868858
+cosine_host_poison=0.484202
+sign_agreement_host_cuckoo=0.980747
+sign_agreement_host_egg_kept=0.905862
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.455814
+target_row_kept_fraction=0.418605
+base_row_kept_fraction=0.457364
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=1.634044
+top_frac=0.22
+egg_budget=1.670428
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 26 |
+| Val_Loss/Val_Acc: 0.294 / 0.920 |
+| Val_Per_Class_Acc: tensor([0.8640, 0.9830, 0.8520, 0.9170, 0.9040, 0.9790, 0.7740, 0.9720, 0.9790,
+        0.9730]) |
+| Poison Loss/Poison Acc: 0.382 / 0.882 |
+| Cumulative Poison Acc Mean: 0.226077 |
+  9%|8         | 26/300 [29:06<5:06:17, 67.07s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=27
+lambda_t=1.2
+host_norm=1.810058
+poison_norm=2.256056
+egg_raw_norm=2.167996
+egg_selected_norm=1.145728
+cuckoo_norm=2.53409
+cosine_host_cuckoo=0.862043
+cosine_host_poison=0.448883
+sign_agreement_host_cuckoo=0.974508
+sign_agreement_host_egg_kept=0.872537
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.455814
+target_row_kept_fraction=0.44186
+base_row_kept_fraction=0.465116
+norm_cap=1.4
+norm_cap_applied=True
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=1.605167
+top_frac=0.22
+egg_budget=1.538599
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 27 |
+| Val_Loss/Val_Acc: 0.314 / 0.919 |
+| Val_Per_Class_Acc: tensor([0.8270, 0.9820, 0.8490, 0.9300, 0.9080, 0.9820, 0.8020, 0.9800, 0.9770,
+        0.9550]) |
+| Poison Loss/Poison Acc: 0.320 / 0.905 |
+| Cumulative Poison Acc Mean: 0.251222 |
+  9%|9         | 27/300 [30:13<5:04:51, 67.00s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=28
+lambda_t=1.2
+host_norm=2.043111
+poison_norm=2.267349
+egg_raw_norm=2.334909
+egg_selected_norm=1.14601
+cuckoo_norm=2.725471
+cosine_host_cuckoo=0.872044
+cosine_host_poison=0.417014
+sign_agreement_host_cuckoo=0.950373
+sign_agreement_host_egg_kept=0.749411
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.382171
+target_row_kept_fraction=0.387597
+base_row_kept_fraction=0.356589
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=1.765094
+top_frac=0.22
+egg_budget=1.736698
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 28 |
+| Val_Loss/Val_Acc: 0.305 / 0.920 |
+| Val_Per_Class_Acc: tensor([0.8640, 0.9870, 0.8780, 0.9100, 0.8960, 0.9840, 0.7670, 0.9750, 0.9770,
+        0.9670]) |
+| Poison Loss/Poison Acc: 0.304 / 0.911 |
+| Cumulative Poison Acc Mean: 0.274786 |
+  9%|9         | 28/300 [31:21<5:04:48, 67.24s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=29
+lambda_t=1.2
+host_norm=2.100681
+poison_norm=2.075386
+egg_raw_norm=2.260816
+egg_selected_norm=0.97895
+cuckoo_norm=2.647922
+cosine_host_cuckoo=0.902929
+cosine_host_poison=0.413904
+sign_agreement_host_cuckoo=0.943926
+sign_agreement_host_egg_kept=0.712964
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.379845
+target_row_kept_fraction=0.418605
+base_row_kept_fraction=0.333333
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=1.762715
+top_frac=0.22
+egg_budget=1.785639
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 29 |
+| Val_Loss/Val_Acc: 0.324 / 0.921 |
+| Val_Per_Class_Acc: tensor([0.8680, 0.9840, 0.8640, 0.9150, 0.8860, 0.9760, 0.7980, 0.9770, 0.9780,
+        0.9620]) |
+| Poison Loss/Poison Acc: 0.215 / 0.937 |
+| Cumulative Poison Acc Mean: 0.297621 |
+ 10%|9         | 29/300 [32:28<5:03:48, 67.27s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=30
+lambda_t=1.2
+host_norm=2.017402
+poison_norm=1.832493
+egg_raw_norm=2.104998
+egg_selected_norm=0.838205
+cuckoo_norm=2.439165
+cosine_host_cuckoo=0.915329
+cosine_host_poison=0.405358
+sign_agreement_host_cuckoo=0.925301
+sign_agreement_host_egg_kept=0.646746
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.329457
+target_row_kept_fraction=0.387597
+base_row_kept_fraction=0.403101
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=1.676556
+top_frac=0.22
+egg_budget=1.714848
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 30 |
+| Val_Loss/Val_Acc: 0.323 / 0.921 |
+| Val_Per_Class_Acc: tensor([0.8440, 0.9820, 0.8530, 0.9270, 0.8870, 0.9870, 0.8050, 0.9770, 0.9790,
+        0.9650]) |
+| Poison Loss/Poison Acc: 0.159 / 0.952 |
+| Cumulative Poison Acc Mean: 0.319433 |
+ 10%|#         | 30/300 [33:36<5:03:17, 67.40s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=31
+lambda_t=1.2
+host_norm=1.719963
+poison_norm=1.934214
+egg_raw_norm=1.887235
+egg_selected_norm=0.94478
+cuckoo_norm=2.316042
+cosine_host_cuckoo=0.883314
+cosine_host_poison=0.471627
+sign_agreement_host_cuckoo=0.96492
+sign_agreement_host_egg_kept=0.833722
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.389147
+target_row_kept_fraction=0.449612
+base_row_kept_fraction=0.434109
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=1.413843
+top_frac=0.22
+egg_budget=1.462018
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 31 |
+| Val_Loss/Val_Acc: 0.329 / 0.918 |
+| Val_Per_Class_Acc: tensor([0.8380, 0.9850, 0.8570, 0.9100, 0.9060, 0.9760, 0.7870, 0.9750, 0.9780,
+        0.9660]) |
+| Poison Loss/Poison Acc: 0.141 / 0.950 |
+| Cumulative Poison Acc Mean: 0.339774 |
+ 10%|#         | 31/300 [34:43<5:01:15, 67.20s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=32
+lambda_t=1.2
+host_norm=1.880005
+poison_norm=2.166475
+egg_raw_norm=2.266463
+egg_selected_norm=1.111082
+cuckoo_norm=2.574429
+cosine_host_cuckoo=0.866222
+cosine_host_poison=0.379493
+sign_agreement_host_cuckoo=0.95335
+sign_agreement_host_egg_kept=0.761708
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.386822
+target_row_kept_fraction=0.418605
+base_row_kept_fraction=0.503876
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=1.704371
+top_frac=0.22
+egg_budget=1.598055
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 32 |
+| Val_Loss/Val_Acc: 0.343 / 0.919 |
+| Val_Per_Class_Acc: tensor([0.8470, 0.9830, 0.8710, 0.9200, 0.8940, 0.9750, 0.7890, 0.9830, 0.9750,
+        0.9520]) |
+| Poison Loss/Poison Acc: 0.117 / 0.961 |
+| Cumulative Poison Acc Mean: 0.359187 |
+ 11%|#         | 32/300 [35:49<4:59:42, 67.10s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=33
+lambda_t=1.2
+host_norm=1.520699
+poison_norm=1.898445
+egg_raw_norm=1.94187
+egg_selected_norm=1.04925
+cuckoo_norm=2.128951
+cosine_host_cuckoo=0.839232
+cosine_host_poison=0.371654
+sign_agreement_host_cuckoo=0.95855
+sign_agreement_host_egg_kept=0.777406
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.434884
+target_row_kept_fraction=0.465116
+base_row_kept_fraction=0.395349
+norm_cap=1.4
+norm_cap_applied=True
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=1.428333
+top_frac=0.22
+egg_budget=1.292638
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 33 |
+| Val_Loss/Val_Acc: 0.349 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8770, 0.9830, 0.8850, 0.9100, 0.8970, 0.9880, 0.7630, 0.9770, 0.9800,
+        0.9630]) |
+| Poison Loss/Poison Acc: 0.141 / 0.953 |
+| Cumulative Poison Acc Mean: 0.377182 |
+ 11%|#1        | 33/300 [36:57<4:58:46, 67.14s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=34
+lambda_t=1.2
+host_norm=2.116239
+poison_norm=2.184298
+egg_raw_norm=2.49467
+egg_selected_norm=1.071118
+cuckoo_norm=2.721386
+cosine_host_cuckoo=0.88841
+cosine_host_poison=0.327361
+sign_agreement_host_cuckoo=0.937656
+sign_agreement_host_egg_kept=0.704282
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.382946
+target_row_kept_fraction=0.496124
+base_row_kept_fraction=0.395349
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=1.942193
+top_frac=0.22
+egg_budget=1.798863
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 34 |
+| Val_Loss/Val_Acc: 0.346 / 0.919 |
+| Val_Per_Class_Acc: tensor([0.8680, 0.9820, 0.8810, 0.9270, 0.8710, 0.9810, 0.7680, 0.9780, 0.9770,
+        0.9620]) |
+| Poison Loss/Poison Acc: 0.122 / 0.962 |
+| Cumulative Poison Acc Mean: 0.394382 |
+ 11%|#1        | 34/300 [38:04<4:57:39, 67.14s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=35
+lambda_t=1.2
+host_norm=1.281932
+poison_norm=2.041302
+egg_raw_norm=1.963836
+egg_selected_norm=1.089631
+cuckoo_norm=1.794709
+cosine_host_cuckoo=0.808919
+cosine_host_poison=0.373304
+sign_agreement_host_cuckoo=0.997115
+sign_agreement_host_egg_kept=0.982328
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.46124
+target_row_kept_fraction=0.434109
+base_row_kept_fraction=0.472868
+norm_cap=1.4
+norm_cap_applied=True
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=1.364905
+top_frac=0.22
+egg_budget=1.089678
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 35 |
+| Val_Loss/Val_Acc: 0.375 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8680, 0.9810, 0.8850, 0.9120, 0.9010, 0.9840, 0.7680, 0.9810, 0.9760,
+        0.9600]) |
+| Poison Loss/Poison Acc: 0.141 / 0.959 |
+| Cumulative Poison Acc Mean: 0.410514 |
+ 12%|#1        | 35/300 [39:11<4:56:29, 67.13s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=36
+lambda_t=1.2
+host_norm=1.237978
+poison_norm=2.263638
+egg_raw_norm=2.206352
+egg_selected_norm=1.052256
+cuckoo_norm=1.733162
+cosine_host_cuckoo=0.811395
+cosine_host_poison=0.319158
+sign_agreement_host_cuckoo=0.983792
+sign_agreement_host_egg_kept=0.905392
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.494574
+target_row_kept_fraction=0.418605
+base_row_kept_fraction=0.457364
+norm_cap=1.4
+norm_cap_applied=True
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=1.494997
+top_frac=0.22
+egg_budget=1.052315
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 36 |
+| Val_Loss/Val_Acc: 0.376 / 0.919 |
+| Val_Per_Class_Acc: tensor([0.8640, 0.9820, 0.8970, 0.9070, 0.8700, 0.9820, 0.7710, 0.9820, 0.9790,
+        0.9590]) |
+| Poison Loss/Poison Acc: 0.112 / 0.966 |
+| Cumulative Poison Acc Mean: 0.425944 |
+ 12%|#2        | 36/300 [40:17<4:54:22, 66.91s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=37
+lambda_t=1.2
+host_norm=1.429238
+poison_norm=0.971762
+egg_raw_norm=1.35101
+egg_selected_norm=0.389696
+cuckoo_norm=1.57845
+cosine_host_cuckoo=0.956527
+cosine_host_poison=0.418283
+sign_agreement_host_cuckoo=0.889461
+sign_agreement_host_egg_kept=0.475274
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.289922
+target_row_kept_fraction=0.27907
+base_row_kept_fraction=0.379845
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=1.137462
+top_frac=0.22
+egg_budget=1.21489
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 37 |
+| Val_Loss/Val_Acc: 0.381 / 0.920 |
+| Val_Per_Class_Acc: tensor([0.8610, 0.9800, 0.8710, 0.9140, 0.8900, 0.9800, 0.7890, 0.9820, 0.9780,
+        0.9600]) |
+| Poison Loss/Poison Acc: 0.070 / 0.983 |
+| Cumulative Poison Acc Mean: 0.441000 |
+ 12%|#2        | 37/300 [41:23<4:51:20, 66.47s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=38
+lambda_t=1.2
+host_norm=1.792427
+poison_norm=1.816834
+egg_raw_norm=2.161271
+egg_selected_norm=0.925169
+cuckoo_norm=2.305723
+cosine_host_cuckoo=0.882813
+cosine_host_poison=0.282923
+sign_agreement_host_cuckoo=0.92874
+sign_agreement_host_egg_kept=0.66885
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.34031
+target_row_kept_fraction=0.372093
+base_row_kept_fraction=0.364341
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=1.671819
+top_frac=0.22
+egg_budget=1.523614
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 38 |
+| Val_Loss/Val_Acc: 0.393 / 0.919 |
+| Val_Per_Class_Acc: tensor([0.8380, 0.9820, 0.8710, 0.9160, 0.8720, 0.9800, 0.8110, 0.9790, 0.9760,
+        0.9610]) |
+| Poison Loss/Poison Acc: 0.075 / 0.983 |
+| Cumulative Poison Acc Mean: 0.455263 |
+ 13%|#2        | 38/300 [42:30<4:50:39, 66.56s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=39
+lambda_t=1.2
+host_norm=1.11635
+poison_norm=1.091064
+egg_raw_norm=1.174317
+egg_selected_norm=0.548833
+cuckoo_norm=1.423949
+cosine_host_cuckoo=0.893473
+cosine_host_poison=0.434201
+sign_agreement_host_cuckoo=0.91836
+sign_agreement_host_egg_kept=0.58774
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.356589
+target_row_kept_fraction=0.410853
+base_row_kept_fraction=0.20155
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.935151
+top_frac=0.22
+egg_budget=0.948933
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 39 |
+| Val_Loss/Val_Acc: 0.403 / 0.919 |
+| Val_Per_Class_Acc: tensor([0.8580, 0.9830, 0.8520, 0.9140, 0.9010, 0.9820, 0.7860, 0.9800, 0.9750,
+        0.9630]) |
+| Poison Loss/Poison Acc: 0.074 / 0.985 |
+| Cumulative Poison Acc Mean: 0.468846 |
+ 13%|#3        | 39/300 [43:35<4:48:18, 66.28s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=40
+lambda_t=1.2
+host_norm=1.092181
+poison_norm=0.767753
+egg_raw_norm=1.025458
+egg_selected_norm=0.324255
+cuckoo_norm=1.226482
+cosine_host_cuckoo=0.950342
+cosine_host_poison=0.43576
+sign_agreement_host_cuckoo=0.926297
+sign_agreement_host_egg_kept=0.611341
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.33876
+target_row_kept_fraction=0.434109
+base_row_kept_fraction=0.44186
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.844617
+top_frac=0.22
+egg_budget=0.928392
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 40 |
+| Val_Loss/Val_Acc: 0.397 / 0.921 |
+| Val_Per_Class_Acc: tensor([0.8560, 0.9800, 0.8910, 0.9180, 0.8790, 0.9820, 0.7880, 0.9800, 0.9800,
+        0.9600]) |
+| Poison Loss/Poison Acc: 0.092 / 0.984 |
+| Cumulative Poison Acc Mean: 0.481725 |
+ 13%|#3        | 40/300 [44:43<4:49:35, 66.83s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=41
+lambda_t=1.2
+host_norm=1.195959
+poison_norm=0.894506
+egg_raw_norm=1.103599
+egg_selected_norm=0.391593
+cuckoo_norm=1.369169
+cosine_host_cuckoo=0.941856
+cosine_host_poison=0.473266
+sign_agreement_host_cuckoo=0.922597
+sign_agreement_host_egg_kept=0.601055
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.386047
+target_row_kept_fraction=0.527132
+base_row_kept_fraction=0.534884
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.890368
+top_frac=0.22
+egg_budget=1.016601
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 41 |
+| Val_Loss/Val_Acc: 0.428 / 0.921 |
+| Val_Per_Class_Acc: tensor([0.8540, 0.9790, 0.8720, 0.9120, 0.8920, 0.9820, 0.7970, 0.9790, 0.9760,
+        0.9640]) |
+| Poison Loss/Poison Acc: 0.074 / 0.982 |
+| Cumulative Poison Acc Mean: 0.493927 |
+ 14%|#3        | 41/300 [45:50<4:48:43, 66.89s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=42
+lambda_t=1.2
+host_norm=0.8921
+poison_norm=1.305968
+egg_raw_norm=1.279406
+egg_selected_norm=0.737722
+cuckoo_norm=1.24892
+cosine_host_cuckoo=0.805123
+cosine_host_poison=0.371048
+sign_agreement_host_cuckoo=0.968544
+sign_agreement_host_egg_kept=0.813129
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.421705
+target_row_kept_fraction=0.465116
+base_row_kept_fraction=0.472868
+norm_cap=1.4
+norm_cap_applied=True
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.909099
+top_frac=0.22
+egg_budget=0.758313
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 42 |
+| Val_Loss/Val_Acc: 0.421 / 0.921 |
+| Val_Per_Class_Acc: tensor([0.8500, 0.9800, 0.8710, 0.9130, 0.9050, 0.9820, 0.7850, 0.9810, 0.9760,
+        0.9640]) |
+| Poison Loss/Poison Acc: 0.072 / 0.987 |
+| Cumulative Poison Acc Mean: 0.505667 |
+ 14%|#4        | 42/300 [46:56<4:46:04, 66.53s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=43
+lambda_t=1.2
+host_norm=0.720263
+poison_norm=1.082772
+egg_raw_norm=0.9538
+egg_selected_norm=0.612199
+cuckoo_norm=1.008382
+cosine_host_cuckoo=0.803844
+cosine_host_poison=0.501039
+sign_agreement_host_cuckoo=0.954272
+sign_agreement_host_egg_kept=0.741853
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.389922
+target_row_kept_fraction=0.364341
+base_row_kept_fraction=0.395349
+norm_cap=1.4
+norm_cap_applied=True
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.635339
+top_frac=0.22
+egg_budget=0.612246
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 43 |
+| Val_Loss/Val_Acc: 0.434 / 0.920 |
+| Val_Per_Class_Acc: tensor([0.8580, 0.9800, 0.8740, 0.9200, 0.9020, 0.9810, 0.7670, 0.9710, 0.9760,
+        0.9740]) |
+| Poison Loss/Poison Acc: 0.078 / 0.984 |
+| Cumulative Poison Acc Mean: 0.516791 |
+ 14%|#4        | 43/300 [48:03<4:45:15, 66.60s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=44
+lambda_t=1.2
+host_norm=1.203345
+poison_norm=1.721877
+egg_raw_norm=1.729576
+egg_selected_norm=1.022849
+cuckoo_norm=1.684632
+cosine_host_cuckoo=0.790671
+cosine_host_poison=0.343041
+sign_agreement_host_cuckoo=0.954614
+sign_agreement_host_egg_kept=0.753396
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.418605
+target_row_kept_fraction=0.465116
+base_row_kept_fraction=0.426357
+norm_cap=1.4
+norm_cap_applied=True
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=1.189186
+top_frac=0.22
+egg_budget=1.022882
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 44 |
+| Val_Loss/Val_Acc: 0.442 / 0.921 |
+| Val_Per_Class_Acc: tensor([0.8630, 0.9790, 0.8800, 0.9240, 0.8850, 0.9820, 0.7710, 0.9740, 0.9780,
+        0.9700]) |
+| Poison Loss/Poison Acc: 0.075 / 0.985 |
+| Cumulative Poison Acc Mean: 0.527432 |
+ 15%|#4        | 44/300 [49:10<4:44:40, 66.72s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=45
+lambda_t=1.2
+host_norm=0.50934
+poison_norm=0.527601
+egg_raw_norm=0.37661
+egg_selected_norm=0.252216
+cuckoo_norm=0.666138
+cosine_host_cuckoo=0.901265
+cosine_host_poison=0.736778
+sign_agreement_host_cuckoo=0.941509
+sign_agreement_host_egg_kept=0.662418
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.406202
+target_row_kept_fraction=0.503876
+base_row_kept_fraction=0.612403
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.313034
+top_frac=0.22
+egg_budget=0.432957
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 45 |
+| Val_Loss/Val_Acc: 0.461 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8820, 0.9800, 0.8840, 0.9300, 0.8860, 0.9800, 0.7540, 0.9810, 0.9780,
+        0.9660]) |
+| Poison Loss/Poison Acc: 0.064 / 0.986 |
+| Cumulative Poison Acc Mean: 0.537622 |
+ 15%|#5        | 45/300 [50:17<4:44:32, 66.95s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=46
+lambda_t=1.2
+host_norm=0.764769
+poison_norm=2.091873
+egg_raw_norm=2.046749
+egg_selected_norm=0.650056
+cuckoo_norm=1.070682
+cosine_host_cuckoo=0.808308
+cosine_host_poison=0.241185
+sign_agreement_host_cuckoo=0.999329
+sign_agreement_host_egg_kept=0.97985
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.475194
+target_row_kept_fraction=0.472868
+base_row_kept_fraction=0.457364
+norm_cap=1.4
+norm_cap_applied=True
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=1.272674
+top_frac=0.22
+egg_budget=0.650079
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 46 |
+| Val_Loss/Val_Acc: 0.471 / 0.923 |
+| Val_Per_Class_Acc: tensor([0.8680, 0.9810, 0.8780, 0.9190, 0.8960, 0.9810, 0.7800, 0.9800, 0.9790,
+        0.9670]) |
+| Poison Loss/Poison Acc: 0.069 / 0.986 |
+| Cumulative Poison Acc Mean: 0.547370 |
+ 15%|#5        | 46/300 [51:26<4:45:14, 67.38s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=47
+lambda_t=1.2
+host_norm=0.364448
+poison_norm=0.35149
+egg_raw_norm=0.236935
+egg_selected_norm=0.181204
+cuckoo_norm=0.471379
+cosine_host_cuckoo=0.895724
+cosine_host_poison=0.781599
+sign_agreement_host_cuckoo=0.957478
+sign_agreement_host_egg_kept=0.780168
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.382946
+target_row_kept_fraction=0.44186
+base_row_kept_fraction=0.387597
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.249914
+top_frac=0.22
+egg_budget=0.309792
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 47 |
+| Val_Loss/Val_Acc: 0.483 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8630, 0.9800, 0.8810, 0.9260, 0.8820, 0.9820, 0.7830, 0.9790, 0.9780,
+        0.9640]) |
+| Poison Loss/Poison Acc: 0.069 / 0.987 |
+| Cumulative Poison Acc Mean: 0.556723 |
+ 16%|#5        | 47/300 [52:34<4:45:26, 67.69s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=48
+lambda_t=1.2
+host_norm=0.560381
+poison_norm=0.433394
+egg_raw_norm=0.474888
+egg_selected_norm=0.177929
+cuckoo_norm=0.641512
+cosine_host_cuckoo=0.94586
+cosine_host_poison=0.568952
+sign_agreement_host_cuckoo=0.920872
+sign_agreement_host_egg_kept=0.590285
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.396899
+target_row_kept_fraction=0.426357
+base_row_kept_fraction=0.418605
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.377741
+top_frac=0.22
+egg_budget=0.476343
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 48 |
+| Val_Loss/Val_Acc: 0.476 / 0.921 |
+| Val_Per_Class_Acc: tensor([0.8610, 0.9800, 0.8640, 0.9240, 0.8780, 0.9840, 0.7980, 0.9720, 0.9790,
+        0.9720]) |
+| Poison Loss/Poison Acc: 0.089 / 0.982 |
+| Cumulative Poison Acc Mean: 0.565583 |
+ 16%|#6        | 48/300 [53:43<4:45:43, 68.03s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=49
+lambda_t=1.2
+host_norm=0.661656
+poison_norm=0.459563
+egg_raw_norm=0.551224
+egg_selected_norm=0.184141
+cuckoo_norm=0.730788
+cosine_host_cuckoo=0.954593
+cosine_host_poison=0.567571
+sign_agreement_host_cuckoo=0.895541
+sign_agreement_host_egg_kept=0.470777
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.344186
+target_row_kept_fraction=0.379845
+base_row_kept_fraction=0.418605
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.448104
+top_frac=0.22
+egg_budget=0.56243
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 49 |
+| Val_Loss/Val_Acc: 0.496 / 0.921 |
+| Val_Per_Class_Acc: tensor([0.8690, 0.9800, 0.8750, 0.9210, 0.8740, 0.9820, 0.7890, 0.9790, 0.9780,
+        0.9630]) |
+| Poison Loss/Poison Acc: 0.080 / 0.985 |
+| Cumulative Poison Acc Mean: 0.574143 |
+ 16%|#6        | 49/300 [54:51<4:45:00, 68.13s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=50
+lambda_t=1.2
+host_norm=0.394287
+poison_norm=0.387691
+egg_raw_norm=0.253178
+egg_selected_norm=0.150734
+cuckoo_norm=0.480674
+cosine_host_cuckoo=0.933445
+cosine_host_poison=0.790545
+sign_agreement_host_cuckoo=0.963047
+sign_agreement_host_egg_kept=0.826403
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.368992
+target_row_kept_fraction=0.364341
+base_row_kept_fraction=0.434109
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.190475
+top_frac=0.22
+egg_budget=0.335157
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 50 |
+| Val_Loss/Val_Acc: 0.469 / 0.920 |
+| Val_Per_Class_Acc: tensor([0.8580, 0.9780, 0.8790, 0.9190, 0.8800, 0.9820, 0.7790, 0.9780, 0.9780,
+        0.9660]) |
+| Poison Loss/Poison Acc: 0.073 / 0.987 |
+| Cumulative Poison Acc Mean: 0.582400 |
+ 17%|#6        | 50/300 [56:00<4:44:35, 68.30s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=51
+lambda_t=1.2
+host_norm=0.524723
+poison_norm=0.844869
+egg_raw_norm=0.788045
+egg_selected_norm=0.446005
+cuckoo_norm=0.734612
+cosine_host_cuckoo=0.797945
+cosine_host_poison=0.415217
+sign_agreement_host_cuckoo=0.944675
+sign_agreement_host_egg_kept=0.679544
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.414729
+target_row_kept_fraction=0.550388
+base_row_kept_fraction=0.449612
+norm_cap=1.4
+norm_cap_applied=True
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.510749
+top_frac=0.22
+egg_budget=0.446032
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 51 |
+| Val_Loss/Val_Acc: 0.502 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8730, 0.9780, 0.8760, 0.9240, 0.8930, 0.9820, 0.7690, 0.9780, 0.9790,
+        0.9650]) |
+| Poison Loss/Poison Acc: 0.071 / 0.986 |
+| Cumulative Poison Acc Mean: 0.590314 |
+ 17%|#7        | 51/300 [57:09<4:44:07, 68.47s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=52
+lambda_t=1.2
+host_norm=1.490125
+poison_norm=0.347036
+egg_raw_norm=1.46022
+egg_selected_norm=1.26644
+cuckoo_norm=0.737889
+cosine_host_cuckoo=0.20683
+cosine_host_poison=0.201759
+sign_agreement_host_cuckoo=0.847868
+sign_agreement_host_egg_kept=0.249994
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.426357
+target_row_kept_fraction=0.51938
+base_row_kept_fraction=0.48062
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.534713
+top_frac=0.22
+egg_budget=1.266659
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 52 |
+| Val_Loss/Val_Acc: 0.500 / 0.921 |
+| Val_Per_Class_Acc: tensor([0.8670, 0.9820, 0.8650, 0.9240, 0.8910, 0.9820, 0.7810, 0.9770, 0.9780,
+        0.9630]) |
+| Poison Loss/Poison Acc: 0.067 / 0.987 |
+| Cumulative Poison Acc Mean: 0.597942 |
+ 17%|#7        | 52/300 [58:19<4:45:18, 69.03s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=53
+lambda_t=1.2
+host_norm=0.400178
+poison_norm=0.469438
+egg_raw_norm=0.401546
+egg_selected_norm=0.244516
+cuckoo_norm=0.557054
+cosine_host_cuckoo=0.862191
+cosine_host_poison=0.58367
+sign_agreement_host_cuckoo=0.953186
+sign_agreement_host_egg_kept=0.724321
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.389147
+target_row_kept_fraction=0.503876
+base_row_kept_fraction=0.511628
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.286295
+top_frac=0.22
+egg_budget=0.340165
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 53 |
+| Val_Loss/Val_Acc: 0.522 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8700, 0.9790, 0.8790, 0.9240, 0.8840, 0.9820, 0.7830, 0.9790, 0.9780,
+        0.9630]) |
+| Poison Loss/Poison Acc: 0.075 / 0.985 |
+| Cumulative Poison Acc Mean: 0.605245 |
+ 18%|#7        | 53/300 [59:29<4:44:55, 69.21s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=54
+lambda_t=1.2
+host_norm=0.243344
+poison_norm=0.369103
+egg_raw_norm=0.253439
+egg_selected_norm=0.203038
+cuckoo_norm=0.34068
+cosine_host_cuckoo=0.831022
+cosine_host_poison=0.730537
+sign_agreement_host_cuckoo=0.976003
+sign_agreement_host_egg_kept=0.813576
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.450388
+target_row_kept_fraction=0.410853
+base_row_kept_fraction=0.465116
+norm_cap=1.4
+norm_cap_applied=True
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.125711
+top_frac=0.22
+egg_budget=0.20685
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 54 |
+| Val_Loss/Val_Acc: 0.514 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8770, 0.9800, 0.8840, 0.9230, 0.8920, 0.9820, 0.7590, 0.9780, 0.9760,
+        0.9660]) |
+| Poison Loss/Poison Acc: 0.075 / 0.986 |
+| Cumulative Poison Acc Mean: 0.612296 |
+ 18%|#8        | 54/300 [1:00:40<4:46:32, 69.89s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=55
+lambda_t=1.2
+host_norm=0.490123
+poison_norm=0.37786
+egg_raw_norm=0.462685
+egg_selected_norm=0.159099
+cuckoo_norm=0.561629
+cosine_host_cuckoo=0.943202
+cosine_host_poison=0.456095
+sign_agreement_host_cuckoo=0.926811
+sign_agreement_host_egg_kept=0.603874
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.384496
+target_row_kept_fraction=0.51938
+base_row_kept_fraction=0.488372
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.370482
+top_frac=0.22
+egg_budget=0.416624
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 55 |
+| Val_Loss/Val_Acc: 0.513 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8630, 0.9810, 0.8860, 0.9200, 0.8820, 0.9810, 0.7830, 0.9810, 0.9760,
+        0.9650]) |
+| Poison Loss/Poison Acc: 0.078 / 0.985 |
+| Cumulative Poison Acc Mean: 0.619073 |
+ 18%|#8        | 55/300 [1:01:52<4:47:58, 70.53s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=56
+lambda_t=1.2
+host_norm=0.292709
+poison_norm=0.286906
+egg_raw_norm=0.170896
+egg_selected_norm=0.103714
+cuckoo_norm=0.350699
+cosine_host_cuckoo=0.941057
+cosine_host_poison=0.826387
+sign_agreement_host_cuckoo=0.950917
+sign_agreement_host_egg_kept=0.679253
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.415504
+target_row_kept_fraction=0.465116
+base_row_kept_fraction=0.263566
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.130479
+top_frac=0.22
+egg_budget=0.248813
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 56 |
+| Val_Loss/Val_Acc: 0.533 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8660, 0.9790, 0.8820, 0.9250, 0.8820, 0.9820, 0.7880, 0.9810, 0.9760,
+        0.9640]) |
+| Poison Loss/Poison Acc: 0.077 / 0.986 |
+| Cumulative Poison Acc Mean: 0.625625 |
+ 19%|#8        | 56/300 [1:03:03<4:46:31, 70.46s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=57
+lambda_t=1.2
+host_norm=0.215349
+poison_norm=0.222584
+egg_raw_norm=0.106522
+egg_selected_norm=0.064165
+cuckoo_norm=0.254037
+cosine_host_cuckoo=0.95958
+cosine_host_poison=0.882252
+sign_agreement_host_cuckoo=0.9777
+sign_agreement_host_egg_kept=0.805144
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.442636
+target_row_kept_fraction=0.511628
+base_row_kept_fraction=0.503876
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.075077
+top_frac=0.22
+egg_budget=0.183054
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 57 |
+| Val_Loss/Val_Acc: 0.538 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8700, 0.9790, 0.8830, 0.9270, 0.8830, 0.9820, 0.7800, 0.9770, 0.9760,
+        0.9680]) |
+| Poison Loss/Poison Acc: 0.083 / 0.984 |
+| Cumulative Poison Acc Mean: 0.631912 |
+ 19%|#9        | 57/300 [1:04:16<4:48:32, 71.24s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=58
+lambda_t=1.2
+host_norm=0.260705
+poison_norm=0.207653
+egg_raw_norm=0.158906
+egg_selected_norm=0.057753
+cuckoo_norm=0.286267
+cosine_host_cuckoo=0.972287
+cosine_host_poison=0.79284
+sign_agreement_host_cuckoo=0.958935
+sign_agreement_host_egg_kept=0.738425
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.462791
+target_row_kept_fraction=0.418605
+base_row_kept_fraction=0.449612
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.125653
+top_frac=0.22
+egg_budget=0.221609
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 58 |
+| Val_Loss/Val_Acc: 0.548 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8720, 0.9790, 0.8810, 0.9240, 0.8830, 0.9820, 0.7800, 0.9770, 0.9770,
+        0.9660]) |
+| Poison Loss/Poison Acc: 0.087 / 0.983 |
+| Cumulative Poison Acc Mean: 0.637966 |
+ 19%|#9        | 58/300 [1:05:30<4:50:48, 72.10s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=59
+lambda_t=1.2
+host_norm=0.300415
+poison_norm=0.200593
+egg_raw_norm=0.217037
+egg_selected_norm=0.058073
+cuckoo_norm=0.320488
+cosine_host_cuckoo=0.976962
+cosine_host_poison=0.691891
+sign_agreement_host_cuckoo=0.946609
+sign_agreement_host_egg_kept=0.687147
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.355039
+target_row_kept_fraction=0.387597
+base_row_kept_fraction=0.488372
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.179236
+top_frac=0.22
+egg_budget=0.255364
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 59 |
+| Val_Loss/Val_Acc: 0.558 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8720, 0.9790, 0.8820, 0.9270, 0.8850, 0.9820, 0.7780, 0.9780, 0.9770,
+        0.9640]) |
+| Poison Loss/Poison Acc: 0.086 / 0.983 |
+| Cumulative Poison Acc Mean: 0.643814 |
+ 20%|#9        | 59/300 [1:06:46<4:54:40, 73.36s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=60
+lambda_t=1.2
+host_norm=0.173997
+poison_norm=0.184894
+egg_raw_norm=0.092036
+egg_selected_norm=0.064404
+cuckoo_norm=0.214332
+cosine_host_cuckoo=0.941798
+cosine_host_poison=0.870259
+sign_agreement_host_cuckoo=0.976506
+sign_agreement_host_egg_kept=0.832465
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.406202
+target_row_kept_fraction=0.44186
+base_row_kept_fraction=0.449612
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.06399
+top_frac=0.22
+egg_budget=0.147903
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 60 |
+| Val_Loss/Val_Acc: 0.565 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8720, 0.9790, 0.8830, 0.9230, 0.8850, 0.9820, 0.7780, 0.9790, 0.9770,
+        0.9670]) |
+| Poison Loss/Poison Acc: 0.086 / 0.983 |
+| Cumulative Poison Acc Mean: 0.649467 |
+ 20%|##        | 60/300 [1:08:01<4:55:24, 73.85s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=61
+lambda_t=1.2
+host_norm=0.176107
+poison_norm=0.174335
+egg_raw_norm=0.081686
+egg_selected_norm=0.048477
+cuckoo_norm=0.203461
+cosine_host_cuckoo=0.963293
+cosine_host_poison=0.891449
+sign_agreement_host_cuckoo=0.979828
+sign_agreement_host_egg_kept=0.855221
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.410853
+target_row_kept_fraction=0.395349
+base_row_kept_fraction=0.387597
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.056049
+top_frac=0.22
+egg_budget=0.149697
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 61 |
+| Val_Loss/Val_Acc: 0.571 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8730, 0.9790, 0.8820, 0.9230, 0.8840, 0.9820, 0.7780, 0.9800, 0.9780,
+        0.9650]) |
+| Poison Loss/Poison Acc: 0.086 / 0.983 |
+| Cumulative Poison Acc Mean: 0.654934 |
+ 20%|##        | 61/300 [1:09:22<5:02:40, 75.99s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=62
+lambda_t=1.2
+host_norm=0.159334
+poison_norm=0.166463
+egg_raw_norm=0.067821
+egg_selected_norm=0.044486
+cuckoo_norm=0.187279
+cosine_host_cuckoo=0.965401
+cosine_host_poison=0.914314
+sign_agreement_host_cuckoo=0.998795
+sign_agreement_host_egg_kept=0.97202
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.467442
+target_row_kept_fraction=0.426357
+base_row_kept_fraction=0.364341
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.04724
+top_frac=0.22
+egg_budget=0.135439
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 62 |
+| Val_Loss/Val_Acc: 0.577 / 0.923 |
+| Val_Per_Class_Acc: tensor([0.8730, 0.9790, 0.8820, 0.9230, 0.8830, 0.9820, 0.7820, 0.9800, 0.9780,
+        0.9660]) |
+| Poison Loss/Poison Acc: 0.086 / 0.983 |
+| Cumulative Poison Acc Mean: 0.660226 |
+ 21%|##        | 62/300 [1:10:41<5:05:17, 76.96s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=63
+lambda_t=1.2
+host_norm=0.16372
+poison_norm=0.159759
+egg_raw_norm=0.068335
+egg_selected_norm=0.03944
+cuckoo_norm=0.184642
+cosine_host_cuckoo=0.97026
+cosine_host_poison=0.911099
+sign_agreement_host_cuckoo=0.968505
+sign_agreement_host_egg_kept=0.826407
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.370543
+target_row_kept_fraction=0.356589
+base_row_kept_fraction=0.434109
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.04884
+top_frac=0.22
+egg_budget=0.139167
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 63 |
+| Val_Loss/Val_Acc: 0.582 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8720, 0.9790, 0.8820, 0.9240, 0.8840, 0.9820, 0.7790, 0.9790, 0.9780,
+        0.9660]) |
+| Poison Loss/Poison Acc: 0.087 / 0.983 |
+| Cumulative Poison Acc Mean: 0.665349 |
+ 21%|##1       | 63/300 [1:12:01<5:06:55, 77.70s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=64
+lambda_t=1.2
+host_norm=0.14216
+poison_norm=0.145456
+egg_raw_norm=0.053668
+egg_selected_norm=0.033629
+cuckoo_norm=0.162059
+cosine_host_cuckoo=0.973317
+cosine_host_poison=0.930685
+sign_agreement_host_cuckoo=0.990109
+sign_agreement_host_egg_kept=0.895391
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.434884
+target_row_kept_fraction=0.387597
+base_row_kept_fraction=0.496124
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.035718
+top_frac=0.22
+egg_budget=0.12084
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 64 |
+| Val_Loss/Val_Acc: 0.588 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8710, 0.9790, 0.8800, 0.9230, 0.8840, 0.9820, 0.7820, 0.9790, 0.9770,
+        0.9670]) |
+| Poison Loss/Poison Acc: 0.087 / 0.984 |
+| Cumulative Poison Acc Mean: 0.670328 |
+ 21%|##1       | 64/300 [1:13:22<5:10:13, 78.87s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=65
+lambda_t=1.2
+host_norm=0.141508
+poison_norm=0.148162
+egg_raw_norm=0.059399
+egg_selected_norm=0.039527
+cuckoo_norm=0.166568
+cosine_host_cuckoo=0.96567
+cosine_host_poison=0.916979
+sign_agreement_host_cuckoo=0.991445
+sign_agreement_host_egg_kept=0.906464
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.46124
+target_row_kept_fraction=0.356589
+base_row_kept_fraction=0.426357
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.039083
+top_frac=0.22
+egg_budget=0.120286
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 65 |
+| Val_Loss/Val_Acc: 0.592 / 0.923 |
+| Val_Per_Class_Acc: tensor([0.8710, 0.9790, 0.8770, 0.9230, 0.8870, 0.9810, 0.7840, 0.9800, 0.9790,
+        0.9660]) |
+| Poison Loss/Poison Acc: 0.086 / 0.983 |
+| Cumulative Poison Acc Mean: 0.675138 |
+ 22%|##1       | 65/300 [1:14:43<5:11:39, 79.57s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=66
+lambda_t=1.2
+host_norm=0.142376
+poison_norm=0.136339
+egg_raw_norm=0.062805
+egg_selected_norm=0.036287
+cuckoo_norm=0.160911
+cosine_host_cuckoo=0.966181
+cosine_host_poison=0.899406
+sign_agreement_host_cuckoo=0.97538
+sign_agreement_host_egg_kept=0.855243
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.383721
+target_row_kept_fraction=0.434109
+base_row_kept_fraction=0.317829
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.044511
+top_frac=0.22
+egg_budget=0.121025
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 66 |
+| Val_Loss/Val_Acc: 0.596 / 0.923 |
+| Val_Per_Class_Acc: tensor([0.8720, 0.9790, 0.8810, 0.9230, 0.8860, 0.9820, 0.7810, 0.9790, 0.9780,
+        0.9660]) |
+| Poison Loss/Poison Acc: 0.087 / 0.984 |
+| Cumulative Poison Acc Mean: 0.679818 |
+ 22%|##2       | 66/300 [1:16:10<5:18:10, 81.59s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=67
+lambda_t=1.2
+host_norm=0.132228
+poison_norm=0.132661
+egg_raw_norm=0.050644
+egg_selected_norm=0.032386
+cuckoo_norm=0.150875
+cosine_host_cuckoo=0.970929
+cosine_host_poison=0.926967
+sign_agreement_host_cuckoo=0.981738
+sign_agreement_host_egg_kept=0.864786
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.428682
+target_row_kept_fraction=0.395349
+base_row_kept_fraction=0.364341
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.036385
+top_frac=0.22
+egg_budget=0.112398
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 67 |
+| Val_Loss/Val_Acc: 0.600 / 0.923 |
+| Val_Per_Class_Acc: tensor([0.8730, 0.9790, 0.8790, 0.9250, 0.8860, 0.9820, 0.7820, 0.9790, 0.9780,
+        0.9660]) |
+| Poison Loss/Poison Acc: 0.087 / 0.984 |
+| Cumulative Poison Acc Mean: 0.684358 |
+ 22%|##2       | 67/300 [1:17:34<5:20:12, 82.46s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=68
+lambda_t=1.2
+host_norm=0.138359
+poison_norm=0.129189
+egg_raw_norm=0.059115
+egg_selected_norm=0.029151
+cuckoo_norm=0.15384
+cosine_host_cuckoo=0.976962
+cosine_host_poison=0.904666
+sign_agreement_host_cuckoo=0.965464
+sign_agreement_host_egg_kept=0.78438
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.425581
+target_row_kept_fraction=0.44186
+base_row_kept_fraction=0.348837
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.044264
+top_frac=0.22
+egg_budget=0.117609
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 68 |
+| Val_Loss/Val_Acc: 0.605 / 0.923 |
+| Val_Per_Class_Acc: tensor([0.8730, 0.9790, 0.8790, 0.9240, 0.8860, 0.9820, 0.7790, 0.9790, 0.9790,
+        0.9660]) |
+| Poison Loss/Poison Acc: 0.087 / 0.984 |
+| Cumulative Poison Acc Mean: 0.688765 |
+ 23%|##2       | 68/300 [1:19:00<5:22:49, 83.49s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=69
+lambda_t=1.2
+host_norm=0.12351
+poison_norm=0.127323
+egg_raw_norm=0.043409
+egg_selected_norm=0.029506
+cuckoo_norm=0.141749
+cosine_host_cuckoo=0.973765
+cosine_host_poison=0.94062
+sign_agreement_host_cuckoo=0.99786
+sign_agreement_host_egg_kept=0.97277
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.428682
+target_row_kept_fraction=0.48062
+base_row_kept_fraction=0.379845
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.030676
+top_frac=0.22
+egg_budget=0.104987
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 69 |
+| Val_Loss/Val_Acc: 0.609 / 0.923 |
+| Val_Per_Class_Acc: tensor([0.8720, 0.9790, 0.8790, 0.9240, 0.8860, 0.9820, 0.7810, 0.9790, 0.9790,
+        0.9660]) |
+| Poison Loss/Poison Acc: 0.088 / 0.985 |
+| Cumulative Poison Acc Mean: 0.693058 |
+ 23%|##3       | 69/300 [1:20:29<5:27:05, 84.96s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=70
+lambda_t=1.2
+host_norm=0.122606
+poison_norm=0.117112
+egg_raw_norm=0.040468
+egg_selected_norm=0.021374
+cuckoo_norm=0.133547
+cosine_host_cuckoo=0.983639
+cosine_host_poison=0.944094
+sign_agreement_host_cuckoo=0.98151
+sign_agreement_host_egg_kept=0.860945
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.410078
+target_row_kept_fraction=0.364341
+base_row_kept_fraction=0.403101
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.031066
+top_frac=0.22
+egg_budget=0.104219
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 70 |
+| Val_Loss/Val_Acc: 0.612 / 0.923 |
+| Val_Per_Class_Acc: tensor([0.8720, 0.9790, 0.8790, 0.9240, 0.8860, 0.9820, 0.7820, 0.9790, 0.9780,
+        0.9660]) |
+| Poison Loss/Poison Acc: 0.088 / 0.984 |
+| Cumulative Poison Acc Mean: 0.697214 |
+ 23%|##3       | 70/300 [1:21:59<5:32:15, 86.68s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=71
+lambda_t=1.2
+host_norm=0.126462
+poison_norm=0.117993
+egg_raw_norm=0.041313
+egg_selected_norm=0.019892
+cuckoo_norm=0.135861
+cosine_host_cuckoo=0.986061
+cosine_host_poison=0.945283
+sign_agreement_host_cuckoo=0.981939
+sign_agreement_host_egg_kept=0.852213
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.417829
+target_row_kept_fraction=0.348837
+base_row_kept_fraction=0.410853
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.031848
+top_frac=0.22
+egg_budget=0.107497
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 71 |
+| Val_Loss/Val_Acc: 0.615 / 0.923 |
+| Val_Per_Class_Acc: tensor([0.8740, 0.9790, 0.8790, 0.9240, 0.8840, 0.9820, 0.7810, 0.9780, 0.9790,
+        0.9660]) |
+| Poison Loss/Poison Acc: 0.090 / 0.984 |
+| Cumulative Poison Acc Mean: 0.701254 |
+ 24%|##3       | 71/300 [1:23:29<5:33:59, 87.51s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=72
+lambda_t=1.2
+host_norm=0.115225
+poison_norm=0.122922
+egg_raw_norm=0.042817
+egg_selected_norm=0.030068
+cuckoo_norm=0.135203
+cosine_host_cuckoo=0.971092
+cosine_host_poison=0.93744
+sign_agreement_host_cuckoo=0.99151
+sign_agreement_host_egg_kept=0.894706
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.454264
+target_row_kept_fraction=0.387597
+base_row_kept_fraction=0.426357
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.025971
+top_frac=0.22
+egg_budget=0.097945
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 72 |
+| Val_Loss/Val_Acc: 0.619 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8740, 0.9790, 0.8790, 0.9240, 0.8830, 0.9820, 0.7800, 0.9770, 0.9790,
+        0.9660]) |
+| Poison Loss/Poison Acc: 0.089 / 0.984 |
+| Cumulative Poison Acc Mean: 0.705181 |
+ 24%|##4       | 72/300 [1:25:02<5:38:59, 89.21s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=73
+lambda_t=1.2
+host_norm=0.112719
+poison_norm=0.114432
+egg_raw_norm=0.038834
+egg_selected_norm=0.024874
+cuckoo_norm=0.126872
+cosine_host_cuckoo=0.975919
+cosine_host_poison=0.941719
+sign_agreement_host_cuckoo=0.979141
+sign_agreement_host_egg_kept=0.846288
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.376744
+target_row_kept_fraction=0.310078
+base_row_kept_fraction=0.310078
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.02615
+top_frac=0.22
+egg_budget=0.095815
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 73 |
+| Val_Loss/Val_Acc: 0.622 / 0.923 |
+| Val_Per_Class_Acc: tensor([0.8740, 0.9790, 0.8790, 0.9240, 0.8850, 0.9820, 0.7810, 0.9800, 0.9790,
+        0.9660]) |
+| Poison Loss/Poison Acc: 0.089 / 0.984 |
+| Cumulative Poison Acc Mean: 0.709000 |
+ 24%|##4       | 73/300 [1:26:35<5:42:29, 90.53s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=74
+lambda_t=1.2
+host_norm=0.108895
+poison_norm=0.108962
+egg_raw_norm=0.035329
+egg_selected_norm=0.021974
+cuckoo_norm=0.121447
+cosine_host_cuckoo=0.979736
+cosine_host_poison=0.947471
+sign_agreement_host_cuckoo=0.996981
+sign_agreement_host_egg_kept=0.971008
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.468992
+target_row_kept_fraction=0.387597
+base_row_kept_fraction=0.410853
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.024205
+top_frac=0.22
+egg_budget=0.092564
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 74 |
+| Val_Loss/Val_Acc: 0.625 / 0.923 |
+| Val_Per_Class_Acc: tensor([0.8730, 0.9790, 0.8790, 0.9240, 0.8840, 0.9820, 0.7810, 0.9790, 0.9790,
+        0.9660]) |
+| Poison Loss/Poison Acc: 0.090 / 0.984 |
+| Cumulative Poison Acc Mean: 0.712716 |
+ 25%|##4       | 74/300 [1:28:09<5:44:08, 91.36s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=75
+lambda_t=1.2
+host_norm=0.103946
+poison_norm=0.10487
+egg_raw_norm=0.02874
+egg_selected_norm=0.018601
+cuckoo_norm=0.114377
+cosine_host_cuckoo=0.983689
+cosine_host_poison=0.962224
+sign_agreement_host_cuckoo=0.984272
+sign_agreement_host_egg_kept=0.865835
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.404651
+target_row_kept_fraction=0.302326
+base_row_kept_fraction=0.356589
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.019471
+top_frac=0.22
+egg_budget=0.088357
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 75 |
+| Val_Loss/Val_Acc: 0.628 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8730, 0.9790, 0.8800, 0.9240, 0.8830, 0.9820, 0.7820, 0.9770, 0.9790,
+        0.9660]) |
+| Poison Loss/Poison Acc: 0.090 / 0.984 |
+| Cumulative Poison Acc Mean: 0.716333 |
+ 25%|##5       | 75/300 [1:29:40<5:42:53, 91.44s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=76
+lambda_t=1.2
+host_norm=0.102178
+poison_norm=0.103843
+egg_raw_norm=0.031411
+egg_selected_norm=0.020424
+cuckoo_norm=0.114095
+cosine_host_cuckoo=0.980395
+cosine_host_poison=0.953703
+sign_agreement_host_cuckoo=0.989576
+sign_agreement_host_egg_kept=0.861839
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.455814
+target_row_kept_fraction=0.387597
+base_row_kept_fraction=0.457364
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.020934
+top_frac=0.22
+egg_budget=0.086855
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 76 |
+| Val_Loss/Val_Acc: 0.631 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8740, 0.9790, 0.8800, 0.9240, 0.8820, 0.9820, 0.7810, 0.9780, 0.9790,
+        0.9660]) |
+| Poison Loss/Poison Acc: 0.090 / 0.984 |
+| Cumulative Poison Acc Mean: 0.719855 |
+ 25%|##5       | 76/300 [1:32:03<6:38:11, 106.66s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=77
+lambda_t=1.2
+host_norm=0.101167
+poison_norm=0.10246
+egg_raw_norm=0.035077
+egg_selected_norm=0.023403
+cuckoo_norm=0.114889
+cosine_host_cuckoo=0.974238
+cosine_host_poison=0.940798
+sign_agreement_host_cuckoo=0.996633
+sign_agreement_host_egg_kept=0.949075
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.444186
+target_row_kept_fraction=0.472868
+base_row_kept_fraction=0.364341
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.022523
+top_frac=0.22
+egg_budget=0.085995
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 77 |
+| Val_Loss/Val_Acc: 0.634 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8730, 0.9790, 0.8790, 0.9240, 0.8820, 0.9820, 0.7830, 0.9780, 0.9790,
+        0.9660]) |
+| Poison Loss/Poison Acc: 0.090 / 0.984 |
+| Cumulative Poison Acc Mean: 0.723286 |
+ 26%|##5       | 77/300 [1:33:38<6:24:28, 103.45s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=78
+lambda_t=1.2
+host_norm=0.097036
+poison_norm=0.095601
+egg_raw_norm=0.030081
+egg_selected_norm=0.018562
+cuckoo_norm=0.106946
+cosine_host_cuckoo=0.980897
+cosine_host_poison=0.95141
+sign_agreement_host_cuckoo=0.978842
+sign_agreement_host_egg_kept=0.827199
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.452713
+target_row_kept_fraction=0.372093
+base_row_kept_fraction=0.449612
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.021335
+top_frac=0.22
+egg_budget=0.082484
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 78 |
+| Val_Loss/Val_Acc: 0.637 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8730, 0.9790, 0.8800, 0.9240, 0.8820, 0.9820, 0.7820, 0.9770, 0.9790,
+        0.9660]) |
+| Poison Loss/Poison Acc: 0.091 / 0.984 |
+| Cumulative Poison Acc Mean: 0.726628 |
+ 26%|##6       | 78/300 [1:35:17<6:17:37, 102.06s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=79
+lambda_t=1.2
+host_norm=0.093206
+poison_norm=0.09445
+egg_raw_norm=0.028865
+egg_selected_norm=0.017554
+cuckoo_norm=0.103767
+cosine_host_cuckoo=0.982893
+cosine_host_poison=0.952835
+sign_agreement_host_cuckoo=0.988867
+sign_agreement_host_egg_kept=0.924106
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.387597
+target_row_kept_fraction=0.232558
+base_row_kept_fraction=0.333333
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.019139
+top_frac=0.22
+egg_budget=0.079228
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 79 |
+| Val_Loss/Val_Acc: 0.640 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8730, 0.9790, 0.8800, 0.9240, 0.8810, 0.9820, 0.7800, 0.9770, 0.9790,
+        0.9660]) |
+| Poison Loss/Poison Acc: 0.091 / 0.984 |
+| Cumulative Poison Acc Mean: 0.729886 |
+ 26%|##6       | 79/300 [1:36:53<6:09:01, 100.19s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=80
+lambda_t=1.2
+host_norm=0.09428
+poison_norm=0.09277
+egg_raw_norm=0.032641
+egg_selected_norm=0.019509
+cuckoo_norm=0.104735
+cosine_host_cuckoo=0.977851
+cosine_host_poison=0.939294
+sign_agreement_host_cuckoo=0.982516
+sign_agreement_host_egg_kept=0.913738
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.417829
+target_row_kept_fraction=0.263566
+base_row_kept_fraction=0.348837
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.023652
+top_frac=0.22
+egg_budget=0.080141
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 80 |
+| Val_Loss/Val_Acc: 0.642 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8730, 0.9790, 0.8800, 0.9230, 0.8840, 0.9820, 0.7810, 0.9770, 0.9790,
+        0.9660]) |
+| Poison Loss/Poison Acc: 0.090 / 0.985 |
+| Cumulative Poison Acc Mean: 0.733075 |
+ 27%|##6       | 80/300 [1:38:33<6:06:34, 99.97s/it] CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=81
+lambda_t=1.2
+host_norm=0.093196
+poison_norm=0.091753
+egg_raw_norm=0.024063
+egg_selected_norm=0.014495
+cuckoo_norm=0.100815
+cosine_host_cuckoo=0.987057
+cosine_host_poison=0.966335
+sign_agreement_host_cuckoo=0.987756
+sign_agreement_host_egg_kept=0.869957
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.43876
+target_row_kept_fraction=0.341085
+base_row_kept_fraction=0.356589
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.017488
+top_frac=0.22
+egg_budget=0.07922
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 81 |
+| Val_Loss/Val_Acc: 0.645 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8720, 0.9790, 0.8800, 0.9230, 0.8830, 0.9820, 0.7810, 0.9760, 0.9790,
+        0.9660]) |
+| Poison Loss/Poison Acc: 0.091 / 0.985 |
+| Cumulative Poison Acc Mean: 0.736185 |
+ 27%|##7       | 81/300 [1:40:11<6:03:00, 99.46s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=82
+lambda_t=1.2
+host_norm=0.089379
+poison_norm=0.087703
+egg_raw_norm=0.028966
+egg_selected_norm=0.016316
+cuckoo_norm=0.098357
+cosine_host_cuckoo=0.982851
+cosine_host_poison=0.946734
+sign_agreement_host_cuckoo=0.97865
+sign_agreement_host_egg_kept=0.853683
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.424806
+target_row_kept_fraction=0.333333
+base_row_kept_fraction=0.403101
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.02078
+top_frac=0.22
+egg_budget=0.075975
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 82 |
+| Val_Loss/Val_Acc: 0.647 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8730, 0.9790, 0.8790, 0.9230, 0.8830, 0.9820, 0.7810, 0.9760, 0.9790,
+        0.9660]) |
+| Poison Loss/Poison Acc: 0.091 / 0.984 |
+| Cumulative Poison Acc Mean: 0.739207 |
+ 27%|##7       | 82/300 [1:41:50<6:01:10, 99.40s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=83
+lambda_t=1.2
+host_norm=0.087083
+poison_norm=0.088126
+egg_raw_norm=0.019942
+egg_selected_norm=0.012996
+cuckoo_norm=0.094327
+cosine_host_cuckoo=0.988461
+cosine_host_poison=0.974233
+sign_agreement_host_cuckoo=0.991959
+sign_agreement_host_egg_kept=0.91939
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.393023
+target_row_kept_fraction=0.317829
+base_row_kept_fraction=0.341085
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.013493
+top_frac=0.22
+egg_budget=0.074024
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 83 |
+| Val_Loss/Val_Acc: 0.650 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8730, 0.9790, 0.8790, 0.9230, 0.8830, 0.9820, 0.7810, 0.9760, 0.9790,
+        0.9680]) |
+| Poison Loss/Poison Acc: 0.092 / 0.985 |
+| Cumulative Poison Acc Mean: 0.742169 |
+ 28%|##7       | 83/300 [1:43:33<6:03:09, 100.41s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=84
+lambda_t=1.2
+host_norm=0.090281
+poison_norm=0.085331
+egg_raw_norm=0.026679
+egg_selected_norm=0.013062
+cuckoo_norm=0.096676
+cosine_host_cuckoo=0.988339
+cosine_host_poison=0.955462
+sign_agreement_host_cuckoo=0.985631
+sign_agreement_host_egg_kept=0.890626
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.41938
+target_row_kept_fraction=0.302326
+base_row_kept_fraction=0.333333
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.020242
+top_frac=0.22
+egg_budget=0.076742
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 84 |
+| Val_Loss/Val_Acc: 0.652 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8720, 0.9790, 0.8790, 0.9230, 0.8830, 0.9820, 0.7800, 0.9760, 0.9790,
+        0.9670]) |
+| Poison Loss/Poison Acc: 0.092 / 0.985 |
+| Cumulative Poison Acc Mean: 0.745060 |
+ 28%|##8       | 84/300 [1:45:18<6:06:14, 101.73s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=85
+lambda_t=1.2
+host_norm=0.085371
+poison_norm=0.085476
+egg_raw_norm=0.025986
+egg_selected_norm=0.015523
+cuckoo_norm=0.09432
+cosine_host_cuckoo=0.983493
+cosine_host_poison=0.953802
+sign_agreement_host_cuckoo=0.989784
+sign_agreement_host_egg_kept=0.929254
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.374419
+target_row_kept_fraction=0.317829
+base_row_kept_fraction=0.325581
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.017246
+top_frac=0.22
+egg_budget=0.072568
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 85 |
+| Val_Loss/Val_Acc: 0.655 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8720, 0.9790, 0.8790, 0.9230, 0.8840, 0.9820, 0.7820, 0.9750, 0.9790,
+        0.9680]) |
+| Poison Loss/Poison Acc: 0.093 / 0.984 |
+| Cumulative Poison Acc Mean: 0.747871 |
+ 28%|##8       | 85/300 [1:47:02<6:06:58, 102.41s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=86
+lambda_t=1.2
+host_norm=0.081402
+poison_norm=0.087547
+egg_raw_norm=0.027227
+egg_selected_norm=0.020196
+cuckoo_norm=0.094558
+cosine_host_cuckoo=0.973157
+cosine_host_poison=0.950706
+sign_agreement_host_cuckoo=0.990056
+sign_agreement_host_egg_kept=0.890667
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.426357
+target_row_kept_fraction=0.341085
+base_row_kept_fraction=0.364341
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.015586
+top_frac=0.22
+egg_budget=0.069194
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 86 |
+| Val_Loss/Val_Acc: 0.656 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8730, 0.9790, 0.8790, 0.9230, 0.8820, 0.9820, 0.7800, 0.9760, 0.9790,
+        0.9680]) |
+| Poison Loss/Poison Acc: 0.092 / 0.985 |
+| Cumulative Poison Acc Mean: 0.750628 |
+ 29%|##8       | 86/300 [1:48:48<6:09:33, 103.61s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=87
+lambda_t=1.2
+host_norm=0.082242
+poison_norm=0.08003
+egg_raw_norm=0.019568
+egg_selected_norm=0.010969
+cuckoo_norm=0.087796
+cosine_host_cuckoo=0.990205
+cosine_host_poison=0.97135
+sign_agreement_host_cuckoo=0.976511
+sign_agreement_host_egg_kept=0.83018
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.403101
+target_row_kept_fraction=0.341085
+base_row_kept_fraction=0.372093
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.014063
+top_frac=0.22
+egg_budget=0.069908
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 87 |
+| Val_Loss/Val_Acc: 0.659 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8720, 0.9790, 0.8790, 0.9220, 0.8830, 0.9820, 0.7800, 0.9760, 0.9790,
+        0.9680]) |
+| Poison Loss/Poison Acc: 0.093 / 0.985 |
+| Cumulative Poison Acc Mean: 0.753322 |
+ 29%|##9       | 87/300 [1:50:35<6:10:53, 104.48s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=88
+lambda_t=1.2
+host_norm=0.079759
+poison_norm=0.079464
+egg_raw_norm=0.01672
+egg_selected_norm=0.010231
+cuckoo_norm=0.085231
+cosine_host_cuckoo=0.991183
+cosine_host_poison=0.978019
+sign_agreement_host_cuckoo=0.999807
+sign_agreement_host_egg_kept=0.982563
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.417829
+target_row_kept_fraction=0.325581
+base_row_kept_fraction=0.356589
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.011797
+top_frac=0.22
+egg_budget=0.067798
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 88 |
+| Val_Loss/Val_Acc: 0.661 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8740, 0.9790, 0.8790, 0.9220, 0.8830, 0.9820, 0.7790, 0.9750, 0.9790,
+        0.9680]) |
+| Poison Loss/Poison Acc: 0.093 / 0.985 |
+| Cumulative Poison Acc Mean: 0.755955 |
+ 29%|##9       | 88/300 [1:52:23<6:13:34, 105.73s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=89
+lambda_t=1.2
+host_norm=0.078984
+poison_norm=0.081844
+egg_raw_norm=0.020837
+egg_selected_norm=0.01442
+cuckoo_norm=0.088425
+cosine_host_cuckoo=0.985013
+cosine_host_poison=0.967115
+sign_agreement_host_cuckoo=0.998145
+sign_agreement_host_egg_kept=0.942733
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.442636
+target_row_kept_fraction=0.372093
+base_row_kept_fraction=0.379845
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.013166
+top_frac=0.22
+egg_budget=0.067139
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 89 |
+| Val_Loss/Val_Acc: 0.663 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8710, 0.9790, 0.8790, 0.9220, 0.8820, 0.9820, 0.7800, 0.9760, 0.9790,
+        0.9680]) |
+| Poison Loss/Poison Acc: 0.093 / 0.985 |
+| Cumulative Poison Acc Mean: 0.758528 |
+ 30%|##9       | 89/300 [1:54:13<6:15:50, 106.88s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=90
+lambda_t=1.2
+host_norm=0.079346
+poison_norm=0.079779
+egg_raw_norm=0.022621
+egg_selected_norm=0.015146
+cuckoo_norm=0.088013
+cosine_host_cuckoo=0.981797
+cosine_host_poison=0.959664
+sign_agreement_host_cuckoo=0.992153
+sign_agreement_host_egg_kept=0.926925
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.44031
+target_row_kept_fraction=0.379845
+base_row_kept_fraction=0.426357
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.015075
+top_frac=0.22
+egg_budget=0.067447
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 90 |
+| Val_Loss/Val_Acc: 0.665 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8720, 0.9790, 0.8790, 0.9230, 0.8820, 0.9820, 0.7790, 0.9760, 0.9790,
+        0.9680]) |
+| Poison Loss/Poison Acc: 0.093 / 0.985 |
+| Cumulative Poison Acc Mean: 0.761044 |
+ 30%|###       | 90/300 [1:55:59<6:13:43, 106.78s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=91
+lambda_t=1.2
+host_norm=0.076659
+poison_norm=0.075406
+egg_raw_norm=0.01957
+egg_selected_norm=0.011556
+cuckoo_norm=0.082967
+cosine_host_cuckoo=0.988079
+cosine_host_poison=0.967078
+sign_agreement_host_cuckoo=0.987279
+sign_agreement_host_egg_kept=0.913681
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.394574
+target_row_kept_fraction=0.317829
+base_row_kept_fraction=0.387597
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.014455
+top_frac=0.22
+egg_budget=0.065163
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 91 |
+| Val_Loss/Val_Acc: 0.667 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8720, 0.9790, 0.8790, 0.9230, 0.8830, 0.9820, 0.7790, 0.9750, 0.9790,
+        0.9670]) |
+| Poison Loss/Poison Acc: 0.093 / 0.985 |
+| Cumulative Poison Acc Mean: 0.763505 |
+ 30%|###       | 91/300 [1:57:48<6:14:22, 107.47s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=92
+lambda_t=1.2
+host_norm=0.074272
+poison_norm=0.074474
+egg_raw_norm=0.021612
+egg_selected_norm=0.013629
+cuckoo_norm=0.082105
+cosine_host_cuckoo=0.983165
+cosine_host_poison=0.957849
+sign_agreement_host_cuckoo=0.99277
+sign_agreement_host_egg_kept=0.927603
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.42093
+target_row_kept_fraction=0.271318
+base_row_kept_fraction=0.387597
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.014799
+top_frac=0.22
+egg_budget=0.063134
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 92 |
+| Val_Loss/Val_Acc: 0.669 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8730, 0.9790, 0.8790, 0.9230, 0.8810, 0.9820, 0.7780, 0.9750, 0.9790,
+        0.9680]) |
+| Poison Loss/Poison Acc: 0.093 / 0.985 |
+| Cumulative Poison Acc Mean: 0.765913 |
+ 31%|###       | 92/300 [1:59:37<6:13:55, 107.86s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=93
+lambda_t=1.2
+host_norm=0.074507
+poison_norm=0.07144
+egg_raw_norm=0.018209
+egg_selected_norm=0.009519
+cuckoo_norm=0.078956
+cosine_host_cuckoo=0.99066
+cosine_host_poison=0.969806
+sign_agreement_host_cuckoo=0.977432
+sign_agreement_host_egg_kept=0.887595
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.368217
+target_row_kept_fraction=0.209302
+base_row_kept_fraction=0.302326
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.014089
+top_frac=0.22
+egg_budget=0.063333
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 93 |
+| Val_Loss/Val_Acc: 0.671 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8720, 0.9790, 0.8790, 0.9220, 0.8830, 0.9820, 0.7820, 0.9750, 0.9790,
+        0.9680]) |
+| Poison Loss/Poison Acc: 0.093 / 0.985 |
+| Cumulative Poison Acc Mean: 0.768269 |
+ 31%|###1      | 93/300 [2:01:29<6:16:13, 109.05s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=94
+lambda_t=1.2
+host_norm=0.072112
+poison_norm=0.071383
+egg_raw_norm=0.016732
+egg_selected_norm=0.009963
+cuckoo_norm=0.07714
+cosine_host_cuckoo=0.989494
+cosine_host_poison=0.972928
+sign_agreement_host_cuckoo=0.993459
+sign_agreement_host_egg_kept=0.927947
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.425581
+target_row_kept_fraction=0.217054
+base_row_kept_fraction=0.403101
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.011649
+top_frac=0.22
+egg_budget=0.061298
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 94 |
+| Val_Loss/Val_Acc: 0.673 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8720, 0.9790, 0.8790, 0.9220, 0.8810, 0.9820, 0.7810, 0.9750, 0.9790,
+        0.9670]) |
+| Poison Loss/Poison Acc: 0.093 / 0.985 |
+| Cumulative Poison Acc Mean: 0.770574 |
+ 31%|###1      | 94/300 [2:03:19<6:15:18, 109.31s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=95
+lambda_t=1.2
+host_norm=0.071712
+poison_norm=0.072506
+egg_raw_norm=0.018263
+egg_selected_norm=0.011442
+cuckoo_norm=0.078673
+cosine_host_cuckoo=0.987652
+cosine_host_poison=0.968054
+sign_agreement_host_cuckoo=0.999947
+sign_agreement_host_egg_kept=0.98576
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.450388
+target_row_kept_fraction=0.294574
+base_row_kept_fraction=0.379845
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.012766
+top_frac=0.22
+egg_budget=0.060957
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 95 |
+| Val_Loss/Val_Acc: 0.675 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8730, 0.9790, 0.8790, 0.9220, 0.8810, 0.9820, 0.7780, 0.9750, 0.9790,
+        0.9680]) |
+| Poison Loss/Poison Acc: 0.094 / 0.985 |
+| Cumulative Poison Acc Mean: 0.772832 |
+ 32%|###1      | 95/300 [2:05:11<6:15:58, 110.04s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=96
+lambda_t=1.2
+host_norm=0.068774
+poison_norm=0.071284
+egg_raw_norm=0.017409
+egg_selected_norm=0.011665
+cuckoo_norm=0.076438
+cosine_host_cuckoo=0.987016
+cosine_host_poison=0.969803
+sign_agreement_host_cuckoo=0.999357
+sign_agreement_host_egg_kept=0.936816
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.437209
+target_row_kept_fraction=0.255814
+base_row_kept_fraction=0.372093
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.011225
+top_frac=0.22
+egg_budget=0.05846
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 96 |
+| Val_Loss/Val_Acc: 0.676 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8720, 0.9790, 0.8790, 0.9220, 0.8810, 0.9820, 0.7800, 0.9750, 0.9790,
+        0.9680]) |
+| Poison Loss/Poison Acc: 0.094 / 0.985 |
+| Cumulative Poison Acc Mean: 0.775042 |
+ 32%|###2      | 96/300 [2:07:01<6:14:15, 110.08s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=97
+lambda_t=1.2
+host_norm=0.067326
+poison_norm=0.067482
+egg_raw_norm=0.018409
+egg_selected_norm=0.012183
+cuckoo_norm=0.074318
+cosine_host_cuckoo=0.983595
+cosine_host_poison=0.962778
+sign_agreement_host_cuckoo=0.999948
+sign_agreement_host_egg_kept=0.997909
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.445736
+target_row_kept_fraction=0.317829
+base_row_kept_fraction=0.403101
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.012383
+top_frac=0.22
+egg_budget=0.057229
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 97 |
+| Val_Loss/Val_Acc: 0.678 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8710, 0.9790, 0.8790, 0.9220, 0.8810, 0.9820, 0.7810, 0.9750, 0.9790,
+        0.9680]) |
+| Poison Loss/Poison Acc: 0.094 / 0.985 |
+| Cumulative Poison Acc Mean: 0.777206 |
+ 32%|###2      | 97/300 [2:08:50<6:11:29, 109.80s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=98
+lambda_t=1.2
+host_norm=0.067671
+poison_norm=0.0678
+egg_raw_norm=0.016126
+egg_selected_norm=0.0103
+cuckoo_norm=0.073499
+cosine_host_cuckoo=0.988122
+cosine_host_poison=0.97173
+sign_agreement_host_cuckoo=0.984993
+sign_agreement_host_egg_kept=0.864699
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.434109
+target_row_kept_fraction=0.341085
+base_row_kept_fraction=0.372093
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.011224
+top_frac=0.22
+egg_budget=0.057522
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 98 |
+| Val_Loss/Val_Acc: 0.680 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8720, 0.9790, 0.8790, 0.9220, 0.8810, 0.9820, 0.7810, 0.9750, 0.9790,
+        0.9670]) |
+| Poison Loss/Poison Acc: 0.094 / 0.985 |
+| Cumulative Poison Acc Mean: 0.779327 |
+ 33%|###2      | 98/300 [2:10:41<6:11:07, 110.24s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=99
+lambda_t=1.2
+host_norm=0.067251
+poison_norm=0.066079
+egg_raw_norm=0.018531
+egg_selected_norm=0.011792
+cuckoo_norm=0.073163
+cosine_host_cuckoo=0.983269
+cosine_host_poison=0.961587
+sign_agreement_host_cuckoo=0.986711
+sign_agreement_host_egg_kept=0.904919
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.411628
+target_row_kept_fraction=0.317829
+base_row_kept_fraction=0.379845
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.012982
+top_frac=0.22
+egg_budget=0.057166
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 99 |
+| Val_Loss/Val_Acc: 0.682 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8710, 0.9790, 0.8790, 0.9210, 0.8810, 0.9820, 0.7810, 0.9750, 0.9790,
+        0.9680]) |
+| Poison Loss/Poison Acc: 0.095 / 0.985 |
+| Cumulative Poison Acc Mean: 0.781404 |
+ 33%|###3      | 99/300 [2:12:36<6:13:19, 111.44s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=100
+lambda_t=1.2
+host_norm=0.064073
+poison_norm=0.064867
+egg_raw_norm=0.01647
+egg_selected_norm=0.011222
+cuckoo_norm=0.070632
+cosine_host_cuckoo=0.984787
+cosine_host_poison=0.967515
+sign_agreement_host_cuckoo=0.989461
+sign_agreement_host_egg_kept=0.914469
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.395349
+target_row_kept_fraction=0.232558
+base_row_kept_fraction=0.317829
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.011303
+top_frac=0.22
+egg_budget=0.054464
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 100 |
+| Val_Loss/Val_Acc: 0.683 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8730, 0.9790, 0.8790, 0.9220, 0.8810, 0.9820, 0.7790, 0.9750, 0.9790,
+        0.9670]) |
+| Poison Loss/Poison Acc: 0.094 / 0.985 |
+| Cumulative Poison Acc Mean: 0.783440 |
+ 33%|###3      | 100/300 [2:14:29<6:13:17, 111.99s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=101
+lambda_t=1.2
+host_norm=0.064281
+poison_norm=0.063842
+egg_raw_norm=0.017476
+egg_selected_norm=0.011626
+cuckoo_norm=0.070343
+cosine_host_cuckoo=0.982609
+cosine_host_poison=0.962884
+sign_agreement_host_cuckoo=0.978195
+sign_agreement_host_egg_kept=0.868938
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.370543
+target_row_kept_fraction=0.294574
+base_row_kept_fraction=0.387597
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.011489
+top_frac=0.22
+egg_budget=0.054641
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+| Round: 101 |
+| Val_Loss/Val_Acc: 0.685 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8710, 0.9790, 0.8800, 0.9210, 0.8810, 0.9820, 0.7800, 0.9750, 0.9790,
+        0.9680]) |
+| Poison Loss/Poison Acc: 0.095 / 0.985 |
+| Cumulative Poison Acc Mean: 0.785436 |
+ 34%|###3      | 101/300 [2:16:25<6:15:14, 113.14s/it]CUCKOO_V1_BIOLOGY_NEST_START
+framework=Cuckoo Version 1 - Biology Nest Egg
+agent_id=0
+round=102
+lambda_t=1.2
+host_norm=0.06434
+poison_norm=0.064756
+egg_raw_norm=0.015068
+egg_selected_norm=0.00931
+cuckoo_norm=0.069822
+cosine_host_cuckoo=0.989521
+cosine_host_poison=0.972847
+sign_agreement_host_cuckoo=0.978293
+sign_agreement_host_egg_kept=0.86465
+kept_coordinates=263974
+kept_fraction=0.22
+classifier_kept_fraction=0.4
+target_row_kept_fraction=0.317829
+base_row_kept_fraction=0.348837
+norm_cap=1.4
+norm_cap_applied=False
+min_cosine=0.15
+cosine_repair_steps=0
+memory_enabled=True
+memory_norm=0.01049
+top_frac=0.22
+egg_budget=0.054691
+row_focus=target_base
+CUCKOO_V1_BIOLOGY_NEST_PROOF: clean host/nest update is used; poisoned egg residual is hidden under norm, sign, and cosine shells.
+CUCKOO_V1_BIOLOGY_NEST_END
+ 34%|###3      | 101/300 [2:17:53<4:31:40, 81.91s/it] 
+Traceback (most recent call last):
+  File "H:\Thesis_final -nn1\federated.py", line 86, in <module>
+    update = agents[agent_id].local_train(global_model, criterion, cur_round=rnd)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "H:\Thesis_final -nn1\agent.py", line 82, in local_train
+    return self._train_one_update(global_model, criterion, self.train_loader, allow_pgd=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "H:\Thesis_final -nn1\agent.py", line 67, in _train_one_update
+    loss.backward()
+  File "C:\Users\akiel\AppData\Roaming\Python\Python311\site-packages\torch\_tensor.py", line 631, in backward
+    torch.autograd.backward(
+  File "C:\Users\akiel\AppData\Roaming\Python\Python311\site-packages\torch\autograd\__init__.py", line 379, in backward
+    _engine_run_backward(
+  File "C:\Users\akiel\AppData\Roaming\Python\Python311\site-packages\torch\autograd\graph.py", line 882, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
