@@ -1,0 +1,2 @@
+mkdir output_logs 2>nul
+python -u federated.py --data=fmnist --device=cpu --local_ep=2 --bs=1024 --num_agents=10 --rounds=100 --snap=1 --num_corrupt=1 --poison_frac=0.10 --base_class=5 --target_class=7 --clean_label=1 --clean_label_type=4 --clean_label_pgd=1 --pgd_steps=5 --pattern_type=plus --robustLR_threshold=4 --cuckoo=1 --cuckoo_variant=v1_biology_nest --cuckoo_v1_lambda=1.20 --cuckoo_v1_hatch_round=8 --cuckoo_v1_warmup_rounds=20 --cuckoo_v1_top_frac=0.22 --cuckoo_v1_egg_budget_mult=0.85 --cuckoo_v1_norm_cap=1.40 --cuckoo_v1_min_cosine=0.15

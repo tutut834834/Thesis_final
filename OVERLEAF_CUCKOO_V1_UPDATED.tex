@@ -1,0 +1,12 @@
+\subsection{Cuckoo Version 1: Biology Nest Egg}
+Cuckoo Version 1 models the malicious client update as a biological nest-and-egg process. A clean local update acts as the host nest, while the poisoned update contributes only a bounded residual egg. Let $h_t$ denote the clean update and $p_t$ the poisoned update. The raw egg is
+\begin{equation}
+    e_t = p_t - h_t.
+\end{equation}
+The transmitted malicious update is
+\begin{equation}
+    u_t = h_t + \lambda_t B(M_t e_t),
+\end{equation}
+where $M_t$ is a coordinate mask, $B(\cdot)$ is a norm budget operator, and $\lambda_t$ is a hatch schedule. The mask prioritizes classifier-layer coordinates, especially the base and target class rows, while the shell constraints enforce sign alignment, cosine similarity, and norm control. This creates an update that remains close to the clean host direction while carrying a hidden backdoor residual.
+
+The implementation evaluates both dirty-label and clean-label settings. In the dirty-label setting, base-class images receive a trigger and their labels are changed to the target class. In the clean-label setting, target-class images receive a trigger while labels remain unchanged. Poisoned validation is always forced into the dirty-label evaluation form, testing whether base-class images with the trigger are classified as the target class. The framework also supports PGD-style clean-label perturbations, malicious boost, and corrupt-client local epoch changes as controlled ablation parameters.

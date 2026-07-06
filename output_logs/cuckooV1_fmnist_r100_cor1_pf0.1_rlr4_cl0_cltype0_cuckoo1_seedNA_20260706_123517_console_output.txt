@@ -1,0 +1,30 @@
+Console output will be saved to: output_logs\cuckooV1_fmnist_r100_cor1_pf0.1_rlr4_cl0_cltype0_cuckoo1_seedNA_20260706_123517_console_output.txt
+======================================
+Scenario: Cuckoo V1 Biology Nest Egg
+Dataset: fmnist
+Global Rounds: 100
+Aggregation Function: avg
+Number of agents: 10
+Fraction of agents: 1
+Class Per Agent: 10
+Batch size: 1024
+Client_LR: 0.1
+Server_LR: 1.0
+Client_Momentum: 0.9
+RobustLR_threshold: 4
+Noise Ratio: 0
+Number of corrupt agents: 1
+Base Class: 5
+Target Class: 7
+Poison Frac: 0.1
+Clip: 0
+Clean Label Attack: 0
+Clean Label Type: 0
+Clean Label Auto Pattern: 1
+Verify Poisoning: 1
+Clean Label PGD: 0
+Malicious Boost: 1.0
+Corrupt Local Epochs: 0
+Cuckoo Enabled: 1
+Cuckoo Variant: v1_biology_nest
+======================================
