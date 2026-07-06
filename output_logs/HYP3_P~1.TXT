@@ -1,0 +1,2224 @@
+Console output will be saved to: output_logs\hyp3_poisonfrac_sensitivity_fmnist_r300_cpa10_pf0p25_pflevelmedium_base5_target7_cor1_rlr4_cl1_cltype1_seed105_20260706_105621_console_output.txt
+POISON_FRACTION_SENSITIVITY_RUN_START
+scenario=Hypothesis 3 - poison fraction sensitivity
+poison_frac_grid=0.05,0.10,0.25,0.50
+current_poison_frac=0.25
+current_poison_fraction_level=medium
+POISON_FRACTION_SENSITIVITY_RUN_END
+======================================
+    Scenario: Hypothesis 3 - Poison fraction sensitivity
+    Scenario Data: IID-ish fixed distribution
+    Dataset: fmnist
+    Global Rounds: 300
+    Aggregation Function: avg
+    Number of agents: 10
+    Fraction of agents: 1
+    Class Per Agent: 10
+    Batch size: 1024
+    Client_LR: 0.1
+    Server_LR: 1.0
+    Client_Momentum: 0.9
+    RobustLR_threshold: 4
+    Noise Ratio: 0
+    Number of corrupt agents: 1
+    Base Class: 5
+    Target Class: 7
+    Poison Frac Grid: 0.05,0.10,0.25,0.50
+    Current Poison Frac: 0.25
+    Current Poison Fraction Level: medium
+    Clip: 0
+    Seed: 105
+    Clean Label Attack: 1
+    Clean Label Type: 1
+    Clean Label Auto Pattern: 1
+    Verify Poisoning: 1
+    Verify Poison Fraction Sensitivity: 1
+======================================
+TensorBoard logs will be saved to: logs\hyp3_poisonfrac_sensitivity_fmnist_r300_cpa10_pf0p25_pflevelmedium_base5_target7_cor1_rlr4_cl1_cltype1_seed105_20260706_105621
+  0%|          | 0.00/26.4M [00:00<?, ?B/s] 26%|##5       | 6.82M/26.4M [00:00<00:00, 62.9MB/s] 71%|#######   | 18.6M/26.4M [00:00<00:00, 94.3MB/s]100%|##########| 26.4M/26.4M [00:00<00:00, 96.3MB/s]
+  0%|          | 0.00/29.5k [00:00<?, ?B/s]100%|##########| 29.5k/29.5k [00:00<00:00, 1.88MB/s]
+  0%|          | 0.00/4.42M [00:00<?, ?B/s]100%|##########| 4.42M/4.42M [00:00<00:00, 49.9MB/s]
+  0%|          | 0.00/5.15k [00:00<?, ?B/s]100%|##########| 5.15k/5.15k [00:00<?, ?B/s]
+VERIFY_POISON_FRACTION_SENSITIVITY_START
+scenario=Hypothesis 3 - poison fraction sensitivity
+scenario_data=IID-ish fixed data distribution
+poison_frac_grid=0.05,0.10,0.25,0.50
+current_poison_frac=0.25
+current_poison_fraction_level=medium
+num_agents=10
+class_per_agent=10
+n_classes=10
+shard_size=600
+slice_size=10
+corrupt_clients=[0]
+base_class=5
+target_class=7
+client=0 n_samples=6000 unique_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9] class_counts={0: 600, 1: 600, 2: 600, 3: 600, 4: 600, 5: 600, 6: 600, 7: 600, 8: 600, 9: 600}
+client=1 n_samples=6000 unique_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9] class_counts={0: 600, 1: 600, 2: 600, 3: 600, 4: 600, 5: 600, 6: 600, 7: 600, 8: 600, 9: 600}
+client=2 n_samples=6000 unique_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9] class_counts={0: 600, 1: 600, 2: 600, 3: 600, 4: 600, 5: 600, 6: 600, 7: 600, 8: 600, 9: 600}
+client=3 n_samples=6000 unique_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9] class_counts={0: 600, 1: 600, 2: 600, 3: 600, 4: 600, 5: 600, 6: 600, 7: 600, 8: 600, 9: 600}
+client=4 n_samples=6000 unique_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9] class_counts={0: 600, 1: 600, 2: 600, 3: 600, 4: 600, 5: 600, 6: 600, 7: 600, 8: 600, 9: 600}
+client=5 n_samples=6000 unique_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9] class_counts={0: 600, 1: 600, 2: 600, 3: 600, 4: 600, 5: 600, 6: 600, 7: 600, 8: 600, 9: 600}
+client=6 n_samples=6000 unique_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9] class_counts={0: 600, 1: 600, 2: 600, 3: 600, 4: 600, 5: 600, 6: 600, 7: 600, 8: 600, 9: 600}
+client=7 n_samples=6000 unique_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9] class_counts={0: 600, 1: 600, 2: 600, 3: 600, 4: 600, 5: 600, 6: 600, 7: 600, 8: 600, 9: 600}
+client=8 n_samples=6000 unique_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9] class_counts={0: 600, 1: 600, 2: 600, 3: 600, 4: 600, 5: 600, 6: 600, 7: 600, 8: 600, 9: 600}
+client=9 n_samples=6000 unique_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9] class_counts={0: 600, 1: 600, 2: 600, 3: 600, 4: 600, 5: 600, 6: 600, 7: 600, 8: 600, 9: 600}
+POISON_FRACTION_SENSITIVITY_PROOF: data split is held fixed; poison_frac is varied across the grid.
+VERIFY_POISON_FRACTION_SENSITIVITY_PASSED
+VERIFY_POISON_FRACTION_SENSITIVITY_END
+VERIFY_POISONING_START
+context=poisoned_validation_eval
+agent_idx=-1
+attack_mode=dirty-label
+force_dirty_label=True
+clean_label_requested=True
+clean_label_active=False
+clean_label_type=1
+pattern_type_requested=plus
+pattern_type_effective=plus
+source_class=5
+target_class=7
+poison_frac=1
+poison_fraction_level=high
+available_source_samples=1000
+poisoned_samples=1000
+actual_poison_ratio=1.0
+labels_changed=1000
+expected_labels_changed=1000
+changed_pixels_first_sample=9
+label_verification_passed=True
+trigger_verification_passed=True
+VERIFY_POISONING_PASSED
+EVAL_ATTACK_PROOF: validation poison set uses base_class + trigger -> target_class to measure poison accuracy.
+VERIFY_POISONING_END
+VERIFY_POISONING_START
+context=train
+agent_idx=0
+attack_mode=clean-label-1
+force_dirty_label=False
+clean_label_requested=True
+clean_label_active=True
+clean_label_type=1
+pattern_type_requested=plus
+pattern_type_effective=plus
+source_class=7
+target_class=7
+poison_frac=0.25
+poison_fraction_level=medium
+available_source_samples=600
+poisoned_samples=150
+actual_poison_ratio=0.25
+labels_changed=0
+expected_labels_changed=0
+changed_pixels_first_sample=9
+label_verification_passed=True
+trigger_verification_passed=True
+VERIFY_POISONING_PASSED
+CLEAN_LABEL_PROOF: labels_changed=0 means poisoned training samples kept their original target-class labels.
+POISON_FRACTION_SENSITIVITY_POINT: clean-label effect is tested at this specific poison_frac.
+VERIFY_POISONING_END
+  0%|          | 0/300 [00:00<?, ?it/s]C:\Users\akiel\AppData\Roaming\Python\Python312\site-packages\torch\nn\modules\dropout.py:176: UserWarning: dropout2d: Received a 2-D input to dropout2d, which is deprecated and will result in an error in a future release. To retain the behavior and silence this warning, please use dropout instead. Note that dropout2d exists to provide channel-wise dropout on inputs with 2 spatial dimensions, a channel dimension, and an optional batch dimension (i.e. 3D or 4D inputs).
+  return F.dropout2d(input, self.p, self.training, self.inplace)
+| Round: 1 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.975 / 0.674 |
+| Val_Per_Class_Acc: tensor([0.6950, 0.7590, 0.6300, 0.7130, 0.5550, 0.7370, 0.0530, 0.7930, 0.8780,
+        0.9310]) |
+| Poison Loss/Poison Acc: 2.127 / 0.095 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+  0%|          | 1/300 [01:08<5:43:29, 68.93s/it]| Round: 2 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.930 / 0.665 |
+| Val_Per_Class_Acc: tensor([0.7930, 0.9340, 0.7990, 0.4540, 0.1710, 0.7040, 0.1020, 0.9150, 0.8780,
+        0.9030]) |
+| Poison Loss/Poison Acc: 1.728 / 0.243 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+  1%|          | 2/300 [01:57<4:42:00, 56.78s/it]| Round: 3 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.724 / 0.722 |
+| Val_Per_Class_Acc: tensor([0.7750, 0.8620, 0.6720, 0.8760, 0.5720, 0.6320, 0.0700, 0.8970, 0.9200,
+        0.9390]) |
+| Poison Loss/Poison Acc: 2.268 / 0.221 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+  1%|1         | 3/300 [02:43<4:18:15, 52.17s/it]| Round: 4 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.677 / 0.743 |
+| Val_Per_Class_Acc: tensor([0.7770, 0.8790, 0.5240, 0.8650, 0.6060, 0.6890, 0.3250, 0.8740, 0.9380,
+        0.9560]) |
+| Poison Loss/Poison Acc: 2.503 / 0.177 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+  1%|1         | 4/300 [03:21<3:49:36, 46.54s/it]| Round: 5 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.599 / 0.766 |
+| Val_Per_Class_Acc: tensor([0.7950, 0.9170, 0.7150, 0.8600, 0.5760, 0.8750, 0.1780, 0.8860, 0.9280,
+        0.9340]) |
+| Poison Loss/Poison Acc: 3.597 / 0.067 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+  2%|1         | 5/300 [03:59<3:32:21, 43.19s/it]| Round: 6 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.576 / 0.777 |
+| Val_Per_Class_Acc: tensor([0.7970, 0.9270, 0.6760, 0.8660, 0.6470, 0.8690, 0.2270, 0.8950, 0.9260,
+        0.9370]) |
+| Poison Loss/Poison Acc: 3.671 / 0.077 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+  2%|2         | 6/300 [04:36<3:21:59, 41.22s/it]| Round: 7 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.547 / 0.788 |
+| Val_Per_Class_Acc: tensor([0.8310, 0.9360, 0.6590, 0.8530, 0.6620, 0.8990, 0.2860, 0.8740, 0.9350,
+        0.9450]) |
+| Poison Loss/Poison Acc: 4.060 / 0.057 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+  2%|2         | 7/300 [05:13<3:14:45, 39.88s/it]| Round: 8 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.534 / 0.788 |
+| Val_Per_Class_Acc: tensor([0.8320, 0.9410, 0.7590, 0.8860, 0.6450, 0.9100, 0.1490, 0.8770, 0.9360,
+        0.9440]) |
+| Poison Loss/Poison Acc: 4.280 / 0.055 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+  3%|2         | 8/300 [05:51<3:10:49, 39.21s/it]| Round: 9 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.521 / 0.793 |
+| Val_Per_Class_Acc: tensor([0.8710, 0.9430, 0.7530, 0.8570, 0.6800, 0.8940, 0.1550, 0.8900, 0.9420,
+        0.9470]) |
+| Poison Loss/Poison Acc: 4.094 / 0.066 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+  3%|3         | 9/300 [06:30<3:09:24, 39.05s/it]| Round: 10 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.500 / 0.807 |
+| Val_Per_Class_Acc: tensor([0.8270, 0.9460, 0.6330, 0.8740, 0.7330, 0.9190, 0.3650, 0.8820, 0.9430,
+        0.9480]) |
+| Poison Loss/Poison Acc: 4.469 / 0.050 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+  3%|3         | 10/300 [07:07<3:06:54, 38.67s/it]| Round: 11 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.493 / 0.813 |
+| Val_Per_Class_Acc: tensor([0.8420, 0.9500, 0.6790, 0.8530, 0.7150, 0.9170, 0.3940, 0.8740, 0.9460,
+        0.9570]) |
+| Poison Loss/Poison Acc: 4.441 / 0.051 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+  4%|3         | 11/300 [07:44<3:03:57, 38.19s/it]| Round: 12 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.483 / 0.819 |
+| Val_Per_Class_Acc: tensor([0.8410, 0.9510, 0.7340, 0.8740, 0.6830, 0.9330, 0.3850, 0.9020, 0.9450,
+        0.9450]) |
+| Poison Loss/Poison Acc: 4.592 / 0.053 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+  4%|4         | 12/300 [08:22<3:01:48, 37.88s/it]| Round: 13 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.473 / 0.822 |
+| Val_Per_Class_Acc: tensor([0.8590, 0.9510, 0.7530, 0.8720, 0.7330, 0.9270, 0.3190, 0.9010, 0.9510,
+        0.9490]) |
+| Poison Loss/Poison Acc: 4.464 / 0.058 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+  4%|4         | 13/300 [08:58<2:59:13, 37.47s/it]| Round: 14 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.462 / 0.826 |
+| Val_Per_Class_Acc: tensor([0.8560, 0.9560, 0.7480, 0.8740, 0.7280, 0.9290, 0.3640, 0.9050, 0.9510,
+        0.9480]) |
+| Poison Loss/Poison Acc: 4.482 / 0.060 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+  5%|4         | 14/300 [09:37<3:00:20, 37.83s/it]| Round: 15 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.458 / 0.828 |
+| Val_Per_Class_Acc: tensor([0.8280, 0.9570, 0.7770, 0.8880, 0.7060, 0.9350, 0.3830, 0.9130, 0.9530,
+        0.9430]) |
+| Poison Loss/Poison Acc: 4.528 / 0.059 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+  5%|5         | 15/300 [10:17<3:02:24, 38.40s/it]| Round: 16 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.450 / 0.834 |
+| Val_Per_Class_Acc: tensor([0.8780, 0.9600, 0.7350, 0.8820, 0.7800, 0.9370, 0.3570, 0.9020, 0.9540,
+        0.9580]) |
+| Poison Loss/Poison Acc: 4.697 / 0.056 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+  5%|5         | 16/300 [10:55<3:01:48, 38.41s/it]| Round: 17 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.443 / 0.835 |
+| Val_Per_Class_Acc: tensor([0.8660, 0.9610, 0.7610, 0.8870, 0.7900, 0.9370, 0.3320, 0.9150, 0.9550,
+        0.9500]) |
+| Poison Loss/Poison Acc: 4.570 / 0.060 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+  6%|5         | 17/300 [11:34<3:02:04, 38.60s/it]| Round: 18 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.437 / 0.837 |
+| Val_Per_Class_Acc: tensor([0.8660, 0.9600, 0.7770, 0.8820, 0.7480, 0.9340, 0.3850, 0.9140, 0.9510,
+        0.9560]) |
+| Poison Loss/Poison Acc: 4.500 / 0.064 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+  6%|6         | 18/300 [12:14<3:03:43, 39.09s/it]| Round: 19 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.435 / 0.836 |
+| Val_Per_Class_Acc: tensor([0.8520, 0.9610, 0.8170, 0.8890, 0.7080, 0.9360, 0.3780, 0.9030, 0.9510,
+        0.9620]) |
+| Poison Loss/Poison Acc: 4.610 / 0.059 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+  6%|6         | 19/300 [12:53<3:03:02, 39.08s/it]| Round: 20 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.427 / 0.841 |
+| Val_Per_Class_Acc: tensor([0.8720, 0.9610, 0.7980, 0.8930, 0.7600, 0.9370, 0.3630, 0.9200, 0.9510,
+        0.9570]) |
+| Poison Loss/Poison Acc: 4.551 / 0.065 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+  7%|6         | 20/300 [13:32<3:02:28, 39.10s/it]| Round: 21 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.423 / 0.845 |
+| Val_Per_Class_Acc: tensor([0.8590, 0.9630, 0.8120, 0.8900, 0.7390, 0.9410, 0.4250, 0.9020, 0.9520,
+        0.9650]) |
+| Poison Loss/Poison Acc: 4.753 / 0.058 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+  7%|7         | 21/300 [14:11<3:01:32, 39.04s/it]| Round: 22 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.413 / 0.852 |
+| Val_Per_Class_Acc: tensor([0.8390, 0.9620, 0.7740, 0.8920, 0.7900, 0.9360, 0.4810, 0.9270, 0.9550,
+        0.9600]) |
+| Poison Loss/Poison Acc: 4.412 / 0.076 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+  7%|7         | 22/300 [14:49<2:58:53, 38.61s/it]| Round: 23 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.407 / 0.851 |
+| Val_Per_Class_Acc: tensor([0.8740, 0.9620, 0.7870, 0.8830, 0.7850, 0.9390, 0.4500, 0.9180, 0.9560,
+        0.9580]) |
+| Poison Loss/Poison Acc: 4.700 / 0.060 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+  8%|7         | 23/300 [15:27<2:57:54, 38.54s/it]| Round: 24 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.403 / 0.854 |
+| Val_Per_Class_Acc: tensor([0.8550, 0.9640, 0.8020, 0.8850, 0.7920, 0.9390, 0.4690, 0.9180, 0.9560,
+        0.9590]) |
+| Poison Loss/Poison Acc: 4.590 / 0.066 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+  8%|8         | 24/300 [16:05<2:55:33, 38.16s/it]| Round: 25 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.398 / 0.857 |
+| Val_Per_Class_Acc: tensor([0.8590, 0.9650, 0.7920, 0.8910, 0.7960, 0.9400, 0.4830, 0.9310, 0.9570,
+        0.9560]) |
+| Poison Loss/Poison Acc: 4.487 / 0.073 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+  8%|8         | 25/300 [16:43<2:55:43, 38.34s/it]| Round: 26 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.395 / 0.859 |
+| Val_Per_Class_Acc: tensor([0.8710, 0.9660, 0.8070, 0.8910, 0.7820, 0.9410, 0.4940, 0.9200, 0.9590,
+        0.9620]) |
+| Poison Loss/Poison Acc: 4.649 / 0.069 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+  9%|8         | 26/300 [17:22<2:55:58, 38.53s/it]| Round: 27 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.392 / 0.861 |
+| Val_Per_Class_Acc: tensor([0.8650, 0.9660, 0.8000, 0.9080, 0.7900, 0.9380, 0.4970, 0.9280, 0.9590,
+        0.9610]) |
+| Poison Loss/Poison Acc: 4.499 / 0.080 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+  9%|9         | 27/300 [18:01<2:54:51, 38.43s/it]| Round: 28 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.387 / 0.861 |
+| Val_Per_Class_Acc: tensor([0.8750, 0.9650, 0.8130, 0.9020, 0.7820, 0.9390, 0.4900, 0.9280, 0.9590,
+        0.9610]) |
+| Poison Loss/Poison Acc: 4.549 / 0.079 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+  9%|9         | 28/300 [18:38<2:53:17, 38.23s/it]| Round: 29 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.386 / 0.860 |
+| Val_Per_Class_Acc: tensor([0.8860, 0.9660, 0.8100, 0.8920, 0.8060, 0.9410, 0.4530, 0.9260, 0.9590,
+        0.9610]) |
+| Poison Loss/Poison Acc: 4.607 / 0.073 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 10%|9         | 29/300 [19:16<2:51:23, 37.95s/it]| Round: 30 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.380 / 0.863 |
+| Val_Per_Class_Acc: tensor([0.8710, 0.9650, 0.8170, 0.8850, 0.8040, 0.9430, 0.4990, 0.9250, 0.9610,
+        0.9610]) |
+| Poison Loss/Poison Acc: 4.728 / 0.069 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 10%|#         | 30/300 [19:53<2:50:32, 37.90s/it]| Round: 31 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.378 / 0.864 |
+| Val_Per_Class_Acc: tensor([0.8690, 0.9650, 0.8230, 0.8860, 0.8220, 0.9450, 0.4800, 0.9300, 0.9610,
+        0.9610]) |
+| Poison Loss/Poison Acc: 4.782 / 0.072 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 10%|#         | 31/300 [20:32<2:50:15, 37.98s/it]| Round: 32 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.374 / 0.867 |
+| Val_Per_Class_Acc: tensor([0.8530, 0.9650, 0.8090, 0.8880, 0.8310, 0.9470, 0.5220, 0.9300, 0.9620,
+        0.9600]) |
+| Poison Loss/Poison Acc: 4.669 / 0.075 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 11%|#         | 32/300 [21:09<2:49:04, 37.85s/it]| Round: 33 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.371 / 0.868 |
+| Val_Per_Class_Acc: tensor([0.8690, 0.9660, 0.7760, 0.8890, 0.8300, 0.9410, 0.5470, 0.9360, 0.9640,
+        0.9590]) |
+| Poison Loss/Poison Acc: 4.504 / 0.092 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 11%|#1        | 33/300 [21:46<2:47:36, 37.66s/it]| Round: 34 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.369 / 0.867 |
+| Val_Per_Class_Acc: tensor([0.8570, 0.9660, 0.7500, 0.8880, 0.8660, 0.9420, 0.5450, 0.9270, 0.9640,
+        0.9620]) |
+| Poison Loss/Poison Acc: 4.617 / 0.086 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 11%|#1        | 34/300 [22:24<2:46:27, 37.55s/it]| Round: 35 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.366 / 0.867 |
+| Val_Per_Class_Acc: tensor([0.8560, 0.9660, 0.7550, 0.8930, 0.8540, 0.9410, 0.5490, 0.9270, 0.9640,
+        0.9640]) |
+| Poison Loss/Poison Acc: 4.690 / 0.084 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 12%|#1        | 35/300 [23:00<2:43:47, 37.08s/it]| Round: 36 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.363 / 0.869 |
+| Val_Per_Class_Acc: tensor([0.8570, 0.9660, 0.7610, 0.8930, 0.8530, 0.9410, 0.5560, 0.9340, 0.9640,
+        0.9610]) |
+| Poison Loss/Poison Acc: 4.484 / 0.100 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 12%|#2        | 36/300 [23:37<2:43:17, 37.11s/it]| Round: 37 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.362 / 0.870 |
+| Val_Per_Class_Acc: tensor([0.8640, 0.9660, 0.7570, 0.8910, 0.8710, 0.9420, 0.5440, 0.9360, 0.9650,
+        0.9610]) |
+| Poison Loss/Poison Acc: 4.445 / 0.097 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 12%|#2        | 37/300 [24:14<2:42:48, 37.14s/it]| Round: 38 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.359 / 0.871 |
+| Val_Per_Class_Acc: tensor([0.8680, 0.9660, 0.7770, 0.8840, 0.8570, 0.9430, 0.5570, 0.9340, 0.9650,
+        0.9620]) |
+| Poison Loss/Poison Acc: 4.481 / 0.094 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 13%|#2        | 38/300 [24:51<2:41:44, 37.04s/it]| Round: 39 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.354 / 0.872 |
+| Val_Per_Class_Acc: tensor([0.8760, 0.9660, 0.7870, 0.8890, 0.8450, 0.9460, 0.5530, 0.9330, 0.9670,
+        0.9620]) |
+| Poison Loss/Poison Acc: 4.630 / 0.088 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 13%|#3        | 39/300 [25:28<2:41:02, 37.02s/it]| Round: 40 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.352 / 0.873 |
+| Val_Per_Class_Acc: tensor([0.8690, 0.9660, 0.7800, 0.8910, 0.8460, 0.9430, 0.5700, 0.9360, 0.9670,
+        0.9610]) |
+| Poison Loss/Poison Acc: 4.641 / 0.092 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 13%|#3        | 40/300 [26:04<2:39:31, 36.81s/it]| Round: 41 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.352 / 0.875 |
+| Val_Per_Class_Acc: tensor([0.8500, 0.9660, 0.8050, 0.9040, 0.8270, 0.9520, 0.5870, 0.9340, 0.9650,
+        0.9620]) |
+| Poison Loss/Poison Acc: 4.673 / 0.091 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 14%|#3        | 41/300 [26:41<2:39:12, 36.88s/it]| Round: 42 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.347 / 0.875 |
+| Val_Per_Class_Acc: tensor([0.8660, 0.9660, 0.7830, 0.8910, 0.8410, 0.9560, 0.5830, 0.9340, 0.9660,
+        0.9620]) |
+| Poison Loss/Poison Acc: 4.768 / 0.087 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 14%|#4        | 42/300 [27:17<2:37:46, 36.69s/it]| Round: 43 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.345 / 0.876 |
+| Val_Per_Class_Acc: tensor([0.8550, 0.9660, 0.8110, 0.8880, 0.8320, 0.9570, 0.5920, 0.9350, 0.9640,
+        0.9610]) |
+| Poison Loss/Poison Acc: 4.735 / 0.087 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 14%|#4        | 43/300 [27:55<2:38:09, 36.93s/it]| Round: 44 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.345 / 0.876 |
+| Val_Per_Class_Acc: tensor([0.8700, 0.9650, 0.8340, 0.8830, 0.8120, 0.9590, 0.5760, 0.9340, 0.9650,
+        0.9620]) |
+| Poison Loss/Poison Acc: 4.865 / 0.083 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 15%|#4        | 44/300 [28:32<2:37:18, 36.87s/it]| Round: 45 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.343 / 0.876 |
+| Val_Per_Class_Acc: tensor([0.8770, 0.9640, 0.8250, 0.8790, 0.8120, 0.9570, 0.5820, 0.9410, 0.9650,
+        0.9570]) |
+| Poison Loss/Poison Acc: 4.740 / 0.090 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 15%|#5        | 45/300 [29:09<2:36:57, 36.93s/it]| Round: 46 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.341 / 0.877 |
+| Val_Per_Class_Acc: tensor([0.8670, 0.9650, 0.8040, 0.8820, 0.8280, 0.9580, 0.5990, 0.9370, 0.9660,
+        0.9620]) |
+| Poison Loss/Poison Acc: 4.744 / 0.091 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 15%|#5        | 46/300 [29:45<2:35:02, 36.62s/it]| Round: 47 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.339 / 0.877 |
+| Val_Per_Class_Acc: tensor([0.8650, 0.9640, 0.8020, 0.8900, 0.8390, 0.9550, 0.5920, 0.9390, 0.9660,
+        0.9620]) |
+| Poison Loss/Poison Acc: 4.664 / 0.095 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 16%|#5        | 47/300 [30:21<2:34:04, 36.54s/it]| Round: 48 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.338 / 0.878 |
+| Val_Per_Class_Acc: tensor([0.8720, 0.9650, 0.7920, 0.8860, 0.8510, 0.9580, 0.5860, 0.9390, 0.9670,
+        0.9620]) |
+| Poison Loss/Poison Acc: 4.780 / 0.094 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 16%|#6        | 48/300 [30:58<2:34:29, 36.78s/it]| Round: 49 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.337 / 0.879 |
+| Val_Per_Class_Acc: tensor([0.8800, 0.9650, 0.8050, 0.8970, 0.8490, 0.9550, 0.5660, 0.9400, 0.9690,
+        0.9620]) |
+| Poison Loss/Poison Acc: 4.648 / 0.098 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 16%|#6        | 49/300 [31:35<2:34:09, 36.85s/it]| Round: 50 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.335 / 0.878 |
+| Val_Per_Class_Acc: tensor([0.8790, 0.9650, 0.7720, 0.8990, 0.8640, 0.9540, 0.5840, 0.9470, 0.9680,
+        0.9530]) |
+| Poison Loss/Poison Acc: 4.674 / 0.104 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 17%|#6        | 50/300 [32:12<2:33:35, 36.86s/it]| Round: 51 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.334 / 0.880 |
+| Val_Per_Class_Acc: tensor([0.8770, 0.9650, 0.7860, 0.8980, 0.8630, 0.9540, 0.5810, 0.9400, 0.9700,
+        0.9620]) |
+| Poison Loss/Poison Acc: 4.755 / 0.099 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 17%|#7        | 51/300 [32:49<2:32:40, 36.79s/it]| Round: 52 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.333 / 0.881 |
+| Val_Per_Class_Acc: tensor([0.8710, 0.9650, 0.7900, 0.9020, 0.8670, 0.9570, 0.5860, 0.9390, 0.9670,
+        0.9620]) |
+| Poison Loss/Poison Acc: 4.754 / 0.097 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 17%|#7        | 52/300 [33:26<2:32:33, 36.91s/it]| Round: 53 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.332 / 0.879 |
+| Val_Per_Class_Acc: tensor([0.8720, 0.9640, 0.8050, 0.9000, 0.8570, 0.9550, 0.5690, 0.9430, 0.9680,
+        0.9600]) |
+| Poison Loss/Poison Acc: 4.711 / 0.107 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 18%|#7        | 53/300 [34:04<2:32:47, 37.11s/it]| Round: 54 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.332 / 0.881 |
+| Val_Per_Class_Acc: tensor([0.8770, 0.9640, 0.8310, 0.8970, 0.8290, 0.9530, 0.5870, 0.9420, 0.9690,
+        0.9630]) |
+| Poison Loss/Poison Acc: 4.519 / 0.118 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 18%|#8        | 54/300 [34:40<2:31:40, 36.99s/it]| Round: 55 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.330 / 0.881 |
+| Val_Per_Class_Acc: tensor([0.8680, 0.9640, 0.8130, 0.8980, 0.8250, 0.9520, 0.6160, 0.9430, 0.9690,
+        0.9630]) |
+| Poison Loss/Poison Acc: 4.532 / 0.117 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 18%|#8        | 55/300 [35:17<2:31:16, 37.05s/it]| Round: 56 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.330 / 0.883 |
+| Val_Per_Class_Acc: tensor([0.8440, 0.9650, 0.7800, 0.8990, 0.8600, 0.9510, 0.6560, 0.9420, 0.9700,
+        0.9630]) |
+| Poison Loss/Poison Acc: 4.485 / 0.117 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 19%|#8        | 56/300 [35:53<2:29:24, 36.74s/it]| Round: 57 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.328 / 0.883 |
+| Val_Per_Class_Acc: tensor([0.8620, 0.9650, 0.7900, 0.9010, 0.8440, 0.9520, 0.6400, 0.9370, 0.9700,
+        0.9690]) |
+| Poison Loss/Poison Acc: 4.627 / 0.114 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 19%|#9        | 57/300 [36:31<2:29:48, 36.99s/it]| Round: 58 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.327 / 0.881 |
+| Val_Per_Class_Acc: tensor([0.8550, 0.9650, 0.8010, 0.9010, 0.8530, 0.9500, 0.6120, 0.9380, 0.9720,
+        0.9680]) |
+| Poison Loss/Poison Acc: 4.558 / 0.120 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 19%|#9        | 58/300 [37:08<2:29:15, 37.01s/it]| Round: 59 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.326 / 0.883 |
+| Val_Per_Class_Acc: tensor([0.8610, 0.9660, 0.8310, 0.9020, 0.8280, 0.9510, 0.6130, 0.9380, 0.9710,
+        0.9680]) |
+| Poison Loss/Poison Acc: 4.597 / 0.120 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 20%|#9        | 59/300 [37:45<2:28:11, 36.89s/it]| Round: 60 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.325 / 0.883 |
+| Val_Per_Class_Acc: tensor([0.8580, 0.9640, 0.8390, 0.9060, 0.8160, 0.9560, 0.6170, 0.9360, 0.9720,
+        0.9690]) |
+| Poison Loss/Poison Acc: 4.729 / 0.110 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 20%|##        | 60/300 [38:22<2:27:34, 36.89s/it]| Round: 61 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.325 / 0.885 |
+| Val_Per_Class_Acc: tensor([0.8670, 0.9650, 0.8320, 0.9020, 0.8170, 0.9560, 0.6310, 0.9360, 0.9730,
+        0.9690]) |
+| Poison Loss/Poison Acc: 4.708 / 0.116 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 20%|##        | 61/300 [38:58<2:26:18, 36.73s/it]| Round: 62 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.323 / 0.883 |
+| Val_Per_Class_Acc: tensor([0.8700, 0.9660, 0.8110, 0.8960, 0.8450, 0.9550, 0.6130, 0.9370, 0.9720,
+        0.9690]) |
+| Poison Loss/Poison Acc: 4.765 / 0.115 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 21%|##        | 62/300 [39:35<2:25:40, 36.72s/it]| Round: 63 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.322 / 0.885 |
+| Val_Per_Class_Acc: tensor([0.8850, 0.9680, 0.8160, 0.8950, 0.8520, 0.9560, 0.5990, 0.9360, 0.9710,
+        0.9690]) |
+| Poison Loss/Poison Acc: 4.731 / 0.117 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 21%|##1       | 63/300 [40:11<2:24:54, 36.69s/it]| Round: 64 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.322 / 0.885 |
+| Val_Per_Class_Acc: tensor([0.8720, 0.9670, 0.8350, 0.9010, 0.8360, 0.9590, 0.6030, 0.9360, 0.9710,
+        0.9700]) |
+| Poison Loss/Poison Acc: 4.689 / 0.113 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 21%|##1       | 64/300 [40:49<2:25:51, 37.08s/it]| Round: 65 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.320 / 0.885 |
+| Val_Per_Class_Acc: tensor([0.8640, 0.9680, 0.8110, 0.8970, 0.8480, 0.9530, 0.6340, 0.9400, 0.9710,
+        0.9680]) |
+| Poison Loss/Poison Acc: 4.567 / 0.126 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 22%|##1       | 65/300 [41:29<2:27:50, 37.75s/it]| Round: 66 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.320 / 0.886 |
+| Val_Per_Class_Acc: tensor([0.8330, 0.9680, 0.8030, 0.8930, 0.8480, 0.9540, 0.6810, 0.9410, 0.9700,
+        0.9680]) |
+| Poison Loss/Poison Acc: 4.567 / 0.130 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 22%|##2       | 66/300 [42:09<2:30:05, 38.48s/it]| Round: 67 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.320 / 0.886 |
+| Val_Per_Class_Acc: tensor([0.8340, 0.9680, 0.7930, 0.8940, 0.8720, 0.9550, 0.6650, 0.9390, 0.9710,
+        0.9680]) |
+| Poison Loss/Poison Acc: 4.447 / 0.133 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 22%|##2       | 67/300 [42:48<2:30:27, 38.75s/it]| Round: 68 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.318 / 0.887 |
+| Val_Per_Class_Acc: tensor([0.8710, 0.9670, 0.8130, 0.9000, 0.8750, 0.9540, 0.6090, 0.9420, 0.9710,
+        0.9680]) |
+| Poison Loss/Poison Acc: 4.385 / 0.146 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 23%|##2       | 68/300 [43:27<2:30:04, 38.81s/it]| Round: 69 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.316 / 0.886 |
+| Val_Per_Class_Acc: tensor([0.8570, 0.9670, 0.7870, 0.8990, 0.8770, 0.9560, 0.6450, 0.9430, 0.9690,
+        0.9650]) |
+| Poison Loss/Poison Acc: 4.627 / 0.141 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 23%|##3       | 69/300 [44:06<2:29:44, 38.90s/it]| Round: 70 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.315 / 0.887 |
+| Val_Per_Class_Acc: tensor([0.8570, 0.9670, 0.7890, 0.9000, 0.8720, 0.9570, 0.6490, 0.9450, 0.9710,
+        0.9640]) |
+| Poison Loss/Poison Acc: 4.646 / 0.139 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 23%|##3       | 70/300 [44:45<2:28:44, 38.80s/it]| Round: 71 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.313 / 0.889 |
+| Val_Per_Class_Acc: tensor([0.8720, 0.9670, 0.8060, 0.9020, 0.8780, 0.9580, 0.6190, 0.9490, 0.9720,
+        0.9630]) |
+| Poison Loss/Poison Acc: 4.612 / 0.138 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 24%|##3       | 71/300 [45:25<2:29:42, 39.23s/it]| Round: 72 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.314 / 0.887 |
+| Val_Per_Class_Acc: tensor([0.8570, 0.9670, 0.7810, 0.8980, 0.8820, 0.9560, 0.6530, 0.9440, 0.9700,
+        0.9640]) |
+| Poison Loss/Poison Acc: 4.726 / 0.138 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 24%|##4       | 72/300 [46:02<2:26:53, 38.66s/it]| Round: 73 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.313 / 0.888 |
+| Val_Per_Class_Acc: tensor([0.8540, 0.9680, 0.7930, 0.8950, 0.8840, 0.9580, 0.6500, 0.9430, 0.9690,
+        0.9650]) |
+| Poison Loss/Poison Acc: 4.719 / 0.135 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 24%|##4       | 73/300 [46:39<2:23:46, 38.00s/it]| Round: 74 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.310 / 0.889 |
+| Val_Per_Class_Acc: tensor([0.8750, 0.9680, 0.8140, 0.8980, 0.8660, 0.9630, 0.6350, 0.9410, 0.9710,
+        0.9640]) |
+| Poison Loss/Poison Acc: 4.918 / 0.128 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 25%|##4       | 74/300 [47:16<2:21:59, 37.70s/it]| Round: 75 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.311 / 0.888 |
+| Val_Per_Class_Acc: tensor([0.8570, 0.9670, 0.7860, 0.9010, 0.8800, 0.9610, 0.6500, 0.9480, 0.9690,
+        0.9630]) |
+| Poison Loss/Poison Acc: 4.858 / 0.130 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 25%|##5       | 75/300 [47:52<2:19:54, 37.31s/it]| Round: 76 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.310 / 0.890 |
+| Val_Per_Class_Acc: tensor([0.8820, 0.9670, 0.7990, 0.9050, 0.8880, 0.9620, 0.6130, 0.9490, 0.9710,
+        0.9620]) |
+| Poison Loss/Poison Acc: 4.906 / 0.132 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 25%|##5       | 76/300 [48:28<2:18:08, 37.00s/it]| Round: 77 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.309 / 0.890 |
+| Val_Per_Class_Acc: tensor([0.8810, 0.9670, 0.7910, 0.9080, 0.8820, 0.9600, 0.6260, 0.9510, 0.9710,
+        0.9620]) |
+| Poison Loss/Poison Acc: 4.773 / 0.142 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 26%|##5       | 77/300 [49:06<2:17:35, 37.02s/it]| Round: 78 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.308 / 0.892 |
+| Val_Per_Class_Acc: tensor([0.8850, 0.9680, 0.7970, 0.9030, 0.8780, 0.9590, 0.6400, 0.9530, 0.9720,
+        0.9610]) |
+| Poison Loss/Poison Acc: 4.695 / 0.147 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 26%|##6       | 78/300 [49:43<2:17:02, 37.04s/it]| Round: 79 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.309 / 0.890 |
+| Val_Per_Class_Acc: tensor([0.8610, 0.9690, 0.7700, 0.9030, 0.8940, 0.9590, 0.6560, 0.9510, 0.9720,
+        0.9610]) |
+| Poison Loss/Poison Acc: 4.660 / 0.146 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 26%|##6       | 79/300 [50:20<2:16:52, 37.16s/it]| Round: 80 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.307 / 0.889 |
+| Val_Per_Class_Acc: tensor([0.8450, 0.9690, 0.7960, 0.9030, 0.8720, 0.9570, 0.6700, 0.9520, 0.9700,
+        0.9610]) |
+| Poison Loss/Poison Acc: 4.606 / 0.152 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 27%|##6       | 80/300 [50:57<2:16:17, 37.17s/it]| Round: 81 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.307 / 0.890 |
+| Val_Per_Class_Acc: tensor([0.8430, 0.9690, 0.7950, 0.8980, 0.8810, 0.9580, 0.6750, 0.9510, 0.9720,
+        0.9630]) |
+| Poison Loss/Poison Acc: 4.664 / 0.148 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 27%|##7       | 81/300 [51:35<2:15:52, 37.23s/it]| Round: 82 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.304 / 0.891 |
+| Val_Per_Class_Acc: tensor([0.8430, 0.9670, 0.8280, 0.9020, 0.8550, 0.9580, 0.6670, 0.9590, 0.9710,
+        0.9580]) |
+| Poison Loss/Poison Acc: 4.613 / 0.159 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 27%|##7       | 82/300 [52:12<2:15:40, 37.34s/it]| Round: 83 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.303 / 0.891 |
+| Val_Per_Class_Acc: tensor([0.8570, 0.9680, 0.8440, 0.9030, 0.8400, 0.9570, 0.6540, 0.9590, 0.9720,
+        0.9600]) |
+| Poison Loss/Poison Acc: 4.573 / 0.164 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 28%|##7       | 83/300 [52:49<2:14:09, 37.10s/it]| Round: 84 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.302 / 0.892 |
+| Val_Per_Class_Acc: tensor([0.8670, 0.9680, 0.8040, 0.9060, 0.8820, 0.9590, 0.6430, 0.9530, 0.9730,
+        0.9610]) |
+| Poison Loss/Poison Acc: 4.684 / 0.155 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 28%|##8       | 84/300 [53:26<2:13:32, 37.09s/it]| Round: 85 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.302 / 0.894 |
+| Val_Per_Class_Acc: tensor([0.8830, 0.9670, 0.8180, 0.9060, 0.8710, 0.9580, 0.6480, 0.9560, 0.9730,
+        0.9590]) |
+| Poison Loss/Poison Acc: 4.724 / 0.155 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 28%|##8       | 85/300 [54:03<2:12:49, 37.07s/it]| Round: 86 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.301 / 0.892 |
+| Val_Per_Class_Acc: tensor([0.8670, 0.9660, 0.8280, 0.9060, 0.8530, 0.9580, 0.6550, 0.9530, 0.9720,
+        0.9610]) |
+| Poison Loss/Poison Acc: 4.742 / 0.156 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 29%|##8       | 86/300 [54:40<2:12:12, 37.07s/it]| Round: 87 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.300 / 0.893 |
+| Val_Per_Class_Acc: tensor([0.8650, 0.9690, 0.8140, 0.9040, 0.8730, 0.9600, 0.6600, 0.9640, 0.9720,
+        0.9540]) |
+| Poison Loss/Poison Acc: 4.709 / 0.159 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 29%|##9       | 87/300 [55:16<2:11:03, 36.92s/it]| Round: 88 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.299 / 0.894 |
+| Val_Per_Class_Acc: tensor([0.8590, 0.9680, 0.8310, 0.9080, 0.8630, 0.9610, 0.6560, 0.9600, 0.9720,
+        0.9600]) |
+| Poison Loss/Poison Acc: 4.734 / 0.158 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 29%|##9       | 88/300 [55:54<2:10:56, 37.06s/it]| Round: 89 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.299 / 0.894 |
+| Val_Per_Class_Acc: tensor([0.8760, 0.9680, 0.8340, 0.9120, 0.8540, 0.9610, 0.6490, 0.9620, 0.9710,
+        0.9580]) |
+| Poison Loss/Poison Acc: 4.697 / 0.158 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 30%|##9       | 89/300 [56:30<2:09:51, 36.93s/it]| Round: 90 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.299 / 0.895 |
+| Val_Per_Class_Acc: tensor([0.8740, 0.9670, 0.8180, 0.9150, 0.8550, 0.9580, 0.6710, 0.9620, 0.9730,
+        0.9590]) |
+| Poison Loss/Poison Acc: 4.707 / 0.174 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 30%|###       | 90/300 [57:08<2:09:22, 36.97s/it]| Round: 91 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.300 / 0.893 |
+| Val_Per_Class_Acc: tensor([0.8640, 0.9670, 0.8170, 0.9150, 0.8390, 0.9540, 0.6850, 0.9600, 0.9720,
+        0.9610]) |
+| Poison Loss/Poison Acc: 4.619 / 0.187 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 30%|###       | 91/300 [57:45<2:09:03, 37.05s/it]| Round: 92 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.298 / 0.894 |
+| Val_Per_Class_Acc: tensor([0.8640, 0.9680, 0.8130, 0.9150, 0.8470, 0.9560, 0.6870, 0.9620, 0.9720,
+        0.9580]) |
+| Poison Loss/Poison Acc: 4.505 / 0.185 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 31%|###       | 92/300 [58:21<2:07:25, 36.76s/it]| Round: 93 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.299 / 0.895 |
+| Val_Per_Class_Acc: tensor([0.8740, 0.9680, 0.8360, 0.9210, 0.8240, 0.9580, 0.6780, 0.9620, 0.9730,
+        0.9580]) |
+| Poison Loss/Poison Acc: 4.579 / 0.182 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 31%|###1      | 93/300 [58:57<2:06:29, 36.67s/it]| Round: 94 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.297 / 0.894 |
+| Val_Per_Class_Acc: tensor([0.8810, 0.9680, 0.8200, 0.9180, 0.8640, 0.9610, 0.6350, 0.9560, 0.9720,
+        0.9620]) |
+| Poison Loss/Poison Acc: 4.683 / 0.168 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 31%|###1      | 94/300 [59:34<2:05:51, 36.66s/it]| Round: 95 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.297 / 0.895 |
+| Val_Per_Class_Acc: tensor([0.8780, 0.9670, 0.8150, 0.9190, 0.8400, 0.9620, 0.6760, 0.9570, 0.9730,
+        0.9620]) |
+| Poison Loss/Poison Acc: 4.839 / 0.159 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 32%|###1      | 95/300 [1:00:11<2:05:56, 36.86s/it]| Round: 96 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.296 / 0.894 |
+| Val_Per_Class_Acc: tensor([0.8890, 0.9690, 0.8110, 0.9140, 0.8720, 0.9610, 0.6360, 0.9560, 0.9730,
+        0.9620]) |
+| Poison Loss/Poison Acc: 4.838 / 0.160 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 32%|###2      | 96/300 [1:00:48<2:05:18, 36.86s/it]| Round: 97 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.296 / 0.894 |
+| Val_Per_Class_Acc: tensor([0.8850, 0.9690, 0.8080, 0.9100, 0.8830, 0.9610, 0.6320, 0.9560, 0.9730,
+        0.9620]) |
+| Poison Loss/Poison Acc: 4.741 / 0.169 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 32%|###2      | 97/300 [1:01:24<2:04:03, 36.67s/it]| Round: 98 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.295 / 0.894 |
+| Val_Per_Class_Acc: tensor([0.8800, 0.9690, 0.8110, 0.9060, 0.8770, 0.9600, 0.6490, 0.9570, 0.9740,
+        0.9620]) |
+| Poison Loss/Poison Acc: 4.762 / 0.169 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 33%|###2      | 98/300 [1:02:01<2:03:16, 36.61s/it]| Round: 99 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.294 / 0.895 |
+| Val_Per_Class_Acc: tensor([0.8770, 0.9690, 0.8130, 0.9070, 0.8830, 0.9580, 0.6500, 0.9640, 0.9750,
+        0.9590]) |
+| Poison Loss/Poison Acc: 4.746 / 0.179 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 33%|###3      | 99/300 [1:02:37<2:02:14, 36.49s/it]| Round: 100 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.293 / 0.896 |
+| Val_Per_Class_Acc: tensor([0.8630, 0.9680, 0.8070, 0.9050, 0.8750, 0.9610, 0.6880, 0.9640, 0.9740,
+        0.9590]) |
+| Poison Loss/Poison Acc: 4.775 / 0.177 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 33%|###3      | 100/300 [1:03:14<2:02:08, 36.64s/it]| Round: 101 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.292 / 0.897 |
+| Val_Per_Class_Acc: tensor([0.8720, 0.9690, 0.8160, 0.9080, 0.8610, 0.9650, 0.6800, 0.9630, 0.9750,
+        0.9590]) |
+| Poison Loss/Poison Acc: 4.844 / 0.168 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 34%|###3      | 101/300 [1:03:51<2:01:38, 36.68s/it]| Round: 102 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.291 / 0.897 |
+| Val_Per_Class_Acc: tensor([0.8780, 0.9690, 0.8190, 0.9070, 0.8730, 0.9650, 0.6680, 0.9580, 0.9740,
+        0.9620]) |
+| Poison Loss/Poison Acc: 4.823 / 0.171 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 34%|###4      | 102/300 [1:04:28<2:01:24, 36.79s/it]| Round: 103 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.292 / 0.896 |
+| Val_Per_Class_Acc: tensor([0.8790, 0.9680, 0.8250, 0.9120, 0.8650, 0.9620, 0.6590, 0.9600, 0.9740,
+        0.9600]) |
+| Poison Loss/Poison Acc: 4.789 / 0.176 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 34%|###4      | 103/300 [1:05:05<2:01:21, 36.96s/it]| Round: 104 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.292 / 0.897 |
+| Val_Per_Class_Acc: tensor([0.8790, 0.9680, 0.8240, 0.9080, 0.8700, 0.9630, 0.6640, 0.9550, 0.9740,
+        0.9620]) |
+| Poison Loss/Poison Acc: 4.817 / 0.173 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 35%|###4      | 104/300 [1:05:43<2:01:22, 37.16s/it]| Round: 105 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.290 / 0.896 |
+| Val_Per_Class_Acc: tensor([0.8830, 0.9690, 0.8230, 0.9090, 0.8660, 0.9640, 0.6540, 0.9550, 0.9740,
+        0.9620]) |
+| Poison Loss/Poison Acc: 4.915 / 0.167 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 35%|###5      | 105/300 [1:06:21<2:01:23, 37.35s/it]| Round: 106 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.290 / 0.897 |
+| Val_Per_Class_Acc: tensor([0.8770, 0.9690, 0.8170, 0.9090, 0.8690, 0.9690, 0.6750, 0.9530, 0.9730,
+        0.9630]) |
+| Poison Loss/Poison Acc: 4.952 / 0.161 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 35%|###5      | 106/300 [1:06:58<2:00:40, 37.32s/it]| Round: 107 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.290 / 0.897 |
+| Val_Per_Class_Acc: tensor([0.8750, 0.9680, 0.8160, 0.9110, 0.8760, 0.9660, 0.6670, 0.9510, 0.9730,
+        0.9630]) |
+| Poison Loss/Poison Acc: 4.998 / 0.162 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 36%|###5      | 107/300 [1:07:35<2:00:15, 37.38s/it]| Round: 108 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.290 / 0.896 |
+| Val_Per_Class_Acc: tensor([0.8710, 0.9680, 0.8150, 0.9130, 0.8820, 0.9640, 0.6560, 0.9500, 0.9750,
+        0.9640]) |
+| Poison Loss/Poison Acc: 4.869 / 0.176 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 36%|###6      | 108/300 [1:08:12<1:59:13, 37.26s/it]| Round: 109 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.289 / 0.896 |
+| Val_Per_Class_Acc: tensor([0.8720, 0.9680, 0.8180, 0.9160, 0.8750, 0.9640, 0.6590, 0.9540, 0.9750,
+        0.9630]) |
+| Poison Loss/Poison Acc: 4.836 / 0.180 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 36%|###6      | 109/300 [1:08:49<1:57:48, 37.01s/it]| Round: 110 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.289 / 0.897 |
+| Val_Per_Class_Acc: tensor([0.8720, 0.9680, 0.8110, 0.9130, 0.8760, 0.9620, 0.6760, 0.9570, 0.9760,
+        0.9610]) |
+| Poison Loss/Poison Acc: 4.654 / 0.185 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 37%|###6      | 110/300 [1:09:26<1:57:44, 37.18s/it]| Round: 111 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.288 / 0.898 |
+| Val_Per_Class_Acc: tensor([0.8690, 0.9690, 0.8110, 0.9180, 0.8750, 0.9650, 0.6770, 0.9570, 0.9770,
+        0.9600]) |
+| Poison Loss/Poison Acc: 4.786 / 0.182 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 37%|###7      | 111/300 [1:10:04<1:57:09, 37.19s/it]| Round: 112 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.287 / 0.897 |
+| Val_Per_Class_Acc: tensor([0.8750, 0.9690, 0.8360, 0.9130, 0.8690, 0.9660, 0.6450, 0.9560, 0.9760,
+        0.9620]) |
+| Poison Loss/Poison Acc: 4.773 / 0.184 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 37%|###7      | 112/300 [1:10:40<1:56:03, 37.04s/it]| Round: 113 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.287 / 0.897 |
+| Val_Per_Class_Acc: tensor([0.8780, 0.9680, 0.8280, 0.9140, 0.8690, 0.9640, 0.6540, 0.9540, 0.9760,
+        0.9630]) |
+| Poison Loss/Poison Acc: 4.818 / 0.187 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 38%|###7      | 113/300 [1:11:18<1:56:17, 37.31s/it]| Round: 114 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.287 / 0.897 |
+| Val_Per_Class_Acc: tensor([0.8710, 0.9680, 0.8410, 0.9150, 0.8450, 0.9640, 0.6690, 0.9550, 0.9760,
+        0.9630]) |
+| Poison Loss/Poison Acc: 4.817 / 0.182 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 38%|###8      | 114/300 [1:11:56<1:55:40, 37.31s/it]| Round: 115 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.286 / 0.897 |
+| Val_Per_Class_Acc: tensor([0.8780, 0.9680, 0.8370, 0.9150, 0.8520, 0.9630, 0.6650, 0.9540, 0.9740,
+        0.9630]) |
+| Poison Loss/Poison Acc: 4.788 / 0.185 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 38%|###8      | 115/300 [1:12:33<1:55:27, 37.45s/it]| Round: 116 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.286 / 0.897 |
+| Val_Per_Class_Acc: tensor([0.8770, 0.9680, 0.8430, 0.9130, 0.8570, 0.9660, 0.6580, 0.9540, 0.9760,
+        0.9630]) |
+| Poison Loss/Poison Acc: 4.803 / 0.183 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 39%|###8      | 116/300 [1:13:11<1:54:57, 37.49s/it]| Round: 117 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.285 / 0.898 |
+| Val_Per_Class_Acc: tensor([0.8640, 0.9680, 0.8280, 0.9110, 0.8610, 0.9670, 0.6840, 0.9580, 0.9750,
+        0.9630]) |
+| Poison Loss/Poison Acc: 4.828 / 0.186 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 39%|###9      | 117/300 [1:13:48<1:54:24, 37.51s/it]| Round: 118 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.284 / 0.896 |
+| Val_Per_Class_Acc: tensor([0.8700, 0.9700, 0.8320, 0.9100, 0.8760, 0.9680, 0.6450, 0.9570, 0.9740,
+        0.9630]) |
+| Poison Loss/Poison Acc: 4.797 / 0.189 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 39%|###9      | 118/300 [1:14:25<1:53:04, 37.28s/it]| Round: 119 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.283 / 0.898 |
+| Val_Per_Class_Acc: tensor([0.8720, 0.9700, 0.8270, 0.9130, 0.8690, 0.9720, 0.6650, 0.9530, 0.9740,
+        0.9630]) |
+| Poison Loss/Poison Acc: 5.035 / 0.170 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 40%|###9      | 119/300 [1:15:03<1:52:45, 37.38s/it]| Round: 120 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.283 / 0.898 |
+| Val_Per_Class_Acc: tensor([0.8720, 0.9690, 0.8250, 0.9160, 0.8710, 0.9730, 0.6630, 0.9530, 0.9740,
+        0.9630]) |
+| Poison Loss/Poison Acc: 5.125 / 0.168 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 40%|####      | 120/300 [1:15:40<1:51:52, 37.29s/it]| Round: 121 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.283 / 0.897 |
+| Val_Per_Class_Acc: tensor([0.8780, 0.9690, 0.8290, 0.9160, 0.8680, 0.9750, 0.6410, 0.9510, 0.9760,
+        0.9630]) |
+| Poison Loss/Poison Acc: 5.140 / 0.167 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 40%|####      | 121/300 [1:16:18<1:51:41, 37.44s/it]| Round: 122 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.283 / 0.898 |
+| Val_Per_Class_Acc: tensor([0.8770, 0.9690, 0.8330, 0.9180, 0.8670, 0.9740, 0.6480, 0.9530, 0.9760,
+        0.9640]) |
+| Poison Loss/Poison Acc: 5.067 / 0.173 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 41%|####      | 122/300 [1:16:55<1:51:14, 37.50s/it]| Round: 123 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.283 / 0.898 |
+| Val_Per_Class_Acc: tensor([0.8640, 0.9690, 0.8370, 0.9220, 0.8530, 0.9730, 0.6700, 0.9540, 0.9740,
+        0.9630]) |
+| Poison Loss/Poison Acc: 4.942 / 0.186 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 41%|####1     | 123/300 [1:17:33<1:50:43, 37.53s/it]| Round: 124 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.282 / 0.898 |
+| Val_Per_Class_Acc: tensor([0.8740, 0.9690, 0.8410, 0.9200, 0.8670, 0.9690, 0.6470, 0.9560, 0.9740,
+        0.9630]) |
+| Poison Loss/Poison Acc: 4.891 / 0.191 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 41%|####1     | 124/300 [1:18:11<1:50:13, 37.58s/it]| Round: 125 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.281 / 0.898 |
+| Val_Per_Class_Acc: tensor([0.8840, 0.9700, 0.8490, 0.9160, 0.8570, 0.9710, 0.6440, 0.9560, 0.9740,
+        0.9630]) |
+| Poison Loss/Poison Acc: 4.993 / 0.185 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 42%|####1     | 125/300 [1:18:48<1:49:46, 37.63s/it]| Round: 126 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.280 / 0.899 |
+| Val_Per_Class_Acc: tensor([0.8660, 0.9710, 0.8460, 0.9140, 0.8570, 0.9720, 0.6740, 0.9540, 0.9750,
+        0.9640]) |
+| Poison Loss/Poison Acc: 5.028 / 0.181 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 42%|####2     | 126/300 [1:19:26<1:49:00, 37.59s/it]| Round: 127 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.281 / 0.899 |
+| Val_Per_Class_Acc: tensor([0.8750, 0.9710, 0.8420, 0.9150, 0.8580, 0.9710, 0.6630, 0.9570, 0.9740,
+        0.9620]) |
+| Poison Loss/Poison Acc: 5.046 / 0.186 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 42%|####2     | 127/300 [1:20:04<1:48:32, 37.65s/it]| Round: 128 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.280 / 0.899 |
+| Val_Per_Class_Acc: tensor([0.8810, 0.9710, 0.8300, 0.9120, 0.8730, 0.9730, 0.6520, 0.9560, 0.9750,
+        0.9630]) |
+| Poison Loss/Poison Acc: 5.119 / 0.179 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 43%|####2     | 128/300 [1:20:41<1:47:54, 37.64s/it]| Round: 129 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.280 / 0.899 |
+| Val_Per_Class_Acc: tensor([0.8770, 0.9710, 0.8340, 0.9110, 0.8630, 0.9730, 0.6720, 0.9570, 0.9740,
+        0.9630]) |
+| Poison Loss/Poison Acc: 5.082 / 0.178 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 43%|####3     | 129/300 [1:21:19<1:47:08, 37.59s/it]| Round: 130 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.279 / 0.900 |
+| Val_Per_Class_Acc: tensor([0.8710, 0.9710, 0.8310, 0.9160, 0.8580, 0.9720, 0.6820, 0.9570, 0.9760,
+        0.9630]) |
+| Poison Loss/Poison Acc: 5.085 / 0.179 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 43%|####3     | 130/300 [1:21:56<1:46:20, 37.53s/it]| Round: 131 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.279 / 0.900 |
+| Val_Per_Class_Acc: tensor([0.8740, 0.9710, 0.8270, 0.9140, 0.8730, 0.9690, 0.6740, 0.9620, 0.9770,
+        0.9620]) |
+| Poison Loss/Poison Acc: 5.022 / 0.184 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 44%|####3     | 131/300 [1:22:34<1:45:53, 37.59s/it]| Round: 132 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.279 / 0.901 |
+| Val_Per_Class_Acc: tensor([0.8640, 0.9710, 0.8200, 0.9100, 0.8790, 0.9710, 0.6900, 0.9650, 0.9770,
+        0.9610]) |
+| Poison Loss/Poison Acc: 4.976 / 0.188 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 44%|####4     | 132/300 [1:23:10<1:44:23, 37.29s/it]| Round: 133 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.279 / 0.900 |
+| Val_Per_Class_Acc: tensor([0.8780, 0.9710, 0.8210, 0.9180, 0.8550, 0.9670, 0.6850, 0.9680, 0.9770,
+        0.9600]) |
+| Poison Loss/Poison Acc: 5.030 / 0.194 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 44%|####4     | 133/300 [1:23:48<1:44:07, 37.41s/it]| Round: 134 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.280 / 0.901 |
+| Val_Per_Class_Acc: tensor([0.8660, 0.9680, 0.8110, 0.9170, 0.8850, 0.9680, 0.6870, 0.9660, 0.9770,
+        0.9620]) |
+| Poison Loss/Poison Acc: 5.055 / 0.191 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 45%|####4     | 134/300 [1:24:26<1:43:42, 37.48s/it]| Round: 135 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.280 / 0.900 |
+| Val_Per_Class_Acc: tensor([0.8400, 0.9720, 0.7940, 0.9120, 0.8900, 0.9700, 0.7220, 0.9680, 0.9760,
+        0.9580]) |
+| Poison Loss/Poison Acc: 4.964 / 0.193 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 45%|####5     | 135/300 [1:25:03<1:42:42, 37.35s/it]| Round: 136 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.278 / 0.900 |
+| Val_Per_Class_Acc: tensor([0.8620, 0.9720, 0.8290, 0.9150, 0.8850, 0.9710, 0.6650, 0.9630, 0.9760,
+        0.9620]) |
+| Poison Loss/Poison Acc: 4.857 / 0.203 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 45%|####5     | 136/300 [1:25:40<1:41:57, 37.30s/it]| Round: 137 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.277 / 0.900 |
+| Val_Per_Class_Acc: tensor([0.8680, 0.9710, 0.8290, 0.9150, 0.8750, 0.9710, 0.6750, 0.9590, 0.9760,
+        0.9640]) |
+| Poison Loss/Poison Acc: 4.959 / 0.199 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 46%|####5     | 137/300 [1:26:18<1:41:48, 37.47s/it]| Round: 138 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.276 / 0.902 |
+| Val_Per_Class_Acc: tensor([0.8620, 0.9720, 0.8220, 0.9130, 0.8710, 0.9740, 0.7030, 0.9610, 0.9740,
+        0.9640]) |
+| Poison Loss/Poison Acc: 4.906 / 0.197 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 46%|####6     | 138/300 [1:26:55<1:41:12, 37.48s/it]| Round: 139 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.275 / 0.902 |
+| Val_Per_Class_Acc: tensor([0.8740, 0.9710, 0.8260, 0.9170, 0.8690, 0.9730, 0.6860, 0.9650, 0.9740,
+        0.9620]) |
+| Poison Loss/Poison Acc: 4.939 / 0.201 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 46%|####6     | 139/300 [1:27:32<1:39:59, 37.26s/it]| Round: 140 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.275 / 0.900 |
+| Val_Per_Class_Acc: tensor([0.8750, 0.9720, 0.8330, 0.9110, 0.8730, 0.9740, 0.6610, 0.9640, 0.9760,
+        0.9620]) |
+| Poison Loss/Poison Acc: 5.054 / 0.199 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 47%|####6     | 140/300 [1:28:09<1:39:13, 37.21s/it]| Round: 141 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.275 / 0.902 |
+| Val_Per_Class_Acc: tensor([0.8740, 0.9720, 0.8370, 0.9150, 0.8690, 0.9730, 0.6740, 0.9670, 0.9770,
+        0.9610]) |
+| Poison Loss/Poison Acc: 5.099 / 0.188 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 47%|####6     | 141/300 [1:28:47<1:39:09, 37.42s/it]| Round: 142 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.276 / 0.901 |
+| Val_Per_Class_Acc: tensor([0.8900, 0.9710, 0.8410, 0.9130, 0.8760, 0.9740, 0.6370, 0.9690, 0.9770,
+        0.9610]) |
+| Poison Loss/Poison Acc: 4.959 / 0.201 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 47%|####7     | 142/300 [1:29:25<1:38:47, 37.51s/it]| Round: 143 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.274 / 0.902 |
+| Val_Per_Class_Acc: tensor([0.8830, 0.9720, 0.8380, 0.9140, 0.8720, 0.9760, 0.6590, 0.9700, 0.9770,
+        0.9610]) |
+| Poison Loss/Poison Acc: 5.029 / 0.191 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 48%|####7     | 143/300 [1:30:02<1:38:01, 37.46s/it]| Round: 144 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.274 / 0.901 |
+| Val_Per_Class_Acc: tensor([0.8790, 0.9720, 0.8320, 0.9120, 0.8790, 0.9700, 0.6550, 0.9710, 0.9770,
+        0.9610]) |
+| Poison Loss/Poison Acc: 4.911 / 0.201 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 48%|####8     | 144/300 [1:30:40<1:37:46, 37.61s/it]| Round: 145 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.274 / 0.902 |
+| Val_Per_Class_Acc: tensor([0.8750, 0.9720, 0.8270, 0.9100, 0.8860, 0.9710, 0.6710, 0.9700, 0.9760,
+        0.9620]) |
+| Poison Loss/Poison Acc: 4.895 / 0.201 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 48%|####8     | 145/300 [1:31:18<1:37:07, 37.60s/it]| Round: 146 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.273 / 0.902 |
+| Val_Per_Class_Acc: tensor([0.8690, 0.9710, 0.8220, 0.9110, 0.8770, 0.9750, 0.6980, 0.9580, 0.9770,
+        0.9640]) |
+| Poison Loss/Poison Acc: 5.002 / 0.198 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 49%|####8     | 146/300 [1:31:56<1:36:44, 37.69s/it]| Round: 147 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.274 / 0.902 |
+| Val_Per_Class_Acc: tensor([0.8880, 0.9710, 0.8270, 0.9150, 0.8800, 0.9680, 0.6660, 0.9640, 0.9780,
+        0.9620]) |
+| Poison Loss/Poison Acc: 4.907 / 0.205 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 49%|####9     | 147/300 [1:34:16<2:54:18, 68.36s/it]| Round: 148 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.273 / 0.902 |
+| Val_Per_Class_Acc: tensor([0.8790, 0.9710, 0.8230, 0.9180, 0.8640, 0.9710, 0.6910, 0.9710, 0.9760,
+        0.9600]) |
+| Poison Loss/Poison Acc: 4.899 / 0.207 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 49%|####9     | 148/300 [1:34:52<2:29:14, 58.91s/it]| Round: 149 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.274 / 0.902 |
+| Val_Per_Class_Acc: tensor([0.8930, 0.9710, 0.8450, 0.9210, 0.8520, 0.9670, 0.6650, 0.9720, 0.9770,
+        0.9600]) |
+| Poison Loss/Poison Acc: 4.840 / 0.217 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 50%|####9     | 149/300 [1:35:29<2:11:42, 52.34s/it]| Round: 150 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.273 / 0.902 |
+| Val_Per_Class_Acc: tensor([0.8980, 0.9710, 0.8500, 0.9200, 0.8540, 0.9690, 0.6510, 0.9730, 0.9770,
+        0.9580]) |
+| Poison Loss/Poison Acc: 4.964 / 0.211 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 50%|#####     | 150/300 [1:36:07<1:59:52, 47.95s/it]| Round: 151 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.272 / 0.903 |
+| Val_Per_Class_Acc: tensor([0.8940, 0.9710, 0.8410, 0.9140, 0.8630, 0.9750, 0.6630, 0.9710, 0.9770,
+        0.9590]) |
+| Poison Loss/Poison Acc: 5.075 / 0.202 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 50%|#####     | 151/300 [1:36:45<1:51:51, 45.05s/it]| Round: 152 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.270 / 0.903 |
+| Val_Per_Class_Acc: tensor([0.8810, 0.9720, 0.8340, 0.9130, 0.8700, 0.9770, 0.6820, 0.9660, 0.9770,
+        0.9630]) |
+| Poison Loss/Poison Acc: 5.123 / 0.200 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 51%|#####     | 152/300 [1:37:23<1:45:39, 42.83s/it]| Round: 153 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.271 / 0.904 |
+| Val_Per_Class_Acc: tensor([0.8800, 0.9710, 0.8230, 0.9160, 0.8830, 0.9740, 0.6830, 0.9690, 0.9770,
+        0.9610]) |
+| Poison Loss/Poison Acc: 4.927 / 0.211 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 51%|#####1    | 153/300 [1:38:01<1:41:21, 41.37s/it]| Round: 154 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.270 / 0.905 |
+| Val_Per_Class_Acc: tensor([0.8630, 0.9720, 0.8340, 0.9210, 0.8730, 0.9750, 0.7020, 0.9720, 0.9770,
+        0.9580]) |
+| Poison Loss/Poison Acc: 4.957 / 0.210 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 51%|#####1    | 154/300 [1:38:39<1:37:47, 40.19s/it]| Round: 155 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.270 / 0.904 |
+| Val_Per_Class_Acc: tensor([0.8700, 0.9720, 0.8260, 0.9180, 0.8860, 0.9750, 0.6840, 0.9730, 0.9770,
+        0.9590]) |
+| Poison Loss/Poison Acc: 4.897 / 0.216 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 52%|#####1    | 155/300 [1:39:16<1:35:20, 39.45s/it]| Round: 156 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.270 / 0.904 |
+| Val_Per_Class_Acc: tensor([0.8700, 0.9720, 0.8270, 0.9160, 0.8810, 0.9750, 0.6900, 0.9730, 0.9770,
+        0.9590]) |
+| Poison Loss/Poison Acc: 4.894 / 0.211 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 52%|#####2    | 156/300 [1:39:55<1:33:50, 39.10s/it]| Round: 157 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.270 / 0.905 |
+| Val_Per_Class_Acc: tensor([0.8650, 0.9720, 0.8440, 0.9190, 0.8610, 0.9750, 0.7030, 0.9730, 0.9770,
+        0.9580]) |
+| Poison Loss/Poison Acc: 4.858 / 0.211 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 52%|#####2    | 157/300 [1:40:32<1:31:55, 38.57s/it]| Round: 158 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.269 / 0.905 |
+| Val_Per_Class_Acc: tensor([0.8740, 0.9720, 0.8410, 0.9220, 0.8680, 0.9750, 0.6850, 0.9730, 0.9770,
+        0.9590]) |
+| Poison Loss/Poison Acc: 4.841 / 0.215 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 53%|#####2    | 158/300 [1:41:10<1:30:59, 38.45s/it]| Round: 159 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.269 / 0.904 |
+| Val_Per_Class_Acc: tensor([0.8870, 0.9720, 0.8410, 0.9210, 0.8780, 0.9750, 0.6570, 0.9730, 0.9770,
+        0.9590]) |
+| Poison Loss/Poison Acc: 4.864 / 0.218 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 53%|#####3    | 159/300 [1:41:48<1:30:08, 38.35s/it]| Round: 160 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.268 / 0.904 |
+| Val_Per_Class_Acc: tensor([0.8860, 0.9720, 0.8310, 0.9220, 0.8790, 0.9750, 0.6690, 0.9720, 0.9770,
+        0.9590]) |
+| Poison Loss/Poison Acc: 4.993 / 0.210 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 53%|#####3    | 160/300 [1:42:26<1:28:56, 38.12s/it]| Round: 161 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.268 / 0.903 |
+| Val_Per_Class_Acc: tensor([0.8860, 0.9720, 0.8320, 0.9190, 0.8880, 0.9730, 0.6530, 0.9700, 0.9780,
+        0.9610]) |
+| Poison Loss/Poison Acc: 4.975 / 0.206 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 54%|#####3    | 161/300 [1:43:03<1:27:29, 37.76s/it]| Round: 162 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.268 / 0.905 |
+| Val_Per_Class_Acc: tensor([0.8830, 0.9720, 0.8260, 0.9240, 0.8810, 0.9740, 0.6790, 0.9700, 0.9780,
+        0.9610]) |
+| Poison Loss/Poison Acc: 4.988 / 0.215 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 54%|#####4    | 162/300 [1:43:40<1:26:38, 37.67s/it]| Round: 163 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.268 / 0.904 |
+| Val_Per_Class_Acc: tensor([0.8910, 0.9710, 0.8270, 0.9230, 0.8770, 0.9750, 0.6770, 0.9620, 0.9770,
+        0.9640]) |
+| Poison Loss/Poison Acc: 5.012 / 0.212 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 54%|#####4    | 163/300 [1:44:17<1:25:30, 37.45s/it]| Round: 164 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.268 / 0.904 |
+| Val_Per_Class_Acc: tensor([0.8880, 0.9720, 0.8310, 0.9230, 0.8710, 0.9720, 0.6780, 0.9710, 0.9780,
+        0.9610]) |
+| Poison Loss/Poison Acc: 4.957 / 0.214 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 55%|#####4    | 164/300 [1:44:55<1:24:59, 37.50s/it]| Round: 165 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.268 / 0.904 |
+| Val_Per_Class_Acc: tensor([0.8850, 0.9720, 0.8290, 0.9170, 0.8870, 0.9680, 0.6700, 0.9710, 0.9780,
+        0.9630]) |
+| Poison Loss/Poison Acc: 4.858 / 0.219 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 55%|#####5    | 165/300 [1:45:32<1:24:28, 37.55s/it]| Round: 166 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.268 / 0.905 |
+| Val_Per_Class_Acc: tensor([0.8820, 0.9710, 0.8230, 0.9240, 0.8810, 0.9670, 0.6900, 0.9710, 0.9780,
+        0.9610]) |
+| Poison Loss/Poison Acc: 4.891 / 0.221 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 55%|#####5    | 166/300 [1:46:09<1:23:27, 37.37s/it]| Round: 167 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.267 / 0.904 |
+| Val_Per_Class_Acc: tensor([0.8840, 0.9710, 0.8230, 0.9240, 0.8730, 0.9740, 0.6870, 0.9600, 0.9780,
+        0.9640]) |
+| Poison Loss/Poison Acc: 5.111 / 0.211 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 56%|#####5    | 167/300 [1:46:47<1:22:58, 37.44s/it]| Round: 168 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.267 / 0.904 |
+| Val_Per_Class_Acc: tensor([0.8800, 0.9710, 0.8180, 0.9180, 0.8800, 0.9730, 0.6940, 0.9650, 0.9780,
+        0.9630]) |
+| Poison Loss/Poison Acc: 4.963 / 0.215 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 56%|#####6    | 168/300 [1:47:24<1:22:24, 37.46s/it]| Round: 169 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.266 / 0.904 |
+| Val_Per_Class_Acc: tensor([0.8850, 0.9720, 0.8330, 0.9140, 0.8810, 0.9710, 0.6750, 0.9700, 0.9780,
+        0.9630]) |
+| Poison Loss/Poison Acc: 4.815 / 0.226 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 56%|#####6    | 169/300 [1:48:01<1:21:31, 37.34s/it]| Round: 170 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.267 / 0.904 |
+| Val_Per_Class_Acc: tensor([0.8550, 0.9720, 0.8210, 0.9210, 0.8760, 0.9650, 0.7200, 0.9700, 0.9780,
+        0.9630]) |
+| Poison Loss/Poison Acc: 4.788 / 0.234 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 57%|#####6    | 170/300 [1:48:39<1:20:44, 37.27s/it]| Round: 171 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.267 / 0.904 |
+| Val_Per_Class_Acc: tensor([0.8760, 0.9720, 0.8180, 0.9190, 0.8780, 0.9670, 0.7040, 0.9710, 0.9780,
+        0.9600]) |
+| Poison Loss/Poison Acc: 4.723 / 0.235 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 57%|#####6    | 171/300 [1:49:17<1:20:46, 37.57s/it]| Round: 172 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.266 / 0.904 |
+| Val_Per_Class_Acc: tensor([0.8790, 0.9720, 0.8320, 0.9190, 0.8750, 0.9690, 0.6870, 0.9710, 0.9780,
+        0.9620]) |
+| Poison Loss/Poison Acc: 4.829 / 0.226 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 57%|#####7    | 172/300 [1:49:55<1:20:25, 37.70s/it]| Round: 173 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.265 / 0.905 |
+| Val_Per_Class_Acc: tensor([0.8820, 0.9720, 0.8260, 0.9110, 0.8840, 0.9760, 0.6880, 0.9700, 0.9770,
+        0.9600]) |
+| Poison Loss/Poison Acc: 4.948 / 0.215 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 58%|#####7    | 173/300 [1:50:32<1:19:46, 37.69s/it]| Round: 174 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.265 / 0.905 |
+| Val_Per_Class_Acc: tensor([0.8930, 0.9720, 0.8380, 0.9120, 0.8710, 0.9770, 0.6790, 0.9680, 0.9780,
+        0.9620]) |
+| Poison Loss/Poison Acc: 5.039 / 0.213 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 58%|#####8    | 174/300 [1:51:10<1:18:59, 37.61s/it]| Round: 175 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.265 / 0.904 |
+| Val_Per_Class_Acc: tensor([0.8930, 0.9720, 0.8360, 0.9160, 0.8800, 0.9740, 0.6590, 0.9710, 0.9770,
+        0.9590]) |
+| Poison Loss/Poison Acc: 4.930 / 0.225 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 58%|#####8    | 175/300 [1:51:48<1:18:28, 37.67s/it]| Round: 176 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.264 / 0.904 |
+| Val_Per_Class_Acc: tensor([0.8880, 0.9720, 0.8320, 0.9170, 0.8810, 0.9750, 0.6690, 0.9700, 0.9770,
+        0.9590]) |
+| Poison Loss/Poison Acc: 5.001 / 0.214 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 59%|#####8    | 176/300 [1:52:25<1:17:38, 37.57s/it]| Round: 177 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.264 / 0.905 |
+| Val_Per_Class_Acc: tensor([0.8940, 0.9720, 0.8510, 0.9210, 0.8680, 0.9760, 0.6580, 0.9740, 0.9770,
+        0.9570]) |
+| Poison Loss/Poison Acc: 5.044 / 0.218 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 59%|#####8    | 177/300 [1:53:02<1:16:32, 37.34s/it]| Round: 178 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.263 / 0.906 |
+| Val_Per_Class_Acc: tensor([0.8860, 0.9720, 0.8550, 0.9220, 0.8670, 0.9760, 0.6710, 0.9760, 0.9770,
+        0.9550]) |
+| Poison Loss/Poison Acc: 5.037 / 0.217 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 59%|#####9    | 178/300 [1:53:40<1:16:14, 37.50s/it]| Round: 179 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.264 / 0.905 |
+| Val_Per_Class_Acc: tensor([0.8880, 0.9720, 0.8570, 0.9190, 0.8670, 0.9720, 0.6690, 0.9760, 0.9770,
+        0.9550]) |
+| Poison Loss/Poison Acc: 4.932 / 0.225 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 60%|#####9    | 179/300 [1:54:17<1:15:40, 37.52s/it]| Round: 180 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.263 / 0.904 |
+| Val_Per_Class_Acc: tensor([0.8760, 0.9720, 0.8430, 0.9190, 0.8730, 0.9720, 0.6810, 0.9730, 0.9770,
+        0.9590]) |
+| Poison Loss/Poison Acc: 4.858 / 0.231 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 60%|######    | 180/300 [1:54:55<1:15:20, 37.67s/it]| Round: 181 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.263 / 0.905 |
+| Val_Per_Class_Acc: tensor([0.8860, 0.9720, 0.8430, 0.9160, 0.8790, 0.9720, 0.6780, 0.9720, 0.9770,
+        0.9590]) |
+| Poison Loss/Poison Acc: 4.945 / 0.225 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 60%|######    | 181/300 [1:55:33<1:14:45, 37.69s/it]| Round: 182 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.262 / 0.906 |
+| Val_Per_Class_Acc: tensor([0.8670, 0.9720, 0.8600, 0.9240, 0.8630, 0.9740, 0.6920, 0.9700, 0.9770,
+        0.9610]) |
+| Poison Loss/Poison Acc: 4.998 / 0.225 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 61%|######    | 182/300 [1:56:11<1:14:07, 37.69s/it]| Round: 183 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.263 / 0.905 |
+| Val_Per_Class_Acc: tensor([0.8680, 0.9720, 0.8560, 0.9220, 0.8640, 0.9710, 0.6860, 0.9770, 0.9770,
+        0.9550]) |
+| Poison Loss/Poison Acc: 4.895 / 0.234 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 61%|######1   | 183/300 [1:56:48<1:13:08, 37.51s/it]| Round: 184 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.263 / 0.906 |
+| Val_Per_Class_Acc: tensor([0.8830, 0.9710, 0.8670, 0.9230, 0.8600, 0.9710, 0.6740, 0.9750, 0.9770,
+        0.9560]) |
+| Poison Loss/Poison Acc: 4.913 / 0.231 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 61%|######1   | 184/300 [1:57:25<1:12:17, 37.39s/it]| Round: 185 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.262 / 0.905 |
+| Val_Per_Class_Acc: tensor([0.8740, 0.9710, 0.8630, 0.9210, 0.8620, 0.9710, 0.6830, 0.9740, 0.9770,
+        0.9570]) |
+| Poison Loss/Poison Acc: 4.873 / 0.236 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 62%|######1   | 185/300 [1:58:02<1:11:44, 37.43s/it]| Round: 186 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.263 / 0.905 |
+| Val_Per_Class_Acc: tensor([0.8850, 0.9710, 0.8520, 0.9230, 0.8740, 0.9670, 0.6670, 0.9780, 0.9770,
+        0.9540]) |
+| Poison Loss/Poison Acc: 4.804 / 0.244 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 62%|######2   | 186/300 [1:58:40<1:10:55, 37.33s/it]| Round: 187 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.262 / 0.905 |
+| Val_Per_Class_Acc: tensor([0.8830, 0.9720, 0.8410, 0.9220, 0.8810, 0.9720, 0.6740, 0.9750, 0.9780,
+        0.9560]) |
+| Poison Loss/Poison Acc: 4.924 / 0.235 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 62%|######2   | 187/300 [1:59:17<1:10:23, 37.38s/it]| Round: 188 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.262 / 0.906 |
+| Val_Per_Class_Acc: tensor([0.8810, 0.9720, 0.8430, 0.9190, 0.8830, 0.9710, 0.6780, 0.9740, 0.9780,
+        0.9580]) |
+| Poison Loss/Poison Acc: 4.916 / 0.235 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 63%|######2   | 188/300 [1:59:55<1:09:57, 37.48s/it]| Round: 189 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.261 / 0.906 |
+| Val_Per_Class_Acc: tensor([0.8740, 0.9720, 0.8370, 0.9220, 0.8790, 0.9710, 0.6910, 0.9740, 0.9770,
+        0.9590]) |
+| Poison Loss/Poison Acc: 4.912 / 0.235 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 63%|######3   | 189/300 [2:00:33<1:09:36, 37.63s/it]| Round: 190 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.261 / 0.906 |
+| Val_Per_Class_Acc: tensor([0.8840, 0.9720, 0.8430, 0.9240, 0.8770, 0.9730, 0.6810, 0.9740, 0.9780,
+        0.9580]) |
+| Poison Loss/Poison Acc: 5.060 / 0.226 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 63%|######3   | 190/300 [2:01:10<1:09:01, 37.65s/it]| Round: 191 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.261 / 0.906 |
+| Val_Per_Class_Acc: tensor([0.8940, 0.9720, 0.8470, 0.9210, 0.8760, 0.9720, 0.6680, 0.9720, 0.9770,
+        0.9590]) |
+| Poison Loss/Poison Acc: 5.069 / 0.227 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 64%|######3   | 191/300 [2:01:47<1:07:39, 37.25s/it]| Round: 192 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.260 / 0.907 |
+| Val_Per_Class_Acc: tensor([0.8740, 0.9730, 0.8440, 0.9260, 0.8730, 0.9710, 0.6980, 0.9740, 0.9770,
+        0.9590]) |
+| Poison Loss/Poison Acc: 5.005 / 0.231 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 64%|######4   | 192/300 [2:02:25<1:07:42, 37.61s/it]| Round: 193 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.260 / 0.906 |
+| Val_Per_Class_Acc: tensor([0.8840, 0.9730, 0.8370, 0.9210, 0.8830, 0.9710, 0.6810, 0.9730, 0.9790,
+        0.9590]) |
+| Poison Loss/Poison Acc: 5.023 / 0.226 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 64%|######4   | 193/300 [2:03:03<1:06:57, 37.55s/it]| Round: 194 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.260 / 0.906 |
+| Val_Per_Class_Acc: tensor([0.8820, 0.9720, 0.8410, 0.9160, 0.8750, 0.9740, 0.6860, 0.9740, 0.9790,
+        0.9590]) |
+| Poison Loss/Poison Acc: 5.004 / 0.225 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 65%|######4   | 194/300 [2:03:40<1:06:18, 37.54s/it]| Round: 195 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.260 / 0.907 |
+| Val_Per_Class_Acc: tensor([0.8760, 0.9720, 0.8410, 0.9250, 0.8810, 0.9730, 0.6900, 0.9740, 0.9770,
+        0.9590]) |
+| Poison Loss/Poison Acc: 5.062 / 0.222 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 65%|######5   | 195/300 [2:04:17<1:05:36, 37.49s/it]| Round: 196 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.260 / 0.906 |
+| Val_Per_Class_Acc: tensor([0.8940, 0.9710, 0.8540, 0.9230, 0.8730, 0.9740, 0.6660, 0.9730, 0.9780,
+        0.9590]) |
+| Poison Loss/Poison Acc: 5.134 / 0.219 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 65%|######5   | 196/300 [2:04:55<1:05:09, 37.59s/it]| Round: 197 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.259 / 0.906 |
+| Val_Per_Class_Acc: tensor([0.8810, 0.9710, 0.8500, 0.9210, 0.8830, 0.9720, 0.6730, 0.9720, 0.9770,
+        0.9590]) |
+| Poison Loss/Poison Acc: 5.087 / 0.222 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 66%|######5   | 197/300 [2:05:33<1:04:24, 37.52s/it]| Round: 198 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.259 / 0.907 |
+| Val_Per_Class_Acc: tensor([0.8640, 0.9720, 0.8500, 0.9230, 0.8860, 0.9770, 0.6960, 0.9720, 0.9760,
+        0.9590]) |
+| Poison Loss/Poison Acc: 5.060 / 0.222 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 66%|######6   | 198/300 [2:06:11<1:04:09, 37.74s/it]| Round: 199 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.258 / 0.908 |
+| Val_Per_Class_Acc: tensor([0.8500, 0.9730, 0.8520, 0.9220, 0.8820, 0.9740, 0.7170, 0.9720, 0.9770,
+        0.9590]) |
+| Poison Loss/Poison Acc: 5.017 / 0.224 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 66%|######6   | 199/300 [2:06:48<1:02:58, 37.41s/it]| Round: 200 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.259 / 0.907 |
+| Val_Per_Class_Acc: tensor([0.8450, 0.9730, 0.8410, 0.9240, 0.8920, 0.9710, 0.7180, 0.9740, 0.9760,
+        0.9560]) |
+| Poison Loss/Poison Acc: 4.948 / 0.232 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 67%|######6   | 200/300 [2:07:25<1:02:23, 37.44s/it]| Round: 201 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.259 / 0.907 |
+| Val_Per_Class_Acc: tensor([0.8530, 0.9720, 0.8320, 0.9250, 0.8940, 0.9690, 0.7130, 0.9800, 0.9760,
+        0.9540]) |
+| Poison Loss/Poison Acc: 4.897 / 0.231 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 67%|######7   | 201/300 [2:08:03<1:01:47, 37.45s/it]| Round: 202 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.258 / 0.907 |
+| Val_Per_Class_Acc: tensor([0.8490, 0.9730, 0.8350, 0.9250, 0.8810, 0.9670, 0.7260, 0.9800, 0.9770,
+        0.9550]) |
+| Poison Loss/Poison Acc: 4.913 / 0.235 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 67%|######7   | 202/300 [2:08:39<1:00:27, 37.02s/it]| Round: 203 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.259 / 0.908 |
+| Val_Per_Class_Acc: tensor([0.8660, 0.9730, 0.8530, 0.9270, 0.8680, 0.9650, 0.7120, 0.9810, 0.9790,
+        0.9530]) |
+| Poison Loss/Poison Acc: 4.819 / 0.240 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 68%|######7   | 203/300 [2:09:16<59:49, 37.01s/it]  | Round: 204 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.259 / 0.906 |
+| Val_Per_Class_Acc: tensor([0.8720, 0.9730, 0.8580, 0.9280, 0.8650, 0.9620, 0.6910, 0.9800, 0.9790,
+        0.9550]) |
+| Poison Loss/Poison Acc: 4.697 / 0.253 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 68%|######8   | 204/300 [2:09:52<59:07, 36.95s/it]| Round: 205 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.260 / 0.906 |
+| Val_Per_Class_Acc: tensor([0.8840, 0.9730, 0.8540, 0.9290, 0.8840, 0.9600, 0.6700, 0.9800, 0.9750,
+        0.9550]) |
+| Poison Loss/Poison Acc: 4.762 / 0.256 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 68%|######8   | 205/300 [2:10:31<59:14, 37.42s/it]| Round: 206 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.259 / 0.908 |
+| Val_Per_Class_Acc: tensor([0.8690, 0.9730, 0.8420, 0.9300, 0.8840, 0.9620, 0.7080, 0.9780, 0.9760,
+        0.9560]) |
+| Poison Loss/Poison Acc: 4.710 / 0.259 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 69%|######8   | 206/300 [2:11:08<58:39, 37.44s/it]| Round: 207 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.258 / 0.907 |
+| Val_Per_Class_Acc: tensor([0.8790, 0.9720, 0.8600, 0.9270, 0.8680, 0.9620, 0.6930, 0.9800, 0.9770,
+        0.9550]) |
+| Poison Loss/Poison Acc: 4.627 / 0.261 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 69%|######9   | 207/300 [2:11:46<58:00, 37.42s/it]| Round: 208 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.258 / 0.908 |
+| Val_Per_Class_Acc: tensor([0.8840, 0.9740, 0.8530, 0.9230, 0.8760, 0.9650, 0.6920, 0.9820, 0.9770,
+        0.9540]) |
+| Poison Loss/Poison Acc: 4.681 / 0.256 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 69%|######9   | 208/300 [2:12:23<57:25, 37.46s/it]| Round: 209 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.257 / 0.908 |
+| Val_Per_Class_Acc: tensor([0.8760, 0.9740, 0.8530, 0.9250, 0.8780, 0.9650, 0.6970, 0.9830, 0.9750,
+        0.9530]) |
+| Poison Loss/Poison Acc: 4.730 / 0.255 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 70%|######9   | 209/300 [2:13:01<56:58, 37.57s/it]| Round: 210 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.257 / 0.907 |
+| Val_Per_Class_Acc: tensor([0.8900, 0.9740, 0.8610, 0.9210, 0.8760, 0.9650, 0.6700, 0.9800, 0.9770,
+        0.9550]) |
+| Poison Loss/Poison Acc: 4.838 / 0.246 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 70%|#######   | 210/300 [2:13:38<56:03, 37.38s/it]| Round: 211 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.256 / 0.908 |
+| Val_Per_Class_Acc: tensor([0.8670, 0.9730, 0.8560, 0.9260, 0.8730, 0.9650, 0.7060, 0.9800, 0.9770,
+        0.9550]) |
+| Poison Loss/Poison Acc: 4.920 / 0.244 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 70%|#######   | 211/300 [2:14:15<55:11, 37.20s/it]| Round: 212 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.256 / 0.908 |
+| Val_Per_Class_Acc: tensor([0.8630, 0.9730, 0.8600, 0.9290, 0.8730, 0.9650, 0.7060, 0.9760, 0.9760,
+        0.9580]) |
+| Poison Loss/Poison Acc: 5.004 / 0.234 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 71%|#######   | 212/300 [2:14:53<54:55, 37.45s/it]| Round: 213 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.257 / 0.908 |
+| Val_Per_Class_Acc: tensor([0.8710, 0.9730, 0.8640, 0.9310, 0.8740, 0.9650, 0.6940, 0.9800, 0.9780,
+        0.9540]) |
+| Poison Loss/Poison Acc: 4.966 / 0.240 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 71%|#######1  | 213/300 [2:15:29<53:53, 37.17s/it]| Round: 214 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.256 / 0.908 |
+| Val_Per_Class_Acc: tensor([0.8690, 0.9730, 0.8590, 0.9290, 0.8760, 0.9680, 0.6980, 0.9800, 0.9770,
+        0.9540]) |
+| Poison Loss/Poison Acc: 5.021 / 0.237 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 71%|#######1  | 214/300 [2:16:07<53:33, 37.37s/it]| Round: 215 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.255 / 0.908 |
+| Val_Per_Class_Acc: tensor([0.8660, 0.9720, 0.8510, 0.9250, 0.8890, 0.9680, 0.7020, 0.9760, 0.9750,
+        0.9570]) |
+| Poison Loss/Poison Acc: 4.947 / 0.239 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 72%|#######1  | 215/300 [2:16:45<53:12, 37.55s/it]| Round: 216 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.255 / 0.908 |
+| Val_Per_Class_Acc: tensor([0.8580, 0.9730, 0.8420, 0.9250, 0.8860, 0.9680, 0.7200, 0.9780, 0.9750,
+        0.9560]) |
+| Poison Loss/Poison Acc: 4.937 / 0.238 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 72%|#######2  | 216/300 [2:17:23<52:40, 37.63s/it]| Round: 217 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.255 / 0.908 |
+| Val_Per_Class_Acc: tensor([0.8540, 0.9730, 0.8410, 0.9290, 0.8850, 0.9720, 0.7210, 0.9770, 0.9750,
+        0.9560]) |
+| Poison Loss/Poison Acc: 5.009 / 0.231 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 72%|#######2  | 217/300 [2:18:01<52:00, 37.60s/it]| Round: 218 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.255 / 0.909 |
+| Val_Per_Class_Acc: tensor([0.8570, 0.9740, 0.8420, 0.9280, 0.8910, 0.9700, 0.7190, 0.9770, 0.9790,
+        0.9570]) |
+| Poison Loss/Poison Acc: 4.908 / 0.240 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 73%|#######2  | 218/300 [2:18:39<51:42, 37.83s/it]| Round: 219 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.254 / 0.909 |
+| Val_Per_Class_Acc: tensor([0.8590, 0.9740, 0.8530, 0.9250, 0.8840, 0.9670, 0.7170, 0.9760, 0.9790,
+        0.9600]) |
+| Poison Loss/Poison Acc: 4.895 / 0.240 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 73%|#######3  | 219/300 [2:19:16<50:57, 37.74s/it]| Round: 220 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.254 / 0.909 |
+| Val_Per_Class_Acc: tensor([0.8640, 0.9740, 0.8540, 0.9290, 0.8780, 0.9680, 0.7140, 0.9770, 0.9790,
+        0.9580]) |
+| Poison Loss/Poison Acc: 5.030 / 0.235 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 73%|#######3  | 220/300 [2:19:54<50:17, 37.72s/it]| Round: 221 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.253 / 0.910 |
+| Val_Per_Class_Acc: tensor([0.8770, 0.9740, 0.8600, 0.9290, 0.8790, 0.9670, 0.6960, 0.9760, 0.9790,
+        0.9590]) |
+| Poison Loss/Poison Acc: 5.057 / 0.234 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 74%|#######3  | 221/300 [2:20:33<50:07, 38.07s/it]| Round: 222 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.253 / 0.909 |
+| Val_Per_Class_Acc: tensor([0.8670, 0.9740, 0.8470, 0.9280, 0.8760, 0.9670, 0.7140, 0.9780, 0.9790,
+        0.9570]) |
+| Poison Loss/Poison Acc: 5.065 / 0.233 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 74%|#######4  | 222/300 [2:21:11<49:25, 38.02s/it]| Round: 223 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.254 / 0.909 |
+| Val_Per_Class_Acc: tensor([0.8670, 0.9730, 0.8530, 0.9250, 0.8710, 0.9650, 0.7220, 0.9780, 0.9790,
+        0.9570]) |
+| Poison Loss/Poison Acc: 5.026 / 0.236 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 74%|#######4  | 223/300 [2:21:48<48:38, 37.90s/it]| Round: 224 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.253 / 0.909 |
+| Val_Per_Class_Acc: tensor([0.8820, 0.9730, 0.8600, 0.9260, 0.8740, 0.9670, 0.6960, 0.9760, 0.9790,
+        0.9600]) |
+| Poison Loss/Poison Acc: 5.118 / 0.232 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 75%|#######4  | 224/300 [2:22:27<48:16, 38.11s/it]| Round: 225 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.253 / 0.909 |
+| Val_Per_Class_Acc: tensor([0.8730, 0.9730, 0.8510, 0.9190, 0.8870, 0.9730, 0.7020, 0.9740, 0.9790,
+        0.9600]) |
+| Poison Loss/Poison Acc: 5.275 / 0.225 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 75%|#######5  | 225/300 [2:23:06<47:54, 38.32s/it]| Round: 226 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.253 / 0.909 |
+| Val_Per_Class_Acc: tensor([0.8740, 0.9730, 0.8590, 0.9210, 0.8780, 0.9700, 0.7030, 0.9750, 0.9790,
+        0.9600]) |
+| Poison Loss/Poison Acc: 5.151 / 0.227 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 75%|#######5  | 226/300 [2:23:44<47:20, 38.38s/it]| Round: 227 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.252 / 0.909 |
+| Val_Per_Class_Acc: tensor([0.8690, 0.9730, 0.8650, 0.9260, 0.8720, 0.9680, 0.6990, 0.9760, 0.9790,
+        0.9600]) |
+| Poison Loss/Poison Acc: 5.100 / 0.231 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 76%|#######5  | 227/300 [2:24:23<46:50, 38.50s/it]| Round: 228 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.252 / 0.910 |
+| Val_Per_Class_Acc: tensor([0.8550, 0.9730, 0.8480, 0.9240, 0.8820, 0.9730, 0.7280, 0.9740, 0.9790,
+        0.9600]) |
+| Poison Loss/Poison Acc: 5.152 / 0.229 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 76%|#######6  | 228/300 [2:25:01<45:48, 38.18s/it]| Round: 229 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.251 / 0.910 |
+| Val_Per_Class_Acc: tensor([0.8610, 0.9740, 0.8500, 0.9290, 0.8880, 0.9730, 0.7090, 0.9740, 0.9790,
+        0.9600]) |
+| Poison Loss/Poison Acc: 5.215 / 0.223 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 76%|#######6  | 229/300 [2:25:38<44:54, 37.96s/it]| Round: 230 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.251 / 0.911 |
+| Val_Per_Class_Acc: tensor([0.8750, 0.9740, 0.8530, 0.9280, 0.8840, 0.9730, 0.7050, 0.9760, 0.9790,
+        0.9600]) |
+| Poison Loss/Poison Acc: 5.293 / 0.222 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 77%|#######6  | 230/300 [2:26:16<44:25, 38.07s/it]| Round: 231 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.252 / 0.910 |
+| Val_Per_Class_Acc: tensor([0.8820, 0.9730, 0.8520, 0.9270, 0.8860, 0.9730, 0.6930, 0.9750, 0.9790,
+        0.9600]) |
+| Poison Loss/Poison Acc: 5.219 / 0.226 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 77%|#######7  | 231/300 [2:26:54<43:44, 38.03s/it]| Round: 232 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.253 / 0.910 |
+| Val_Per_Class_Acc: tensor([0.8570, 0.9740, 0.8310, 0.9290, 0.8940, 0.9670, 0.7300, 0.9750, 0.9790,
+        0.9600]) |
+| Poison Loss/Poison Acc: 5.043 / 0.239 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 77%|#######7  | 232/300 [2:27:32<43:02, 37.98s/it]| Round: 233 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.251 / 0.910 |
+| Val_Per_Class_Acc: tensor([0.8740, 0.9730, 0.8420, 0.9270, 0.8870, 0.9710, 0.7140, 0.9760, 0.9790,
+        0.9600]) |
+| Poison Loss/Poison Acc: 5.152 / 0.227 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 78%|#######7  | 233/300 [2:28:11<42:50, 38.37s/it]| Round: 234 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.251 / 0.910 |
+| Val_Per_Class_Acc: tensor([0.8730, 0.9740, 0.8490, 0.9290, 0.8830, 0.9680, 0.7090, 0.9760, 0.9790,
+        0.9600]) |
+| Poison Loss/Poison Acc: 5.173 / 0.228 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 78%|#######8  | 234/300 [2:28:50<42:13, 38.39s/it]| Round: 235 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.251 / 0.910 |
+| Val_Per_Class_Acc: tensor([0.8880, 0.9730, 0.8470, 0.9280, 0.8850, 0.9690, 0.6980, 0.9760, 0.9790,
+        0.9600]) |
+| Poison Loss/Poison Acc: 5.256 / 0.224 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 78%|#######8  | 235/300 [2:29:28<41:31, 38.33s/it]| Round: 236 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.251 / 0.910 |
+| Val_Per_Class_Acc: tensor([0.8950, 0.9730, 0.8520, 0.9280, 0.8890, 0.9680, 0.6850, 0.9760, 0.9790,
+        0.9600]) |
+| Poison Loss/Poison Acc: 5.144 / 0.239 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 79%|#######8  | 236/300 [2:30:07<40:56, 38.38s/it]| Round: 237 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.252 / 0.910 |
+| Val_Per_Class_Acc: tensor([0.8960, 0.9730, 0.8600, 0.9280, 0.8760, 0.9680, 0.6880, 0.9780, 0.9780,
+        0.9580]) |
+| Poison Loss/Poison Acc: 5.254 / 0.232 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 79%|#######9  | 237/300 [2:30:45<40:12, 38.30s/it]| Round: 238 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.251 / 0.910 |
+| Val_Per_Class_Acc: tensor([0.8930, 0.9730, 0.8600, 0.9280, 0.8770, 0.9720, 0.6880, 0.9770, 0.9780,
+        0.9570]) |
+| Poison Loss/Poison Acc: 5.466 / 0.220 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 79%|#######9  | 238/300 [2:31:22<39:17, 38.03s/it]| Round: 239 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.251 / 0.911 |
+| Val_Per_Class_Acc: tensor([0.8930, 0.9730, 0.8590, 0.9270, 0.8810, 0.9720, 0.6890, 0.9820, 0.9780,
+        0.9550]) |
+| Poison Loss/Poison Acc: 5.438 / 0.221 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 80%|#######9  | 239/300 [2:32:01<38:57, 38.31s/it]| Round: 240 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.251 / 0.911 |
+| Val_Per_Class_Acc: tensor([0.8910, 0.9720, 0.8590, 0.9330, 0.8720, 0.9730, 0.6980, 0.9800, 0.9790,
+        0.9560]) |
+| Poison Loss/Poison Acc: 5.499 / 0.218 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 80%|########  | 240/300 [2:32:39<38:05, 38.08s/it]| Round: 241 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.250 / 0.911 |
+| Val_Per_Class_Acc: tensor([0.8940, 0.9730, 0.8440, 0.9240, 0.8870, 0.9750, 0.7000, 0.9820, 0.9780,
+        0.9550]) |
+| Poison Loss/Poison Acc: 5.377 / 0.217 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 80%|########  | 241/300 [2:33:17<37:34, 38.21s/it]| Round: 242 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.250 / 0.911 |
+| Val_Per_Class_Acc: tensor([0.8930, 0.9730, 0.8540, 0.9290, 0.8770, 0.9720, 0.6990, 0.9840, 0.9790,
+        0.9510]) |
+| Poison Loss/Poison Acc: 5.318 / 0.223 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 81%|########  | 242/300 [2:33:56<37:11, 38.48s/it]| Round: 243 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.251 / 0.910 |
+| Val_Per_Class_Acc: tensor([0.8970, 0.9730, 0.8540, 0.9310, 0.8790, 0.9690, 0.6810, 0.9850, 0.9790,
+        0.9500]) |
+| Poison Loss/Poison Acc: 5.249 / 0.231 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 81%|########1 | 243/300 [2:34:34<36:21, 38.26s/it]| Round: 244 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.250 / 0.910 |
+| Val_Per_Class_Acc: tensor([0.8970, 0.9730, 0.8540, 0.9260, 0.8810, 0.9730, 0.6840, 0.9850, 0.9790,
+        0.9510]) |
+| Poison Loss/Poison Acc: 5.364 / 0.224 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 81%|########1 | 244/300 [2:35:13<35:51, 38.42s/it]| Round: 245 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.250 / 0.909 |
+| Val_Per_Class_Acc: tensor([0.8980, 0.9730, 0.8600, 0.9230, 0.8830, 0.9730, 0.6680, 0.9800, 0.9790,
+        0.9560]) |
+| Poison Loss/Poison Acc: 5.455 / 0.217 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 82%|########1 | 245/300 [2:35:50<34:57, 38.14s/it]| Round: 246 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.250 / 0.910 |
+| Val_Per_Class_Acc: tensor([0.9050, 0.9730, 0.8520, 0.9240, 0.8860, 0.9750, 0.6710, 0.9770, 0.9790,
+        0.9600]) |
+| Poison Loss/Poison Acc: 5.471 / 0.216 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 82%|########2 | 246/300 [2:36:29<34:22, 38.20s/it]| Round: 247 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.249 / 0.910 |
+| Val_Per_Class_Acc: tensor([0.8990, 0.9730, 0.8480, 0.9250, 0.8840, 0.9750, 0.6860, 0.9770, 0.9790,
+        0.9580]) |
+| Poison Loss/Poison Acc: 5.483 / 0.216 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 82%|########2 | 247/300 [2:37:07<33:40, 38.12s/it]| Round: 248 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.250 / 0.911 |
+| Val_Per_Class_Acc: tensor([0.9030, 0.9740, 0.8410, 0.9210, 0.8950, 0.9720, 0.6840, 0.9800, 0.9790,
+        0.9570]) |
+| Poison Loss/Poison Acc: 5.321 / 0.227 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 83%|########2 | 248/300 [2:37:44<32:55, 37.99s/it]| Round: 249 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.249 / 0.911 |
+| Val_Per_Class_Acc: tensor([0.8950, 0.9740, 0.8340, 0.9180, 0.8960, 0.9740, 0.6990, 0.9820, 0.9790,
+        0.9560]) |
+| Poison Loss/Poison Acc: 5.444 / 0.217 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 83%|########2 | 249/300 [2:38:22<32:16, 37.97s/it]| Round: 250 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.249 / 0.911 |
+| Val_Per_Class_Acc: tensor([0.8990, 0.9740, 0.8530, 0.9210, 0.8880, 0.9700, 0.6870, 0.9810, 0.9790,
+        0.9560]) |
+| Poison Loss/Poison Acc: 5.470 / 0.220 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 83%|########3 | 250/300 [2:38:59<31:21, 37.63s/it]| Round: 251 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.248 / 0.911 |
+| Val_Per_Class_Acc: tensor([0.8890, 0.9730, 0.8430, 0.9240, 0.8860, 0.9730, 0.7070, 0.9780, 0.9790,
+        0.9580]) |
+| Poison Loss/Poison Acc: 5.467 / 0.218 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 84%|########3 | 251/300 [2:39:36<30:32, 37.39s/it]| Round: 252 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.247 / 0.912 |
+| Val_Per_Class_Acc: tensor([0.8800, 0.9740, 0.8520, 0.9250, 0.8920, 0.9720, 0.7070, 0.9780, 0.9790,
+        0.9590]) |
+| Poison Loss/Poison Acc: 5.460 / 0.217 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 84%|########4 | 252/300 [2:40:13<29:54, 37.39s/it]| Round: 253 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.247 / 0.912 |
+| Val_Per_Class_Acc: tensor([0.8810, 0.9740, 0.8530, 0.9240, 0.8890, 0.9710, 0.7130, 0.9760, 0.9790,
+        0.9590]) |
+| Poison Loss/Poison Acc: 5.368 / 0.223 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 84%|########4 | 253/300 [2:40:50<29:02, 37.09s/it]| Round: 254 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.247 / 0.911 |
+| Val_Per_Class_Acc: tensor([0.8870, 0.9740, 0.8550, 0.9220, 0.8880, 0.9710, 0.7010, 0.9760, 0.9790,
+        0.9590]) |
+| Poison Loss/Poison Acc: 5.310 / 0.221 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 85%|########4 | 254/300 [2:41:26<28:20, 36.97s/it]| Round: 255 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.247 / 0.912 |
+| Val_Per_Class_Acc: tensor([0.8890, 0.9740, 0.8530, 0.9250, 0.8920, 0.9740, 0.6990, 0.9790, 0.9790,
+        0.9550]) |
+| Poison Loss/Poison Acc: 5.465 / 0.214 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 85%|########5 | 255/300 [2:42:03<27:42, 36.95s/it]| Round: 256 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.247 / 0.912 |
+| Val_Per_Class_Acc: tensor([0.8840, 0.9740, 0.8490, 0.9240, 0.8860, 0.9720, 0.7130, 0.9800, 0.9790,
+        0.9550]) |
+| Poison Loss/Poison Acc: 5.394 / 0.218 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 85%|########5 | 256/300 [2:42:40<26:57, 36.76s/it]| Round: 257 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.247 / 0.911 |
+| Val_Per_Class_Acc: tensor([0.8860, 0.9740, 0.8480, 0.9240, 0.8880, 0.9700, 0.7100, 0.9780, 0.9790,
+        0.9560]) |
+| Poison Loss/Poison Acc: 5.401 / 0.221 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 86%|########5 | 257/300 [2:43:16<26:20, 36.75s/it]| Round: 258 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.247 / 0.911 |
+| Val_Per_Class_Acc: tensor([0.8820, 0.9740, 0.8490, 0.9300, 0.8890, 0.9700, 0.7040, 0.9790, 0.9790,
+        0.9560]) |
+| Poison Loss/Poison Acc: 5.366 / 0.224 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 86%|########6 | 258/300 [2:43:53<25:44, 36.77s/it]| Round: 259 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.247 / 0.911 |
+| Val_Per_Class_Acc: tensor([0.8920, 0.9740, 0.8490, 0.9240, 0.8900, 0.9710, 0.6930, 0.9790, 0.9790,
+        0.9550]) |
+| Poison Loss/Poison Acc: 5.386 / 0.221 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 86%|########6 | 259/300 [2:44:30<25:03, 36.67s/it]| Round: 260 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.246 / 0.911 |
+| Val_Per_Class_Acc: tensor([0.8860, 0.9750, 0.8470, 0.9250, 0.8910, 0.9730, 0.6970, 0.9780, 0.9790,
+        0.9590]) |
+| Poison Loss/Poison Acc: 5.522 / 0.214 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 87%|########6 | 260/300 [2:45:07<24:33, 36.83s/it]| Round: 261 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.246 / 0.912 |
+| Val_Per_Class_Acc: tensor([0.8830, 0.9740, 0.8470, 0.9310, 0.8860, 0.9750, 0.7110, 0.9790, 0.9790,
+        0.9570]) |
+| Poison Loss/Poison Acc: 5.529 / 0.214 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 87%|########7 | 261/300 [2:45:43<23:53, 36.75s/it]| Round: 262 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.246 / 0.912 |
+| Val_Per_Class_Acc: tensor([0.8880, 0.9750, 0.8480, 0.9290, 0.8840, 0.9730, 0.7060, 0.9820, 0.9780,
+        0.9570]) |
+| Poison Loss/Poison Acc: 5.407 / 0.217 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 87%|########7 | 262/300 [2:46:21<23:25, 36.99s/it]| Round: 263 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.247 / 0.911 |
+| Val_Per_Class_Acc: tensor([0.8960, 0.9750, 0.8570, 0.9260, 0.8890, 0.9740, 0.6810, 0.9810, 0.9790,
+        0.9570]) |
+| Poison Loss/Poison Acc: 5.480 / 0.216 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 88%|########7 | 263/300 [2:46:57<22:44, 36.88s/it]| Round: 264 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.246 / 0.912 |
+| Val_Per_Class_Acc: tensor([0.9000, 0.9750, 0.8590, 0.9290, 0.8820, 0.9750, 0.6860, 0.9810, 0.9790,
+        0.9560]) |
+| Poison Loss/Poison Acc: 5.583 / 0.215 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 88%|########8 | 264/300 [2:47:34<22:08, 36.91s/it]| Round: 265 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.246 / 0.912 |
+| Val_Per_Class_Acc: tensor([0.8990, 0.9750, 0.8540, 0.9230, 0.8900, 0.9740, 0.6930, 0.9790, 0.9790,
+        0.9570]) |
+| Poison Loss/Poison Acc: 5.590 / 0.213 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 88%|########8 | 265/300 [2:48:11<21:24, 36.69s/it]| Round: 266 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.246 / 0.912 |
+| Val_Per_Class_Acc: tensor([0.8980, 0.9750, 0.8530, 0.9240, 0.8920, 0.9720, 0.6940, 0.9810, 0.9790,
+        0.9570]) |
+| Poison Loss/Poison Acc: 5.474 / 0.219 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 89%|########8 | 266/300 [2:48:47<20:44, 36.61s/it]| Round: 267 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.245 / 0.913 |
+| Val_Per_Class_Acc: tensor([0.9030, 0.9750, 0.8520, 0.9220, 0.8940, 0.9750, 0.6920, 0.9770, 0.9780,
+        0.9580]) |
+| Poison Loss/Poison Acc: 5.525 / 0.215 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 89%|########9 | 267/300 [2:49:23<20:02, 36.43s/it]| Round: 268 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.244 / 0.912 |
+| Val_Per_Class_Acc: tensor([0.8970, 0.9740, 0.8610, 0.9230, 0.8840, 0.9750, 0.6920, 0.9770, 0.9780,
+        0.9590]) |
+| Poison Loss/Poison Acc: 5.594 / 0.213 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 89%|########9 | 268/300 [2:50:00<19:28, 36.50s/it]| Round: 269 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.244 / 0.912 |
+| Val_Per_Class_Acc: tensor([0.8820, 0.9740, 0.8660, 0.9220, 0.8840, 0.9760, 0.6990, 0.9790, 0.9790,
+        0.9560]) |
+| Poison Loss/Poison Acc: 5.660 / 0.210 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 90%|########9 | 269/300 [2:50:36<18:53, 36.55s/it]| Round: 270 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.243 / 0.912 |
+| Val_Per_Class_Acc: tensor([0.8630, 0.9740, 0.8530, 0.9250, 0.8900, 0.9780, 0.7250, 0.9770, 0.9780,
+        0.9580]) |
+| Poison Loss/Poison Acc: 5.730 / 0.206 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 90%|######### | 270/300 [2:51:13<18:14, 36.49s/it]| Round: 271 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.243 / 0.913 |
+| Val_Per_Class_Acc: tensor([0.8820, 0.9740, 0.8680, 0.9280, 0.8800, 0.9770, 0.7040, 0.9790, 0.9780,
+        0.9560]) |
+| Poison Loss/Poison Acc: 5.634 / 0.207 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 90%|######### | 271/300 [2:51:50<17:41, 36.62s/it]| Round: 272 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.243 / 0.914 |
+| Val_Per_Class_Acc: tensor([0.8830, 0.9750, 0.8710, 0.9270, 0.8890, 0.9780, 0.7010, 0.9760, 0.9780,
+        0.9580]) |
+| Poison Loss/Poison Acc: 5.620 / 0.206 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 91%|######### | 272/300 [2:52:26<17:07, 36.69s/it]| Round: 273 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.243 / 0.913 |
+| Val_Per_Class_Acc: tensor([0.8750, 0.9750, 0.8610, 0.9280, 0.8830, 0.9780, 0.7180, 0.9800, 0.9780,
+        0.9570]) |
+| Poison Loss/Poison Acc: 5.613 / 0.208 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 91%|#########1| 273/300 [2:53:03<16:28, 36.61s/it]| Round: 274 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.243 / 0.913 |
+| Val_Per_Class_Acc: tensor([0.8720, 0.9740, 0.8610, 0.9250, 0.8920, 0.9750, 0.7200, 0.9800, 0.9780,
+        0.9570]) |
+| Poison Loss/Poison Acc: 5.626 / 0.212 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 91%|#########1| 274/300 [2:53:40<15:55, 36.76s/it]| Round: 275 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.243 / 0.912 |
+| Val_Per_Class_Acc: tensor([0.8560, 0.9750, 0.8530, 0.9250, 0.8940, 0.9730, 0.7320, 0.9800, 0.9780,
+        0.9570]) |
+| Poison Loss/Poison Acc: 5.537 / 0.216 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 92%|#########1| 275/300 [2:54:18<15:25, 37.02s/it]| Round: 276 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.243 / 0.912 |
+| Val_Per_Class_Acc: tensor([0.8590, 0.9740, 0.8550, 0.9240, 0.8880, 0.9730, 0.7300, 0.9800, 0.9780,
+        0.9570]) |
+| Poison Loss/Poison Acc: 5.524 / 0.216 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 92%|#########2| 276/300 [2:54:54<14:45, 36.92s/it]| Round: 277 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.242 / 0.913 |
+| Val_Per_Class_Acc: tensor([0.8690, 0.9750, 0.8680, 0.9240, 0.8910, 0.9730, 0.7130, 0.9780, 0.9780,
+        0.9580]) |
+| Poison Loss/Poison Acc: 5.576 / 0.213 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 92%|#########2| 277/300 [2:55:31<14:06, 36.80s/it]| Round: 278 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.243 / 0.913 |
+| Val_Per_Class_Acc: tensor([0.8800, 0.9740, 0.8710, 0.9280, 0.8850, 0.9730, 0.7090, 0.9830, 0.9780,
+        0.9540]) |
+| Poison Loss/Poison Acc: 5.573 / 0.217 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 93%|#########2| 278/300 [2:56:07<13:25, 36.59s/it]| Round: 279 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.244 / 0.913 |
+| Val_Per_Class_Acc: tensor([0.8840, 0.9740, 0.8760, 0.9320, 0.8780, 0.9750, 0.6960, 0.9850, 0.9770,
+        0.9540]) |
+| Poison Loss/Poison Acc: 5.676 / 0.213 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 93%|#########3| 279/300 [2:56:44<12:50, 36.69s/it]| Round: 280 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.244 / 0.913 |
+| Val_Per_Class_Acc: tensor([0.8830, 0.9730, 0.8740, 0.9350, 0.8710, 0.9750, 0.7030, 0.9840, 0.9770,
+        0.9550]) |
+| Poison Loss/Poison Acc: 5.678 / 0.214 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 93%|#########3| 280/300 [2:57:20<12:12, 36.61s/it]| Round: 281 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.244 / 0.913 |
+| Val_Per_Class_Acc: tensor([0.8790, 0.9730, 0.8620, 0.9370, 0.8720, 0.9710, 0.7230, 0.9850, 0.9780,
+        0.9540]) |
+| Poison Loss/Poison Acc: 5.580 / 0.217 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 94%|#########3| 281/300 [2:57:57<11:35, 36.63s/it]| Round: 282 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.243 / 0.913 |
+| Val_Per_Class_Acc: tensor([0.8850, 0.9740, 0.8520, 0.9370, 0.8840, 0.9740, 0.7090, 0.9830, 0.9790,
+        0.9550]) |
+| Poison Loss/Poison Acc: 5.717 / 0.213 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 94%|#########3| 282/300 [2:58:34<11:02, 36.81s/it]| Round: 283 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.243 / 0.915 |
+| Val_Per_Class_Acc: tensor([0.8830, 0.9740, 0.8460, 0.9360, 0.8930, 0.9750, 0.7260, 0.9810, 0.9790,
+        0.9550]) |
+| Poison Loss/Poison Acc: 5.799 / 0.211 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 94%|#########4| 283/300 [2:59:11<10:26, 36.84s/it]| Round: 284 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.243 / 0.914 |
+| Val_Per_Class_Acc: tensor([0.8840, 0.9740, 0.8520, 0.9330, 0.8980, 0.9750, 0.7040, 0.9830, 0.9790,
+        0.9540]) |
+| Poison Loss/Poison Acc: 5.698 / 0.212 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 95%|#########4| 284/300 [2:59:48<09:49, 36.83s/it]| Round: 285 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.243 / 0.913 |
+| Val_Per_Class_Acc: tensor([0.8890, 0.9750, 0.8560, 0.9340, 0.8930, 0.9700, 0.6950, 0.9820, 0.9790,
+        0.9550]) |
+| Poison Loss/Poison Acc: 5.570 / 0.216 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 95%|#########5| 285/300 [3:00:24<09:11, 36.74s/it]| Round: 286 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.243 / 0.913 |
+| Val_Per_Class_Acc: tensor([0.8960, 0.9750, 0.8570, 0.9360, 0.8890, 0.9740, 0.6870, 0.9830, 0.9790,
+        0.9550]) |
+| Poison Loss/Poison Acc: 5.719 / 0.211 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 95%|#########5| 286/300 [3:01:01<08:33, 36.67s/it]| Round: 287 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.242 / 0.914 |
+| Val_Per_Class_Acc: tensor([0.8820, 0.9750, 0.8480, 0.9360, 0.8910, 0.9750, 0.7140, 0.9820, 0.9790,
+        0.9550]) |
+| Poison Loss/Poison Acc: 5.629 / 0.214 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 96%|#########5| 287/300 [3:01:37<07:56, 36.62s/it]| Round: 288 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.242 / 0.914 |
+| Val_Per_Class_Acc: tensor([0.8830, 0.9750, 0.8560, 0.9360, 0.8890, 0.9770, 0.7110, 0.9800, 0.9790,
+        0.9570]) |
+| Poison Loss/Poison Acc: 5.930 / 0.203 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 96%|#########6| 288/300 [3:02:14<07:20, 36.72s/it]| Round: 289 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.242 / 0.914 |
+| Val_Per_Class_Acc: tensor([0.8860, 0.9740, 0.8610, 0.9380, 0.8880, 0.9770, 0.6980, 0.9770, 0.9790,
+        0.9590]) |
+| Poison Loss/Poison Acc: 6.037 / 0.198 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 96%|#########6| 289/300 [3:02:51<06:42, 36.61s/it]| Round: 290 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.241 / 0.915 |
+| Val_Per_Class_Acc: tensor([0.8760, 0.9750, 0.8530, 0.9340, 0.8960, 0.9780, 0.7220, 0.9770, 0.9790,
+        0.9590]) |
+| Poison Loss/Poison Acc: 6.026 / 0.195 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 97%|#########6| 290/300 [3:03:28<06:07, 36.73s/it]| Round: 291 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.240 / 0.915 |
+| Val_Per_Class_Acc: tensor([0.8620, 0.9750, 0.8530, 0.9310, 0.9010, 0.9780, 0.7320, 0.9810, 0.9790,
+        0.9570]) |
+| Poison Loss/Poison Acc: 5.876 / 0.200 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 97%|#########7| 291/300 [3:04:05<05:31, 36.87s/it]| Round: 292 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.240 / 0.914 |
+| Val_Per_Class_Acc: tensor([0.8580, 0.9750, 0.8560, 0.9290, 0.8860, 0.9770, 0.7430, 0.9800, 0.9790,
+        0.9580]) |
+| Poison Loss/Poison Acc: 5.834 / 0.200 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 97%|#########7| 292/300 [3:04:48<05:10, 38.82s/it]| Round: 293 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.240 / 0.914 |
+| Val_Per_Class_Acc: tensor([0.8700, 0.9750, 0.8600, 0.9300, 0.8930, 0.9750, 0.7270, 0.9780, 0.9780,
+        0.9590]) |
+| Poison Loss/Poison Acc: 5.783 / 0.208 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 98%|#########7| 293/300 [3:05:27<04:30, 38.70s/it]| Round: 294 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.241 / 0.913 |
+| Val_Per_Class_Acc: tensor([0.8770, 0.9740, 0.8760, 0.9340, 0.8750, 0.9730, 0.7070, 0.9800, 0.9790,
+        0.9570]) |
+| Poison Loss/Poison Acc: 5.724 / 0.213 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 98%|#########8| 294/300 [3:06:04<03:50, 38.36s/it]| Round: 295 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.241 / 0.912 |
+| Val_Per_Class_Acc: tensor([0.8810, 0.9750, 0.8670, 0.9290, 0.8830, 0.9740, 0.6980, 0.9820, 0.9790,
+        0.9570]) |
+| Poison Loss/Poison Acc: 5.712 / 0.211 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 98%|#########8| 295/300 [3:06:42<03:11, 38.27s/it]| Round: 296 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.240 / 0.914 |
+| Val_Per_Class_Acc: tensor([0.8780, 0.9750, 0.8590, 0.9350, 0.8790, 0.9750, 0.7270, 0.9810, 0.9790,
+        0.9560]) |
+| Poison Loss/Poison Acc: 5.802 / 0.206 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 99%|#########8| 296/300 [3:07:19<02:31, 37.87s/it]| Round: 297 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.241 / 0.914 |
+| Val_Per_Class_Acc: tensor([0.8750, 0.9750, 0.8650, 0.9370, 0.8810, 0.9740, 0.7160, 0.9840, 0.9790,
+        0.9550]) |
+| Poison Loss/Poison Acc: 5.815 / 0.208 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 99%|#########9| 297/300 [3:07:56<01:52, 37.47s/it]| Round: 298 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.241 / 0.914 |
+| Val_Per_Class_Acc: tensor([0.8850, 0.9750, 0.8610, 0.9360, 0.8780, 0.9730, 0.7150, 0.9840, 0.9790,
+        0.9550]) |
+| Poison Loss/Poison Acc: 5.779 / 0.215 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+ 99%|#########9| 298/300 [3:08:34<01:15, 37.58s/it]| Round: 299 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.241 / 0.914 |
+| Val_Per_Class_Acc: tensor([0.8870, 0.9750, 0.8610, 0.9330, 0.8780, 0.9750, 0.7130, 0.9820, 0.9790,
+        0.9560]) |
+| Poison Loss/Poison Acc: 5.840 / 0.211 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+100%|#########9| 299/300 [3:09:11<00:37, 37.58s/it]| Round: 300 |
+| Poison_Frac: 0.25 | Poison_Fraction_Level: medium |
+| Val_Loss/Val_Acc: 0.240 / 0.914 |
+| Val_Per_Class_Acc: tensor([0.8830, 0.9750, 0.8660, 0.9300, 0.8880, 0.9730, 0.7040, 0.9820, 0.9800,
+        0.9580]) |
+| Poison Loss/Poison Acc: 5.874 / 0.210 |
+POISON_FRACTION_SENSITIVITY_METRICS_NOTE: compare Poison Acc, Val_Acc, and labels_changed across pf=0.05,0.10,0.25,0.50.
+100%|##########| 300/300 [3:09:50<00:00, 37.82s/it]100%|##########| 300/300 [3:09:50<00:00, 37.97s/it]
+Training has finished!
+Full console output saved to: output_logs\hyp3_poisonfrac_sensitivity_fmnist_r300_cpa10_pf0p25_pflevelmedium_base5_target7_cor1_rlr4_cl1_cltype1_seed105_20260706_105621_console_output.txt
