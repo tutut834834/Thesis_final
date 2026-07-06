@@ -1,0 +1,8 @@
+PC13 UPDATED RUN COMMAND
+
+Reason:
+- Corrected RobustLR threshold for balanced evaluation
+- Switched from overly weak/strong configurations to baseline value
+
+Command:
+python -u federated.py --data=fmnist --device=cpu --local_ep=2 --bs=1024 --num_agents=10 --agent_frac=0.6 --rounds=100 --snap=1 --num_corrupt=1 --poison_frac=0.25 --base_class=5 --target_class=7 --clean_label=1 --clean_label_type=1 --pattern_type=plus --robustLR_threshold=4 --cuckoo=1
