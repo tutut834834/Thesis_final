@@ -1,0 +1,86 @@
+Console output will be saved to: output_logs\cuckooV1_fmnist_r300_cor1_pf0.3_rlr2_cl0_cltype0_cuckoo1_seed1_20260706_162957_console_output.txt
+======================================
+Scenario: Cuckoo V1 Biology Nest Egg
+Dataset: fmnist
+Global Rounds: 300
+Aggregation Function: avg
+Number of agents: 10
+Fraction of agents: 1
+Class Per Agent: 10
+Batch size: 256
+Client_LR: 0.1
+Server_LR: 1.0
+Client_Momentum: 0.9
+RobustLR_threshold: 2
+Noise Ratio: 0
+Number of corrupt agents: 1
+Base Class: 5
+Target Class: 7
+Poison Frac: 0.3
+Clip: 0
+Clean Label Attack: 0
+Clean Label Type: 0
+Clean Label Auto Pattern: 1
+Verify Poisoning: 1
+Clean Label PGD: 0
+Malicious Boost: 1.0
+Corrupt Local Epochs: 0
+Cuckoo Enabled: 1
+Cuckoo Variant: v1_biology_nest
+======================================
+VERIFY_POISONING_START
+context=poisoned_validation_eval
+agent_idx=-1
+attack_mode=dirty-label
+force_dirty_label=True
+clean_label_requested=False
+clean_label_active=False
+clean_label_type=0
+pattern_type_requested=plus
+pattern_type_effective=plus
+source_class=5
+target_class=7
+poison_frac=1
+available_source_samples=1000
+poisoned_samples=1000
+labels_changed=1000
+expected_labels_changed=1000
+changed_pixels_first_sample=9
+label_verification_passed=True
+trigger_verification_passed=True
+VERIFY_POISONING_PASSED
+EVAL_ATTACK_PROOF: validation poison set uses base_class + trigger -> target_class to measure poison accuracy.
+VERIFY_POISONING_END
+VERIFY_POISONING_START
+context=train
+agent_idx=0
+attack_mode=dirty-label
+force_dirty_label=False
+clean_label_requested=False
+clean_label_active=False
+clean_label_type=0
+pattern_type_requested=plus
+pattern_type_effective=plus
+source_class=5
+target_class=7
+poison_frac=0.3
+available_source_samples=600
+poisoned_samples=180
+labels_changed=180
+expected_labels_changed=180
+changed_pixels_first_sample=9
+label_verification_passed=True
+trigger_verification_passed=True
+VERIFY_POISONING_PASSED
+DIRTY_LABEL_PROOF: labels_changed=poisoned_samples means base-class labels were changed to target-class labels.
+VERIFY_POISONING_END
+Traceback (most recent call last):
+  File "H:\Thesis_final\federated.py", line 114, in <module>
+    n_params = len(parameters_to_vector(global_model.parameters()))
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akiel\AppData\Roaming\Python\Python311\site-packages\torch\nn\utils\convert_parameters.py", line 24, in parameters_to_vector
+    vec.append(param.view(-1))
+               ^^^^^^^^^^^^^^
+  File "C:\Users\akiel\AppData\Roaming\Python\Python311\site-packages\torch\nn\parameter.py", line 184, in __torch_function__
+    raise ValueError(
+ValueError: Attempted to use an uninitialized parameter in <method 'view' of 'torch._C.TensorBase' objects>. This error happens when you are using a `LazyModule` or explicitly manipulating `torch.nn.parameter.UninitializedParameter` objects. When using LazyModules Call `forward` with a dummy batch to initialize the parameters before calling torch functions

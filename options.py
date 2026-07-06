@@ -18,6 +18,8 @@ def args_parser():
     parser.add_argument('--server_lr', type=float, default=1)
     parser.add_argument('--base_class', type=int, default=5)
     parser.add_argument('--target_class', type=int, default=7)
+    parser.add_argument('--model_type', type=str, default='cnn')
+    parser.add_argument('--seed', type=int, default=1)
     parser.add_argument('--poison_frac', type=float, default=0.10)
     parser.add_argument('--pattern_type', type=str, default='plus')
     parser.add_argument('--clean_label', type=int, default=0)

@@ -1,0 +1,106 @@
+Console output will be saved to: output_logs\cuckooV1_fmnist_r300_cor1_pf0.3_rlr2_cl0_cltype0_cuckoo1_seed1_20260706_160725_console_output.txt
+======================================
+Scenario: Cuckoo V1 Biology Nest Egg
+Dataset: fmnist
+Global Rounds: 300
+Aggregation Function: avg
+Number of agents: 10
+Fraction of agents: 1
+Class Per Agent: 10
+Batch size: 256
+Client_LR: 0.1
+Server_LR: 1.0
+Client_Momentum: 0.9
+RobustLR_threshold: 2
+Noise Ratio: 0
+Number of corrupt agents: 1
+Base Class: 5
+Target Class: 7
+Poison Frac: 0.3
+Clip: 0
+Clean Label Attack: 0
+Clean Label Type: 0
+Clean Label Auto Pattern: 1
+Verify Poisoning: 1
+Clean Label PGD: 0
+Malicious Boost: 1.0
+Corrupt Local Epochs: 0
+Cuckoo Enabled: 1
+Cuckoo Variant: v1_biology_nest
+======================================
+VERIFY_POISONING_START
+context=poisoned_validation_eval
+agent_idx=-1
+attack_mode=dirty-label
+force_dirty_label=True
+clean_label_requested=False
+clean_label_active=False
+clean_label_type=0
+pattern_type_requested=plus
+pattern_type_effective=plus
+source_class=5
+target_class=7
+poison_frac=1
+available_source_samples=1000
+poisoned_samples=1000
+labels_changed=1000
+expected_labels_changed=1000
+changed_pixels_first_sample=9
+label_verification_passed=True
+trigger_verification_passed=True
+VERIFY_POISONING_PASSED
+EVAL_ATTACK_PROOF: validation poison set uses base_class + trigger -> target_class to measure poison accuracy.
+VERIFY_POISONING_END
+VERIFY_POISONING_START
+context=train
+agent_idx=0
+attack_mode=dirty-label
+force_dirty_label=False
+clean_label_requested=False
+clean_label_active=False
+clean_label_type=0
+pattern_type_requested=plus
+pattern_type_effective=plus
+source_class=5
+target_class=7
+poison_frac=0.3
+available_source_samples=600
+poisoned_samples=180
+labels_changed=180
+expected_labels_changed=180
+changed_pixels_first_sample=9
+label_verification_passed=True
+trigger_verification_passed=True
+VERIFY_POISONING_PASSED
+DIRTY_LABEL_PROOF: labels_changed=poisoned_samples means base-class labels were changed to target-class labels.
+VERIFY_POISONING_END
+  0%|          | 0/300 [00:00<?, ?it/s]  0%|          | 0/300 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "H:\Thesis_final\federated.py", line 128, in <module>
+    update = agents[agent_id].local_train(global_model, criterion, cur_round=rnd)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "H:\Thesis_final\agent.py", line 82, in local_train
+    return self._train_one_update(global_model, criterion, self.train_loader, allow_pgd=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "H:\Thesis_final\agent.py", line 65, in _train_one_update
+    outputs = global_model(inputs)
+              ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akiel\AppData\Roaming\Python\Python311\site-packages\torch\nn\modules\module.py", line 1778, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akiel\AppData\Roaming\Python\Python311\site-packages\torch\nn\modules\module.py", line 1789, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "H:\Thesis_final\models.py", line 48, in forward
+    x = F.relu(self.fc1(x))
+               ^^^^^^^^^^^
+  File "C:\Users\akiel\AppData\Roaming\Python\Python311\site-packages\torch\nn\modules\module.py", line 1778, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akiel\AppData\Roaming\Python\Python311\site-packages\torch\nn\modules\module.py", line 1789, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akiel\AppData\Roaming\Python\Python311\site-packages\torch\nn\modules\linear.py", line 134, in forward
+    return F.linear(input, self.weight, self.bias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: mat1 and mat2 shapes cannot be multiplied (256x15488 and 3200x256)
