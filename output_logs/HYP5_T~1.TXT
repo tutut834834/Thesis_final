@@ -1,0 +1,2641 @@
+Console output will be saved to: output_logs\hyp5_trigger_geometry_fmnist_r300_trigsquare_area25_cpa10_base5_target7_cor1_pf0p1_cl0_cltype0_seed9_20260706_112729_console_output.txt
+TRIGGER_GEOMETRY_RUN_START
+scenario=Hypothesis 5 - trigger geometry
+trigger_geometry=square
+trigger_geometry_grid=plus,square,apple
+trigger_geometry_index=2
+trigger_geometry_family=dense_corner_patch
+trigger_mask_area=25
+trigger_mask_density=0.03188775510204082
+trigger_compactness_score=1.0
+expected_visibility=medium
+expected_pixel_scale=medium
+TRIGGER_GEOMETRY_RUN_END
+VERIFY_TRIGGER_GEOMETRY_START
+context=setup
+scenario=Hypothesis 5 - trigger geometry
+trigger_geometry_grid=plus,square,apple
+trigger_geometry=square
+pattern_type=square
+clean_label=0
+clean_label_type=0
+mapped_clean_label_type=2
+geometry_family=dense_corner_patch
+expected_visibility=medium
+expected_pixel_scale=medium
+mask_area=25
+mask_density=0.03188775510204082
+bbox_row_min=21
+bbox_row_max=25
+bbox_col_min=21
+bbox_col_max=25
+bbox_height=5
+bbox_width=5
+row_centroid=23.0
+col_centroid=23.0
+edge_touch_count=0
+quadrants={'top_left': 0, 'top_right': 0, 'bottom_left': 0, 'bottom_right': 25}
+compactness_score=1.0
+TRIGGER_ASCII_PREVIEW_START
+............................
+............................
+............................
+............................
+............................
+............................
+............................
+............................
+............................
+............................
+............................
+............................
+............................
+............................
+............................
+............................
+............................
+............................
+............................
+............................
+............................
+.....................#####..
+.....................#####..
+.....................#####..
+.....................#####..
+.....................#####..
+............................
+............................
+TRIGGER_ASCII_PREVIEW_END
+row_profile=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 5, 5, 5, 0, 0]
+col_profile=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 5, 5, 5, 0, 0]
+TRIGGER_GEOMETRY_PROOF: the trigger shape is actively selected and measured by code, not only changed as a raw hyperparameter.
+VERIFY_TRIGGER_GEOMETRY_PASSED
+VERIFY_TRIGGER_GEOMETRY_END
+TRIGGER_GEOMETRY_GRID_COMPARISON_START
+current_trigger_geometry=square
+grid_geometry=plus area=9 density=0.011479591836734694 compactness=0.36 current_minus_area=16
+grid_geometry=square area=25 density=0.03188775510204082 compactness=1.0 current_minus_area=0
+grid_geometry=apple area=96 density=0.12244897959183673 compactness=0.6233766233766234 current_minus_area=-71
+TRIGGER_GEOMETRY_GRID_COMPARISON_END
+TRIGGER_REGISTRY_START
+trigger=plus family=sparse_cross clean_label_type=1 expected_visibility=low_to_medium expected_pixel_scale=small description=small plus/cross pattern near the upper-left image region
+trigger=square family=dense_corner_patch clean_label_type=2 expected_visibility=medium expected_pixel_scale=medium description=dense square patch near the lower-right image region
+trigger=apple family=symbolic_global_pattern clean_label_type=3 expected_visibility=high expected_pixel_scale=large description=larger symbolic image-based trigger
+TRIGGER_REGISTRY_END
+TRIGGER_GEOMETRY_THESIS_CLAIM_START
+trigger_geometry=square
+claim=The square trigger is denser; it tests whether a compact corner patch improves attack success.
+TRIGGER_GEOMETRY_THESIS_CLAIM_END
+SCENARIO5_EXTRA_DOCUMENTATION_START
+scenario5_doc_line_1=Scenario 5 is the trigger geometry scenario.
+scenario5_doc_line_2=The fixed elements are dataset, number of agents, poison fraction, and class distribution.
+scenario5_doc_line_3=The changing element is trigger geometry.
+scenario5_doc_line_4=The compared trigger geometries are plus, square, and apple.
+scenario5_doc_line_5=The main empirical output is Poison Acc under each geometry.
+scenario5_doc_line_6=The secondary empirical output is Val Acc under each geometry.
+scenario5_doc_line_7=The trigger mask metrics are printed so the geometry comparison is explicit.
+scenario5_doc_line_8=The plus trigger is sparse and cross-shaped.
+scenario5_doc_line_9=The square trigger is a dense corner patch.
+scenario5_doc_line_10=The apple trigger is a larger symbolic pattern.
+scenario5_doc_line_11=If Poison Acc differs strongly across shapes, trigger design matters.
+scenario5_doc_line_12=If trigger design matters, optimization is justified.
+scenario5_doc_line_13=This motivates the later Cuckoo Search extension.
+scenario5_doc_line_14=Cuckoo Search can be framed as an automatic trigger search mechanism.
+scenario5_doc_line_15=The hand-designed triggers provide the baseline for that search.
+scenario5_doc_line_16=Dirty-label and clean-label attacks are both evaluated.
+scenario5_doc_line_17=Dirty-label should show labels_changed equal to poisoned_samples.
+scenario5_doc_line_18=Clean-label should show labels_changed equal to zero.
+scenario5_doc_line_19=The same geometry names are used in txt logs and run names.
+scenario5_doc_line_20=The run name includes trigplus, trigsquare, or trigapple.
+SCENARIO5_EXTRA_DOCUMENTATION_END
+======================================
+    Scenario: Hypothesis 5 - Trigger geometry
+    Scenario Data: IID-ish fixed distribution
+    Dataset: fmnist
+    Global Rounds: 300
+    Aggregation Function: avg
+    Trigger Geometry: square
+    Trigger Geometry Grid: plus,square,apple
+    Trigger Geometry Family: dense_corner_patch
+    Trigger Mask Area: 25
+    Trigger Mask Density: 0.03188775510204082
+    Trigger Compactness Score: 1.0
+    Number of agents: 10
+    Fraction of agents: 1
+    Class Per Agent: 10
+    Batch size: 1024
+    Client_LR: 0.1
+    Server_LR: 1.0
+    Client_Momentum: 0.9
+    RobustLR_threshold: 4
+    Noise Ratio: 0
+    Clip: 0
+    Number of corrupt agents: 1
+    Base Class: 5
+    Target Class: 7
+    Poison Frac: 0.1
+    Seed: 9
+    Clean Label Attack: 0
+    Clean Label Type: 0
+    Clean Label Auto Pattern: 1
+    Verify Poisoning: 1
+    Verify Trigger Geometry: 1
+======================================
+TensorBoard logs will be saved to: logs\hyp5_trigger_geometry_fmnist_r300_trigsquare_area25_cpa10_base5_target7_cor1_pf0p1_cl0_cltype0_seed9_20260706_112729
+  0%|          | 0.00/26.4M [00:00<?, ?B/s] 21%|##        | 5.44M/26.4M [00:00<00:00, 50.5MB/s] 65%|######4   | 17.1M/26.4M [00:00<00:00, 88.0MB/s]100%|##########| 26.4M/26.4M [00:00<00:00, 87.4MB/s]
+  0%|          | 0.00/29.5k [00:00<?, ?B/s]100%|##########| 29.5k/29.5k [00:00<00:00, 1.89MB/s]
+  0%|          | 0.00/4.42M [00:00<?, ?B/s]100%|##########| 4.42M/4.42M [00:00<00:00, 59.7MB/s]
+  0%|          | 0.00/5.15k [00:00<?, ?B/s]100%|##########| 5.15k/5.15k [00:00<?, ?B/s]
+VERIFY_TRIGGER_GEOMETRY_DATA_START
+scenario=Hypothesis 5 - trigger geometry
+scenario_data=IID-ish fixed data distribution
+trigger_geometry=square
+trigger_geometry_grid=plus,square,apple
+num_agents=10
+class_per_agent=10
+n_classes=10
+shard_size=600
+slice_size=10
+corrupt_clients=[0]
+base_class=5
+target_class=7
+client=0 n_samples=6000 unique_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9] class_counts={0: 600, 1: 600, 2: 600, 3: 600, 4: 600, 5: 600, 6: 600, 7: 600, 8: 600, 9: 600}
+client=1 n_samples=6000 unique_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9] class_counts={0: 600, 1: 600, 2: 600, 3: 600, 4: 600, 5: 600, 6: 600, 7: 600, 8: 600, 9: 600}
+client=2 n_samples=6000 unique_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9] class_counts={0: 600, 1: 600, 2: 600, 3: 600, 4: 600, 5: 600, 6: 600, 7: 600, 8: 600, 9: 600}
+client=3 n_samples=6000 unique_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9] class_counts={0: 600, 1: 600, 2: 600, 3: 600, 4: 600, 5: 600, 6: 600, 7: 600, 8: 600, 9: 600}
+client=4 n_samples=6000 unique_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9] class_counts={0: 600, 1: 600, 2: 600, 3: 600, 4: 600, 5: 600, 6: 600, 7: 600, 8: 600, 9: 600}
+client=5 n_samples=6000 unique_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9] class_counts={0: 600, 1: 600, 2: 600, 3: 600, 4: 600, 5: 600, 6: 600, 7: 600, 8: 600, 9: 600}
+client=6 n_samples=6000 unique_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9] class_counts={0: 600, 1: 600, 2: 600, 3: 600, 4: 600, 5: 600, 6: 600, 7: 600, 8: 600, 9: 600}
+client=7 n_samples=6000 unique_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9] class_counts={0: 600, 1: 600, 2: 600, 3: 600, 4: 600, 5: 600, 6: 600, 7: 600, 8: 600, 9: 600}
+client=8 n_samples=6000 unique_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9] class_counts={0: 600, 1: 600, 2: 600, 3: 600, 4: 600, 5: 600, 6: 600, 7: 600, 8: 600, 9: 600}
+client=9 n_samples=6000 unique_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9] class_counts={0: 600, 1: 600, 2: 600, 3: 600, 4: 600, 5: 600, 6: 600, 7: 600, 8: 600, 9: 600}
+TRIGGER_GEOMETRY_DATA_PROOF: data split is held fixed; trigger geometry changes between runs.
+VERIFY_TRIGGER_GEOMETRY_DATA_PASSED
+VERIFY_TRIGGER_GEOMETRY_DATA_END
+VERIFY_POISONING_START
+context=poisoned_validation_eval
+agent_idx=-1
+attack_mode=dirty-label
+force_dirty_label=True
+clean_label_requested=False
+clean_label_active=False
+clean_label_type=0
+trigger_geometry=square
+trigger_geometry_family=dense_corner_patch
+trigger_expected_visibility=medium
+trigger_expected_pixel_scale=medium
+trigger_mask_area=25
+trigger_mask_density=0.03188775510204082
+trigger_compactness_score=1.0
+pattern_type_requested=square
+pattern_type_effective=square
+source_class=5
+target_class=7
+poison_frac=1
+available_source_samples=1000
+poisoned_samples=1000
+labels_changed=1000
+expected_labels_changed=1000
+changed_pixels_first_sample=25
+label_verification_passed=True
+trigger_verification_passed=True
+VERIFY_POISONING_PASSED
+EVAL_ATTACK_PROOF: validation poison set uses base_class + trigger -> target_class to measure poison accuracy.
+TRIGGER_GEOMETRY_COMPARISON_POINT: this poisoned run is evaluated under the selected trigger geometry.
+VERIFY_POISONING_END
+VERIFY_POISONING_START
+context=train
+agent_idx=0
+attack_mode=dirty-label
+force_dirty_label=False
+clean_label_requested=False
+clean_label_active=False
+clean_label_type=0
+trigger_geometry=square
+trigger_geometry_family=dense_corner_patch
+trigger_expected_visibility=medium
+trigger_expected_pixel_scale=medium
+trigger_mask_area=25
+trigger_mask_density=0.03188775510204082
+trigger_compactness_score=1.0
+pattern_type_requested=square
+pattern_type_effective=square
+source_class=5
+target_class=7
+poison_frac=0.1
+available_source_samples=600
+poisoned_samples=60
+labels_changed=60
+expected_labels_changed=60
+changed_pixels_first_sample=25
+label_verification_passed=True
+trigger_verification_passed=True
+VERIFY_POISONING_PASSED
+DIRTY_LABEL_PROOF: labels_changed=poisoned_samples means base-class labels were changed to target-class labels.
+TRIGGER_GEOMETRY_COMPARISON_POINT: this poisoned run is evaluated under the selected trigger geometry.
+VERIFY_POISONING_END
+  0%|          | 0/300 [00:00<?, ?it/s]C:\Users\akiel\AppData\Roaming\Python\Python311\site-packages\torch\nn\modules\dropout.py:176: UserWarning: dropout2d: Received a 2-D input to dropout2d, which is deprecated and will result in an error in a future release. To retain the behavior and silence this warning, please use dropout instead. Note that dropout2d exists to provide channel-wise dropout on inputs with 2 spatial dimensions, a channel dimension, and an optional batch dimension (i.e. 3D or 4D inputs).
+  return F.dropout2d(input, self.p, self.training, self.inplace)
+| Round: 1 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 1.216 / 0.551 |
+| Val_Per_Class_Acc: tensor([0.8060, 0.9640, 0.0300, 0.0040, 0.0130, 0.6550, 0.5060, 0.8080, 0.7570,
+        0.9690]) |
+| Poison Loss/Poison Acc: 1.495 / 0.126 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+  0%|          | 1/300 [02:10<10:50:05, 130.45s/it]| Round: 2 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.634 / 0.762 |
+| Val_Per_Class_Acc: tensor([0.8250, 0.9260, 0.6430, 0.8300, 0.6940, 0.8740, 0.0670, 0.9010, 0.9400,
+        0.9200]) |
+| Poison Loss/Poison Acc: 2.810 / 0.076 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+  1%|          | 2/300 [04:42<11:50:08, 142.98s/it]| Round: 3 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.532 / 0.799 |
+| Val_Per_Class_Acc: tensor([0.8230, 0.9390, 0.5920, 0.8390, 0.7650, 0.8980, 0.3490, 0.9050, 0.9410,
+        0.9390]) |
+| Poison Loss/Poison Acc: 4.526 / 0.035 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+  1%|1         | 3/300 [06:00<9:21:44, 113.48s/it] | Round: 4 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.492 / 0.814 |
+| Val_Per_Class_Acc: tensor([0.8420, 0.9490, 0.6560, 0.8630, 0.7820, 0.9260, 0.3470, 0.8640, 0.9530,
+        0.9580]) |
+| Poison Loss/Poison Acc: 5.023 / 0.024 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+  1%|1         | 4/300 [07:13<8:00:11, 97.34s/it] | Round: 5 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.466 / 0.824 |
+| Val_Per_Class_Acc: tensor([0.8440, 0.9470, 0.6710, 0.8630, 0.8010, 0.9270, 0.3840, 0.8850, 0.9550,
+        0.9620]) |
+| Poison Loss/Poison Acc: 5.477 / 0.020 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+  2%|1         | 5/300 [08:28<7:18:45, 89.24s/it]| Round: 6 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.445 / 0.834 |
+| Val_Per_Class_Acc: tensor([0.8560, 0.9520, 0.6860, 0.8660, 0.8370, 0.9280, 0.3910, 0.9050, 0.9590,
+        0.9630]) |
+| Poison Loss/Poison Acc: 5.545 / 0.020 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+  2%|2         | 6/300 [09:44<6:55:14, 84.74s/it]| Round: 7 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.436 / 0.838 |
+| Val_Per_Class_Acc: tensor([0.8480, 0.9540, 0.6780, 0.8730, 0.8700, 0.9240, 0.3870, 0.9140, 0.9640,
+        0.9630]) |
+| Poison Loss/Poison Acc: 5.491 / 0.021 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+  2%|2         | 7/300 [10:59<6:39:28, 81.80s/it]| Round: 8 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.429 / 0.839 |
+| Val_Per_Class_Acc: tensor([0.8310, 0.9540, 0.6180, 0.8800, 0.8660, 0.9390, 0.4740, 0.9020, 0.9600,
+        0.9670]) |
+| Poison Loss/Poison Acc: 5.809 / 0.014 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+  3%|2         | 8/300 [12:13<6:24:59, 79.11s/it]| Round: 9 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.412 / 0.846 |
+| Val_Per_Class_Acc: tensor([0.8520, 0.9560, 0.6460, 0.8760, 0.8330, 0.9400, 0.5190, 0.9100, 0.9590,
+        0.9670]) |
+| Poison Loss/Poison Acc: 6.171 / 0.010 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+  3%|3         | 9/300 [13:24<6:11:59, 76.70s/it]| Round: 10 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.399 / 0.854 |
+| Val_Per_Class_Acc: tensor([0.8620, 0.9570, 0.7020, 0.8760, 0.8270, 0.9370, 0.5340, 0.9130, 0.9660,
+        0.9700]) |
+| Poison Loss/Poison Acc: 6.066 / 0.010 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+  3%|3         | 10/300 [14:34<6:01:06, 74.71s/it]| Round: 11 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.392 / 0.856 |
+| Val_Per_Class_Acc: tensor([0.8540, 0.9570, 0.6750, 0.8860, 0.8370, 0.9390, 0.5590, 0.9160, 0.9660,
+        0.9700]) |
+| Poison Loss/Poison Acc: 6.227 / 0.010 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+  4%|3         | 11/300 [15:45<5:54:18, 73.56s/it]| Round: 12 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.381 / 0.860 |
+| Val_Per_Class_Acc: tensor([0.8650, 0.9580, 0.7300, 0.8940, 0.8210, 0.9400, 0.5400, 0.9170, 0.9660,
+        0.9690]) |
+| Poison Loss/Poison Acc: 6.256 / 0.007 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+  4%|4         | 12/300 [16:56<5:49:07, 72.73s/it]| Round: 13 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.373 / 0.861 |
+| Val_Per_Class_Acc: tensor([0.8550, 0.9580, 0.7160, 0.8980, 0.8410, 0.9420, 0.5510, 0.9200, 0.9650,
+        0.9670]) |
+| Poison Loss/Poison Acc: 6.437 / 0.006 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+  4%|4         | 13/300 [18:06<5:43:46, 71.87s/it]| Round: 14 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.365 / 0.867 |
+| Val_Per_Class_Acc: tensor([0.8680, 0.9610, 0.7860, 0.8890, 0.8390, 0.9400, 0.5230, 0.9340, 0.9650,
+        0.9660]) |
+| Poison Loss/Poison Acc: 6.371 / 0.007 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+  5%|4         | 14/300 [19:18<5:42:48, 71.92s/it]| Round: 15 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.359 / 0.870 |
+| Val_Per_Class_Acc: tensor([0.8620, 0.9610, 0.7880, 0.8870, 0.8450, 0.9430, 0.5440, 0.9350, 0.9650,
+        0.9670]) |
+| Poison Loss/Poison Acc: 6.816 / 0.006 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+  5%|5         | 15/300 [20:27<5:38:06, 71.18s/it]| Round: 16 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.352 / 0.873 |
+| Val_Per_Class_Acc: tensor([0.8480, 0.9620, 0.7860, 0.8850, 0.8370, 0.9390, 0.5990, 0.9430, 0.9650,
+        0.9610]) |
+| Poison Loss/Poison Acc: 6.839 / 0.006 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+  5%|5         | 16/300 [21:38<5:36:25, 71.07s/it]| Round: 17 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.348 / 0.873 |
+| Val_Per_Class_Acc: tensor([0.8610, 0.9620, 0.8130, 0.8850, 0.8510, 0.9440, 0.5410, 0.9450, 0.9680,
+        0.9560]) |
+| Poison Loss/Poison Acc: 6.981 / 0.006 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+  6%|5         | 17/300 [22:48<5:33:53, 70.79s/it]| Round: 18 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.342 / 0.876 |
+| Val_Per_Class_Acc: tensor([0.8460, 0.9630, 0.7840, 0.8910, 0.8610, 0.9550, 0.5990, 0.9400, 0.9670,
+        0.9560]) |
+| Poison Loss/Poison Acc: 7.595 / 0.005 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+  6%|6         | 18/300 [24:00<5:33:07, 70.88s/it]| Round: 19 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.338 / 0.877 |
+| Val_Per_Class_Acc: tensor([0.8770, 0.9620, 0.8070, 0.9010, 0.8450, 0.9550, 0.5490, 0.9520, 0.9670,
+        0.9520]) |
+| Poison Loss/Poison Acc: 7.780 / 0.005 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+  6%|6         | 19/300 [25:11<5:32:16, 70.95s/it]| Round: 20 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.333 / 0.879 |
+| Val_Per_Class_Acc: tensor([0.8590, 0.9630, 0.8160, 0.8970, 0.8190, 0.9650, 0.6090, 0.9410, 0.9660,
+        0.9540]) |
+| Poison Loss/Poison Acc: 8.080 / 0.004 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+  7%|6         | 20/300 [26:22<5:31:00, 70.93s/it]| Round: 21 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.330 / 0.881 |
+| Val_Per_Class_Acc: tensor([0.8460, 0.9640, 0.7930, 0.9010, 0.8270, 0.9610, 0.6520, 0.9430, 0.9670,
+        0.9600]) |
+| Poison Loss/Poison Acc: 8.115 / 0.004 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+  7%|7         | 21/300 [27:31<5:27:53, 70.52s/it]| Round: 22 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.326 / 0.882 |
+| Val_Per_Class_Acc: tensor([0.8250, 0.9660, 0.7890, 0.8970, 0.8470, 0.9630, 0.6660, 0.9460, 0.9660,
+        0.9530]) |
+| Poison Loss/Poison Acc: 8.023 / 0.004 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+  7%|7         | 22/300 [28:41<5:25:44, 70.30s/it]| Round: 23 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.323 / 0.882 |
+| Val_Per_Class_Acc: tensor([0.8450, 0.9670, 0.7920, 0.8900, 0.8640, 0.9640, 0.6370, 0.9460, 0.9660,
+        0.9540]) |
+| Poison Loss/Poison Acc: 8.327 / 0.004 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+  8%|7         | 23/300 [29:51<5:24:36, 70.31s/it]| Round: 24 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.320 / 0.884 |
+| Val_Per_Class_Acc: tensor([0.8350, 0.9670, 0.7980, 0.8920, 0.8550, 0.9660, 0.6640, 0.9410, 0.9670,
+        0.9550]) |
+| Poison Loss/Poison Acc: 8.518 / 0.003 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+  8%|8         | 24/300 [31:02<5:23:27, 70.32s/it]| Round: 25 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.318 / 0.885 |
+| Val_Per_Class_Acc: tensor([0.8380, 0.9660, 0.7950, 0.8890, 0.8510, 0.9660, 0.6720, 0.9390, 0.9680,
+        0.9620]) |
+| Poison Loss/Poison Acc: 8.802 / 0.002 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+  8%|8         | 25/300 [32:11<5:20:54, 70.02s/it]| Round: 26 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.314 / 0.886 |
+| Val_Per_Class_Acc: tensor([0.8800, 0.9670, 0.8230, 0.8990, 0.8410, 0.9660, 0.6140, 0.9420, 0.9680,
+        0.9590]) |
+| Poison Loss/Poison Acc: 8.930 / 0.002 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+  9%|8         | 26/300 [33:21<5:19:14, 69.91s/it]| Round: 27 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.311 / 0.888 |
+| Val_Per_Class_Acc: tensor([0.8560, 0.9670, 0.8080, 0.8980, 0.8530, 0.9650, 0.6580, 0.9540, 0.9660,
+        0.9560]) |
+| Poison Loss/Poison Acc: 8.901 / 0.003 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+  9%|9         | 27/300 [34:31<5:19:16, 70.17s/it]| Round: 28 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.310 / 0.889 |
+| Val_Per_Class_Acc: tensor([0.8450, 0.9670, 0.7990, 0.8960, 0.8530, 0.9650, 0.6810, 0.9470, 0.9710,
+        0.9630]) |
+| Poison Loss/Poison Acc: 9.098 / 0.001 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+  9%|9         | 28/300 [35:44<5:21:49, 70.99s/it]| Round: 29 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.308 / 0.890 |
+| Val_Per_Class_Acc: tensor([0.8630, 0.9670, 0.7860, 0.8970, 0.8790, 0.9630, 0.6550, 0.9600, 0.9720,
+        0.9570]) |
+| Poison Loss/Poison Acc: 9.155 / 0.002 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 10%|9         | 29/300 [36:56<5:22:02, 71.30s/it]| Round: 30 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.304 / 0.891 |
+| Val_Per_Class_Acc: tensor([0.8700, 0.9670, 0.8340, 0.9090, 0.8410, 0.9630, 0.6370, 0.9560, 0.9710,
+        0.9620]) |
+| Poison Loss/Poison Acc: 9.185 / 0.002 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 10%|#         | 30/300 [38:09<5:23:29, 71.89s/it]| Round: 31 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.301 / 0.892 |
+| Val_Per_Class_Acc: tensor([0.8650, 0.9670, 0.8180, 0.8980, 0.8750, 0.9670, 0.6440, 0.9470, 0.9720,
+        0.9640]) |
+| Poison Loss/Poison Acc: 9.563 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 10%|#         | 31/300 [39:20<5:20:56, 71.58s/it]| Round: 32 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.300 / 0.892 |
+| Val_Per_Class_Acc: tensor([0.8570, 0.9670, 0.8220, 0.9050, 0.8700, 0.9640, 0.6480, 0.9520, 0.9720,
+        0.9640]) |
+| Poison Loss/Poison Acc: 9.411 / 0.001 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 11%|#         | 32/300 [40:31<5:18:38, 71.34s/it]| Round: 33 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.298 / 0.894 |
+| Val_Per_Class_Acc: tensor([0.8330, 0.9670, 0.8220, 0.9070, 0.8600, 0.9700, 0.6890, 0.9550, 0.9730,
+        0.9600]) |
+| Poison Loss/Poison Acc: 9.458 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 11%|#1        | 33/300 [41:43<5:17:30, 71.35s/it]| Round: 34 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.297 / 0.894 |
+| Val_Per_Class_Acc: tensor([0.8570, 0.9670, 0.7910, 0.9090, 0.8850, 0.9680, 0.6740, 0.9500, 0.9730,
+        0.9640]) |
+| Poison Loss/Poison Acc: 9.675 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 11%|#1        | 34/300 [42:54<5:16:28, 71.38s/it]| Round: 35 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.295 / 0.894 |
+| Val_Per_Class_Acc: tensor([0.8620, 0.9670, 0.7950, 0.9030, 0.8830, 0.9690, 0.6710, 0.9570, 0.9730,
+        0.9630]) |
+| Poison Loss/Poison Acc: 9.805 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 12%|#1        | 35/300 [44:04<5:13:25, 70.96s/it]| Round: 36 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.292 / 0.894 |
+| Val_Per_Class_Acc: tensor([0.8540, 0.9670, 0.7990, 0.9040, 0.8810, 0.9660, 0.6810, 0.9540, 0.9740,
+        0.9640]) |
+| Poison Loss/Poison Acc: 9.577 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 12%|#2        | 36/300 [45:14<5:11:32, 70.80s/it]| Round: 37 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.291 / 0.895 |
+| Val_Per_Class_Acc: tensor([0.8610, 0.9670, 0.8220, 0.9040, 0.8700, 0.9640, 0.6660, 0.9610, 0.9730,
+        0.9600]) |
+| Poison Loss/Poison Acc: 9.543 / 0.001 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 12%|#2        | 37/300 [46:25<5:09:36, 70.63s/it]| Round: 38 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.291 / 0.894 |
+| Val_Per_Class_Acc: tensor([0.8720, 0.9670, 0.7920, 0.9050, 0.8850, 0.9680, 0.6670, 0.9490, 0.9730,
+        0.9640]) |
+| Poison Loss/Poison Acc: 9.895 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 13%|#2        | 38/300 [47:34<5:07:19, 70.38s/it]| Round: 39 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.288 / 0.895 |
+| Val_Per_Class_Acc: tensor([0.8560, 0.9670, 0.8040, 0.8950, 0.8940, 0.9710, 0.6750, 0.9570, 0.9740,
+        0.9620]) |
+| Poison Loss/Poison Acc: 9.846 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 13%|#3        | 39/300 [48:46<5:07:39, 70.72s/it]| Round: 40 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.286 / 0.897 |
+| Val_Per_Class_Acc: tensor([0.8640, 0.9670, 0.8070, 0.9090, 0.8900, 0.9740, 0.6690, 0.9560, 0.9730,
+        0.9620]) |
+| Poison Loss/Poison Acc: 10.370 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 13%|#3        | 40/300 [49:57<5:06:45, 70.79s/it]| Round: 41 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.285 / 0.898 |
+| Val_Per_Class_Acc: tensor([0.8460, 0.9670, 0.8180, 0.9090, 0.8540, 0.9740, 0.7140, 0.9570, 0.9740,
+        0.9630]) |
+| Poison Loss/Poison Acc: 10.254 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 14%|#3        | 41/300 [51:08<5:05:45, 70.83s/it]| Round: 42 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.283 / 0.897 |
+| Val_Per_Class_Acc: tensor([0.8430, 0.9670, 0.8220, 0.9100, 0.8710, 0.9730, 0.6920, 0.9600, 0.9750,
+        0.9600]) |
+| Poison Loss/Poison Acc: 9.900 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 14%|#4        | 42/300 [52:20<5:05:55, 71.14s/it]| Round: 43 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.281 / 0.899 |
+| Val_Per_Class_Acc: tensor([0.8690, 0.9670, 0.8390, 0.9130, 0.8560, 0.9690, 0.6810, 0.9650, 0.9760,
+        0.9580]) |
+| Poison Loss/Poison Acc: 9.995 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 14%|#4        | 43/300 [53:30<5:03:56, 70.96s/it]| Round: 44 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.280 / 0.899 |
+| Val_Per_Class_Acc: tensor([0.8810, 0.9670, 0.8450, 0.9080, 0.8600, 0.9700, 0.6630, 0.9670, 0.9750,
+        0.9580]) |
+| Poison Loss/Poison Acc: 10.248 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 15%|#4        | 44/300 [54:40<5:01:38, 70.70s/it]| Round: 45 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.278 / 0.899 |
+| Val_Per_Class_Acc: tensor([0.8750, 0.9670, 0.8250, 0.9070, 0.8630, 0.9760, 0.6790, 0.9620, 0.9760,
+        0.9600]) |
+| Poison Loss/Poison Acc: 10.494 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 15%|#5        | 45/300 [55:52<5:01:53, 71.03s/it]| Round: 46 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.277 / 0.900 |
+| Val_Per_Class_Acc: tensor([0.8830, 0.9670, 0.8450, 0.9030, 0.8620, 0.9700, 0.6700, 0.9650, 0.9760,
+        0.9590]) |
+| Poison Loss/Poison Acc: 10.059 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 15%|#5        | 46/300 [57:03<5:00:58, 71.10s/it]| Round: 47 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.276 / 0.899 |
+| Val_Per_Class_Acc: tensor([0.8800, 0.9670, 0.8120, 0.9020, 0.8880, 0.9780, 0.6700, 0.9650, 0.9740,
+        0.9590]) |
+| Poison Loss/Poison Acc: 10.381 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 16%|#5        | 47/300 [58:15<5:00:10, 71.19s/it]| Round: 48 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.274 / 0.900 |
+| Val_Per_Class_Acc: tensor([0.8570, 0.9670, 0.8150, 0.9150, 0.8740, 0.9750, 0.7020, 0.9610, 0.9760,
+        0.9630]) |
+| Poison Loss/Poison Acc: 10.466 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 16%|#6        | 48/300 [59:25<4:57:28, 70.83s/it]| Round: 49 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.273 / 0.902 |
+| Val_Per_Class_Acc: tensor([0.8720, 0.9670, 0.8350, 0.9100, 0.8680, 0.9730, 0.6930, 0.9630, 0.9760,
+        0.9630]) |
+| Poison Loss/Poison Acc: 10.523 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 16%|#6        | 49/300 [1:00:35<4:55:13, 70.57s/it]| Round: 50 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.271 / 0.902 |
+| Val_Per_Class_Acc: tensor([0.8710, 0.9670, 0.8470, 0.9000, 0.8580, 0.9760, 0.7050, 0.9580, 0.9770,
+        0.9640]) |
+| Poison Loss/Poison Acc: 10.536 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 17%|#6        | 50/300 [1:01:45<4:54:05, 70.58s/it]| Round: 51 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.271 / 0.902 |
+| Val_Per_Class_Acc: tensor([0.8650, 0.9670, 0.8260, 0.9060, 0.8730, 0.9770, 0.7100, 0.9590, 0.9770,
+        0.9630]) |
+| Poison Loss/Poison Acc: 10.746 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 17%|#7        | 51/300 [1:02:56<4:53:24, 70.70s/it]| Round: 52 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.270 / 0.902 |
+| Val_Per_Class_Acc: tensor([0.8640, 0.9670, 0.8200, 0.9010, 0.8770, 0.9760, 0.7110, 0.9650, 0.9790,
+        0.9610]) |
+| Poison Loss/Poison Acc: 10.476 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 17%|#7        | 52/300 [1:04:07<4:52:43, 70.82s/it]| Round: 53 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.268 / 0.903 |
+| Val_Per_Class_Acc: tensor([0.8630, 0.9670, 0.8280, 0.9000, 0.8820, 0.9770, 0.7100, 0.9600, 0.9750,
+        0.9640]) |
+| Poison Loss/Poison Acc: 10.857 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 18%|#7        | 53/300 [1:05:20<4:53:11, 71.22s/it]| Round: 54 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.267 / 0.904 |
+| Val_Per_Class_Acc: tensor([0.8750, 0.9670, 0.8450, 0.9090, 0.8740, 0.9780, 0.6950, 0.9620, 0.9780,
+        0.9620]) |
+| Poison Loss/Poison Acc: 10.949 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 18%|#8        | 54/300 [1:06:30<4:51:39, 71.14s/it]| Round: 55 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.266 / 0.905 |
+| Val_Per_Class_Acc: tensor([0.8810, 0.9670, 0.8410, 0.9150, 0.8800, 0.9770, 0.6860, 0.9660, 0.9770,
+        0.9590]) |
+| Poison Loss/Poison Acc: 11.026 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 18%|#8        | 55/300 [1:07:41<4:49:46, 70.97s/it]| Round: 56 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.266 / 0.904 |
+| Val_Per_Class_Acc: tensor([0.8880, 0.9670, 0.8470, 0.9120, 0.8790, 0.9770, 0.6620, 0.9630, 0.9780,
+        0.9630]) |
+| Poison Loss/Poison Acc: 10.960 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 19%|#8        | 56/300 [1:08:52<4:48:45, 71.01s/it]| Round: 57 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.266 / 0.903 |
+| Val_Per_Class_Acc: tensor([0.8830, 0.9670, 0.8210, 0.9130, 0.8860, 0.9730, 0.6810, 0.9600, 0.9790,
+        0.9630]) |
+| Poison Loss/Poison Acc: 10.877 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 19%|#9        | 57/300 [1:10:04<4:48:05, 71.13s/it]| Round: 58 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.265 / 0.904 |
+| Val_Per_Class_Acc: tensor([0.8880, 0.9670, 0.8400, 0.9180, 0.8880, 0.9770, 0.6660, 0.9590, 0.9780,
+        0.9630]) |
+| Poison Loss/Poison Acc: 10.996 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 19%|#9        | 58/300 [1:11:15<4:46:47, 71.11s/it]| Round: 59 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.264 / 0.905 |
+| Val_Per_Class_Acc: tensor([0.8830, 0.9670, 0.8490, 0.9100, 0.8890, 0.9770, 0.6720, 0.9610, 0.9760,
+        0.9630]) |
+| Poison Loss/Poison Acc: 11.308 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 20%|#9        | 59/300 [1:12:26<4:46:03, 71.22s/it]| Round: 60 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.263 / 0.905 |
+| Val_Per_Class_Acc: tensor([0.8750, 0.9670, 0.8410, 0.9090, 0.8780, 0.9770, 0.7040, 0.9580, 0.9780,
+        0.9640]) |
+| Poison Loss/Poison Acc: 11.253 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 20%|##        | 60/300 [1:13:36<4:43:36, 70.90s/it]| Round: 61 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.262 / 0.905 |
+| Val_Per_Class_Acc: tensor([0.8680, 0.9670, 0.8500, 0.9050, 0.8720, 0.9780, 0.7110, 0.9600, 0.9770,
+        0.9630]) |
+| Poison Loss/Poison Acc: 11.311 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 20%|##        | 61/300 [1:14:48<4:43:27, 71.16s/it]| Round: 62 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.261 / 0.906 |
+| Val_Per_Class_Acc: tensor([0.8690, 0.9670, 0.8610, 0.9130, 0.8790, 0.9790, 0.6910, 0.9580, 0.9780,
+        0.9640]) |
+| Poison Loss/Poison Acc: 11.360 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 21%|##        | 62/300 [1:15:58<4:40:55, 70.82s/it]| Round: 63 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.260 / 0.905 |
+| Val_Per_Class_Acc: tensor([0.8700, 0.9690, 0.8670, 0.9080, 0.8780, 0.9810, 0.6820, 0.9540, 0.9780,
+        0.9660]) |
+| Poison Loss/Poison Acc: 11.673 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 21%|##1       | 63/300 [1:17:09<4:39:44, 70.82s/it]| Round: 64 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.259 / 0.906 |
+| Val_Per_Class_Acc: tensor([0.8770, 0.9690, 0.8580, 0.9090, 0.8820, 0.9790, 0.6860, 0.9570, 0.9770,
+        0.9640]) |
+| Poison Loss/Poison Acc: 11.845 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 21%|##1       | 64/300 [1:18:20<4:38:52, 70.90s/it]| Round: 65 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.257 / 0.907 |
+| Val_Per_Class_Acc: tensor([0.8610, 0.9690, 0.8510, 0.9220, 0.8660, 0.9810, 0.7170, 0.9650, 0.9780,
+        0.9620]) |
+| Poison Loss/Poison Acc: 11.960 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 22%|##1       | 65/300 [1:19:33<4:40:25, 71.60s/it]| Round: 66 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.257 / 0.905 |
+| Val_Per_Class_Acc: tensor([0.8750, 0.9690, 0.8440, 0.9100, 0.8610, 0.9790, 0.7120, 0.9620, 0.9790,
+        0.9640]) |
+| Poison Loss/Poison Acc: 11.897 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 22%|##2       | 66/300 [1:20:47<4:41:51, 72.27s/it]| Round: 67 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.256 / 0.906 |
+| Val_Per_Class_Acc: tensor([0.8760, 0.9690, 0.8450, 0.9120, 0.8860, 0.9800, 0.6910, 0.9610, 0.9790,
+        0.9640]) |
+| Poison Loss/Poison Acc: 12.022 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 22%|##2       | 67/300 [1:21:59<4:40:03, 72.12s/it]| Round: 68 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.255 / 0.907 |
+| Val_Per_Class_Acc: tensor([0.8660, 0.9690, 0.8420, 0.9110, 0.8910, 0.9810, 0.7060, 0.9600, 0.9790,
+        0.9630]) |
+| Poison Loss/Poison Acc: 12.270 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 23%|##2       | 68/300 [1:23:10<4:37:47, 71.84s/it]| Round: 69 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.253 / 0.908 |
+| Val_Per_Class_Acc: tensor([0.8690, 0.9690, 0.8540, 0.9180, 0.8830, 0.9800, 0.7060, 0.9590, 0.9800,
+        0.9640]) |
+| Poison Loss/Poison Acc: 12.035 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 23%|##3       | 69/300 [1:24:22<4:36:15, 71.76s/it]| Round: 70 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.253 / 0.908 |
+| Val_Per_Class_Acc: tensor([0.8690, 0.9690, 0.8470, 0.9220, 0.8770, 0.9790, 0.7120, 0.9660, 0.9800,
+        0.9610]) |
+| Poison Loss/Poison Acc: 12.140 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 23%|##3       | 70/300 [1:25:33<4:34:11, 71.53s/it]| Round: 71 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.252 / 0.909 |
+| Val_Per_Class_Acc: tensor([0.8680, 0.9710, 0.8620, 0.9170, 0.8740, 0.9790, 0.7070, 0.9650, 0.9800,
+        0.9640]) |
+| Poison Loss/Poison Acc: 11.985 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 24%|##3       | 71/300 [1:26:46<4:34:39, 71.96s/it]| Round: 72 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.252 / 0.907 |
+| Val_Per_Class_Acc: tensor([0.8760, 0.9720, 0.8440, 0.9120, 0.8930, 0.9810, 0.6900, 0.9580, 0.9790,
+        0.9630]) |
+| Poison Loss/Poison Acc: 12.408 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 24%|##4       | 72/300 [1:27:56<4:31:30, 71.45s/it]| Round: 73 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.252 / 0.908 |
+| Val_Per_Class_Acc: tensor([0.8810, 0.9700, 0.8470, 0.9160, 0.8920, 0.9790, 0.6850, 0.9640, 0.9790,
+        0.9640]) |
+| Poison Loss/Poison Acc: 12.376 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 24%|##4       | 73/300 [1:29:08<4:31:19, 71.71s/it]| Round: 74 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.251 / 0.909 |
+| Val_Per_Class_Acc: tensor([0.8870, 0.9700, 0.8550, 0.9130, 0.8830, 0.9810, 0.6920, 0.9630, 0.9800,
+        0.9630]) |
+| Poison Loss/Poison Acc: 12.736 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 25%|##4       | 74/300 [1:30:20<4:29:44, 71.62s/it]| Round: 75 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.251 / 0.909 |
+| Val_Per_Class_Acc: tensor([0.8710, 0.9700, 0.8520, 0.9130, 0.8750, 0.9820, 0.7150, 0.9700, 0.9790,
+        0.9600]) |
+| Poison Loss/Poison Acc: 12.492 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 25%|##5       | 75/300 [1:31:29<4:26:28, 71.06s/it]| Round: 76 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.250 / 0.909 |
+| Val_Per_Class_Acc: tensor([0.8690, 0.9710, 0.8600, 0.9170, 0.8800, 0.9770, 0.7100, 0.9700, 0.9790,
+        0.9610]) |
+| Poison Loss/Poison Acc: 12.653 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 25%|##5       | 76/300 [1:32:40<4:24:26, 70.83s/it]| Round: 77 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.251 / 0.909 |
+| Val_Per_Class_Acc: tensor([0.8880, 0.9720, 0.8640, 0.9220, 0.8610, 0.9790, 0.6940, 0.9670, 0.9790,
+        0.9640]) |
+| Poison Loss/Poison Acc: 12.853 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 26%|##5       | 77/300 [1:33:51<4:23:36, 70.93s/it]| Round: 78 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.249 / 0.909 |
+| Val_Per_Class_Acc: tensor([0.8870, 0.9720, 0.8670, 0.9170, 0.8780, 0.9790, 0.6820, 0.9660, 0.9790,
+        0.9630]) |
+| Poison Loss/Poison Acc: 12.959 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 26%|##6       | 78/300 [1:35:02<4:23:16, 71.15s/it]| Round: 79 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.249 / 0.910 |
+| Val_Per_Class_Acc: tensor([0.8860, 0.9730, 0.8690, 0.9130, 0.8840, 0.9780, 0.6870, 0.9610, 0.9800,
+        0.9660]) |
+| Poison Loss/Poison Acc: 12.671 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 26%|##6       | 79/300 [1:36:13<4:21:30, 71.00s/it]| Round: 80 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.247 / 0.909 |
+| Val_Per_Class_Acc: tensor([0.8800, 0.9710, 0.8530, 0.9180, 0.8780, 0.9790, 0.7050, 0.9690, 0.9790,
+        0.9620]) |
+| Poison Loss/Poison Acc: 12.988 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 27%|##6       | 80/300 [1:38:07<5:07:36, 83.89s/it]| Round: 81 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.247 / 0.910 |
+| Val_Per_Class_Acc: tensor([0.8830, 0.9720, 0.8550, 0.9140, 0.8860, 0.9780, 0.7030, 0.9690, 0.9790,
+        0.9630]) |
+| Poison Loss/Poison Acc: 12.924 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 27%|##7       | 81/300 [1:39:18<4:51:53, 79.97s/it]| Round: 82 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.246 / 0.911 |
+| Val_Per_Class_Acc: tensor([0.8700, 0.9720, 0.8640, 0.9160, 0.8840, 0.9800, 0.7120, 0.9660, 0.9790,
+        0.9630]) |
+| Poison Loss/Poison Acc: 13.311 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 27%|##7       | 82/300 [1:40:30<4:41:40, 77.53s/it]| Round: 83 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.246 / 0.911 |
+| Val_Per_Class_Acc: tensor([0.8660, 0.9710, 0.8560, 0.9120, 0.8930, 0.9800, 0.7210, 0.9660, 0.9790,
+        0.9620]) |
+| Poison Loss/Poison Acc: 13.177 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 28%|##7       | 83/300 [1:41:42<4:34:52, 76.00s/it]| Round: 84 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.246 / 0.910 |
+| Val_Per_Class_Acc: tensor([0.8840, 0.9710, 0.8670, 0.9190, 0.8870, 0.9790, 0.6880, 0.9630, 0.9800,
+        0.9640]) |
+| Poison Loss/Poison Acc: 13.270 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 28%|##8       | 84/300 [1:42:53<4:28:31, 74.59s/it]| Round: 85 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.245 / 0.912 |
+| Val_Per_Class_Acc: tensor([0.8760, 0.9710, 0.8710, 0.9200, 0.8820, 0.9810, 0.7060, 0.9660, 0.9800,
+        0.9640]) |
+| Poison Loss/Poison Acc: 13.459 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 28%|##8       | 85/300 [1:44:05<4:24:02, 73.69s/it]| Round: 86 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.244 / 0.912 |
+| Val_Per_Class_Acc: tensor([0.8760, 0.9720, 0.8620, 0.9190, 0.8770, 0.9810, 0.7230, 0.9670, 0.9810,
+        0.9630]) |
+| Poison Loss/Poison Acc: 13.532 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 29%|##8       | 86/300 [1:45:16<4:20:01, 72.91s/it]| Round: 87 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.244 / 0.912 |
+| Val_Per_Class_Acc: tensor([0.8810, 0.9710, 0.8710, 0.9180, 0.8710, 0.9810, 0.7110, 0.9670, 0.9810,
+        0.9640]) |
+| Poison Loss/Poison Acc: 13.537 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 29%|##9       | 87/300 [1:46:27<4:16:48, 72.34s/it]| Round: 88 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.245 / 0.911 |
+| Val_Per_Class_Acc: tensor([0.8760, 0.9710, 0.8750, 0.9230, 0.8680, 0.9800, 0.7120, 0.9650, 0.9810,
+        0.9640]) |
+| Poison Loss/Poison Acc: 13.895 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 29%|##9       | 88/300 [1:47:39<4:15:09, 72.21s/it]| Round: 89 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.243 / 0.912 |
+| Val_Per_Class_Acc: tensor([0.8570, 0.9710, 0.8610, 0.9240, 0.8790, 0.9810, 0.7390, 0.9650, 0.9800,
+        0.9640]) |
+| Poison Loss/Poison Acc: 13.965 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 30%|##9       | 89/300 [1:48:49<4:12:05, 71.68s/it]| Round: 90 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.242 / 0.911 |
+| Val_Per_Class_Acc: tensor([0.8600, 0.9720, 0.8530, 0.9190, 0.8790, 0.9790, 0.7400, 0.9630, 0.9800,
+        0.9660]) |
+| Poison Loss/Poison Acc: 13.827 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 30%|###       | 90/300 [1:50:01<4:10:48, 71.66s/it]| Round: 91 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.242 / 0.912 |
+| Val_Per_Class_Acc: tensor([0.8820, 0.9730, 0.8490, 0.9180, 0.8880, 0.9800, 0.7240, 0.9640, 0.9800,
+        0.9650]) |
+| Poison Loss/Poison Acc: 14.143 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 30%|###       | 91/300 [1:51:13<4:09:29, 71.63s/it]| Round: 92 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.242 / 0.913 |
+| Val_Per_Class_Acc: tensor([0.8760, 0.9740, 0.8730, 0.9160, 0.8770, 0.9800, 0.7150, 0.9700, 0.9810,
+        0.9640]) |
+| Poison Loss/Poison Acc: 13.984 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 31%|###       | 92/300 [1:52:25<4:09:26, 71.95s/it]| Round: 93 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.241 / 0.912 |
+| Val_Per_Class_Acc: tensor([0.8710, 0.9740, 0.8730, 0.9170, 0.8720, 0.9800, 0.7190, 0.9700, 0.9810,
+        0.9640]) |
+| Poison Loss/Poison Acc: 14.013 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 31%|###1      | 93/300 [1:53:38<4:08:30, 72.03s/it]| Round: 94 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.241 / 0.912 |
+| Val_Per_Class_Acc: tensor([0.8780, 0.9740, 0.8720, 0.9190, 0.8820, 0.9800, 0.7060, 0.9670, 0.9810,
+        0.9640]) |
+| Poison Loss/Poison Acc: 14.449 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 31%|###1      | 94/300 [1:54:49<4:07:14, 72.01s/it]| Round: 95 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.240 / 0.913 |
+| Val_Per_Class_Acc: tensor([0.8690, 0.9740, 0.8710, 0.9170, 0.8690, 0.9800, 0.7380, 0.9660, 0.9800,
+        0.9640]) |
+| Poison Loss/Poison Acc: 14.736 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 32%|###1      | 95/300 [1:56:02<4:06:29, 72.14s/it]| Round: 96 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.241 / 0.913 |
+| Val_Per_Class_Acc: tensor([0.8880, 0.9730, 0.8720, 0.9190, 0.8810, 0.9800, 0.7030, 0.9650, 0.9800,
+        0.9650]) |
+| Poison Loss/Poison Acc: 14.807 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 32%|###2      | 96/300 [1:57:14<4:05:38, 72.25s/it]| Round: 97 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.240 / 0.913 |
+| Val_Per_Class_Acc: tensor([0.8880, 0.9730, 0.8730, 0.9210, 0.8740, 0.9800, 0.7130, 0.9660, 0.9800,
+        0.9650]) |
+| Poison Loss/Poison Acc: 15.059 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 32%|###2      | 97/300 [1:58:26<4:04:15, 72.19s/it]| Round: 98 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.240 / 0.914 |
+| Val_Per_Class_Acc: tensor([0.8800, 0.9740, 0.8740, 0.9190, 0.8730, 0.9800, 0.7280, 0.9680, 0.9800,
+        0.9650]) |
+| Poison Loss/Poison Acc: 15.237 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 33%|###2      | 98/300 [1:59:39<4:03:36, 72.36s/it]| Round: 99 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.239 / 0.915 |
+| Val_Per_Class_Acc: tensor([0.8860, 0.9750, 0.8730, 0.9200, 0.8860, 0.9810, 0.7150, 0.9660, 0.9800,
+        0.9640]) |
+| Poison Loss/Poison Acc: 15.412 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 33%|###3      | 99/300 [2:00:53<4:03:35, 72.72s/it]| Round: 100 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.239 / 0.915 |
+| Val_Per_Class_Acc: tensor([0.8810, 0.9740, 0.8770, 0.9250, 0.8660, 0.9800, 0.7280, 0.9720, 0.9800,
+        0.9640]) |
+| Poison Loss/Poison Acc: 15.251 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 33%|###3      | 100/300 [2:02:04<4:01:08, 72.34s/it]| Round: 101 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.239 / 0.915 |
+| Val_Per_Class_Acc: tensor([0.8890, 0.9750, 0.8900, 0.9220, 0.8710, 0.9830, 0.7030, 0.9700, 0.9800,
+        0.9630]) |
+| Poison Loss/Poison Acc: 15.602 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 34%|###3      | 101/300 [2:03:17<4:00:23, 72.48s/it]| Round: 102 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.238 / 0.914 |
+| Val_Per_Class_Acc: tensor([0.8900, 0.9760, 0.8720, 0.9180, 0.8920, 0.9820, 0.6990, 0.9720, 0.9810,
+        0.9620]) |
+| Poison Loss/Poison Acc: 15.398 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 34%|###4      | 102/300 [2:04:30<3:59:16, 72.51s/it]| Round: 103 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.237 / 0.914 |
+| Val_Per_Class_Acc: tensor([0.8790, 0.9750, 0.8800, 0.9190, 0.8720, 0.9820, 0.7250, 0.9720, 0.9810,
+        0.9600]) |
+| Poison Loss/Poison Acc: 15.515 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 34%|###4      | 103/300 [2:05:42<3:58:02, 72.50s/it]| Round: 104 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.238 / 0.915 |
+| Val_Per_Class_Acc: tensor([0.8850, 0.9740, 0.8810, 0.9260, 0.8660, 0.9800, 0.7230, 0.9750, 0.9810,
+        0.9640]) |
+| Poison Loss/Poison Acc: 15.423 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 35%|###4      | 104/300 [2:06:55<3:57:06, 72.59s/it]| Round: 105 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.238 / 0.916 |
+| Val_Per_Class_Acc: tensor([0.8820, 0.9740, 0.8750, 0.9270, 0.8880, 0.9820, 0.7110, 0.9730, 0.9810,
+        0.9640]) |
+| Poison Loss/Poison Acc: 15.708 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 35%|###5      | 105/300 [2:08:08<3:56:46, 72.86s/it]| Round: 106 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.236 / 0.915 |
+| Val_Per_Class_Acc: tensor([0.8740, 0.9750, 0.8620, 0.9260, 0.8990, 0.9820, 0.7240, 0.9670, 0.9810,
+        0.9640]) |
+| Poison Loss/Poison Acc: 16.378 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 35%|###5      | 106/300 [2:09:21<3:55:08, 72.73s/it]| Round: 107 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.236 / 0.915 |
+| Val_Per_Class_Acc: tensor([0.8690, 0.9740, 0.8710, 0.9230, 0.8910, 0.9810, 0.7240, 0.9720, 0.9810,
+        0.9630]) |
+| Poison Loss/Poison Acc: 16.341 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 36%|###5      | 107/300 [2:10:34<3:54:12, 72.81s/it]| Round: 108 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.235 / 0.916 |
+| Val_Per_Class_Acc: tensor([0.8770, 0.9750, 0.8760, 0.9260, 0.8850, 0.9800, 0.7220, 0.9700, 0.9810,
+        0.9640]) |
+| Poison Loss/Poison Acc: 16.302 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 36%|###6      | 108/300 [2:11:46<3:52:22, 72.62s/it]| Round: 109 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.236 / 0.915 |
+| Val_Per_Class_Acc: tensor([0.8850, 0.9740, 0.8770, 0.9230, 0.8730, 0.9810, 0.7180, 0.9710, 0.9810,
+        0.9640]) |
+| Poison Loss/Poison Acc: 16.655 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 36%|###6      | 109/300 [2:12:58<3:50:18, 72.35s/it]| Round: 110 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.235 / 0.915 |
+| Val_Per_Class_Acc: tensor([0.8840, 0.9740, 0.8820, 0.9240, 0.8790, 0.9810, 0.7150, 0.9700, 0.9810,
+        0.9640]) |
+| Poison Loss/Poison Acc: 16.714 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 37%|###6      | 110/300 [2:14:09<3:47:39, 71.89s/it]| Round: 111 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.236 / 0.916 |
+| Val_Per_Class_Acc: tensor([0.8830, 0.9750, 0.8880, 0.9230, 0.8760, 0.9810, 0.7150, 0.9690, 0.9810,
+        0.9650]) |
+| Poison Loss/Poison Acc: 17.150 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 37%|###7      | 111/300 [2:15:18<3:44:22, 71.23s/it]| Round: 112 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.235 / 0.915 |
+| Val_Per_Class_Acc: tensor([0.8690, 0.9750, 0.8750, 0.9240, 0.8890, 0.9840, 0.7270, 0.9670, 0.9800,
+        0.9650]) |
+| Poison Loss/Poison Acc: 17.170 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 37%|###7      | 112/300 [2:16:28<3:41:40, 70.75s/it]| Round: 113 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.235 / 0.916 |
+| Val_Per_Class_Acc: tensor([0.8820, 0.9750, 0.8810, 0.9240, 0.8850, 0.9800, 0.7150, 0.9680, 0.9810,
+        0.9670]) |
+| Poison Loss/Poison Acc: 16.767 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 38%|###7      | 113/300 [2:17:37<3:38:42, 70.17s/it]| Round: 114 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.235 / 0.916 |
+| Val_Per_Class_Acc: tensor([0.8830, 0.9750, 0.8850, 0.9250, 0.8800, 0.9820, 0.7160, 0.9680, 0.9800,
+        0.9660]) |
+| Poison Loss/Poison Acc: 17.193 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 38%|###8      | 114/300 [2:18:47<3:37:51, 70.28s/it]| Round: 115 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.235 / 0.917 |
+| Val_Per_Class_Acc: tensor([0.8610, 0.9750, 0.8800, 0.9250, 0.8760, 0.9810, 0.7550, 0.9690, 0.9810,
+        0.9660]) |
+| Poison Loss/Poison Acc: 17.418 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 38%|###8      | 115/300 [2:19:58<3:37:04, 70.40s/it]| Round: 116 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.234 / 0.917 |
+| Val_Per_Class_Acc: tensor([0.8780, 0.9750, 0.8780, 0.9280, 0.8830, 0.9820, 0.7300, 0.9690, 0.9810,
+        0.9670]) |
+| Poison Loss/Poison Acc: 17.442 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 39%|###8      | 116/300 [2:21:08<3:35:25, 70.25s/it]| Round: 117 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.234 / 0.916 |
+| Val_Per_Class_Acc: tensor([0.8760, 0.9740, 0.8850, 0.9250, 0.8800, 0.9810, 0.7270, 0.9660, 0.9810,
+        0.9670]) |
+| Poison Loss/Poison Acc: 17.525 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 39%|###9      | 117/300 [2:22:18<3:34:34, 70.35s/it]| Round: 118 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.234 / 0.918 |
+| Val_Per_Class_Acc: tensor([0.8840, 0.9730, 0.8890, 0.9280, 0.8790, 0.9840, 0.7250, 0.9670, 0.9810,
+        0.9660]) |
+| Poison Loss/Poison Acc: 17.743 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 39%|###9      | 118/300 [2:23:28<3:32:22, 70.01s/it]| Round: 119 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.234 / 0.916 |
+| Val_Per_Class_Acc: tensor([0.8750, 0.9730, 0.8620, 0.9240, 0.8960, 0.9870, 0.7350, 0.9650, 0.9810,
+        0.9640]) |
+| Poison Loss/Poison Acc: 18.380 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 40%|###9      | 119/300 [2:24:38<3:31:56, 70.26s/it]| Round: 120 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.234 / 0.916 |
+| Val_Per_Class_Acc: tensor([0.8780, 0.9740, 0.8720, 0.9300, 0.8820, 0.9820, 0.7310, 0.9660, 0.9810,
+        0.9660]) |
+| Poison Loss/Poison Acc: 17.902 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 40%|####      | 120/300 [2:25:49<3:30:40, 70.23s/it]| Round: 121 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.234 / 0.918 |
+| Val_Per_Class_Acc: tensor([0.8900, 0.9750, 0.8750, 0.9220, 0.8990, 0.9810, 0.7200, 0.9690, 0.9800,
+        0.9650]) |
+| Poison Loss/Poison Acc: 17.667 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 40%|####      | 121/300 [2:26:58<3:28:47, 69.99s/it]| Round: 122 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.233 / 0.917 |
+| Val_Per_Class_Acc: tensor([0.8850, 0.9750, 0.8740, 0.9260, 0.8860, 0.9820, 0.7310, 0.9700, 0.9800,
+        0.9640]) |
+| Poison Loss/Poison Acc: 17.918 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 41%|####      | 122/300 [2:28:09<3:28:28, 70.27s/it]| Round: 123 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.234 / 0.918 |
+| Val_Per_Class_Acc: tensor([0.8890, 0.9750, 0.8790, 0.9290, 0.8770, 0.9810, 0.7300, 0.9700, 0.9800,
+        0.9670]) |
+| Poison Loss/Poison Acc: 17.713 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 41%|####1     | 123/300 [2:29:20<3:27:45, 70.43s/it]| Round: 124 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.234 / 0.918 |
+| Val_Per_Class_Acc: tensor([0.8720, 0.9750, 0.8910, 0.9280, 0.8600, 0.9800, 0.7510, 0.9680, 0.9800,
+        0.9710]) |
+| Poison Loss/Poison Acc: 17.648 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 41%|####1     | 124/300 [2:30:30<3:26:41, 70.46s/it]| Round: 125 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.232 / 0.918 |
+| Val_Per_Class_Acc: tensor([0.8800, 0.9750, 0.8830, 0.9270, 0.8790, 0.9810, 0.7370, 0.9700, 0.9800,
+        0.9670]) |
+| Poison Loss/Poison Acc: 18.003 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 42%|####1     | 125/300 [2:31:40<3:24:59, 70.28s/it]| Round: 126 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.232 / 0.918 |
+| Val_Per_Class_Acc: tensor([0.8850, 0.9760, 0.8820, 0.9300, 0.8830, 0.9820, 0.7230, 0.9680, 0.9800,
+        0.9670]) |
+| Poison Loss/Poison Acc: 18.300 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 42%|####2     | 126/300 [2:32:49<3:22:42, 69.90s/it]| Round: 127 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.230 / 0.918 |
+| Val_Per_Class_Acc: tensor([0.8820, 0.9750, 0.8760, 0.9310, 0.8810, 0.9810, 0.7380, 0.9690, 0.9800,
+        0.9670]) |
+| Poison Loss/Poison Acc: 18.238 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 42%|####2     | 127/300 [2:33:59<3:21:37, 69.93s/it]| Round: 128 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.231 / 0.919 |
+| Val_Per_Class_Acc: tensor([0.8850, 0.9760, 0.8770, 0.9270, 0.8950, 0.9830, 0.7280, 0.9660, 0.9800,
+        0.9700]) |
+| Poison Loss/Poison Acc: 18.453 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 43%|####2     | 128/300 [2:35:08<3:19:29, 69.59s/it]| Round: 129 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.231 / 0.918 |
+| Val_Per_Class_Acc: tensor([0.8770, 0.9750, 0.8730, 0.9280, 0.8910, 0.9810, 0.7390, 0.9660, 0.9800,
+        0.9710]) |
+| Poison Loss/Poison Acc: 18.726 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 43%|####3     | 129/300 [2:36:18<3:18:56, 69.80s/it]| Round: 130 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.230 / 0.919 |
+| Val_Per_Class_Acc: tensor([0.8820, 0.9760, 0.8820, 0.9290, 0.8820, 0.9820, 0.7380, 0.9680, 0.9800,
+        0.9670]) |
+| Poison Loss/Poison Acc: 18.269 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 43%|####3     | 130/300 [2:37:28<3:18:05, 69.91s/it]| Round: 131 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.231 / 0.919 |
+| Val_Per_Class_Acc: tensor([0.8830, 0.9750, 0.8780, 0.9330, 0.8810, 0.9810, 0.7400, 0.9670, 0.9800,
+        0.9690]) |
+| Poison Loss/Poison Acc: 18.746 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 44%|####3     | 131/300 [2:38:38<3:16:32, 69.78s/it]| Round: 132 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.231 / 0.918 |
+| Val_Per_Class_Acc: tensor([0.8750, 0.9740, 0.8820, 0.9330, 0.8800, 0.9800, 0.7440, 0.9700, 0.9800,
+        0.9670]) |
+| Poison Loss/Poison Acc: 18.339 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 44%|####4     | 132/300 [2:39:49<3:16:08, 70.05s/it]| Round: 133 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.231 / 0.918 |
+| Val_Per_Class_Acc: tensor([0.8830, 0.9750, 0.8890, 0.9310, 0.8680, 0.9810, 0.7330, 0.9710, 0.9800,
+        0.9650]) |
+| Poison Loss/Poison Acc: 18.269 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 44%|####4     | 133/300 [2:40:59<3:15:40, 70.30s/it]| Round: 134 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.231 / 0.919 |
+| Val_Per_Class_Acc: tensor([0.8800, 0.9750, 0.8830, 0.9290, 0.8790, 0.9830, 0.7460, 0.9690, 0.9800,
+        0.9640]) |
+| Poison Loss/Poison Acc: 18.784 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 45%|####4     | 134/300 [2:42:10<3:14:18, 70.23s/it]| Round: 135 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.230 / 0.919 |
+| Val_Per_Class_Acc: tensor([0.8740, 0.9750, 0.8830, 0.9300, 0.8920, 0.9860, 0.7390, 0.9690, 0.9800,
+        0.9630]) |
+| Poison Loss/Poison Acc: 19.473 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 45%|####5     | 135/300 [2:43:18<3:12:01, 69.83s/it]| Round: 136 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.230 / 0.918 |
+| Val_Per_Class_Acc: tensor([0.8820, 0.9750, 0.8740, 0.9290, 0.8840, 0.9870, 0.7410, 0.9680, 0.9800,
+        0.9650]) |
+| Poison Loss/Poison Acc: 19.684 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 45%|####5     | 136/300 [2:44:27<3:10:15, 69.61s/it]| Round: 137 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.230 / 0.920 |
+| Val_Per_Class_Acc: tensor([0.8890, 0.9750, 0.8900, 0.9290, 0.8870, 0.9830, 0.7290, 0.9670, 0.9800,
+        0.9680]) |
+| Poison Loss/Poison Acc: 19.198 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 46%|####5     | 137/300 [2:45:37<3:09:20, 69.70s/it]| Round: 138 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.230 / 0.920 |
+| Val_Per_Class_Acc: tensor([0.8850, 0.9740, 0.8910, 0.9330, 0.8840, 0.9820, 0.7320, 0.9710, 0.9800,
+        0.9650]) |
+| Poison Loss/Poison Acc: 19.040 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 46%|####6     | 138/300 [2:46:47<3:08:07, 69.67s/it]| Round: 139 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.230 / 0.919 |
+| Val_Per_Class_Acc: tensor([0.8870, 0.9740, 0.8920, 0.9330, 0.8770, 0.9830, 0.7300, 0.9690, 0.9800,
+        0.9670]) |
+| Poison Loss/Poison Acc: 19.331 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 46%|####6     | 139/300 [2:47:56<3:06:05, 69.35s/it]| Round: 140 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.229 / 0.920 |
+| Val_Per_Class_Acc: tensor([0.8850, 0.9740, 0.8860, 0.9340, 0.8860, 0.9820, 0.7370, 0.9670, 0.9800,
+        0.9710]) |
+| Poison Loss/Poison Acc: 19.573 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 47%|####6     | 140/300 [2:49:06<3:05:24, 69.53s/it]| Round: 141 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.230 / 0.919 |
+| Val_Per_Class_Acc: tensor([0.8820, 0.9740, 0.8910, 0.9340, 0.8780, 0.9830, 0.7370, 0.9660, 0.9800,
+        0.9700]) |
+| Poison Loss/Poison Acc: 19.561 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 47%|####6     | 141/300 [2:50:14<3:03:24, 69.21s/it]| Round: 142 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.228 / 0.920 |
+| Val_Per_Class_Acc: tensor([0.8800, 0.9750, 0.8890, 0.9340, 0.8800, 0.9840, 0.7440, 0.9650, 0.9800,
+        0.9710]) |
+| Poison Loss/Poison Acc: 19.416 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 47%|####7     | 142/300 [2:51:23<3:02:27, 69.29s/it]| Round: 143 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.227 / 0.920 |
+| Val_Per_Class_Acc: tensor([0.8770, 0.9750, 0.8850, 0.9250, 0.8810, 0.9850, 0.7560, 0.9660, 0.9800,
+        0.9700]) |
+| Poison Loss/Poison Acc: 18.934 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 48%|####7     | 143/300 [2:52:33<3:01:06, 69.21s/it]| Round: 144 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.228 / 0.920 |
+| Val_Per_Class_Acc: tensor([0.8750, 0.9750, 0.8870, 0.9250, 0.8840, 0.9850, 0.7600, 0.9660, 0.9790,
+        0.9680]) |
+| Poison Loss/Poison Acc: 19.227 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 48%|####8     | 144/300 [2:53:42<2:59:48, 69.16s/it]| Round: 145 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.230 / 0.919 |
+| Val_Per_Class_Acc: tensor([0.8760, 0.9750, 0.8860, 0.9220, 0.8790, 0.9770, 0.7600, 0.9710, 0.9800,
+        0.9670]) |
+| Poison Loss/Poison Acc: 18.828 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 48%|####8     | 145/300 [2:54:52<2:59:48, 69.60s/it]| Round: 146 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.229 / 0.921 |
+| Val_Per_Class_Acc: tensor([0.8880, 0.9740, 0.8900, 0.9300, 0.8820, 0.9800, 0.7460, 0.9740, 0.9800,
+        0.9650]) |
+| Poison Loss/Poison Acc: 19.445 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 49%|####8     | 146/300 [2:56:02<2:58:34, 69.58s/it]| Round: 147 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.229 / 0.920 |
+| Val_Per_Class_Acc: tensor([0.8880, 0.9740, 0.8780, 0.9320, 0.8810, 0.9810, 0.7510, 0.9750, 0.9790,
+        0.9650]) |
+| Poison Loss/Poison Acc: 19.530 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 49%|####9     | 147/300 [2:57:10<2:56:06, 69.06s/it]| Round: 148 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.229 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8940, 0.9740, 0.8860, 0.9320, 0.8920, 0.9800, 0.7420, 0.9710, 0.9790,
+        0.9670]) |
+| Poison Loss/Poison Acc: 19.253 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 49%|####9     | 148/300 [2:58:21<2:56:30, 69.67s/it]| Round: 149 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.230 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8970, 0.9740, 0.8900, 0.9330, 0.8920, 0.9850, 0.7330, 0.9670, 0.9800,
+        0.9700]) |
+| Poison Loss/Poison Acc: 20.004 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 50%|####9     | 149/300 [2:59:30<2:55:05, 69.58s/it]| Round: 150 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.230 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8980, 0.9750, 0.8870, 0.9330, 0.8940, 0.9840, 0.7330, 0.9720, 0.9800,
+        0.9650]) |
+| Poison Loss/Poison Acc: 20.183 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 50%|#####     | 150/300 [3:00:40<2:54:29, 69.79s/it]| Round: 151 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.229 / 0.921 |
+| Val_Per_Class_Acc: tensor([0.8850, 0.9760, 0.8960, 0.9330, 0.8750, 0.9850, 0.7380, 0.9690, 0.9800,
+        0.9690]) |
+| Poison Loss/Poison Acc: 19.678 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 50%|#####     | 151/300 [3:01:48<2:51:44, 69.16s/it]| Round: 152 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.229 / 0.921 |
+| Val_Per_Class_Acc: tensor([0.8850, 0.9770, 0.8850, 0.9280, 0.8930, 0.9880, 0.7440, 0.9680, 0.9800,
+        0.9650]) |
+| Poison Loss/Poison Acc: 20.569 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 51%|#####     | 152/300 [3:02:58<2:51:02, 69.34s/it]| Round: 153 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.230 / 0.921 |
+| Val_Per_Class_Acc: tensor([0.8830, 0.9730, 0.8920, 0.9290, 0.8870, 0.9890, 0.7440, 0.9630, 0.9800,
+        0.9670]) |
+| Poison Loss/Poison Acc: 21.434 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 51%|#####1    | 153/300 [3:04:06<2:48:52, 68.93s/it]| Round: 154 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.229 / 0.921 |
+| Val_Per_Class_Acc: tensor([0.8860, 0.9760, 0.8890, 0.9320, 0.8900, 0.9830, 0.7390, 0.9730, 0.9800,
+        0.9640]) |
+| Poison Loss/Poison Acc: 20.426 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 51%|#####1    | 154/300 [3:05:15<2:48:07, 69.09s/it]| Round: 155 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.230 / 0.920 |
+| Val_Per_Class_Acc: tensor([0.9000, 0.9760, 0.8960, 0.9300, 0.8740, 0.9840, 0.7280, 0.9720, 0.9800,
+        0.9650]) |
+| Poison Loss/Poison Acc: 20.570 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 52%|#####1    | 155/300 [3:06:23<2:46:06, 68.73s/it]| Round: 156 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.227 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8860, 0.9760, 0.8870, 0.9320, 0.8910, 0.9840, 0.7500, 0.9710, 0.9800,
+        0.9660]) |
+| Poison Loss/Poison Acc: 20.337 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 52%|#####2    | 156/300 [3:07:33<2:45:59, 69.16s/it]| Round: 157 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.228 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8960, 0.9760, 0.8900, 0.9340, 0.8900, 0.9850, 0.7290, 0.9670, 0.9800,
+        0.9690]) |
+| Poison Loss/Poison Acc: 20.040 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 52%|#####2    | 157/300 [3:12:00<5:06:08, 128.45s/it]| Round: 158 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.228 / 0.921 |
+| Val_Per_Class_Acc: tensor([0.8890, 0.9760, 0.8850, 0.9340, 0.8940, 0.9840, 0.7320, 0.9680, 0.9800,
+        0.9690]) |
+| Poison Loss/Poison Acc: 19.908 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 53%|#####2    | 158/300 [3:13:09<4:22:05, 110.74s/it]| Round: 159 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.228 / 0.921 |
+| Val_Per_Class_Acc: tensor([0.8810, 0.9740, 0.8840, 0.9340, 0.8870, 0.9800, 0.7540, 0.9690, 0.9800,
+        0.9700]) |
+| Poison Loss/Poison Acc: 20.374 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 53%|#####3    | 159/300 [3:14:22<3:53:12, 99.24s/it] | Round: 160 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.227 / 0.921 |
+| Val_Per_Class_Acc: tensor([0.8820, 0.9760, 0.8870, 0.9300, 0.8870, 0.9850, 0.7480, 0.9670, 0.9800,
+        0.9700]) |
+| Poison Loss/Poison Acc: 20.965 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 53%|#####3    | 160/300 [3:15:33<3:31:50, 90.79s/it]| Round: 161 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.227 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8900, 0.9760, 0.8850, 0.9340, 0.8900, 0.9830, 0.7440, 0.9720, 0.9800,
+        0.9690]) |
+| Poison Loss/Poison Acc: 21.189 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 54%|#####3    | 161/300 [3:16:43<3:15:41, 84.47s/it]| Round: 162 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.227 / 0.921 |
+| Val_Per_Class_Acc: tensor([0.8840, 0.9760, 0.8940, 0.9340, 0.8900, 0.9830, 0.7290, 0.9650, 0.9800,
+        0.9720]) |
+| Poison Loss/Poison Acc: 21.003 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 54%|#####4    | 162/300 [3:17:53<3:04:37, 80.27s/it]| Round: 163 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.229 / 0.921 |
+| Val_Per_Class_Acc: tensor([0.8910, 0.9760, 0.8970, 0.9340, 0.8910, 0.9840, 0.7180, 0.9670, 0.9790,
+        0.9720]) |
+| Poison Loss/Poison Acc: 20.979 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 54%|#####4    | 163/300 [3:19:05<2:57:50, 77.89s/it]| Round: 164 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.228 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8980, 0.9760, 0.8950, 0.9360, 0.8870, 0.9840, 0.7280, 0.9690, 0.9800,
+        0.9690]) |
+| Poison Loss/Poison Acc: 21.494 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 55%|#####4    | 164/300 [3:20:16<2:51:29, 75.66s/it]| Round: 165 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.228 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8950, 0.9750, 0.8940, 0.9330, 0.8900, 0.9810, 0.7310, 0.9720, 0.9790,
+        0.9690]) |
+| Poison Loss/Poison Acc: 21.224 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 55%|#####5    | 165/300 [3:21:26<2:46:25, 73.97s/it]| Round: 166 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.227 / 0.921 |
+| Val_Per_Class_Acc: tensor([0.8890, 0.9740, 0.8890, 0.9310, 0.8940, 0.9830, 0.7350, 0.9690, 0.9800,
+        0.9680]) |
+| Poison Loss/Poison Acc: 21.649 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 55%|#####5    | 166/300 [3:22:37<2:43:10, 73.07s/it]| Round: 167 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.229 / 0.921 |
+| Val_Per_Class_Acc: tensor([0.8920, 0.9760, 0.8970, 0.9320, 0.8880, 0.9790, 0.7290, 0.9710, 0.9800,
+        0.9690]) |
+| Poison Loss/Poison Acc: 21.435 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 56%|#####5    | 167/300 [3:23:48<2:40:53, 72.59s/it]| Round: 168 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.227 / 0.923 |
+| Val_Per_Class_Acc: tensor([0.8970, 0.9760, 0.8870, 0.9310, 0.8960, 0.9840, 0.7330, 0.9740, 0.9800,
+        0.9690]) |
+| Poison Loss/Poison Acc: 21.748 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 56%|#####6    | 168/300 [3:24:59<2:38:27, 72.03s/it]| Round: 169 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.228 / 0.923 |
+| Val_Per_Class_Acc: tensor([0.8980, 0.9760, 0.8890, 0.9290, 0.8890, 0.9830, 0.7430, 0.9760, 0.9800,
+        0.9690]) |
+| Poison Loss/Poison Acc: 22.459 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 56%|#####6    | 169/300 [3:26:09<2:36:07, 71.50s/it]| Round: 170 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.228 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8920, 0.9750, 0.8910, 0.9310, 0.8810, 0.9830, 0.7490, 0.9740, 0.9800,
+        0.9690]) |
+| Poison Loss/Poison Acc: 22.211 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 57%|#####6    | 170/300 [3:27:19<2:33:43, 70.95s/it]| Round: 171 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.228 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.9000, 0.9760, 0.8860, 0.9330, 0.8920, 0.9810, 0.7340, 0.9690, 0.9800,
+        0.9700]) |
+| Poison Loss/Poison Acc: 22.728 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 57%|#####6    | 171/300 [3:28:28<2:31:11, 70.32s/it]| Round: 172 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.226 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8890, 0.9750, 0.8700, 0.9360, 0.9000, 0.9800, 0.7480, 0.9700, 0.9800,
+        0.9700]) |
+| Poison Loss/Poison Acc: 21.950 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 57%|#####7    | 172/300 [3:29:39<2:30:38, 70.61s/it]| Round: 173 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.226 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8910, 0.9750, 0.8780, 0.9360, 0.8950, 0.9830, 0.7480, 0.9640, 0.9790,
+        0.9720]) |
+| Poison Loss/Poison Acc: 22.250 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 58%|#####7    | 173/300 [3:30:49<2:29:11, 70.49s/it]| Round: 174 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.225 / 0.921 |
+| Val_Per_Class_Acc: tensor([0.8800, 0.9760, 0.8880, 0.9310, 0.8870, 0.9830, 0.7520, 0.9660, 0.9790,
+        0.9700]) |
+| Poison Loss/Poison Acc: 21.761 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 58%|#####8    | 174/300 [3:31:59<2:27:35, 70.29s/it]| Round: 175 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.226 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8840, 0.9750, 0.8870, 0.9350, 0.8940, 0.9850, 0.7480, 0.9660, 0.9790,
+        0.9710]) |
+| Poison Loss/Poison Acc: 22.923 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 58%|#####8    | 175/300 [3:33:09<2:26:01, 70.09s/it]| Round: 176 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.227 / 0.923 |
+| Val_Per_Class_Acc: tensor([0.8970, 0.9750, 0.8910, 0.9370, 0.8850, 0.9860, 0.7410, 0.9640, 0.9790,
+        0.9720]) |
+| Poison Loss/Poison Acc: 23.580 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 59%|#####8    | 176/300 [3:34:20<2:25:20, 70.32s/it]| Round: 177 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.225 / 0.921 |
+| Val_Per_Class_Acc: tensor([0.8820, 0.9750, 0.8880, 0.9350, 0.8890, 0.9850, 0.7450, 0.9660, 0.9790,
+        0.9700]) |
+| Poison Loss/Poison Acc: 23.511 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 59%|#####8    | 177/300 [3:35:33<2:25:41, 71.07s/it]| Round: 178 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.226 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8990, 0.9760, 0.8970, 0.9320, 0.8810, 0.9840, 0.7330, 0.9650, 0.9790,
+        0.9710]) |
+| Poison Loss/Poison Acc: 22.854 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 59%|#####9    | 178/300 [3:36:43<2:24:08, 70.89s/it]| Round: 179 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.226 / 0.923 |
+| Val_Per_Class_Acc: tensor([0.8990, 0.9760, 0.8910, 0.9330, 0.8780, 0.9810, 0.7460, 0.9720, 0.9790,
+        0.9710]) |
+| Poison Loss/Poison Acc: 23.105 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 60%|#####9    | 179/300 [3:37:53<2:22:22, 70.60s/it]| Round: 180 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.227 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.9020, 0.9760, 0.8970, 0.9350, 0.8710, 0.9850, 0.7320, 0.9730, 0.9800,
+        0.9680]) |
+| Poison Loss/Poison Acc: 23.732 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 60%|######    | 180/300 [3:39:02<2:20:33, 70.28s/it]| Round: 181 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.226 / 0.923 |
+| Val_Per_Class_Acc: tensor([0.9020, 0.9760, 0.8930, 0.9330, 0.8880, 0.9860, 0.7320, 0.9690, 0.9800,
+        0.9690]) |
+| Poison Loss/Poison Acc: 23.554 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 60%|######    | 181/300 [3:40:13<2:19:39, 70.42s/it]| Round: 182 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.226 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8950, 0.9760, 0.8850, 0.9370, 0.8930, 0.9860, 0.7350, 0.9650, 0.9800,
+        0.9710]) |
+| Poison Loss/Poison Acc: 23.952 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 61%|######    | 182/300 [3:41:25<2:19:08, 70.75s/it]| Round: 183 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.226 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8910, 0.9760, 0.8940, 0.9330, 0.8860, 0.9860, 0.7370, 0.9650, 0.9790,
+        0.9700]) |
+| Poison Loss/Poison Acc: 23.661 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 61%|######1   | 183/300 [3:42:35<2:17:47, 70.66s/it]| Round: 184 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.226 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8940, 0.9760, 0.8880, 0.9330, 0.8900, 0.9870, 0.7400, 0.9650, 0.9790,
+        0.9700]) |
+| Poison Loss/Poison Acc: 24.261 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 61%|######1   | 184/300 [3:43:45<2:16:12, 70.46s/it]| Round: 185 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.225 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.9020, 0.9760, 0.8930, 0.9320, 0.8830, 0.9850, 0.7370, 0.9650, 0.9790,
+        0.9700]) |
+| Poison Loss/Poison Acc: 23.517 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 62%|######1   | 185/300 [3:44:55<2:14:46, 70.32s/it]| Round: 186 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.223 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8960, 0.9760, 0.8860, 0.9350, 0.8950, 0.9850, 0.7380, 0.9640, 0.9790,
+        0.9710]) |
+| Poison Loss/Poison Acc: 23.886 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 62%|######2   | 186/300 [3:46:05<2:13:13, 70.12s/it]| Round: 187 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.224 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8930, 0.9770, 0.8810, 0.9330, 0.9000, 0.9830, 0.7380, 0.9670, 0.9790,
+        0.9710]) |
+| Poison Loss/Poison Acc: 23.008 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 62%|######2   | 187/300 [3:47:14<2:11:23, 69.76s/it]| Round: 188 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.224 / 0.923 |
+| Val_Per_Class_Acc: tensor([0.8890, 0.9770, 0.8930, 0.9370, 0.8910, 0.9860, 0.7390, 0.9700, 0.9790,
+        0.9690]) |
+| Poison Loss/Poison Acc: 23.708 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 63%|######2   | 188/300 [3:48:24<2:10:18, 69.81s/it]| Round: 189 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.225 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8980, 0.9760, 0.8920, 0.9360, 0.8860, 0.9840, 0.7330, 0.9680, 0.9790,
+        0.9710]) |
+| Poison Loss/Poison Acc: 23.873 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 63%|######3   | 189/300 [3:49:34<2:09:17, 69.88s/it]| Round: 190 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.226 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8890, 0.9760, 0.8940, 0.9350, 0.8880, 0.9850, 0.7390, 0.9710, 0.9790,
+        0.9660]) |
+| Poison Loss/Poison Acc: 24.893 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 63%|######3   | 190/300 [3:50:44<2:08:19, 70.00s/it]| Round: 191 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.225 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8910, 0.9760, 0.8920, 0.9330, 0.8880, 0.9840, 0.7420, 0.9690, 0.9790,
+        0.9710]) |
+| Poison Loss/Poison Acc: 23.745 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 64%|######3   | 191/300 [3:51:54<2:07:15, 70.05s/it]| Round: 192 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.224 / 0.923 |
+| Val_Per_Class_Acc: tensor([0.8840, 0.9760, 0.8900, 0.9370, 0.8970, 0.9850, 0.7400, 0.9670, 0.9790,
+        0.9710]) |
+| Poison Loss/Poison Acc: 23.590 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 64%|######4   | 192/300 [3:53:05<2:06:42, 70.39s/it]| Round: 193 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.224 / 0.923 |
+| Val_Per_Class_Acc: tensor([0.8880, 0.9760, 0.8910, 0.9330, 0.8940, 0.9860, 0.7410, 0.9710, 0.9790,
+        0.9690]) |
+| Poison Loss/Poison Acc: 23.669 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 64%|######4   | 193/300 [3:54:18<2:06:32, 70.96s/it]| Round: 194 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.222 / 0.923 |
+| Val_Per_Class_Acc: tensor([0.8880, 0.9760, 0.8920, 0.9320, 0.8930, 0.9850, 0.7510, 0.9690, 0.9790,
+        0.9680]) |
+| Poison Loss/Poison Acc: 23.080 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 65%|######4   | 194/300 [3:55:26<2:04:10, 70.29s/it]| Round: 195 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.223 / 0.923 |
+| Val_Per_Class_Acc: tensor([0.8920, 0.9770, 0.8920, 0.9340, 0.8930, 0.9850, 0.7420, 0.9670, 0.9790,
+        0.9700]) |
+| Poison Loss/Poison Acc: 24.090 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 65%|######5   | 195/300 [3:56:37<2:03:09, 70.37s/it]| Round: 196 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.225 / 0.923 |
+| Val_Per_Class_Acc: tensor([0.8960, 0.9770, 0.8910, 0.9350, 0.8970, 0.9860, 0.7310, 0.9670, 0.9790,
+        0.9700]) |
+| Poison Loss/Poison Acc: 24.013 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 65%|######5   | 196/300 [3:57:47<2:02:05, 70.43s/it]| Round: 197 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.224 / 0.923 |
+| Val_Per_Class_Acc: tensor([0.8940, 0.9770, 0.8980, 0.9350, 0.8900, 0.9840, 0.7380, 0.9710, 0.9790,
+        0.9670]) |
+| Poison Loss/Poison Acc: 23.964 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 66%|######5   | 197/300 [3:58:59<2:01:23, 70.71s/it]| Round: 198 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.224 / 0.923 |
+| Val_Per_Class_Acc: tensor([0.8940, 0.9760, 0.8990, 0.9370, 0.8920, 0.9820, 0.7330, 0.9710, 0.9790,
+        0.9680]) |
+| Poison Loss/Poison Acc: 23.616 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 66%|######6   | 198/300 [4:00:09<1:59:43, 70.42s/it]| Round: 199 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.223 / 0.923 |
+| Val_Per_Class_Acc: tensor([0.8940, 0.9760, 0.9000, 0.9360, 0.8870, 0.9820, 0.7370, 0.9750, 0.9790,
+        0.9670]) |
+| Poison Loss/Poison Acc: 23.994 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 66%|######6   | 199/300 [4:01:19<1:58:26, 70.37s/it]| Round: 200 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.223 / 0.923 |
+| Val_Per_Class_Acc: tensor([0.8880, 0.9760, 0.8880, 0.9340, 0.8970, 0.9810, 0.7460, 0.9720, 0.9790,
+        0.9680]) |
+| Poison Loss/Poison Acc: 23.766 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 67%|######6   | 200/300 [4:02:30<1:57:33, 70.54s/it]| Round: 201 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.223 / 0.923 |
+| Val_Per_Class_Acc: tensor([0.8790, 0.9760, 0.8840, 0.9300, 0.8950, 0.9840, 0.7650, 0.9670, 0.9790,
+        0.9680]) |
+| Poison Loss/Poison Acc: 24.483 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 67%|######7   | 201/300 [4:03:42<1:56:59, 70.90s/it]| Round: 202 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.222 / 0.923 |
+| Val_Per_Class_Acc: tensor([0.8880, 0.9780, 0.8830, 0.9330, 0.8960, 0.9850, 0.7550, 0.9670, 0.9790,
+        0.9690]) |
+| Poison Loss/Poison Acc: 23.744 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 67%|######7   | 202/300 [4:04:54<1:56:22, 71.25s/it]| Round: 203 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.222 / 0.924 |
+| Val_Per_Class_Acc: tensor([0.8790, 0.9760, 0.8850, 0.9340, 0.8950, 0.9840, 0.7630, 0.9740, 0.9790,
+        0.9670]) |
+| Poison Loss/Poison Acc: 23.926 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 68%|######7   | 203/300 [4:06:04<1:54:54, 71.08s/it]| Round: 204 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.222 / 0.923 |
+| Val_Per_Class_Acc: tensor([0.8940, 0.9760, 0.8890, 0.9320, 0.8870, 0.9840, 0.7530, 0.9740, 0.9790,
+        0.9660]) |
+| Poison Loss/Poison Acc: 23.641 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 68%|######8   | 204/300 [4:07:13<1:52:47, 70.49s/it]| Round: 205 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.223 / 0.923 |
+| Val_Per_Class_Acc: tensor([0.8930, 0.9760, 0.8900, 0.9320, 0.8860, 0.9830, 0.7470, 0.9730, 0.9790,
+        0.9680]) |
+| Poison Loss/Poison Acc: 24.114 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 68%|######8   | 205/300 [4:08:24<1:51:35, 70.48s/it]| Round: 206 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.224 / 0.923 |
+| Val_Per_Class_Acc: tensor([0.8940, 0.9760, 0.9040, 0.9350, 0.8810, 0.9830, 0.7410, 0.9730, 0.9790,
+        0.9670]) |
+| Poison Loss/Poison Acc: 24.160 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 69%|######8   | 206/300 [4:09:34<1:50:17, 70.40s/it]| Round: 207 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.223 / 0.923 |
+| Val_Per_Class_Acc: tensor([0.8850, 0.9760, 0.8940, 0.9360, 0.8910, 0.9860, 0.7480, 0.9720, 0.9790,
+        0.9680]) |
+| Poison Loss/Poison Acc: 24.833 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 69%|######9   | 207/300 [4:10:44<1:49:07, 70.40s/it]| Round: 208 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.224 / 0.923 |
+| Val_Per_Class_Acc: tensor([0.8960, 0.9760, 0.8990, 0.9330, 0.8890, 0.9870, 0.7340, 0.9700, 0.9790,
+        0.9690]) |
+| Poison Loss/Poison Acc: 25.259 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 69%|######9   | 208/300 [4:11:54<1:47:41, 70.24s/it]| Round: 209 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.221 / 0.924 |
+| Val_Per_Class_Acc: tensor([0.8770, 0.9750, 0.8900, 0.9360, 0.8890, 0.9850, 0.7690, 0.9650, 0.9800,
+        0.9700]) |
+| Poison Loss/Poison Acc: 25.593 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 70%|######9   | 209/300 [4:13:04<1:46:29, 70.22s/it]| Round: 210 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.220 / 0.924 |
+| Val_Per_Class_Acc: tensor([0.8780, 0.9760, 0.8950, 0.9360, 0.8860, 0.9840, 0.7610, 0.9730, 0.9800,
+        0.9710]) |
+| Poison Loss/Poison Acc: 24.358 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 70%|#######   | 210/300 [4:14:15<1:45:16, 70.18s/it]| Round: 211 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.221 / 0.923 |
+| Val_Per_Class_Acc: tensor([0.8750, 0.9770, 0.8950, 0.9340, 0.8760, 0.9840, 0.7730, 0.9660, 0.9810,
+        0.9720]) |
+| Poison Loss/Poison Acc: 24.642 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 70%|#######   | 211/300 [4:15:26<1:44:28, 70.44s/it]| Round: 212 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.222 / 0.924 |
+| Val_Per_Class_Acc: tensor([0.8880, 0.9750, 0.9030, 0.9370, 0.8730, 0.9840, 0.7570, 0.9680, 0.9800,
+        0.9710]) |
+| Poison Loss/Poison Acc: 24.702 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 71%|#######   | 212/300 [4:16:36<1:43:23, 70.50s/it]| Round: 213 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.222 / 0.924 |
+| Val_Per_Class_Acc: tensor([0.8890, 0.9750, 0.8970, 0.9360, 0.8830, 0.9840, 0.7550, 0.9700, 0.9800,
+        0.9700]) |
+| Poison Loss/Poison Acc: 25.510 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 71%|#######1  | 213/300 [4:17:46<1:42:03, 70.38s/it]| Round: 214 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.222 / 0.924 |
+| Val_Per_Class_Acc: tensor([0.8850, 0.9750, 0.8990, 0.9390, 0.8860, 0.9830, 0.7510, 0.9690, 0.9790,
+        0.9720]) |
+| Poison Loss/Poison Acc: 26.106 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 71%|#######1  | 214/300 [4:18:57<1:40:50, 70.35s/it]| Round: 215 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.222 / 0.924 |
+| Val_Per_Class_Acc: tensor([0.8900, 0.9750, 0.8970, 0.9370, 0.8860, 0.9820, 0.7490, 0.9680, 0.9800,
+        0.9720]) |
+| Poison Loss/Poison Acc: 25.059 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 72%|#######1  | 215/300 [4:20:08<1:40:10, 70.71s/it]| Round: 216 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.221 / 0.924 |
+| Val_Per_Class_Acc: tensor([0.8850, 0.9750, 0.8890, 0.9340, 0.8910, 0.9830, 0.7610, 0.9720, 0.9800,
+        0.9700]) |
+| Poison Loss/Poison Acc: 25.254 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 72%|#######2  | 216/300 [4:21:19<1:38:53, 70.64s/it]| Round: 217 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.221 / 0.923 |
+| Val_Per_Class_Acc: tensor([0.8700, 0.9750, 0.8890, 0.9350, 0.8900, 0.9820, 0.7710, 0.9680, 0.9800,
+        0.9720]) |
+| Poison Loss/Poison Acc: 24.665 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 72%|#######2  | 217/300 [4:22:30<1:37:52, 70.76s/it]| Round: 218 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.224 / 0.923 |
+| Val_Per_Class_Acc: tensor([0.8960, 0.9760, 0.9000, 0.9360, 0.8680, 0.9850, 0.7490, 0.9660, 0.9800,
+        0.9710]) |
+| Poison Loss/Poison Acc: 25.649 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 73%|#######2  | 218/300 [4:23:41<1:36:50, 70.86s/it]| Round: 219 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.223 / 0.924 |
+| Val_Per_Class_Acc: tensor([0.8900, 0.9750, 0.8950, 0.9390, 0.8950, 0.9820, 0.7460, 0.9690, 0.9800,
+        0.9710]) |
+| Poison Loss/Poison Acc: 25.041 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 73%|#######3  | 219/300 [4:24:52<1:35:46, 70.94s/it]| Round: 220 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.224 / 0.923 |
+| Val_Per_Class_Acc: tensor([0.8910, 0.9750, 0.8960, 0.9360, 0.8810, 0.9830, 0.7520, 0.9690, 0.9800,
+        0.9690]) |
+| Poison Loss/Poison Acc: 25.621 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 73%|#######3  | 220/300 [4:26:01<1:33:54, 70.43s/it]| Round: 221 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.224 / 0.924 |
+| Val_Per_Class_Acc: tensor([0.8940, 0.9750, 0.8880, 0.9350, 0.8940, 0.9840, 0.7460, 0.9710, 0.9800,
+        0.9710]) |
+| Poison Loss/Poison Acc: 26.063 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 74%|#######3  | 221/300 [4:27:12<1:32:45, 70.45s/it]| Round: 222 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.222 / 0.924 |
+| Val_Per_Class_Acc: tensor([0.8880, 0.9770, 0.8940, 0.9330, 0.8870, 0.9840, 0.7620, 0.9690, 0.9800,
+        0.9700]) |
+| Poison Loss/Poison Acc: 25.473 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 74%|#######4  | 222/300 [4:28:22<1:31:40, 70.52s/it]| Round: 223 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.223 / 0.925 |
+| Val_Per_Class_Acc: tensor([0.8990, 0.9770, 0.8960, 0.9340, 0.8850, 0.9860, 0.7510, 0.9690, 0.9800,
+        0.9710]) |
+| Poison Loss/Poison Acc: 25.851 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 74%|#######4  | 223/300 [4:29:33<1:30:35, 70.58s/it]| Round: 224 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.221 / 0.924 |
+| Val_Per_Class_Acc: tensor([0.8790, 0.9770, 0.8930, 0.9340, 0.8840, 0.9840, 0.7670, 0.9690, 0.9810,
+        0.9710]) |
+| Poison Loss/Poison Acc: 25.236 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 75%|#######4  | 224/300 [4:30:44<1:29:28, 70.63s/it]| Round: 225 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.223 / 0.924 |
+| Val_Per_Class_Acc: tensor([0.9000, 0.9760, 0.8980, 0.9340, 0.8880, 0.9850, 0.7380, 0.9690, 0.9810,
+        0.9710]) |
+| Poison Loss/Poison Acc: 25.468 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 75%|#######5  | 225/300 [4:31:55<1:28:28, 70.78s/it]| Round: 226 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.225 / 0.925 |
+| Val_Per_Class_Acc: tensor([0.9040, 0.9760, 0.8950, 0.9380, 0.8940, 0.9850, 0.7340, 0.9690, 0.9810,
+        0.9710]) |
+| Poison Loss/Poison Acc: 25.742 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 75%|#######5  | 226/300 [4:33:05<1:26:57, 70.51s/it]| Round: 227 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.222 / 0.924 |
+| Val_Per_Class_Acc: tensor([0.8920, 0.9750, 0.8950, 0.9370, 0.9000, 0.9820, 0.7410, 0.9700, 0.9810,
+        0.9700]) |
+| Poison Loss/Poison Acc: 25.230 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 76%|#######5  | 227/300 [4:34:15<1:25:49, 70.54s/it]| Round: 228 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.223 / 0.925 |
+| Val_Per_Class_Acc: tensor([0.9000, 0.9770, 0.9020, 0.9350, 0.9010, 0.9840, 0.7330, 0.9730, 0.9810,
+        0.9660]) |
+| Poison Loss/Poison Acc: 25.781 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 76%|#######6  | 228/300 [4:35:25<1:24:24, 70.34s/it]| Round: 229 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.221 / 0.925 |
+| Val_Per_Class_Acc: tensor([0.8940, 0.9780, 0.9000, 0.9360, 0.9010, 0.9840, 0.7400, 0.9710, 0.9790,
+        0.9710]) |
+| Poison Loss/Poison Acc: 25.607 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 76%|#######6  | 229/300 [4:36:36<1:23:14, 70.35s/it]| Round: 230 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.222 / 0.925 |
+| Val_Per_Class_Acc: tensor([0.8840, 0.9770, 0.8950, 0.9350, 0.8940, 0.9840, 0.7560, 0.9700, 0.9810,
+        0.9720]) |
+| Poison Loss/Poison Acc: 26.310 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 77%|#######6  | 230/300 [4:37:47<1:22:28, 70.70s/it]| Round: 231 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.222 / 0.925 |
+| Val_Per_Class_Acc: tensor([0.8850, 0.9750, 0.8970, 0.9380, 0.8990, 0.9840, 0.7540, 0.9700, 0.9810,
+        0.9690]) |
+| Poison Loss/Poison Acc: 26.819 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 77%|#######7  | 231/300 [4:38:58<1:21:29, 70.86s/it]| Round: 232 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.221 / 0.926 |
+| Val_Per_Class_Acc: tensor([0.8800, 0.9780, 0.8940, 0.9360, 0.8980, 0.9850, 0.7660, 0.9700, 0.9810,
+        0.9710]) |
+| Poison Loss/Poison Acc: 26.925 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 77%|#######7  | 232/300 [4:40:11<1:20:56, 71.42s/it]| Round: 233 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.220 / 0.925 |
+| Val_Per_Class_Acc: tensor([0.8770, 0.9760, 0.8990, 0.9340, 0.8880, 0.9840, 0.7690, 0.9690, 0.9800,
+        0.9700]) |
+| Poison Loss/Poison Acc: 25.942 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 78%|#######7  | 233/300 [4:41:24<1:20:06, 71.74s/it]| Round: 234 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.221 / 0.925 |
+| Val_Per_Class_Acc: tensor([0.8890, 0.9780, 0.9030, 0.9350, 0.8870, 0.9850, 0.7540, 0.9700, 0.9810,
+        0.9690]) |
+| Poison Loss/Poison Acc: 26.013 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 78%|#######8  | 234/300 [4:44:18<1:52:55, 102.66s/it]| Round: 235 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.222 / 0.924 |
+| Val_Per_Class_Acc: tensor([0.8920, 0.9770, 0.9010, 0.9380, 0.8710, 0.9840, 0.7560, 0.9740, 0.9810,
+        0.9690]) |
+| Poison Loss/Poison Acc: 26.518 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 78%|#######8  | 235/300 [4:45:26<1:39:44, 92.07s/it] | Round: 236 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.221 / 0.925 |
+| Val_Per_Class_Acc: tensor([0.8940, 0.9750, 0.8990, 0.9360, 0.8860, 0.9840, 0.7510, 0.9700, 0.9810,
+        0.9700]) |
+| Poison Loss/Poison Acc: 26.121 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 79%|#######8  | 236/300 [4:46:36<1:31:03, 85.37s/it]| Round: 237 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.221 / 0.924 |
+| Val_Per_Class_Acc: tensor([0.8930, 0.9750, 0.9020, 0.9340, 0.8820, 0.9830, 0.7510, 0.9700, 0.9810,
+        0.9700]) |
+| Poison Loss/Poison Acc: 26.439 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 79%|#######9  | 237/300 [4:47:45<1:24:44, 80.70s/it]| Round: 238 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.222 / 0.925 |
+| Val_Per_Class_Acc: tensor([0.9050, 0.9750, 0.9010, 0.9350, 0.8800, 0.9820, 0.7450, 0.9710, 0.9810,
+        0.9710]) |
+| Poison Loss/Poison Acc: 26.481 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 79%|#######9  | 238/300 [4:48:55<1:19:55, 77.35s/it]| Round: 239 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.222 / 0.925 |
+| Val_Per_Class_Acc: tensor([0.9020, 0.9750, 0.9030, 0.9380, 0.8850, 0.9830, 0.7420, 0.9730, 0.9810,
+        0.9680]) |
+| Poison Loss/Poison Acc: 26.060 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 80%|#######9  | 239/300 [4:50:06<1:16:39, 75.39s/it]| Round: 240 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.221 / 0.925 |
+| Val_Per_Class_Acc: tensor([0.8980, 0.9750, 0.8930, 0.9340, 0.9000, 0.9850, 0.7440, 0.9690, 0.9810,
+        0.9700]) |
+| Poison Loss/Poison Acc: 26.179 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 80%|########  | 240/300 [4:51:16<1:13:52, 73.87s/it]| Round: 241 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.221 / 0.926 |
+| Val_Per_Class_Acc: tensor([0.8890, 0.9760, 0.8940, 0.9350, 0.9030, 0.9860, 0.7560, 0.9660, 0.9810,
+        0.9710]) |
+| Poison Loss/Poison Acc: 27.785 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 80%|########  | 241/300 [4:52:25<1:11:08, 72.35s/it]| Round: 242 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.222 / 0.925 |
+| Val_Per_Class_Acc: tensor([0.8890, 0.9750, 0.8950, 0.9340, 0.9000, 0.9840, 0.7500, 0.9670, 0.9810,
+        0.9730]) |
+| Poison Loss/Poison Acc: 27.803 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 81%|########  | 242/300 [4:53:36<1:09:30, 71.91s/it]| Round: 243 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.222 / 0.926 |
+| Val_Per_Class_Acc: tensor([0.9010, 0.9750, 0.8950, 0.9340, 0.9030, 0.9850, 0.7420, 0.9680, 0.9810,
+        0.9720]) |
+| Poison Loss/Poison Acc: 27.646 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 81%|########1 | 243/300 [4:54:47<1:08:16, 71.86s/it]| Round: 244 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.223 / 0.925 |
+| Val_Per_Class_Acc: tensor([0.8990, 0.9750, 0.8930, 0.9330, 0.9060, 0.9860, 0.7370, 0.9710, 0.9810,
+        0.9680]) |
+| Poison Loss/Poison Acc: 28.769 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 81%|########1 | 244/300 [4:55:59<1:07:04, 71.86s/it]| Round: 245 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.224 / 0.924 |
+| Val_Per_Class_Acc: tensor([0.8980, 0.9750, 0.9060, 0.9360, 0.8890, 0.9830, 0.7350, 0.9730, 0.9800,
+        0.9680]) |
+| Poison Loss/Poison Acc: 26.452 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 82%|########1 | 245/300 [4:57:09<1:05:22, 71.32s/it]| Round: 246 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.220 / 0.926 |
+| Val_Per_Class_Acc: tensor([0.8970, 0.9750, 0.9060, 0.9350, 0.8990, 0.9830, 0.7420, 0.9700, 0.9800,
+        0.9700]) |
+| Poison Loss/Poison Acc: 25.819 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 82%|########2 | 246/300 [4:58:19<1:03:38, 70.71s/it]| Round: 247 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.222 / 0.925 |
+| Val_Per_Class_Acc: tensor([0.8880, 0.9750, 0.9010, 0.9360, 0.8900, 0.9850, 0.7530, 0.9700, 0.9800,
+        0.9680]) |
+| Poison Loss/Poison Acc: 27.681 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 82%|########2 | 247/300 [4:59:28<1:02:07, 70.33s/it]| Round: 248 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.222 / 0.925 |
+| Val_Per_Class_Acc: tensor([0.8860, 0.9760, 0.8980, 0.9350, 0.8870, 0.9840, 0.7630, 0.9690, 0.9800,
+        0.9700]) |
+| Poison Loss/Poison Acc: 26.591 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 83%|########2 | 248/300 [5:00:40<1:01:19, 70.76s/it]| Round: 249 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.222 / 0.925 |
+| Val_Per_Class_Acc: tensor([0.8880, 0.9770, 0.8970, 0.9350, 0.8850, 0.9850, 0.7610, 0.9690, 0.9800,
+        0.9700]) |
+| Poison Loss/Poison Acc: 26.496 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 83%|########2 | 249/300 [5:01:50<59:55, 70.49s/it]  | Round: 250 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.222 / 0.925 |
+| Val_Per_Class_Acc: tensor([0.8900, 0.9770, 0.8980, 0.9330, 0.8860, 0.9830, 0.7660, 0.9700, 0.9810,
+        0.9710]) |
+| Poison Loss/Poison Acc: 26.597 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 83%|########3 | 250/300 [5:03:01<58:50, 70.62s/it]| Round: 251 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.223 / 0.926 |
+| Val_Per_Class_Acc: tensor([0.8920, 0.9780, 0.9090, 0.9330, 0.8860, 0.9840, 0.7590, 0.9730, 0.9800,
+        0.9690]) |
+| Poison Loss/Poison Acc: 25.631 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 84%|########3 | 251/300 [5:04:11<57:37, 70.56s/it]| Round: 252 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.224 / 0.925 |
+| Val_Per_Class_Acc: tensor([0.9010, 0.9780, 0.9070, 0.9330, 0.8860, 0.9830, 0.7410, 0.9720, 0.9810,
+        0.9690]) |
+| Poison Loss/Poison Acc: 26.150 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 84%|########4 | 252/300 [5:05:21<56:14, 70.31s/it]| Round: 253 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.222 / 0.926 |
+| Val_Per_Class_Acc: tensor([0.8940, 0.9790, 0.9020, 0.9340, 0.8830, 0.9840, 0.7630, 0.9690, 0.9810,
+        0.9690]) |
+| Poison Loss/Poison Acc: 27.844 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 84%|########4 | 253/300 [5:06:32<55:12, 70.49s/it]| Round: 254 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.222 / 0.925 |
+| Val_Per_Class_Acc: tensor([0.8940, 0.9790, 0.9050, 0.9300, 0.8760, 0.9840, 0.7630, 0.9710, 0.9810,
+        0.9710]) |
+| Poison Loss/Poison Acc: 26.799 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 85%|########4 | 254/300 [5:07:41<53:47, 70.17s/it]| Round: 255 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.222 / 0.925 |
+| Val_Per_Class_Acc: tensor([0.9010, 0.9750, 0.9030, 0.9310, 0.8890, 0.9840, 0.7480, 0.9700, 0.9810,
+        0.9720]) |
+| Poison Loss/Poison Acc: 27.515 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 85%|########5 | 255/300 [5:08:51<52:38, 70.19s/it]| Round: 256 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.220 / 0.926 |
+| Val_Per_Class_Acc: tensor([0.9010, 0.9760, 0.9020, 0.9300, 0.9010, 0.9840, 0.7480, 0.9690, 0.9810,
+        0.9720]) |
+| Poison Loss/Poison Acc: 27.527 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 85%|########5 | 256/300 [5:10:00<51:07, 69.71s/it]| Round: 257 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.220 / 0.926 |
+| Val_Per_Class_Acc: tensor([0.8950, 0.9770, 0.9020, 0.9310, 0.8960, 0.9840, 0.7540, 0.9690, 0.9810,
+        0.9720]) |
+| Poison Loss/Poison Acc: 28.206 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 86%|########5 | 257/300 [5:11:11<50:12, 70.07s/it]| Round: 258 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.220 / 0.926 |
+| Val_Per_Class_Acc: tensor([0.8830, 0.9780, 0.8990, 0.9370, 0.8960, 0.9810, 0.7630, 0.9710, 0.9810,
+        0.9720]) |
+| Poison Loss/Poison Acc: 26.765 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 86%|########6 | 258/300 [5:12:22<49:18, 70.43s/it]| Round: 259 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.219 / 0.926 |
+| Val_Per_Class_Acc: tensor([0.8890, 0.9780, 0.9000, 0.9360, 0.8870, 0.9830, 0.7590, 0.9700, 0.9810,
+        0.9730]) |
+| Poison Loss/Poison Acc: 27.066 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 86%|########6 | 259/300 [5:13:32<47:58, 70.21s/it]| Round: 260 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.220 / 0.925 |
+| Val_Per_Class_Acc: tensor([0.8930, 0.9770, 0.9000, 0.9330, 0.8820, 0.9840, 0.7560, 0.9700, 0.9810,
+        0.9710]) |
+| Poison Loss/Poison Acc: 27.468 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 87%|########6 | 260/300 [5:14:41<46:40, 70.02s/it]| Round: 261 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.220 / 0.926 |
+| Val_Per_Class_Acc: tensor([0.8790, 0.9770, 0.8980, 0.9320, 0.8970, 0.9850, 0.7730, 0.9710, 0.9810,
+        0.9690]) |
+| Poison Loss/Poison Acc: 26.713 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 87%|########7 | 261/300 [5:15:51<45:28, 69.97s/it]| Round: 262 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.220 / 0.926 |
+| Val_Per_Class_Acc: tensor([0.8840, 0.9760, 0.9010, 0.9340, 0.8930, 0.9850, 0.7590, 0.9750, 0.9810,
+        0.9680]) |
+| Poison Loss/Poison Acc: 26.446 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 87%|########7 | 262/300 [5:17:00<44:06, 69.64s/it]| Round: 263 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.221 / 0.925 |
+| Val_Per_Class_Acc: tensor([0.8910, 0.9760, 0.9060, 0.9350, 0.8870, 0.9830, 0.7500, 0.9700, 0.9810,
+        0.9720]) |
+| Poison Loss/Poison Acc: 27.266 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 88%|########7 | 263/300 [5:18:11<43:11, 70.04s/it]| Round: 264 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.223 / 0.924 |
+| Val_Per_Class_Acc: tensor([0.8970, 0.9750, 0.9000, 0.9360, 0.8810, 0.9840, 0.7430, 0.9690, 0.9810,
+        0.9720]) |
+| Poison Loss/Poison Acc: 27.334 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 88%|########8 | 264/300 [5:19:20<41:53, 69.81s/it]| Round: 265 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.221 / 0.925 |
+| Val_Per_Class_Acc: tensor([0.8960, 0.9760, 0.8970, 0.9360, 0.8860, 0.9850, 0.7510, 0.9700, 0.9810,
+        0.9710]) |
+| Poison Loss/Poison Acc: 27.269 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 88%|########8 | 265/300 [5:20:29<40:35, 69.59s/it]| Round: 266 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.220 / 0.926 |
+| Val_Per_Class_Acc: tensor([0.8930, 0.9760, 0.9030, 0.9350, 0.8960, 0.9850, 0.7480, 0.9700, 0.9810,
+        0.9710]) |
+| Poison Loss/Poison Acc: 26.090 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 89%|########8 | 266/300 [5:21:39<39:30, 69.72s/it]| Round: 267 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.223 / 0.926 |
+| Val_Per_Class_Acc: tensor([0.9060, 0.9760, 0.9030, 0.9370, 0.8980, 0.9850, 0.7270, 0.9720, 0.9810,
+        0.9710]) |
+| Poison Loss/Poison Acc: 26.655 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 89%|########9 | 267/300 [5:22:49<38:16, 69.59s/it]| Round: 268 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.220 / 0.926 |
+| Val_Per_Class_Acc: tensor([0.8960, 0.9800, 0.9070, 0.9350, 0.8990, 0.9840, 0.7410, 0.9710, 0.9810,
+        0.9710]) |
+| Poison Loss/Poison Acc: 26.556 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 89%|########9 | 268/300 [5:24:00<37:19, 69.99s/it]| Round: 269 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.221 / 0.926 |
+| Val_Per_Class_Acc: tensor([0.8990, 0.9790, 0.9120, 0.9380, 0.8940, 0.9830, 0.7360, 0.9720, 0.9810,
+        0.9710]) |
+| Poison Loss/Poison Acc: 25.763 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 90%|########9 | 269/300 [5:25:09<36:01, 69.74s/it]| Round: 270 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.221 / 0.927 |
+| Val_Per_Class_Acc: tensor([0.9020, 0.9800, 0.9080, 0.9410, 0.8950, 0.9840, 0.7320, 0.9740, 0.9810,
+        0.9720]) |
+| Poison Loss/Poison Acc: 25.343 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 90%|######### | 270/300 [5:26:19<34:59, 69.99s/it]| Round: 271 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.220 / 0.927 |
+| Val_Per_Class_Acc: tensor([0.9030, 0.9790, 0.9060, 0.9370, 0.8950, 0.9840, 0.7390, 0.9730, 0.9810,
+        0.9710]) |
+| Poison Loss/Poison Acc: 25.613 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 90%|######### | 271/300 [5:27:29<33:47, 69.92s/it]| Round: 272 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.221 / 0.927 |
+| Val_Per_Class_Acc: tensor([0.9040, 0.9770, 0.9070, 0.9360, 0.8980, 0.9830, 0.7380, 0.9730, 0.9810,
+        0.9700]) |
+| Poison Loss/Poison Acc: 24.243 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 91%|######### | 272/300 [5:28:40<32:41, 70.05s/it]| Round: 273 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.222 / 0.925 |
+| Val_Per_Class_Acc: tensor([0.8920, 0.9780, 0.9100, 0.9370, 0.8840, 0.9850, 0.7400, 0.9710, 0.9810,
+        0.9720]) |
+| Poison Loss/Poison Acc: 25.067 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 91%|#########1| 273/300 [5:29:51<31:44, 70.55s/it]| Round: 274 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.221 / 0.925 |
+| Val_Per_Class_Acc: tensor([0.9000, 0.9780, 0.9100, 0.9370, 0.8830, 0.9850, 0.7380, 0.9710, 0.9810,
+        0.9710]) |
+| Poison Loss/Poison Acc: 24.864 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 91%|#########1| 274/300 [5:31:02<30:33, 70.51s/it]| Round: 275 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.221 / 0.925 |
+| Val_Per_Class_Acc: tensor([0.8950, 0.9760, 0.9090, 0.9370, 0.8820, 0.9850, 0.7420, 0.9680, 0.9810,
+        0.9720]) |
+| Poison Loss/Poison Acc: 24.738 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 92%|#########1| 275/300 [5:32:11<29:10, 70.02s/it]| Round: 276 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.220 / 0.926 |
+| Val_Per_Class_Acc: tensor([0.8910, 0.9770, 0.9050, 0.9380, 0.8870, 0.9810, 0.7540, 0.9730, 0.9810,
+        0.9730]) |
+| Poison Loss/Poison Acc: 23.327 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 92%|#########2| 276/300 [5:33:20<27:58, 69.95s/it]| Round: 277 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.221 / 0.926 |
+| Val_Per_Class_Acc: tensor([0.9020, 0.9770, 0.9050, 0.9360, 0.8950, 0.9800, 0.7360, 0.9750, 0.9810,
+        0.9710]) |
+| Poison Loss/Poison Acc: 23.021 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 92%|#########2| 277/300 [5:34:30<26:45, 69.82s/it]| Round: 278 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.221 / 0.928 |
+| Val_Per_Class_Acc: tensor([0.8940, 0.9780, 0.9030, 0.9340, 0.9000, 0.9830, 0.7560, 0.9750, 0.9820,
+        0.9720]) |
+| Poison Loss/Poison Acc: 24.125 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 93%|#########2| 278/300 [5:35:38<25:28, 69.47s/it]| Round: 279 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.222 / 0.927 |
+| Val_Per_Class_Acc: tensor([0.9000, 0.9760, 0.8990, 0.9390, 0.8990, 0.9830, 0.7500, 0.9720, 0.9810,
+        0.9720]) |
+| Poison Loss/Poison Acc: 23.966 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 93%|#########3| 279/300 [5:36:49<24:25, 69.80s/it]| Round: 280 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.222 / 0.927 |
+| Val_Per_Class_Acc: tensor([0.8950, 0.9770, 0.9000, 0.9360, 0.9010, 0.9820, 0.7490, 0.9720, 0.9820,
+        0.9730]) |
+| Poison Loss/Poison Acc: 24.079 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 93%|#########3| 280/300 [5:38:00<23:22, 70.15s/it]| Round: 281 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.222 / 0.926 |
+| Val_Per_Class_Acc: tensor([0.9000, 0.9770, 0.9020, 0.9370, 0.8960, 0.9830, 0.7400, 0.9740, 0.9820,
+        0.9710]) |
+| Poison Loss/Poison Acc: 24.014 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 94%|#########3| 281/300 [5:39:10<22:11, 70.07s/it]| Round: 282 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.221 / 0.927 |
+| Val_Per_Class_Acc: tensor([0.8890, 0.9760, 0.8980, 0.9390, 0.8990, 0.9820, 0.7580, 0.9730, 0.9820,
+        0.9710]) |
+| Poison Loss/Poison Acc: 23.076 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 94%|#########3| 282/300 [5:40:20<20:59, 69.97s/it]| Round: 283 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.222 / 0.927 |
+| Val_Per_Class_Acc: tensor([0.9030, 0.9780, 0.9030, 0.9370, 0.8940, 0.9820, 0.7420, 0.9750, 0.9820,
+        0.9720]) |
+| Poison Loss/Poison Acc: 23.395 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 94%|#########4| 283/300 [5:41:29<19:48, 69.93s/it]| Round: 284 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.221 / 0.927 |
+| Val_Per_Class_Acc: tensor([0.8960, 0.9780, 0.9060, 0.9360, 0.8970, 0.9830, 0.7470, 0.9690, 0.9820,
+        0.9730]) |
+| Poison Loss/Poison Acc: 24.166 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 95%|#########4| 284/300 [5:42:39<18:38, 69.91s/it]| Round: 285 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.220 / 0.927 |
+| Val_Per_Class_Acc: tensor([0.8940, 0.9760, 0.9050, 0.9370, 0.8930, 0.9830, 0.7580, 0.9700, 0.9820,
+        0.9730]) |
+| Poison Loss/Poison Acc: 23.824 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 95%|#########5| 285/300 [5:43:50<17:32, 70.14s/it]| Round: 286 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.220 / 0.927 |
+| Val_Per_Class_Acc: tensor([0.8940, 0.9790, 0.9050, 0.9360, 0.8990, 0.9840, 0.7530, 0.9670, 0.9820,
+        0.9730]) |
+| Poison Loss/Poison Acc: 24.631 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 95%|#########5| 286/300 [5:44:59<16:15, 69.65s/it]| Round: 287 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.221 / 0.926 |
+| Val_Per_Class_Acc: tensor([0.8940, 0.9760, 0.9010, 0.9360, 0.8860, 0.9860, 0.7640, 0.9670, 0.9820,
+        0.9730]) |
+| Poison Loss/Poison Acc: 25.075 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 96%|#########5| 287/300 [5:46:09<15:07, 69.81s/it]| Round: 288 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.221 / 0.927 |
+| Val_Per_Class_Acc: tensor([0.8900, 0.9760, 0.9080, 0.9360, 0.8890, 0.9830, 0.7630, 0.9730, 0.9820,
+        0.9720]) |
+| Poison Loss/Poison Acc: 24.735 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 96%|#########6| 288/300 [5:47:19<13:59, 69.96s/it]| Round: 289 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.220 / 0.926 |
+| Val_Per_Class_Acc: tensor([0.8830, 0.9750, 0.9060, 0.9330, 0.8930, 0.9850, 0.7680, 0.9670, 0.9820,
+        0.9720]) |
+| Poison Loss/Poison Acc: 24.760 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 96%|#########6| 289/300 [5:48:33<13:01, 71.02s/it]| Round: 290 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.220 / 0.927 |
+| Val_Per_Class_Acc: tensor([0.8880, 0.9760, 0.9030, 0.9310, 0.8940, 0.9870, 0.7680, 0.9670, 0.9830,
+        0.9700]) |
+| Poison Loss/Poison Acc: 25.808 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 97%|#########6| 290/300 [5:49:43<11:47, 70.77s/it]| Round: 291 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.221 / 0.925 |
+| Val_Per_Class_Acc: tensor([0.8850, 0.9750, 0.9010, 0.9300, 0.8790, 0.9850, 0.7740, 0.9680, 0.9820,
+        0.9710]) |
+| Poison Loss/Poison Acc: 25.664 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 97%|#########7| 291/300 [5:50:53<10:35, 70.64s/it]| Round: 292 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.220 / 0.926 |
+| Val_Per_Class_Acc: tensor([0.8840, 0.9760, 0.9060, 0.9350, 0.8930, 0.9860, 0.7570, 0.9720, 0.9820,
+        0.9700]) |
+| Poison Loss/Poison Acc: 25.254 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 97%|#########7| 292/300 [5:52:04<09:24, 70.60s/it]| Round: 293 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.218 / 0.928 |
+| Val_Per_Class_Acc: tensor([0.8840, 0.9770, 0.9030, 0.9360, 0.9070, 0.9860, 0.7590, 0.9720, 0.9820,
+        0.9700]) |
+| Poison Loss/Poison Acc: 25.007 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 98%|#########7| 293/300 [5:53:12<08:09, 69.95s/it]| Round: 294 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.219 / 0.928 |
+| Val_Per_Class_Acc: tensor([0.8970, 0.9790, 0.9040, 0.9340, 0.8990, 0.9850, 0.7550, 0.9720, 0.9820,
+        0.9700]) |
+| Poison Loss/Poison Acc: 24.393 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 98%|#########8| 294/300 [5:54:23<07:01, 70.19s/it]| Round: 295 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.221 / 0.927 |
+| Val_Per_Class_Acc: tensor([0.8940, 0.9780, 0.9060, 0.9320, 0.8960, 0.9860, 0.7530, 0.9730, 0.9820,
+        0.9700]) |
+| Poison Loss/Poison Acc: 25.700 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 98%|#########8| 295/300 [5:55:32<05:49, 70.00s/it]| Round: 296 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.221 / 0.928 |
+| Val_Per_Class_Acc: tensor([0.8910, 0.9800, 0.9050, 0.9360, 0.9010, 0.9870, 0.7550, 0.9720, 0.9820,
+        0.9690]) |
+| Poison Loss/Poison Acc: 25.778 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 99%|#########8| 296/300 [5:56:42<04:39, 69.88s/it]| Round: 297 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.219 / 0.928 |
+| Val_Per_Class_Acc: tensor([0.8840, 0.9780, 0.9010, 0.9350, 0.9010, 0.9860, 0.7710, 0.9730, 0.9810,
+        0.9680]) |
+| Poison Loss/Poison Acc: 24.612 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 99%|#########9| 297/300 [5:57:52<03:29, 69.81s/it]| Round: 298 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.218 / 0.927 |
+| Val_Per_Class_Acc: tensor([0.8830, 0.9780, 0.9000, 0.9340, 0.8930, 0.9840, 0.7780, 0.9690, 0.9820,
+        0.9720]) |
+| Poison Loss/Poison Acc: 24.616 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+ 99%|#########9| 298/300 [5:59:00<02:18, 69.39s/it]| Round: 299 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.220 / 0.927 |
+| Val_Per_Class_Acc: tensor([0.8820, 0.9770, 0.9010, 0.9330, 0.8940, 0.9840, 0.7790, 0.9700, 0.9810,
+        0.9690]) |
+| Poison Loss/Poison Acc: 25.388 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+100%|#########9| 299/300 [6:00:09<01:09, 69.36s/it]| Round: 300 |
+| Trigger_Geometry: square | Geometry_Index: 2 |
+| Trigger_Summary: trigger_geometry=square family=dense_corner_patch mask_area=25 mask_density=0.0319 compactness=1.0000 |
+| Val_Loss/Val_Acc: 0.218 / 0.928 |
+| Val_Per_Class_Acc: tensor([0.8810, 0.9760, 0.9010, 0.9330, 0.8990, 0.9840, 0.7810, 0.9700, 0.9810,
+        0.9720]) |
+| Poison Loss/Poison Acc: 24.155 / 0.000 |
+TRIGGER_GEOMETRY_METRICS_NOTE: compare Poison Acc, Val_Acc, changed_pixels_first_sample, and trigger_mask_area across plus, square, apple.
+100%|##########| 300/300 [6:01:19<00:00, 69.50s/it]100%|##########| 300/300 [6:01:19<00:00, 72.27s/it]
+Training has finished!
+Full console output saved to: output_logs\hyp5_trigger_geometry_fmnist_r300_trigsquare_area25_cpa10_base5_target7_cor1_pf0p1_cl0_cltype0_seed9_20260706_112729_console_output.txt
