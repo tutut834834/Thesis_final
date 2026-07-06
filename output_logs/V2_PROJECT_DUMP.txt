@@ -1,0 +1,383 @@
+CUCKOO V2 PROJECT DUMP
+2026-07-06 14:22:03.477777
+================================================================================
+
+================================================================================
+FILE: C:\Users\akiel\Downloads\cuckoo_v2_thesis_real\agent.py
+================================================================================
+
+import torch
+import torch.nn.functional as F
+from models import CNN
+from utils import poison_batch
+
+class Agent:
+    def __init__(self, id, dataset, args):
+        self.id = id
+        self.dataset = dataset
+        self.args = args
+
+    def train(self, global_state):
+
+        model = CNN()
+        if global_state:
+            model.load_state_dict(global_state)
+
+        opt = torch.optim.SGD(model.parameters(), lr=0.01)
+        model.train()
+
+        for x, y in self.dataset:
+            opt.zero_grad()
+            out = model(x)
+            loss = F.cross_entropy(out, y)
+            loss.backward()
+            opt.step()
+
+            # poisoned step
+            x_p = poison_batch(x, self.args.attack_mode)
+            y_p = y.clone()
+            y_p[:] = self.args.target_class
+
+            opt.zero_grad()
+            out = model(x_p)
+            loss_p = F.cross_entropy(out, y_p)
+            loss_p.backward()
+            opt.step()
+
+        return model.state_dict()
+
+================================================================================
+FILE: C:\Users\akiel\Downloads\cuckoo_v2_thesis_real\aggregation.py
+================================================================================
+
+import copy
+import torch
+
+class Aggregation:
+    def aggregate(self, updates):
+        out = copy.deepcopy(updates[0])
+        for k in out:
+            out[k] = torch.stack([u[k] for u in updates]).mean(0)
+        return out
+
+================================================================================
+FILE: C:\Users\akiel\Downloads\cuckoo_v2_thesis_real\cuckoo_engine.py
+================================================================================
+
+import torch
+
+class CuckooEngine:
+    def __init__(self, args):
+        self.args = args
+
+    def apply(self, delta, r):
+
+        lam = self.args.lambda_v2 * (0.98 ** r)
+
+        out = {}
+        for k, v in delta.items():
+
+            v = torch.clamp(v, -self.args.norm_cap, self.args.norm_cap)
+
+            # cuckoo “biological constraint”
+            v = v * torch.tanh(v)
+
+            out[k] = lam * v
+
+        return out
+
+================================================================================
+FILE: C:\Users\akiel\Downloads\cuckoo_v2_thesis_real\federated.py
+================================================================================
+
+import torch
+import numpy as np
+from torch.utils.data import DataLoader
+
+from options import args_parser
+from agent import Agent
+from aggregation import Aggregation
+from cuckoo_engine import CuckooEngine
+from models import CNN
+from utils import get_data, poison_batch
+
+# -------------------------
+# METRICS
+# -------------------------
+
+def evaluate_accuracy(model, loader):
+    model.eval()
+    correct = 0
+    total = 0
+
+    with torch.no_grad():
+        for x, y in loader:
+            out = model(x)
+            pred = out.argmax(1)
+            correct += (pred == y).sum().item()
+            total += y.size(0)
+
+    return correct / total
+
+
+def evaluate_asr(model, loader, args):
+    model.eval()
+    correct = 0
+    total = 0
+
+    with torch.no_grad():
+        for x, y in loader:
+            x = poison_batch(x, args.attack_mode)
+            out = model(x)
+            pred = out.argmax(1)
+
+            correct += (pred == args.target_class).sum().item()
+            total += y.size(0)
+
+    return correct / total
+
+
+# -------------------------
+# MAIN TRAINING LOOP
+# -------------------------
+
+def main():
+
+    args = args_parser()
+
+    print("🚀 CUCKOO V2 THESIS START")
+
+    # -------------------------
+    # DATA
+    # -------------------------
+    train, test = get_data()
+    train_loader = DataLoader(train, batch_size=32, shuffle=True)
+    test_loader = DataLoader(test, batch_size=64, shuffle=False)
+
+    # -------------------------
+    # LOG FILE
+    # -------------------------
+    log = open("training_log.txt", "w")
+    log.write("round,acc,asr\n")
+
+    # -------------------------
+    # SYSTEM
+    # -------------------------
+    agents = [Agent(i, train_loader, args) for i in range(args.num_agents)]
+    agg = Aggregation()
+    cuckoo = CuckooEngine(args)
+
+    global_model = CNN()
+
+    # -------------------------
+    # TRAINING LOOP
+    # -------------------------
+    for r in range(args.rounds):
+
+        updates = []
+
+        for a in agents:
+
+            state = a.train(global_model.state_dict())
+
+            # -------------------------
+            # CUCKOO UPDATE (REAL)
+            # -------------------------
+            delta = {}
+            for k in state:
+                delta[k] = state[k] - global_model.state_dict()[k]
+
+            cuckoo_delta = {}
+            for k in delta:
+                cuckoo_delta[k] = cuckoo.build_update(delta[k], delta[k], r)
+
+            updates.append(cuckoo_delta)
+
+        # -------------------------
+        # AGGREGATION
+        # -------------------------
+        new_state = agg.aggregate(updates)
+        global_model.load_state_dict(new_state)
+
+        # -------------------------
+        # METRICS
+        # -------------------------
+        acc = evaluate_accuracy(global_model, test_loader)
+        asr = evaluate_asr(global_model, test_loader, args)
+
+        # -------------------------
+        # PRINT + LOG
+        # -------------------------
+        print(f"Round {r:03d} | ACC={acc:.4f} | ASR={asr:.4f}")
+
+        log.write(f"{r},{acc},{asr}\n")
+        log.flush()
+
+    log.close()
+
+    print("✅ DONE - results saved to training_log.txt")
+
+
+if __name__ == "__main__":
+    main()
+
+================================================================================
+FILE: C:\Users\akiel\Downloads\cuckoo_v2_thesis_real\metrics.py
+================================================================================
+
+
+import torch
+import torch.nn.functional as F
+
+def evaluate(model, loader, device="cpu"):
+    model.eval()
+    correct = 0
+    total = 0
+
+    for x, y in loader:
+        x = x.to(device)
+        y = y.to(device)
+        out = model(x)
+        pred = out.argmax(1)
+        correct += (pred == y).sum().item()
+        total += y.size(0)
+
+    return correct / total
+
+
+================================================================================
+FILE: C:\Users\akiel\Downloads\cuckoo_v2_thesis_real\models.py
+================================================================================
+
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+
+class CNN(nn.Module):
+    def __init__(self):
+        super().__init__()
+
+        self.conv1 = nn.Conv2d(1, 32, 3, padding=1)
+        self.conv2 = nn.Conv2d(32, 64, 3, padding=1)
+
+        self.pool = nn.MaxPool2d(2, 2)
+
+        self.fc1 = nn.Linear(64 * 7 * 7, 128)
+        self.fc2 = nn.Linear(128, 10)
+
+    def forward(self, x):
+
+        # FIX SHAPE SAFETY
+        if x.dim() == 3:
+            x = x.unsqueeze(1)
+
+        x = F.relu(self.conv1(x))
+        x = self.pool(x)
+
+        x = F.relu(self.conv2(x))
+        x = self.pool(x)
+
+        x = x.view(x.size(0), -1)
+
+        x = F.relu(self.fc1(x))
+        return self.fc2(x)
+
+================================================================================
+FILE: C:\Users\akiel\Downloads\cuckoo_v2_thesis_real\options.py
+================================================================================
+
+import argparse
+
+def args_parser():
+    p = argparse.ArgumentParser()
+
+    p.add_argument("--rounds", type=int, default=50)
+    p.add_argument("--num_agents", type=int, default=10)
+    p.add_argument("--bs", type=int, default=64)
+
+    p.add_argument("--attack_mode", type=str, default="dirty")  # dirty | clean | pgd
+
+    p.add_argument("--base_class", type=int, default=5)
+    p.add_argument("--target_class", type=int, default=7)
+
+    p.add_argument("--poison_frac", type=float, default=0.1)
+
+    p.add_argument("--lambda_v2", type=float, default=1.2)
+    p.add_argument("--norm_cap", type=float, default=5.0)
+
+    return p.parse_args()
+
+================================================================================
+FILE: C:\Users\akiel\Downloads\cuckoo_v2_thesis_real\text.py
+================================================================================
+
+import os
+from datetime import datetime
+
+base = os.getcwd()
+out_file = "V2_PROJECT_DUMP.txt"
+
+skip = {"__pycache__", ".git", "logs", "output_logs"}
+
+files = []
+
+for root, dirs, fs in os.walk(base):
+    dirs[:] = [d for d in dirs if d not in skip]
+
+    for f in fs:
+        if f.endswith(".py"):
+            files.append(os.path.join(root, f))
+
+text = []
+text.append("CUCKOO V2 PROJECT DUMP")
+text.append(str(datetime.now()))
+text.append("="*80)
+
+for path in files:
+    text.append("\n" + "="*80)
+    text.append("FILE: " + path)
+    text.append("="*80 + "\n")
+
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            text.append(f.read())
+    except:
+        text.append("ERROR READING FILE")
+
+final = "\n".join(text)
+
+print(final)
+
+with open(out_file, "w", encoding="utf-8") as f:
+    f.write(final)
+
+print("\n\nDONE -> saved to", out_file)
+
+================================================================================
+FILE: C:\Users\akiel\Downloads\cuckoo_v2_thesis_real\utils.py
+================================================================================
+
+import torch
+from torchvision import datasets, transforms
+import numpy as np
+from torch.utils.data import Subset
+
+def get_data():
+    tf = transforms.ToTensor()
+    train = datasets.FashionMNIST("./data", train=True, download=True, transform=tf)
+    test = datasets.FashionMNIST("./data", train=False, download=True, transform=tf)
+    return train, test
+
+# NON-IID SPLIT (IMPORTANT FIX)
+def non_iid_split(dataset, n_clients):
+    idxs = np.arange(len(dataset))
+    np.random.shuffle(idxs)
+
+    shards = np.array_split(idxs, n_clients)
+    return [Subset(dataset, s) for s in shards]
+
+def poison_batch(x, mode):
+    x = x.clone()
+    if mode == "dirty":
+        x[:, :, 26:28, 26:28] = 1.0
+    return x
