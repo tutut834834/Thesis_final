@@ -1,0 +1,1606 @@
+Console output will be saved to: output_logs\hyp1_noniid_fmnist_r300_cpa2_base0_target1_cor1_pf0.5_rlr4_cl1_cltype1_seed101_20260706_102139_console_output.txt
+======================================
+    Scenario: Hypothesis 1 - Non-IID dirty-label vs clean-label
+    Dataset: fmnist
+    Global Rounds: 300
+    Aggregation Function: avg
+    Number of agents: 10
+    Fraction of agents: 1
+    Class Per Agent: 2
+    Batch size: 1024
+    Client_LR: 0.1
+    Server_LR: 1.0
+    Client_Momentum: 0.9
+    RobustLR_threshold: 4
+    Noise Ratio: 0
+    Number of corrupt agents: 1
+    Base Class: 0
+    Target Class: 1
+    Poison Frac: 0.5
+    Clip: 0
+    Seed: 101
+    Clean Label Attack: 1
+    Clean Label Type: 1
+    Clean Label Auto Pattern: 1
+    Verify Poisoning: 1
+    Verify Non-IID: 1
+======================================
+TensorBoard logs will be saved to: logs\hyp1_noniid_fmnist_r300_cpa2_base0_target1_cor1_pf0.5_rlr4_cl1_cltype1_seed101_20260706_102139
+  0%|          | 0.00/26.4M [00:00<?, ?B/s] 30%|###       | 8.03M/26.4M [00:00<00:00, 70.4MB/s] 80%|#######9  | 21.0M/26.4M [00:00<00:00, 98.5MB/s]100%|##########| 26.4M/26.4M [00:00<00:00, 99.8MB/s]
+  0%|          | 0.00/29.5k [00:00<?, ?B/s]100%|##########| 29.5k/29.5k [00:00<00:00, 1.88MB/s]
+  0%|          | 0.00/4.42M [00:00<?, ?B/s]100%|##########| 4.42M/4.42M [00:00<00:00, 59.8MB/s]
+  0%|          | 0.00/5.15k [00:00<?, ?B/s]100%|##########| 5.15k/5.15k [00:00<?, ?B/s]
+VERIFY_NONIID_START
+scenario=Hypothesis 1 - non-IID dirty-label vs clean-label
+num_agents=10
+class_per_agent=2
+n_classes=10
+shard_size=3000
+slice_size=2
+corrupt_clients=[0]
+base_class=0
+target_class=1
+client=0 n_samples=6000 unique_classes=[0, 1] class_counts={0: 3000, 1: 3000}
+client=1 n_samples=6000 unique_classes=[0, 1] class_counts={0: 3000, 1: 3000}
+client=2 n_samples=6000 unique_classes=[2, 3] class_counts={2: 3000, 3: 3000}
+client=3 n_samples=6000 unique_classes=[2, 3] class_counts={2: 3000, 3: 3000}
+client=4 n_samples=6000 unique_classes=[4, 5] class_counts={4: 3000, 5: 3000}
+client=5 n_samples=6000 unique_classes=[4, 5] class_counts={4: 3000, 5: 3000}
+client=6 n_samples=6000 unique_classes=[6, 7] class_counts={6: 3000, 7: 3000}
+client=7 n_samples=6000 unique_classes=[6, 7] class_counts={6: 3000, 7: 3000}
+client=8 n_samples=6000 unique_classes=[8, 9] class_counts={8: 3000, 9: 3000}
+client=9 n_samples=6000 unique_classes=[8, 9] class_counts={8: 3000, 9: 3000}
+corrupt_client_check client=0 unique_classes=[0, 1] has_base_class=True has_target_class=True
+VERIFY_NONIID_PASSED
+VERIFY_NONIID_END
+VERIFY_POISONING_START
+context=poisoned_validation_eval
+agent_idx=-1
+attack_mode=dirty-label
+force_dirty_label=True
+clean_label_requested=True
+clean_label_active=False
+clean_label_type=1
+pattern_type_requested=plus
+pattern_type_effective=plus
+source_class=0
+target_class=1
+poison_frac=1
+available_source_samples=1000
+poisoned_samples=1000
+labels_changed=1000
+expected_labels_changed=1000
+changed_pixels_first_sample=9
+label_verification_passed=True
+trigger_verification_passed=True
+VERIFY_POISONING_PASSED
+EVAL_ATTACK_PROOF: validation poison set uses base_class + trigger -> target_class to measure poison accuracy.
+VERIFY_POISONING_END
+VERIFY_POISONING_START
+context=train
+agent_idx=0
+attack_mode=clean-label-1
+force_dirty_label=False
+clean_label_requested=True
+clean_label_active=True
+clean_label_type=1
+pattern_type_requested=plus
+pattern_type_effective=plus
+source_class=1
+target_class=1
+poison_frac=0.5
+available_source_samples=3000
+poisoned_samples=1500
+labels_changed=0
+expected_labels_changed=0
+changed_pixels_first_sample=9
+label_verification_passed=True
+trigger_verification_passed=True
+VERIFY_POISONING_PASSED
+CLEAN_LABEL_PROOF: labels_changed=0 means poisoned training samples kept their original target-class labels.
+VERIFY_POISONING_END
+  0%|          | 0/300 [00:00<?, ?it/s]C:\Users\akiel\AppData\Roaming\Python\Python312\site-packages\torch\nn\modules\dropout.py:176: UserWarning: dropout2d: Received a 2-D input to dropout2d, which is deprecated and will result in an error in a future release. To retain the behavior and silence this warning, please use dropout instead. Note that dropout2d exists to provide channel-wise dropout on inputs with 2 spatial dimensions, a channel dimension, and an optional batch dimension (i.e. 3D or 4D inputs).
+  return F.dropout2d(input, self.p, self.training, self.inplace)
+| Round: 1 |
+| Val_Loss/Val_Acc: 2.292 / 0.072 |
+| Val_Per_Class_Acc: tensor([0.0140, 0.0000, 0.0060, 0.0000, 0.0370, 0.0000, 0.6060, 0.0000, 0.0620,
+        0.0000]) |
+| Poison Loss/Poison Acc: 2.270 / 0.000 |
+  0%|          | 1/300 [01:18<6:33:12, 78.91s/it]| Round: 2 |
+| Val_Loss/Val_Acc: 2.175 / 0.203 |
+| Val_Per_Class_Acc: tensor([0.0400, 0.0010, 0.0080, 0.0000, 0.5850, 0.0000, 0.3080, 0.1320, 0.0010,
+        0.9540]) |
+| Poison Loss/Poison Acc: 2.352 / 0.000 |
+  1%|          | 2/300 [01:57<4:33:37, 55.09s/it]| Round: 3 |
+| Val_Loss/Val_Acc: 2.071 / 0.289 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.7670, 0.0020, 0.2260, 0.0000, 0.0000, 0.0000, 1.0000, 0.9000,
+        0.0000]) |
+| Poison Loss/Poison Acc: 2.350 / 0.000 |
+  1%|1         | 3/300 [02:37<3:59:31, 48.39s/it]| Round: 4 |
+| Val_Loss/Val_Acc: 1.877 / 0.287 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.7370, 0.1010, 0.2300, 0.4820, 0.0190, 0.4510, 0.8490, 0.0000,
+        0.0000]) |
+| Poison Loss/Poison Acc: 2.918 / 0.000 |
+  1%|1         | 4/300 [03:15<3:37:22, 44.06s/it]| Round: 5 |
+| Val_Loss/Val_Acc: 1.864 / 0.208 |
+| Val_Per_Class_Acc: tensor([0.0230, 0.9530, 0.0000, 0.0300, 0.3230, 0.0140, 0.0000, 0.5820, 0.0290,
+        0.1230]) |
+| Poison Loss/Poison Acc: 2.220 / 0.044 |
+  2%|1         | 5/300 [03:52<3:24:10, 41.53s/it]| Round: 6 |
+| Val_Loss/Val_Acc: 1.820 / 0.218 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.1080, 0.0810, 0.0900, 0.0000, 0.0000, 0.8600, 1.0000, 0.0000,
+        0.0420]) |
+| Poison Loss/Poison Acc: 4.548 / 0.001 |
+  2%|2         | 6/300 [04:32<3:21:24, 41.10s/it]| Round: 7 |
+| Val_Loss/Val_Acc: 2.397 / 0.268 |
+| Val_Per_Class_Acc: tensor([0.0110, 0.7240, 0.0000, 0.0000, 0.9830, 0.3950, 0.0000, 0.0000, 0.2800,
+        0.2870]) |
+| Poison Loss/Poison Acc: 2.833 / 0.006 |
+  2%|2         | 7/300 [05:11<3:17:07, 40.37s/it]| Round: 8 |
+| Val_Loss/Val_Acc: 2.178 / 0.203 |
+| Val_Per_Class_Acc: tensor([0.6770, 0.0530, 0.0000, 0.4400, 0.0000, 0.6580, 0.0000, 0.0000, 0.0020,
+        0.2000]) |
+| Poison Loss/Poison Acc: 3.302 / 0.001 |
+  3%|2         | 8/300 [05:49<3:13:18, 39.72s/it]| Round: 9 |
+| Val_Loss/Val_Acc: 2.842 / 0.299 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.6890, 0.0000, 0.0000, 0.9460, 0.5460, 0.0510, 0.0000, 0.0000,
+        0.7620]) |
+| Poison Loss/Poison Acc: 6.376 / 0.000 |
+  3%|3         | 9/300 [06:27<3:10:04, 39.19s/it]| Round: 10 |
+| Val_Loss/Val_Acc: 4.162 / 0.312 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.5260, 0.9980, 0.1630, 0.0000, 0.0000, 0.0000, 0.9980, 0.0000,
+        0.4350]) |
+| Poison Loss/Poison Acc: 9.236 / 0.000 |
+  3%|3         | 10/300 [07:04<3:06:13, 38.53s/it]| Round: 11 |
+| Val_Loss/Val_Acc: 2.058 / 0.287 |
+| Val_Per_Class_Acc: tensor([0.1660, 0.0000, 0.0000, 0.9060, 0.0000, 0.0000, 0.0930, 0.0000, 0.7070,
+        0.9970]) |
+| Poison Loss/Poison Acc: 2.147 / 0.000 |
+  4%|3         | 11/300 [07:41<3:02:51, 37.96s/it]| Round: 12 |
+| Val_Loss/Val_Acc: 1.729 / 0.331 |
+| Val_Per_Class_Acc: tensor([0.0560, 0.5710, 0.0000, 0.2260, 0.1070, 0.0440, 0.6980, 0.9950, 0.1280,
+        0.4820]) |
+| Poison Loss/Poison Acc: 2.082 / 0.031 |
+  4%|4         | 12/300 [08:18<3:01:04, 37.72s/it]| Round: 13 |
+| Val_Loss/Val_Acc: 1.797 / 0.404 |
+| Val_Per_Class_Acc: tensor([0.2900, 0.3290, 0.9900, 0.4990, 0.0000, 0.1720, 0.0000, 0.8950, 0.0150,
+        0.8500]) |
+| Poison Loss/Poison Acc: 3.249 / 0.003 |
+  4%|4         | 13/300 [08:56<3:00:03, 37.64s/it]| Round: 14 |
+| Val_Loss/Val_Acc: 2.425 / 0.329 |
+| Val_Per_Class_Acc: tensor([0.0010, 0.9040, 0.0000, 0.0000, 0.0000, 0.6110, 0.9840, 0.1200, 0.1010,
+        0.5660]) |
+| Poison Loss/Poison Acc: 2.192 / 0.019 |
+  5%|4         | 14/300 [09:33<2:58:36, 37.47s/it]| Round: 15 |
+| Val_Loss/Val_Acc: 2.270 / 0.460 |
+| Val_Per_Class_Acc: tensor([0.7810, 0.3250, 0.0000, 0.8330, 0.5080, 0.0320, 0.0000, 0.8990, 0.3870,
+        0.8370]) |
+| Poison Loss/Poison Acc: 2.504 / 0.000 |
+  5%|5         | 15/300 [10:09<2:56:53, 37.24s/it]| Round: 16 |
+| Val_Loss/Val_Acc: 2.041 / 0.392 |
+| Val_Per_Class_Acc: tensor([0.8640, 0.8960, 0.0020, 0.0000, 0.0000, 0.7230, 0.6650, 0.1790, 0.0000,
+        0.5900]) |
+| Poison Loss/Poison Acc: 2.546 / 0.008 |
+  5%|5         | 16/300 [10:46<2:54:49, 36.94s/it]| Round: 17 |
+| Val_Loss/Val_Acc: 3.224 / 0.330 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.0010, 0.0000, 0.3930, 0.9960, 0.0170, 0.0000, 0.7100, 0.2120,
+        0.9740]) |
+| Poison Loss/Poison Acc: 5.493 / 0.000 |
+  6%|5         | 17/300 [11:23<2:55:08, 37.13s/it]| Round: 18 |
+| Val_Loss/Val_Acc: 2.417 / 0.408 |
+| Val_Per_Class_Acc: tensor([0.9540, 0.8480, 0.3860, 0.1920, 0.0000, 0.9500, 0.0000, 0.0000, 0.0040,
+        0.7510]) |
+| Poison Loss/Poison Acc: 3.500 / 0.007 |
+  6%|6         | 18/300 [12:00<2:53:39, 36.95s/it]| Round: 19 |
+| Val_Loss/Val_Acc: 1.953 / 0.323 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.4220, 0.0000, 0.1790, 0.0000, 0.0690, 0.9940, 0.9130, 0.0030,
+        0.6520]) |
+| Poison Loss/Poison Acc: 2.976 / 0.000 |
+  6%|6         | 19/300 [12:37<2:52:53, 36.92s/it]| Round: 20 |
+| Val_Loss/Val_Acc: 1.711 / 0.381 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.9200, 0.2280, 0.2040, 0.3760, 0.1740, 0.0060, 0.5370, 0.3710,
+        0.9930]) |
+| Poison Loss/Poison Acc: 2.744 / 0.018 |
+  7%|6         | 20/300 [13:12<2:50:54, 36.62s/it]| Round: 21 |
+| Val_Loss/Val_Acc: 1.677 / 0.417 |
+| Val_Per_Class_Acc: tensor([0.0310, 0.8040, 0.0000, 0.4730, 0.0000, 0.3670, 0.9320, 0.6820, 0.0240,
+        0.8530]) |
+| Poison Loss/Poison Acc: 3.356 / 0.001 |
+  7%|7         | 21/300 [13:48<2:48:39, 36.27s/it]| Round: 22 |
+| Val_Loss/Val_Acc: 2.106 / 0.415 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.9020, 0.0000, 0.0030, 0.7580, 0.0090, 0.0000, 0.8300, 0.7090,
+        0.9360]) |
+| Poison Loss/Poison Acc: 3.655 / 0.011 |
+  7%|7         | 22/300 [14:24<2:48:13, 36.31s/it]| Round: 23 |
+| Val_Loss/Val_Acc: 2.842 / 0.420 |
+| Val_Per_Class_Acc: tensor([0.0010, 0.7270, 0.0000, 0.7000, 0.0000, 0.9330, 0.9030, 0.0000, 0.0000,
+        0.9340]) |
+| Poison Loss/Poison Acc: 3.679 / 0.000 |
+  8%|7         | 23/300 [15:00<2:47:18, 36.24s/it]| Round: 24 |
+| Val_Loss/Val_Acc: 1.966 / 0.446 |
+| Val_Per_Class_Acc: tensor([0.9160, 0.8960, 0.0000, 0.0000, 0.8480, 0.0010, 0.0000, 0.9650, 0.3980,
+        0.4380]) |
+| Poison Loss/Poison Acc: 2.570 / 0.008 |
+  8%|8         | 24/300 [15:36<2:46:28, 36.19s/it]| Round: 25 |
+| Val_Loss/Val_Acc: 1.890 / 0.458 |
+| Val_Per_Class_Acc: tensor([0.0110, 0.9670, 0.8340, 0.0520, 0.1940, 0.2580, 0.0000, 0.6340, 0.6400,
+        0.9940]) |
+| Poison Loss/Poison Acc: 2.181 / 0.150 |
+  8%|8         | 25/300 [16:13<2:45:46, 36.17s/it]| Round: 26 |
+| Val_Loss/Val_Acc: 1.520 / 0.420 |
+| Val_Per_Class_Acc: tensor([0.9560, 0.4660, 0.0050, 0.5580, 0.4360, 0.6630, 0.0020, 0.8420, 0.0000,
+        0.2680]) |
+| Poison Loss/Poison Acc: 3.636 / 0.000 |
+  9%|8         | 26/300 [16:49<2:45:29, 36.24s/it]| Round: 27 |
+| Val_Loss/Val_Acc: 1.591 / 0.387 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.9310, 0.8420, 0.0500, 0.0080, 0.5280, 0.4200, 0.0890, 0.0100,
+        0.9960]) |
+| Poison Loss/Poison Acc: 3.224 / 0.010 |
+  9%|9         | 27/300 [17:26<2:46:10, 36.52s/it]| Round: 28 |
+| Val_Loss/Val_Acc: 2.019 / 0.449 |
+| Val_Per_Class_Acc: tensor([0.8930, 0.7600, 0.0000, 0.4110, 0.8710, 0.4660, 0.0000, 0.9940, 0.0010,
+        0.0970]) |
+| Poison Loss/Poison Acc: 5.489 / 0.000 |
+  9%|9         | 28/300 [18:03<2:46:11, 36.66s/it]| Round: 29 |
+| Val_Loss/Val_Acc: 2.646 / 0.358 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.9360, 0.0530, 0.0290, 0.0000, 0.4730, 0.9580, 0.0000, 0.1390,
+        0.9970]) |
+| Poison Loss/Poison Acc: 5.061 / 0.001 |
+ 10%|9         | 29/300 [18:40<2:45:27, 36.63s/it]| Round: 30 |
+| Val_Loss/Val_Acc: 1.579 / 0.531 |
+| Val_Per_Class_Acc: tensor([0.6800, 0.9500, 0.0000, 0.8150, 0.0000, 0.3780, 0.0000, 0.9870, 0.8380,
+        0.6660]) |
+| Poison Loss/Poison Acc: 2.188 / 0.005 |
+ 10%|#         | 30/300 [19:17<2:45:16, 36.73s/it]| Round: 31 |
+| Val_Loss/Val_Acc: 1.385 / 0.447 |
+| Val_Per_Class_Acc: tensor([0.0570, 0.8980, 0.9200, 0.1870, 0.0000, 0.4780, 0.2370, 0.7050, 0.0000,
+        0.9850]) |
+| Poison Loss/Poison Acc: 2.997 / 0.000 |
+ 10%|#         | 31/300 [19:54<2:44:50, 36.77s/it]| Round: 32 |
+| Val_Loss/Val_Acc: 1.389 / 0.494 |
+| Val_Per_Class_Acc: tensor([0.8040, 0.9080, 0.0000, 0.3240, 0.0000, 0.2540, 0.0000, 0.7860, 0.8740,
+        0.9890]) |
+| Poison Loss/Poison Acc: 3.748 / 0.000 |
+ 11%|#         | 32/300 [20:30<2:43:13, 36.54s/it]| Round: 33 |
+| Val_Loss/Val_Acc: 1.835 / 0.290 |
+| Val_Per_Class_Acc: tensor([0.0040, 0.4800, 0.9980, 0.3700, 0.0000, 0.9310, 0.0190, 0.0110, 0.0000,
+        0.0830]) |
+| Poison Loss/Poison Acc: 4.022 / 0.000 |
+ 11%|#1        | 33/300 [21:06<2:41:57, 36.39s/it]| Round: 34 |
+| Val_Loss/Val_Acc: 1.960 / 0.372 |
+| Val_Per_Class_Acc: tensor([0.9700, 0.9520, 0.0000, 0.0030, 0.0150, 0.0630, 0.0000, 0.7260, 0.0000,
+        0.9950]) |
+| Poison Loss/Poison Acc: 2.102 / 0.028 |
+ 11%|#1        | 34/300 [21:42<2:41:29, 36.43s/it]| Round: 35 |
+| Val_Loss/Val_Acc: 2.181 / 0.414 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.0010, 0.0000, 0.9370, 0.0060, 0.3640, 0.8090, 0.9880, 0.4070,
+        0.6330]) |
+| Poison Loss/Poison Acc: 5.277 / 0.000 |
+ 12%|#1        | 35/300 [22:18<2:39:55, 36.21s/it]| Round: 36 |
+| Val_Loss/Val_Acc: 2.455 / 0.380 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.8740, 1.0000, 0.0000, 0.0000, 0.9570, 0.0000, 0.0000, 0.0080,
+        0.9600]) |
+| Poison Loss/Poison Acc: 3.438 / 0.001 |
+ 12%|#2        | 36/300 [22:54<2:39:56, 36.35s/it]| Round: 37 |
+| Val_Loss/Val_Acc: 1.962 / 0.480 |
+| Val_Per_Class_Acc: tensor([0.0430, 0.9050, 0.0000, 0.3880, 0.8600, 0.3450, 0.1340, 0.6740, 0.4640,
+        0.9910]) |
+| Poison Loss/Poison Acc: 4.064 / 0.000 |
+ 12%|#2        | 37/300 [23:30<2:38:37, 36.19s/it]| Round: 38 |
+| Val_Loss/Val_Acc: 2.697 / 0.456 |
+| Val_Per_Class_Acc: tensor([0.4120, 0.8740, 0.0000, 0.3480, 0.0000, 0.7240, 0.7430, 0.3510, 0.1270,
+        0.9840]) |
+| Poison Loss/Poison Acc: 5.913 / 0.000 |
+ 13%|#2        | 38/300 [24:08<2:39:38, 36.56s/it]| Round: 39 |
+| Val_Loss/Val_Acc: 2.495 / 0.520 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.8840, 0.0000, 0.4220, 0.9860, 0.4390, 0.0000, 0.9020, 0.6970,
+        0.8700]) |
+| Poison Loss/Poison Acc: 4.804 / 0.000 |
+ 13%|#3        | 39/300 [24:44<2:38:39, 36.47s/it]| Round: 40 |
+| Val_Loss/Val_Acc: 3.420 / 0.437 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.9000, 0.9970, 0.3270, 0.0000, 0.3100, 0.0000, 0.7800, 0.0670,
+        0.9870]) |
+| Poison Loss/Poison Acc: 5.405 / 0.000 |
+ 13%|#3        | 40/300 [25:20<2:37:35, 36.37s/it]| Round: 41 |
+| Val_Loss/Val_Acc: 2.009 / 0.278 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.7810, 0.0000, 0.1070, 0.0000, 0.8290, 0.9990, 0.0050, 0.0000,
+        0.0570]) |
+| Poison Loss/Poison Acc: 3.693 / 0.000 |
+ 14%|#3        | 41/300 [25:56<2:37:01, 36.38s/it]| Round: 42 |
+| Val_Loss/Val_Acc: 1.639 / 0.506 |
+| Val_Per_Class_Acc: tensor([0.8570, 0.9440, 0.0000, 0.7950, 0.3290, 0.2330, 0.0030, 0.8550, 0.1300,
+        0.9160]) |
+| Poison Loss/Poison Acc: 2.469 / 0.002 |
+ 14%|#4        | 42/300 [26:32<2:35:38, 36.20s/it]| Round: 43 |
+| Val_Loss/Val_Acc: 1.443 / 0.513 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.9290, 0.0000, 0.8830, 0.0000, 0.7840, 0.8510, 0.1390, 0.5680,
+        0.9720]) |
+| Poison Loss/Poison Acc: 3.257 / 0.000 |
+ 14%|#4        | 43/300 [27:09<2:36:03, 36.44s/it]| Round: 44 |
+| Val_Loss/Val_Acc: 1.426 / 0.507 |
+| Val_Per_Class_Acc: tensor([0.9050, 0.9470, 0.1440, 0.5390, 0.2380, 0.3880, 0.0000, 0.8900, 0.1100,
+        0.9060]) |
+| Poison Loss/Poison Acc: 3.829 / 0.000 |
+ 15%|#4        | 44/300 [27:45<2:35:04, 36.35s/it]| Round: 45 |
+| Val_Loss/Val_Acc: 1.447 / 0.512 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.9470, 0.0000, 0.8260, 0.0000, 0.5780, 0.8550, 0.5150, 0.4260,
+        0.9730]) |
+| Poison Loss/Poison Acc: 3.248 / 0.001 |
+ 15%|#5        | 45/300 [28:22<2:34:28, 36.35s/it]| Round: 46 |
+| Val_Loss/Val_Acc: 1.527 / 0.512 |
+| Val_Per_Class_Acc: tensor([0.7400, 0.9360, 0.8250, 0.5600, 0.0000, 0.2090, 0.0000, 0.8260, 0.0640,
+        0.9570]) |
+| Poison Loss/Poison Acc: 4.735 / 0.000 |
+ 15%|#5        | 46/300 [28:58<2:33:30, 36.26s/it]| Round: 47 |
+| Val_Loss/Val_Acc: 1.727 / 0.464 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.9510, 0.0000, 0.7500, 0.0120, 0.8800, 0.3450, 0.0890, 0.7230,
+        0.8850]) |
+| Poison Loss/Poison Acc: 3.532 / 0.005 |
+ 16%|#5        | 47/300 [29:34<2:32:55, 36.27s/it]| Round: 48 |
+| Val_Loss/Val_Acc: 1.584 / 0.491 |
+| Val_Per_Class_Acc: tensor([0.9340, 0.9390, 0.4570, 0.6380, 0.0000, 0.1500, 0.0000, 0.8110, 0.0000,
+        0.9790]) |
+| Poison Loss/Poison Acc: 4.815 / 0.003 |
+ 16%|#6        | 48/300 [30:10<2:31:41, 36.12s/it]| Round: 49 |
+| Val_Loss/Val_Acc: 2.270 / 0.461 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.8980, 0.0000, 0.4210, 0.0930, 0.9840, 0.9490, 0.0090, 0.4780,
+        0.7740]) |
+| Poison Loss/Poison Acc: 5.311 / 0.000 |
+ 16%|#6        | 49/300 [30:46<2:30:59, 36.09s/it]| Round: 50 |
+| Val_Loss/Val_Acc: 1.827 / 0.450 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.9480, 0.0000, 0.5840, 0.0630, 0.1670, 0.0000, 0.7790, 0.9710,
+        0.9860]) |
+| Poison Loss/Poison Acc: 3.652 / 0.004 |
+ 17%|#6        | 50/300 [31:22<2:30:08, 36.03s/it]| Round: 51 |
+| Val_Loss/Val_Acc: 2.050 / 0.361 |
+| Val_Per_Class_Acc: tensor([0.0990, 0.8360, 0.0020, 0.4390, 0.0000, 0.9880, 0.9470, 0.0010, 0.0000,
+        0.2960]) |
+| Poison Loss/Poison Acc: 5.307 / 0.000 |
+ 17%|#7        | 51/300 [31:58<2:30:16, 36.21s/it]| Round: 52 |
+| Val_Loss/Val_Acc: 1.625 / 0.484 |
+| Val_Per_Class_Acc: tensor([0.0020, 0.9350, 0.0260, 0.8270, 0.9370, 0.3130, 0.0000, 0.8520, 0.0000,
+        0.9490]) |
+| Poison Loss/Poison Acc: 3.122 / 0.001 |
+ 17%|#7        | 52/300 [32:35<2:30:38, 36.45s/it]| Round: 53 |
+| Val_Loss/Val_Acc: 1.460 / 0.519 |
+| Val_Per_Class_Acc: tensor([0.5820, 0.9350, 0.0010, 0.6700, 0.0000, 0.7070, 0.7770, 0.5700, 0.0380,
+        0.9060]) |
+| Poison Loss/Poison Acc: 3.743 / 0.000 |
+ 18%|#7        | 53/300 [33:12<2:29:54, 36.42s/it]| Round: 54 |
+| Val_Loss/Val_Acc: 1.221 / 0.535 |
+| Val_Per_Class_Acc: tensor([0.0060, 0.9310, 0.9470, 0.9450, 0.0030, 0.3800, 0.0000, 0.8590, 0.3480,
+        0.9290]) |
+| Poison Loss/Poison Acc: 2.781 / 0.001 |
+ 18%|#8        | 54/300 [33:47<2:28:27, 36.21s/it]| Round: 55 |
+| Val_Loss/Val_Acc: 1.636 / 0.407 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.9130, 0.0000, 0.0180, 0.0000, 0.6850, 0.9980, 0.3500, 0.2190,
+        0.8860]) |
+| Poison Loss/Poison Acc: 5.425 / 0.001 |
+ 18%|#8        | 55/300 [34:23<2:27:25, 36.10s/it]| Round: 56 |
+| Val_Loss/Val_Acc: 1.913 / 0.499 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.9330, 0.9840, 0.4090, 0.0490, 0.5510, 0.0000, 0.7320, 0.3570,
+        0.9740]) |
+| Poison Loss/Poison Acc: 5.181 / 0.000 |
+ 19%|#8        | 56/300 [34:59<2:25:57, 35.89s/it]| Round: 57 |
+| Val_Loss/Val_Acc: 2.273 / 0.486 |
+| Val_Per_Class_Acc: tensor([0.9890, 0.9500, 0.0000, 0.2290, 0.0000, 0.5580, 0.0000, 0.8060, 0.3880,
+        0.9430]) |
+| Poison Loss/Poison Acc: 5.766 / 0.000 |
+ 19%|#9        | 57/300 [35:35<2:25:28, 35.92s/it]| Round: 58 |
+| Val_Loss/Val_Acc: 2.118 / 0.435 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.9180, 0.3710, 0.3540, 0.0380, 0.7310, 0.4430, 0.5090, 0.0090,
+        0.9750]) |
+| Poison Loss/Poison Acc: 5.137 / 0.001 |
+ 19%|#9        | 58/300 [36:12<2:26:31, 36.33s/it]| Round: 59 |
+| Val_Loss/Val_Acc: 2.286 / 0.490 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.8580, 0.0000, 0.4350, 0.5670, 0.5880, 0.0030, 0.8990, 0.8160,
+        0.7340]) |
+| Poison Loss/Poison Acc: 5.949 / 0.000 |
+ 20%|#9        | 59/300 [36:48<2:25:54, 36.32s/it]| Round: 60 |
+| Val_Loss/Val_Acc: 2.285 / 0.498 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.9300, 0.9910, 0.7630, 0.0000, 0.6210, 0.0000, 0.6850, 0.0000,
+        0.9900]) |
+| Poison Loss/Poison Acc: 5.130 / 0.001 |
+ 20%|##        | 60/300 [37:24<2:24:51, 36.22s/it]| Round: 61 |
+| Val_Loss/Val_Acc: 2.165 / 0.477 |
+| Val_Per_Class_Acc: tensor([0.9320, 0.8210, 0.0000, 0.1200, 0.8420, 0.7480, 0.0000, 0.6960, 0.2280,
+        0.3820]) |
+| Poison Loss/Poison Acc: 4.675 / 0.000 |
+ 20%|##        | 61/300 [38:01<2:24:22, 36.24s/it]| Round: 62 |
+| Val_Loss/Val_Acc: 1.998 / 0.387 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.8610, 0.0000, 0.0120, 0.0000, 0.8340, 1.0000, 0.0270, 0.1950,
+        0.9380]) |
+| Poison Loss/Poison Acc: 3.410 / 0.000 |
+ 21%|##        | 62/300 [38:37<2:24:20, 36.39s/it]| Round: 63 |
+| Val_Loss/Val_Acc: 1.983 / 0.591 |
+| Val_Per_Class_Acc: tensor([0.7930, 0.8870, 0.0000, 0.7650, 0.9050, 0.3900, 0.0000, 0.8420, 0.4820,
+        0.8480]) |
+| Poison Loss/Poison Acc: 4.618 / 0.000 |
+ 21%|##1       | 63/300 [39:14<2:24:18, 36.53s/it]| Round: 64 |
+| Val_Loss/Val_Acc: 1.801 / 0.460 |
+| Val_Per_Class_Acc: tensor([0.0710, 0.9570, 0.9990, 0.5670, 0.0000, 0.8130, 0.0000, 0.0390, 0.1680,
+        0.9850]) |
+| Poison Loss/Poison Acc: 2.497 / 0.007 |
+ 21%|##1       | 64/300 [39:50<2:22:54, 36.33s/it]| Round: 65 |
+| Val_Loss/Val_Acc: 1.934 / 0.416 |
+| Val_Per_Class_Acc: tensor([0.0130, 0.7640, 0.0000, 0.4620, 0.9630, 0.3030, 0.0940, 0.9970, 0.1370,
+        0.4270]) |
+| Poison Loss/Poison Acc: 4.429 / 0.000 |
+ 22%|##1       | 65/300 [40:26<2:22:00, 36.26s/it]| Round: 66 |
+| Val_Loss/Val_Acc: 1.830 / 0.501 |
+| Val_Per_Class_Acc: tensor([0.8980, 0.8650, 0.0000, 0.6960, 0.0000, 0.7880, 0.0000, 0.1000, 0.6950,
+        0.9700]) |
+| Poison Loss/Poison Acc: 4.249 / 0.000 |
+ 22%|##2       | 66/300 [41:02<2:21:06, 36.18s/it]| Round: 67 |
+| Val_Loss/Val_Acc: 2.432 / 0.424 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.8480, 0.0000, 0.3350, 0.9970, 0.3030, 0.0060, 0.8090, 0.0050,
+        0.9380]) |
+| Poison Loss/Poison Acc: 5.454 / 0.000 |
+ 22%|##2       | 67/300 [41:38<2:19:39, 35.97s/it]| Round: 68 |
+| Val_Loss/Val_Acc: 2.050 / 0.546 |
+| Val_Per_Class_Acc: tensor([0.6930, 0.9120, 0.8780, 0.7250, 0.0000, 0.9060, 0.0000, 0.0050, 0.3760,
+        0.9650]) |
+| Poison Loss/Poison Acc: 3.693 / 0.000 |
+ 23%|##2       | 68/300 [42:13<2:18:57, 35.94s/it]| Round: 69 |
+| Val_Loss/Val_Acc: 2.926 / 0.420 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.9510, 0.0000, 0.4060, 0.0000, 0.0820, 0.9940, 0.8130, 0.0230,
+        0.9320]) |
+| Poison Loss/Poison Acc: 3.675 / 0.001 |
+ 23%|##3       | 69/300 [42:49<2:18:25, 35.95s/it]| Round: 70 |
+| Val_Loss/Val_Acc: 2.543 / 0.473 |
+| Val_Per_Class_Acc: tensor([0.9070, 0.8790, 0.0140, 0.6330, 0.0020, 0.9290, 0.0000, 0.0110, 0.4140,
+        0.9390]) |
+| Poison Loss/Poison Acc: 5.396 / 0.000 |
+ 23%|##3       | 70/300 [43:26<2:18:13, 36.06s/it]| Round: 71 |
+| Val_Loss/Val_Acc: 3.893 / 0.412 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.8850, 0.0060, 0.5420, 0.9900, 0.4870, 0.0000, 0.1440, 0.0790,
+        0.9860]) |
+| Poison Loss/Poison Acc: 5.444 / 0.000 |
+ 24%|##3       | 71/300 [44:02<2:18:18, 36.24s/it]| Round: 72 |
+| Val_Loss/Val_Acc: 1.735 / 0.397 |
+| Val_Per_Class_Acc: tensor([0.0680, 0.9040, 0.0000, 0.7270, 0.0000, 0.6700, 0.0000, 0.6270, 0.9640,
+        0.0100]) |
+| Poison Loss/Poison Acc: 3.325 / 0.000 |
+ 24%|##4       | 72/300 [44:38<2:16:46, 35.99s/it]| Round: 73 |
+| Val_Loss/Val_Acc: 1.764 / 0.515 |
+| Val_Per_Class_Acc: tensor([0.8590, 0.9190, 0.3050, 0.8230, 0.0000, 0.4670, 0.0010, 0.8190, 0.1040,
+        0.8490]) |
+| Poison Loss/Poison Acc: 3.955 / 0.003 |
+ 24%|##4       | 73/300 [45:14<2:16:03, 35.96s/it]| Round: 74 |
+| Val_Loss/Val_Acc: 2.272 / 0.423 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.9070, 0.0000, 0.6540, 0.0000, 0.8570, 0.0000, 0.1650, 0.9370,
+        0.7110]) |
+| Poison Loss/Poison Acc: 3.673 / 0.001 |
+ 25%|##4       | 74/300 [45:50<2:16:12, 36.16s/it]| Round: 75 |
+| Val_Loss/Val_Acc: 1.864 / 0.432 |
+| Val_Per_Class_Acc: tensor([0.8310, 0.8530, 0.6150, 0.7950, 0.0000, 0.8110, 0.0030, 0.3090, 0.0000,
+        0.1080]) |
+| Poison Loss/Poison Acc: 3.901 / 0.000 |
+ 25%|##5       | 75/300 [46:26<2:15:11, 36.05s/it]| Round: 76 |
+| Val_Loss/Val_Acc: 1.555 / 0.435 |
+| Val_Per_Class_Acc: tensor([0.0010, 0.9100, 0.4440, 0.8440, 0.4030, 0.5540, 0.0140, 0.4210, 0.0000,
+        0.7580]) |
+| Poison Loss/Poison Acc: 3.357 / 0.002 |
+ 25%|##5       | 76/300 [47:01<2:13:09, 35.67s/it]| Round: 77 |
+| Val_Loss/Val_Acc: 1.652 / 0.421 |
+| Val_Per_Class_Acc: tensor([0.8850, 0.9170, 0.0160, 0.6490, 0.0000, 0.8280, 0.0890, 0.1360, 0.0000,
+        0.6900]) |
+| Poison Loss/Poison Acc: 3.874 / 0.002 |
+ 26%|##5       | 77/300 [47:37<2:12:51, 35.75s/it]| Round: 78 |
+| Val_Loss/Val_Acc: 1.874 / 0.431 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.8460, 0.0030, 0.5860, 0.9910, 0.3740, 0.0000, 0.7880, 0.0310,
+        0.6950]) |
+| Poison Loss/Poison Acc: 5.981 / 0.000 |
+ 26%|##6       | 78/300 [48:13<2:12:53, 35.92s/it]| Round: 79 |
+| Val_Loss/Val_Acc: 1.666 / 0.508 |
+| Val_Per_Class_Acc: tensor([0.6690, 0.9200, 0.2560, 0.7270, 0.0000, 0.8690, 0.3910, 0.0290, 0.7280,
+        0.4950]) |
+| Poison Loss/Poison Acc: 4.286 / 0.002 |
+ 26%|##6       | 79/300 [48:52<2:16:01, 36.93s/it]| Round: 80 |
+| Val_Loss/Val_Acc: 1.802 / 0.537 |
+| Val_Per_Class_Acc: tensor([0.7570, 0.8740, 0.0100, 0.6840, 0.0000, 0.1240, 0.7160, 0.8170, 0.4750,
+        0.9130]) |
+| Poison Loss/Poison Acc: 5.957 / 0.001 |
+ 27%|##6       | 80/300 [49:31<2:17:27, 37.49s/it]| Round: 81 |
+| Val_Loss/Val_Acc: 1.892 / 0.499 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.8700, 0.8350, 0.7840, 0.0000, 0.4980, 0.0000, 0.4350, 0.8650,
+        0.7030]) |
+| Poison Loss/Poison Acc: 5.126 / 0.001 |
+ 27%|##7       | 81/300 [50:10<2:18:07, 37.84s/it]| Round: 82 |
+| Val_Loss/Val_Acc: 1.905 / 0.406 |
+| Val_Per_Class_Acc: tensor([0.0930, 0.8700, 0.0000, 0.2500, 0.0000, 0.3040, 0.9470, 0.9400, 0.0200,
+        0.6350]) |
+| Poison Loss/Poison Acc: 6.162 / 0.004 |
+ 27%|##7       | 82/300 [50:48<2:18:16, 38.06s/it]| Round: 83 |
+| Val_Loss/Val_Acc: 1.690 / 0.448 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.9330, 0.9660, 0.5420, 0.0260, 0.9370, 0.0000, 0.0040, 0.4770,
+        0.5910]) |
+| Poison Loss/Poison Acc: 3.253 / 0.009 |
+ 28%|##7       | 83/300 [51:27<2:18:27, 38.28s/it]| Round: 84 |
+| Val_Loss/Val_Acc: 1.270 / 0.533 |
+| Val_Per_Class_Acc: tensor([0.8430, 0.9080, 0.0000, 0.5730, 0.5040, 0.0760, 0.0000, 0.9940, 0.9240,
+        0.5070]) |
+| Poison Loss/Poison Acc: 4.596 / 0.002 |
+ 28%|##8       | 84/300 [52:06<2:18:01, 38.34s/it]| Round: 85 |
+| Val_Loss/Val_Acc: 1.521 / 0.417 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.8730, 0.8120, 0.7040, 0.0000, 0.9690, 0.4080, 0.0000, 0.0330,
+        0.3750]) |
+| Poison Loss/Poison Acc: 4.965 / 0.001 |
+ 28%|##8       | 85/300 [52:44<2:17:36, 38.40s/it]| Round: 86 |
+| Val_Loss/Val_Acc: 1.691 / 0.525 |
+| Val_Per_Class_Acc: tensor([0.7730, 0.9120, 0.0000, 0.5940, 0.9810, 0.0060, 0.0000, 0.9980, 0.6890,
+        0.2960]) |
+| Poison Loss/Poison Acc: 4.694 / 0.002 |
+ 29%|##8       | 86/300 [53:22<2:15:52, 38.10s/it]| Round: 87 |
+| Val_Loss/Val_Acc: 1.322 / 0.574 |
+| Val_Per_Class_Acc: tensor([0.7390, 0.9160, 0.9340, 0.8390, 0.0000, 0.2900, 0.0150, 0.4080, 0.6060,
+        0.9930]) |
+| Poison Loss/Poison Acc: 4.761 / 0.003 |
+ 29%|##9       | 87/300 [53:59<2:14:27, 37.87s/it]| Round: 88 |
+| Val_Loss/Val_Acc: 1.570 / 0.488 |
+| Val_Per_Class_Acc: tensor([0.0200, 0.9050, 0.0000, 0.5830, 0.9920, 0.3710, 0.0040, 0.9240, 0.3490,
+        0.7350]) |
+| Poison Loss/Poison Acc: 5.580 / 0.004 |
+ 29%|##9       | 88/300 [54:37<2:13:33, 37.80s/it]| Round: 89 |
+| Val_Loss/Val_Acc: 1.915 / 0.566 |
+| Val_Per_Class_Acc: tensor([0.6450, 0.8990, 0.9400, 0.7210, 0.0000, 0.9760, 0.0040, 0.0100, 0.6640,
+        0.8020]) |
+| Poison Loss/Poison Acc: 6.307 / 0.000 |
+ 30%|##9       | 89/300 [55:14<2:12:30, 37.68s/it]| Round: 90 |
+| Val_Loss/Val_Acc: 2.288 / 0.512 |
+| Val_Per_Class_Acc: tensor([0.0110, 0.9070, 0.0000, 0.7840, 0.0000, 0.1670, 0.9150, 0.7920, 0.5680,
+        0.9740]) |
+| Poison Loss/Poison Acc: 6.329 / 0.001 |
+ 30%|###       | 90/300 [55:51<2:10:51, 37.39s/it]| Round: 91 |
+| Val_Loss/Val_Acc: 2.334 / 0.589 |
+| Val_Per_Class_Acc: tensor([0.8020, 0.9020, 0.9520, 0.7010, 0.0000, 0.8320, 0.0000, 0.7350, 0.1280,
+        0.8390]) |
+| Poison Loss/Poison Acc: 7.857 / 0.001 |
+ 30%|###       | 91/300 [56:26<2:08:13, 36.81s/it]| Round: 92 |
+| Val_Loss/Val_Acc: 1.851 / 0.477 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.9370, 0.0000, 0.8490, 0.0440, 0.2940, 0.0040, 0.7450, 0.9270,
+        0.9740]) |
+| Poison Loss/Poison Acc: 3.588 / 0.005 |
+ 31%|###       | 92/300 [57:03<2:07:27, 36.77s/it]| Round: 93 |
+| Val_Loss/Val_Acc: 1.241 / 0.486 |
+| Val_Per_Class_Acc: tensor([0.1590, 0.9170, 0.0000, 0.8050, 0.8760, 0.9440, 0.2230, 0.0640, 0.0350,
+        0.8380]) |
+| Poison Loss/Poison Acc: 4.362 / 0.001 |
+ 31%|###1      | 93/300 [57:39<2:06:07, 36.56s/it]| Round: 94 |
+| Val_Loss/Val_Acc: 1.188 / 0.591 |
+| Val_Per_Class_Acc: tensor([0.7130, 0.9320, 0.0770, 0.8900, 0.5080, 0.4360, 0.0020, 0.9240, 0.7780,
+        0.6510]) |
+| Poison Loss/Poison Acc: 3.302 / 0.002 |
+ 31%|###1      | 94/300 [58:15<2:05:25, 36.53s/it]| Round: 95 |
+| Val_Loss/Val_Acc: 1.203 / 0.518 |
+| Val_Per_Class_Acc: tensor([0.0010, 0.9240, 0.0380, 0.8350, 0.8480, 0.7800, 0.2650, 0.5360, 0.0770,
+        0.8760]) |
+| Poison Loss/Poison Acc: 4.567 / 0.003 |
+ 32%|###1      | 95/300 [58:51<2:04:14, 36.36s/it]| Round: 96 |
+| Val_Loss/Val_Acc: 1.932 / 0.536 |
+| Val_Per_Class_Acc: tensor([0.2220, 0.8950, 0.9420, 0.7600, 0.0000, 0.4520, 0.0000, 0.9050, 0.6700,
+        0.5170]) |
+| Poison Loss/Poison Acc: 5.620 / 0.001 |
+ 32%|###2      | 96/300 [59:28<2:03:28, 36.31s/it]| Round: 97 |
+| Val_Loss/Val_Acc: 2.421 / 0.443 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.9250, 0.0000, 0.5080, 0.0000, 0.7840, 0.9950, 0.6380, 0.0100,
+        0.5720]) |
+| Poison Loss/Poison Acc: 5.220 / 0.003 |
+ 32%|###2      | 97/300 [1:00:04<2:02:39, 36.25s/it]| Round: 98 |
+| Val_Loss/Val_Acc: 1.953 / 0.491 |
+| Val_Per_Class_Acc: tensor([0.0090, 0.8950, 0.0000, 0.5640, 0.9600, 0.4410, 0.0000, 0.7400, 0.3910,
+        0.9080]) |
+| Poison Loss/Poison Acc: 6.100 / 0.000 |
+ 33%|###2      | 98/300 [1:00:41<2:03:31, 36.69s/it]| Round: 99 |
+| Val_Loss/Val_Acc: 2.176 / 0.411 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.8610, 0.9980, 0.4080, 0.0000, 0.6580, 0.0000, 0.0790, 0.2430,
+        0.8600]) |
+| Poison Loss/Poison Acc: 6.513 / 0.000 |
+ 33%|###3      | 99/300 [1:01:19<2:03:51, 36.97s/it]| Round: 100 |
+| Val_Loss/Val_Acc: 1.826 / 0.545 |
+| Val_Per_Class_Acc: tensor([0.8350, 0.9290, 0.0000, 0.6920, 0.9210, 0.5080, 0.0120, 0.7900, 0.0570,
+        0.7100]) |
+| Poison Loss/Poison Acc: 4.836 / 0.003 |
+ 33%|###3      | 100/300 [1:01:55<2:02:27, 36.74s/it]| Round: 101 |
+| Val_Loss/Val_Acc: 1.572 / 0.501 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.9230, 0.0000, 0.8340, 0.0000, 0.5510, 0.8910, 0.6300, 0.2760,
+        0.9090]) |
+| Poison Loss/Poison Acc: 5.564 / 0.003 |
+ 34%|###3      | 101/300 [1:02:33<2:02:25, 36.91s/it]| Round: 102 |
+| Val_Loss/Val_Acc: 1.834 / 0.512 |
+| Val_Per_Class_Acc: tensor([0.9320, 0.9060, 0.0240, 0.4110, 0.7640, 0.4210, 0.0000, 0.6880, 0.0490,
+        0.9210]) |
+| Poison Loss/Poison Acc: 7.285 / 0.000 |
+ 34%|###4      | 102/300 [1:03:09<2:01:02, 36.68s/it]| Round: 103 |
+| Val_Loss/Val_Acc: 1.564 / 0.502 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.9240, 0.6860, 0.8520, 0.0020, 0.7690, 0.0590, 0.0050, 0.8040,
+        0.9210]) |
+| Poison Loss/Poison Acc: 4.222 / 0.003 |
+ 34%|###4      | 103/300 [1:03:45<2:00:02, 36.56s/it]| Round: 104 |
+| Val_Loss/Val_Acc: 1.276 / 0.473 |
+| Val_Per_Class_Acc: tensor([0.0830, 0.9170, 0.0010, 0.8720, 0.8260, 0.3310, 0.3040, 0.6630, 0.0320,
+        0.7050]) |
+| Poison Loss/Poison Acc: 4.690 / 0.001 |
+ 35%|###4      | 104/300 [1:04:20<1:58:21, 36.23s/it]| Round: 105 |
+| Val_Loss/Val_Acc: 1.392 / 0.555 |
+| Val_Per_Class_Acc: tensor([0.4800, 0.9190, 0.8310, 0.8740, 0.1740, 0.7570, 0.0010, 0.0000, 0.6400,
+        0.8790]) |
+| Poison Loss/Poison Acc: 3.984 / 0.006 |
+ 35%|###5      | 105/300 [1:04:57<1:58:16, 36.39s/it]| Round: 106 |
+| Val_Loss/Val_Acc: 1.756 / 0.435 |
+| Val_Per_Class_Acc: tensor([0.0090, 0.8800, 0.0000, 0.5820, 0.9950, 0.0570, 0.0010, 0.5430, 0.3010,
+        0.9870]) |
+| Poison Loss/Poison Acc: 4.208 / 0.000 |
+ 35%|###5      | 106/300 [1:05:34<1:57:48, 36.44s/it]| Round: 107 |
+| Val_Loss/Val_Acc: 1.778 / 0.507 |
+| Val_Per_Class_Acc: tensor([0.2720, 0.9190, 0.9680, 0.8560, 0.0000, 0.9660, 0.0000, 0.0000, 0.3840,
+        0.7100]) |
+| Poison Loss/Poison Acc: 4.179 / 0.001 |
+ 36%|###5      | 107/300 [1:06:10<1:56:49, 36.32s/it]| Round: 108 |
+| Val_Loss/Val_Acc: 1.695 / 0.480 |
+| Val_Per_Class_Acc: tensor([0.0020, 0.9530, 0.0000, 0.7000, 0.0000, 0.5280, 0.9750, 0.2370, 0.4210,
+        0.9870]) |
+| Poison Loss/Poison Acc: 3.839 / 0.011 |
+ 36%|###6      | 108/300 [1:06:46<1:56:26, 36.39s/it]| Round: 109 |
+| Val_Loss/Val_Acc: 2.033 / 0.491 |
+| Val_Per_Class_Acc: tensor([0.3320, 0.9310, 0.8870, 0.8530, 0.0040, 0.8910, 0.0000, 0.0360, 0.0240,
+        0.9480]) |
+| Poison Loss/Poison Acc: 4.940 / 0.004 |
+ 36%|###6      | 109/300 [1:07:23<1:55:53, 36.41s/it]| Round: 110 |
+| Val_Loss/Val_Acc: 1.824 / 0.454 |
+| Val_Per_Class_Acc: tensor([0.0010, 0.9680, 0.0000, 0.7770, 0.0000, 0.7700, 0.0040, 0.1810, 0.9440,
+        0.8930]) |
+| Poison Loss/Poison Acc: 3.049 / 0.031 |
+ 37%|###6      | 110/300 [1:07:58<1:54:12, 36.07s/it]| Round: 111 |
+| Val_Loss/Val_Acc: 1.425 / 0.467 |
+| Val_Per_Class_Acc: tensor([0.2290, 0.8810, 0.1360, 0.7300, 0.9480, 0.7800, 0.0060, 0.1190, 0.0000,
+        0.8420]) |
+| Poison Loss/Poison Acc: 5.992 / 0.002 |
+ 37%|###7      | 111/300 [1:08:35<1:54:09, 36.24s/it]| Round: 112 |
+| Val_Loss/Val_Acc: 1.464 / 0.467 |
+| Val_Per_Class_Acc: tensor([0.2290, 0.9000, 0.0240, 0.7660, 0.0000, 0.6800, 0.9160, 0.1260, 0.1310,
+        0.8960]) |
+| Poison Loss/Poison Acc: 5.898 / 0.003 |
+ 37%|###7      | 112/300 [1:09:11<1:53:13, 36.14s/it]| Round: 113 |
+| Val_Loss/Val_Acc: 1.349 / 0.446 |
+| Val_Per_Class_Acc: tensor([0.0020, 0.9460, 0.0000, 0.6990, 0.9860, 0.8340, 0.0000, 0.1600, 0.2730,
+        0.5560]) |
+| Poison Loss/Poison Acc: 4.900 / 0.006 |
+ 38%|###7      | 113/300 [1:09:47<1:52:43, 36.17s/it]| Round: 114 |
+| Val_Loss/Val_Acc: 1.435 / 0.501 |
+| Val_Per_Class_Acc: tensor([0.0060, 0.9090, 0.2780, 0.8070, 0.0000, 0.6930, 0.7770, 0.4530, 0.1540,
+        0.9320]) |
+| Poison Loss/Poison Acc: 5.937 / 0.003 |
+ 38%|###8      | 114/300 [1:10:22<1:51:36, 36.01s/it]| Round: 115 |
+| Val_Loss/Val_Acc: 1.401 / 0.529 |
+| Val_Per_Class_Acc: tensor([0.4820, 0.9230, 0.0000, 0.6740, 0.9740, 0.8480, 0.0000, 0.1490, 0.3160,
+        0.9230]) |
+| Poison Loss/Poison Acc: 5.485 / 0.004 |
+ 38%|###8      | 115/300 [1:10:58<1:50:36, 35.88s/it]| Round: 116 |
+| Val_Loss/Val_Acc: 1.874 / 0.499 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.8710, 0.6040, 0.7500, 0.0000, 0.7710, 0.6780, 0.3420, 0.0470,
+        0.9320]) |
+| Poison Loss/Poison Acc: 6.774 / 0.001 |
+ 39%|###8      | 116/300 [1:11:34<1:50:11, 35.93s/it]| Round: 117 |
+| Val_Loss/Val_Acc: 1.829 / 0.607 |
+| Val_Per_Class_Acc: tensor([0.8820, 0.9370, 0.0000, 0.6900, 0.7440, 0.6910, 0.0000, 0.5420, 0.6440,
+        0.9440]) |
+| Poison Loss/Poison Acc: 5.374 / 0.004 |
+ 39%|###9      | 117/300 [1:12:10<1:49:25, 35.87s/it]| Round: 118 |
+| Val_Loss/Val_Acc: 1.402 / 0.518 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.8490, 0.9240, 0.7640, 0.0000, 0.7980, 0.3050, 0.3260, 0.3180,
+        0.8970]) |
+| Poison Loss/Poison Acc: 5.947 / 0.000 |
+ 39%|###9      | 118/300 [1:12:47<1:49:32, 36.11s/it]| Round: 119 |
+| Val_Loss/Val_Acc: 1.663 / 0.545 |
+| Val_Per_Class_Acc: tensor([0.6920, 0.9230, 0.0000, 0.6010, 0.9900, 0.7850, 0.0000, 0.2670, 0.2520,
+        0.9360]) |
+| Poison Loss/Poison Acc: 5.683 / 0.003 |
+ 40%|###9      | 119/300 [1:13:22<1:48:45, 36.05s/it]| Round: 120 |
+| Val_Loss/Val_Acc: 2.161 / 0.487 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.8880, 0.0360, 0.7360, 0.0000, 0.7640, 0.9690, 0.1590, 0.3610,
+        0.9620]) |
+| Poison Loss/Poison Acc: 5.780 / 0.001 |
+ 40%|####      | 120/300 [1:13:59<1:48:39, 36.22s/it]| Round: 121 |
+| Val_Loss/Val_Acc: 1.634 / 0.584 |
+| Val_Per_Class_Acc: tensor([0.9220, 0.9650, 0.0000, 0.5610, 0.6900, 0.6810, 0.0000, 0.4610, 0.5970,
+        0.9610]) |
+| Poison Loss/Poison Acc: 4.151 / 0.050 |
+ 40%|####      | 121/300 [1:14:36<1:48:29, 36.37s/it]| Round: 122 |
+| Val_Loss/Val_Acc: 1.622 / 0.486 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.8400, 0.9890, 0.8700, 0.0000, 0.6610, 0.0000, 0.2710, 0.2430,
+        0.9900]) |
+| Poison Loss/Poison Acc: 5.440 / 0.000 |
+ 41%|####      | 122/300 [1:15:12<1:47:41, 36.30s/it]| Round: 123 |
+| Val_Loss/Val_Acc: 1.560 / 0.543 |
+| Val_Per_Class_Acc: tensor([0.9370, 0.9590, 0.0000, 0.1800, 0.8780, 0.7670, 0.0150, 0.0870, 0.6260,
+        0.9820]) |
+| Poison Loss/Poison Acc: 4.846 / 0.011 |
+ 41%|####1     | 123/300 [1:15:48<1:47:19, 36.38s/it]| Round: 124 |
+| Val_Loss/Val_Acc: 1.484 / 0.450 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.9020, 0.0000, 0.4620, 0.0020, 0.8060, 0.9930, 0.0480, 0.3350,
+        0.9510]) |
+| Poison Loss/Poison Acc: 5.830 / 0.000 |
+ 41%|####1     | 124/300 [1:16:24<1:45:54, 36.10s/it]| Round: 125 |
+| Val_Loss/Val_Acc: 1.958 / 0.488 |
+| Val_Per_Class_Acc: tensor([0.3460, 0.9240, 0.9750, 0.3510, 0.0710, 0.8740, 0.0000, 0.0130, 0.3450,
+        0.9820]) |
+| Poison Loss/Poison Acc: 7.399 / 0.001 |
+ 42%|####1     | 125/300 [1:17:00<1:45:05, 36.03s/it]| Round: 126 |
+| Val_Loss/Val_Acc: 1.569 / 0.535 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.9410, 0.0000, 0.8050, 0.9010, 0.8820, 0.0130, 0.0520, 0.8610,
+        0.8990]) |
+| Poison Loss/Poison Acc: 2.998 / 0.005 |
+ 42%|####2     | 126/300 [1:17:36<1:44:58, 36.20s/it]| Round: 127 |
+| Val_Loss/Val_Acc: 1.262 / 0.521 |
+| Val_Per_Class_Acc: tensor([0.7580, 0.9480, 0.0000, 0.6490, 0.0970, 0.8470, 0.6000, 0.0040, 0.3210,
+        0.9910]) |
+| Poison Loss/Poison Acc: 4.363 / 0.010 |
+ 42%|####2     | 127/300 [1:18:12<1:43:36, 35.93s/it]| Round: 128 |
+| Val_Loss/Val_Acc: 1.763 / 0.526 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.9030, 0.6540, 0.7050, 0.6550, 0.8100, 0.0000, 0.2240, 0.5510,
+        0.7560]) |
+| Poison Loss/Poison Acc: 4.542 / 0.000 |
+ 43%|####2     | 128/300 [1:18:48<1:43:10, 35.99s/it]| Round: 129 |
+| Val_Loss/Val_Acc: 1.911 / 0.471 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.9430, 0.0000, 0.5360, 0.0000, 0.8010, 0.9790, 0.0060, 0.4570,
+        0.9890]) |
+| Poison Loss/Poison Acc: 5.109 / 0.005 |
+ 43%|####3     | 129/300 [1:19:24<1:42:42, 36.04s/it]| Round: 130 |
+| Val_Loss/Val_Acc: 2.330 / 0.440 |
+| Val_Per_Class_Acc: tensor([0.0380, 0.8790, 0.0000, 0.6020, 0.9850, 0.6440, 0.0000, 0.9400, 0.0000,
+        0.3160]) |
+| Poison Loss/Poison Acc: 4.855 / 0.000 |
+ 43%|####3     | 130/300 [1:20:00<1:42:03, 36.02s/it]| Round: 131 |
+| Val_Loss/Val_Acc: 1.487 / 0.521 |
+| Val_Per_Class_Acc: tensor([0.1620, 0.9480, 0.9650, 0.9000, 0.0000, 0.6170, 0.0010, 0.2220, 0.4080,
+        0.9870]) |
+| Poison Loss/Poison Acc: 3.192 / 0.016 |
+ 44%|####3     | 131/300 [1:20:35<1:41:00, 35.86s/it]| Round: 132 |
+| Val_Loss/Val_Acc: 1.206 / 0.533 |
+| Val_Per_Class_Acc: tensor([0.3370, 0.9400, 0.3120, 0.8290, 0.0000, 0.7480, 0.5370, 0.5300, 0.3630,
+        0.7350]) |
+| Poison Loss/Poison Acc: 3.574 / 0.031 |
+ 44%|####4     | 132/300 [1:21:11<1:40:00, 35.72s/it]| Round: 133 |
+| Val_Loss/Val_Acc: 1.224 / 0.515 |
+| Val_Per_Class_Acc: tensor([0.0030, 0.9220, 0.1570, 0.7560, 0.9200, 0.7970, 0.0000, 0.3680, 0.3810,
+        0.8430]) |
+| Poison Loss/Poison Acc: 4.052 / 0.004 |
+ 44%|####4     | 133/300 [1:21:47<1:39:31, 35.76s/it]| Round: 134 |
+| Val_Loss/Val_Acc: 1.319 / 0.534 |
+| Val_Per_Class_Acc: tensor([0.5510, 0.9330, 0.1130, 0.7480, 0.0000, 0.4970, 0.7200, 0.9320, 0.1630,
+        0.6860]) |
+| Poison Loss/Poison Acc: 4.816 / 0.004 |
+ 45%|####4     | 134/300 [1:22:23<1:39:29, 35.96s/it]| Round: 135 |
+| Val_Loss/Val_Acc: 1.606 / 0.456 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.8890, 0.0000, 0.6900, 0.9740, 0.8320, 0.0000, 0.0740, 0.3030,
+        0.7990]) |
+| Poison Loss/Poison Acc: 5.813 / 0.003 |
+ 45%|####5     | 135/300 [1:22:59<1:38:53, 35.96s/it]| Round: 136 |
+| Val_Loss/Val_Acc: 2.093 / 0.469 |
+| Val_Per_Class_Acc: tensor([0.0730, 0.9290, 0.5800, 0.6320, 0.0000, 0.2380, 0.5450, 0.9470, 0.0240,
+        0.7200]) |
+| Poison Loss/Poison Acc: 7.122 / 0.002 |
+ 45%|####5     | 136/300 [1:23:35<1:38:39, 36.09s/it]| Round: 137 |
+| Val_Loss/Val_Acc: 3.152 / 0.294 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.8980, 0.0000, 0.4540, 0.0000, 0.0020, 0.0000, 0.0000, 0.9960,
+        0.5940]) |
+| Poison Loss/Poison Acc: 4.395 / 0.000 |
+ 46%|####5     | 137/300 [1:24:12<1:38:28, 36.25s/it]| Round: 138 |
+| Val_Loss/Val_Acc: 2.003 / 0.286 |
+| Val_Per_Class_Acc: tensor([0.3890, 0.2720, 0.0460, 0.2890, 0.0000, 0.9050, 0.8070, 0.1130, 0.0000,
+        0.0420]) |
+| Poison Loss/Poison Acc: 7.684 / 0.001 |
+ 46%|####6     | 138/300 [1:24:49<1:38:00, 36.30s/it]| Round: 139 |
+| Val_Loss/Val_Acc: 1.439 / 0.492 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.9270, 0.4020, 0.7460, 0.8920, 0.5760, 0.0010, 0.3920, 0.0080,
+        0.9810]) |
+| Poison Loss/Poison Acc: 4.237 / 0.008 |
+ 46%|####6     | 139/300 [1:25:24<1:36:55, 36.12s/it]| Round: 140 |
+| Val_Loss/Val_Acc: 1.705 / 0.456 |
+| Val_Per_Class_Acc: tensor([0.0100, 0.9370, 0.0000, 0.4640, 0.0000, 0.7710, 0.9900, 0.9440, 0.0310,
+        0.4140]) |
+| Poison Loss/Poison Acc: 4.758 / 0.006 |
+ 47%|####6     | 140/300 [1:26:00<1:36:10, 36.07s/it]| Round: 141 |
+| Val_Loss/Val_Acc: 2.007 / 0.519 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.8810, 0.6970, 0.6870, 0.6510, 0.8190, 0.0000, 0.5510, 0.0590,
+        0.8440]) |
+| Poison Loss/Poison Acc: 4.948 / 0.002 |
+ 47%|####6     | 141/300 [1:26:36<1:35:25, 36.01s/it]| Round: 142 |
+| Val_Loss/Val_Acc: 1.759 / 0.458 |
+| Val_Per_Class_Acc: tensor([0.9590, 0.9650, 0.0000, 0.4110, 0.0000, 0.8140, 0.0000, 0.8820, 0.2050,
+        0.3480]) |
+| Poison Loss/Poison Acc: 4.175 / 0.010 |
+ 47%|####7     | 142/300 [1:27:11<1:34:22, 35.84s/it]| Round: 143 |
+| Val_Loss/Val_Acc: 1.703 / 0.520 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.8500, 0.0110, 0.7680, 0.9540, 0.7600, 0.2890, 0.2600, 0.4160,
+        0.8950]) |
+| Poison Loss/Poison Acc: 6.290 / 0.000 |
+ 48%|####7     | 143/300 [1:27:48<1:34:02, 35.94s/it]| Round: 144 |
+| Val_Loss/Val_Acc: 1.657 / 0.518 |
+| Val_Per_Class_Acc: tensor([0.0040, 0.9200, 0.9880, 0.8300, 0.0000, 0.6940, 0.0000, 0.9560, 0.3770,
+        0.4080]) |
+| Poison Loss/Poison Acc: 5.484 / 0.003 |
+ 48%|####8     | 144/300 [1:28:25<1:34:21, 36.29s/it]| Round: 145 |
+| Val_Loss/Val_Acc: 2.502 / 0.444 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.9010, 0.0000, 0.2680, 0.8170, 0.8850, 0.6450, 0.0350, 0.1980,
+        0.6860]) |
+| Poison Loss/Poison Acc: 6.342 / 0.003 |
+ 48%|####8     | 145/300 [1:29:01<1:34:02, 36.40s/it]| Round: 146 |
+| Val_Loss/Val_Acc: 3.168 / 0.443 |
+| Val_Per_Class_Acc: tensor([0.9800, 0.9420, 0.0000, 0.3060, 0.0000, 0.0610, 0.0000, 0.9940, 0.6430,
+        0.5050]) |
+| Poison Loss/Poison Acc: 7.043 / 0.003 |
+ 49%|####8     | 146/300 [1:29:38<1:33:19, 36.36s/it]| Round: 147 |
+| Val_Loss/Val_Acc: 2.195 / 0.408 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.7400, 0.0000, 0.5630, 0.9800, 0.9400, 0.1510, 0.0000, 0.0110,
+        0.6990]) |
+| Poison Loss/Poison Acc: 5.265 / 0.000 |
+ 49%|####9     | 147/300 [1:30:14<1:32:39, 36.34s/it]| Round: 148 |
+| Val_Loss/Val_Acc: 2.033 / 0.518 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.8880, 0.9470, 0.9210, 0.0000, 0.1380, 0.0340, 0.9090, 0.5200,
+        0.8260]) |
+| Poison Loss/Poison Acc: 4.799 / 0.000 |
+ 49%|####9     | 148/300 [1:30:50<1:31:45, 36.22s/it]| Round: 149 |
+| Val_Loss/Val_Acc: 2.850 / 0.402 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.8860, 0.0000, 0.0000, 0.9990, 0.8020, 0.0000, 0.1660, 0.2170,
+        0.9450]) |
+| Poison Loss/Poison Acc: 7.776 / 0.001 |
+ 50%|####9     | 149/300 [1:31:27<1:31:36, 36.40s/it]| Round: 150 |
+| Val_Loss/Val_Acc: 1.797 / 0.493 |
+| Val_Per_Class_Acc: tensor([0.0090, 0.9190, 0.0000, 0.5210, 0.0000, 0.5870, 0.9780, 0.9560, 0.5630,
+        0.4010]) |
+| Poison Loss/Poison Acc: 4.522 / 0.001 |
+ 50%|#####     | 150/300 [1:32:39<1:57:33, 47.03s/it]| Round: 151 |
+| Val_Loss/Val_Acc: 1.934 / 0.563 |
+| Val_Per_Class_Acc: tensor([0.0710, 0.9390, 0.9340, 0.8320, 0.0000, 0.7890, 0.0000, 0.5780, 0.7490,
+        0.7340]) |
+| Poison Loss/Poison Acc: 4.073 / 0.004 |
+ 50%|#####     | 151/300 [1:33:16<1:49:26, 44.07s/it]| Round: 152 |
+| Val_Loss/Val_Acc: 2.113 / 0.470 |
+| Val_Per_Class_Acc: tensor([0.0040, 0.9570, 0.0000, 0.5170, 0.0000, 0.4730, 0.9790, 0.8960, 0.1760,
+        0.6960]) |
+| Poison Loss/Poison Acc: 4.216 / 0.010 |
+ 51%|#####     | 152/300 [1:33:54<1:44:16, 42.27s/it]| Round: 153 |
+| Val_Loss/Val_Acc: 1.646 / 0.499 |
+| Val_Per_Class_Acc: tensor([0.0500, 0.9230, 0.8990, 0.9210, 0.0000, 0.7420, 0.0000, 0.4430, 0.5560,
+        0.4550]) |
+| Poison Loss/Poison Acc: 3.875 / 0.002 |
+ 51%|#####1    | 153/300 [1:34:31<1:40:02, 40.83s/it]| Round: 154 |
+| Val_Loss/Val_Acc: 1.912 / 0.479 |
+| Val_Per_Class_Acc: tensor([0.9580, 0.9590, 0.0000, 0.5690, 0.0000, 0.4810, 0.0000, 0.6710, 0.2590,
+        0.8920]) |
+| Poison Loss/Poison Acc: 5.082 / 0.010 |
+ 51%|#####1    | 154/300 [1:35:09<1:36:46, 39.77s/it]| Round: 155 |
+| Val_Loss/Val_Acc: 1.692 / 0.480 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.7760, 0.6550, 0.7110, 0.6390, 0.8590, 0.0390, 0.4740, 0.2840,
+        0.3650]) |
+| Poison Loss/Poison Acc: 4.949 / 0.000 |
+ 52%|#####1    | 155/300 [1:35:45<1:33:55, 38.87s/it]| Round: 156 |
+| Val_Loss/Val_Acc: 1.518 / 0.487 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.9360, 0.0000, 0.6100, 0.0080, 0.7880, 0.9520, 0.3880, 0.5880,
+        0.6000]) |
+| Poison Loss/Poison Acc: 4.513 / 0.006 |
+ 52%|#####2    | 156/300 [1:36:22<1:31:25, 38.10s/it]| Round: 157 |
+| Val_Loss/Val_Acc: 1.458 / 0.513 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.9120, 0.7970, 0.7500, 0.4730, 0.6780, 0.0000, 0.6080, 0.1920,
+        0.7240]) |
+| Poison Loss/Poison Acc: 4.489 / 0.003 |
+ 52%|#####2    | 157/300 [1:36:59<1:29:57, 37.75s/it]| Round: 158 |
+| Val_Loss/Val_Acc: 1.797 / 0.508 |
+| Val_Per_Class_Acc: tensor([0.0010, 0.9420, 0.0000, 0.4970, 0.0000, 0.5220, 0.9670, 0.7520, 0.4850,
+        0.9100]) |
+| Poison Loss/Poison Acc: 4.276 / 0.008 |
+ 53%|#####2    | 158/300 [1:37:35<1:28:27, 37.38s/it]| Round: 159 |
+| Val_Loss/Val_Acc: 2.309 / 0.480 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.8950, 0.0320, 0.6170, 0.9880, 0.6850, 0.0000, 0.6600, 0.0130,
+        0.9080]) |
+| Poison Loss/Poison Acc: 4.269 / 0.002 |
+ 53%|#####3    | 159/300 [1:38:11<1:27:08, 37.08s/it]| Round: 160 |
+| Val_Loss/Val_Acc: 1.680 / 0.463 |
+| Val_Per_Class_Acc: tensor([0.1720, 0.9380, 0.0000, 0.6080, 0.0000, 0.7630, 0.8050, 0.4990, 0.6220,
+        0.2230]) |
+| Poison Loss/Poison Acc: 4.225 / 0.006 |
+ 53%|#####3    | 160/300 [1:38:47<1:25:21, 36.58s/it]| Round: 161 |
+| Val_Loss/Val_Acc: 1.657 / 0.503 |
+| Val_Per_Class_Acc: tensor([0.0490, 0.9400, 0.8610, 0.8550, 0.0000, 0.4020, 0.0700, 0.7340, 0.6720,
+        0.4470]) |
+| Poison Loss/Poison Acc: 4.313 / 0.006 |
+ 54%|#####3    | 161/300 [1:39:23<1:24:41, 36.56s/it]| Round: 162 |
+| Val_Loss/Val_Acc: 2.001 / 0.428 |
+| Val_Per_Class_Acc: tensor([0.1830, 0.9510, 0.0000, 0.7010, 0.0000, 0.3490, 0.8710, 0.1560, 0.2880,
+        0.7860]) |
+| Poison Loss/Poison Acc: 5.143 / 0.006 |
+ 54%|#####4    | 162/300 [1:40:00<1:24:19, 36.66s/it]| Round: 163 |
+| Val_Loss/Val_Acc: 1.480 / 0.516 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.9210, 0.9810, 0.8740, 0.0030, 0.6760, 0.0000, 0.9020, 0.2880,
+        0.5200]) |
+| Poison Loss/Poison Acc: 4.085 / 0.002 |
+ 54%|#####4    | 163/300 [1:40:37<1:24:01, 36.80s/it]| Round: 164 |
+| Val_Loss/Val_Acc: 1.554 / 0.556 |
+| Val_Per_Class_Acc: tensor([0.9180, 0.9630, 0.0000, 0.6230, 0.0000, 0.5350, 0.4300, 0.8780, 0.3400,
+        0.8690]) |
+| Poison Loss/Poison Acc: 4.507 / 0.034 |
+ 55%|#####4    | 164/300 [1:41:15<1:23:44, 36.94s/it]| Round: 165 |
+| Val_Loss/Val_Acc: 2.177 / 0.503 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.7510, 0.9820, 0.8550, 0.0000, 0.7350, 0.0000, 0.8000, 0.1150,
+        0.7970]) |
+| Poison Loss/Poison Acc: 7.777 / 0.000 |
+ 55%|#####5    | 165/300 [1:41:52<1:23:24, 37.07s/it]| Round: 166 |
+| Val_Loss/Val_Acc: 1.838 / 0.473 |
+| Val_Per_Class_Acc: tensor([0.0010, 0.9500, 0.0000, 0.2580, 0.0000, 0.4280, 0.9790, 0.9710, 0.5110,
+        0.6340]) |
+| Poison Loss/Poison Acc: 5.937 / 0.001 |
+ 55%|#####5    | 166/300 [1:42:30<1:23:18, 37.30s/it]| Round: 167 |
+| Val_Loss/Val_Acc: 2.961 / 0.516 |
+| Val_Per_Class_Acc: tensor([0.7080, 0.8930, 0.0000, 0.2380, 0.9720, 0.8200, 0.0000, 0.3070, 0.2590,
+        0.9670]) |
+| Poison Loss/Poison Acc: 8.257 / 0.001 |
+ 56%|#####5    | 167/300 [1:43:06<1:22:12, 37.08s/it]| Round: 168 |
+| Val_Loss/Val_Acc: 2.588 / 0.476 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.9420, 0.0000, 0.6010, 0.0000, 0.6760, 0.9750, 0.9570, 0.2430,
+        0.3710]) |
+| Poison Loss/Poison Acc: 4.567 / 0.008 |
+ 56%|#####6    | 168/300 [1:43:43<1:21:22, 36.99s/it]| Round: 169 |
+| Val_Loss/Val_Acc: 1.984 / 0.518 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.9500, 0.9540, 0.6380, 0.0000, 0.7980, 0.0000, 0.2380, 0.6160,
+        0.9870]) |
+| Poison Loss/Poison Acc: 5.046 / 0.005 |
+ 56%|#####6    | 169/300 [1:44:20<1:20:34, 36.91s/it]| Round: 170 |
+| Val_Loss/Val_Acc: 1.670 / 0.447 |
+| Val_Per_Class_Acc: tensor([0.9680, 0.9290, 0.0000, 0.5350, 0.0030, 0.6500, 0.0190, 0.9640, 0.0170,
+        0.3860]) |
+| Poison Loss/Poison Acc: 5.025 / 0.003 |
+ 57%|#####6    | 170/300 [1:44:57<1:20:03, 36.95s/it]| Round: 171 |
+| Val_Loss/Val_Acc: 2.010 / 0.519 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.8980, 0.0000, 0.7080, 0.9060, 0.7970, 0.0000, 0.0630, 0.8440,
+        0.9750]) |
+| Poison Loss/Poison Acc: 5.096 / 0.001 |
+ 57%|#####6    | 171/300 [1:45:33<1:19:08, 36.81s/it]| Round: 172 |
+| Val_Loss/Val_Acc: 2.200 / 0.423 |
+| Val_Per_Class_Acc: tensor([0.0080, 0.9290, 0.0000, 0.5260, 0.0000, 0.4110, 0.9850, 0.9930, 0.0000,
+        0.3740]) |
+| Poison Loss/Poison Acc: 5.698 / 0.007 |
+ 57%|#####7    | 172/300 [1:46:10<1:18:28, 36.78s/it]| Round: 173 |
+| Val_Loss/Val_Acc: 1.416 / 0.484 |
+| Val_Per_Class_Acc: tensor([0.0730, 0.9090, 0.8110, 0.7500, 0.3510, 0.8440, 0.0000, 0.0060, 0.5590,
+        0.5360]) |
+| Poison Loss/Poison Acc: 4.729 / 0.002 |
+ 58%|#####7    | 173/300 [1:46:47<1:17:35, 36.66s/it]| Round: 174 |
+| Val_Loss/Val_Acc: 1.211 / 0.549 |
+| Val_Per_Class_Acc: tensor([0.7620, 0.9370, 0.0060, 0.7750, 0.6740, 0.2520, 0.0000, 0.9230, 0.5510,
+        0.6140]) |
+| Poison Loss/Poison Acc: 4.681 / 0.002 |
+ 58%|#####8    | 174/300 [1:47:23<1:17:04, 36.70s/it]| Round: 175 |
+| Val_Loss/Val_Acc: 1.205 / 0.491 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.9410, 0.1060, 0.7290, 0.0690, 0.8330, 0.9200, 0.0840, 0.5960,
+        0.6290]) |
+| Poison Loss/Poison Acc: 5.323 / 0.003 |
+ 58%|#####8    | 175/300 [1:48:00<1:16:18, 36.63s/it]| Round: 176 |
+| Val_Loss/Val_Acc: 1.260 / 0.537 |
+| Val_Per_Class_Acc: tensor([0.7860, 0.9260, 0.0000, 0.6710, 0.9230, 0.2590, 0.0000, 0.8990, 0.2540,
+        0.6550]) |
+| Poison Loss/Poison Acc: 6.500 / 0.001 |
+ 59%|#####8    | 176/300 [1:48:37<1:15:51, 36.71s/it]| Round: 177 |
+| Val_Loss/Val_Acc: 1.867 / 0.466 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.9200, 0.0600, 0.6680, 0.0000, 0.9350, 0.9550, 0.0610, 0.5310,
+        0.5320]) |
+| Poison Loss/Poison Acc: 7.436 / 0.001 |
+ 59%|#####8    | 177/300 [1:49:14<1:15:21, 36.76s/it]| Round: 178 |
+| Val_Loss/Val_Acc: 1.974 / 0.464 |
+| Val_Per_Class_Acc: tensor([0.9410, 0.9130, 0.0000, 0.6310, 0.3160, 0.1860, 0.0000, 0.9620, 0.2540,
+        0.4350]) |
+| Poison Loss/Poison Acc: 7.713 / 0.001 |
+ 59%|#####9    | 178/300 [1:49:51<1:14:50, 36.81s/it]| Round: 179 |
+| Val_Loss/Val_Acc: 2.305 / 0.439 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.9030, 0.9970, 0.6810, 0.0000, 0.9570, 0.0530, 0.0330, 0.3030,
+        0.4580]) |
+| Poison Loss/Poison Acc: 6.636 / 0.001 |
+ 60%|#####9    | 179/300 [1:50:27<1:14:04, 36.73s/it]| Round: 180 |
+| Val_Loss/Val_Acc: 2.121 / 0.484 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.8800, 0.0000, 0.6740, 0.9740, 0.3180, 0.0430, 0.9970, 0.6480,
+        0.3070]) |
+| Poison Loss/Poison Acc: 7.366 / 0.000 |
+ 60%|######    | 180/300 [1:51:04<1:13:31, 36.77s/it]| Round: 181 |
+| Val_Loss/Val_Acc: 1.727 / 0.518 |
+| Val_Per_Class_Acc: tensor([0.0030, 0.9200, 0.0000, 0.8060, 0.0000, 0.8870, 0.8910, 0.0740, 0.7920,
+        0.8120]) |
+| Poison Loss/Poison Acc: 5.898 / 0.002 |
+ 60%|######    | 181/300 [1:51:40<1:12:47, 36.70s/it]| Round: 182 |
+| Val_Loss/Val_Acc: 1.595 / 0.482 |
+| Val_Per_Class_Acc: tensor([0.0970, 0.9420, 0.2800, 0.6240, 0.8720, 0.6130, 0.0000, 0.9560, 0.1080,
+        0.3320]) |
+| Poison Loss/Poison Acc: 6.365 / 0.001 |
+ 61%|######    | 182/300 [1:52:17<1:12:16, 36.75s/it]| Round: 183 |
+| Val_Loss/Val_Acc: 1.700 / 0.453 |
+| Val_Per_Class_Acc: tensor([0.0050, 0.9250, 0.0000, 0.6750, 0.0000, 0.9360, 0.9720, 0.0790, 0.4610,
+        0.4760]) |
+| Poison Loss/Poison Acc: 5.592 / 0.000 |
+ 61%|######1   | 183/300 [1:52:54<1:11:45, 36.80s/it]| Round: 184 |
+| Val_Loss/Val_Acc: 1.360 / 0.581 |
+| Val_Per_Class_Acc: tensor([0.8420, 0.9330, 0.8740, 0.8160, 0.0220, 0.5920, 0.0000, 0.6300, 0.5300,
+        0.5750]) |
+| Poison Loss/Poison Acc: 5.883 / 0.000 |
+ 61%|######1   | 184/300 [1:53:31<1:11:06, 36.78s/it]| Round: 185 |
+| Val_Loss/Val_Acc: 1.463 / 0.426 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.9280, 0.0000, 0.5880, 0.0140, 0.5860, 0.9850, 0.0900, 0.3870,
+        0.6790]) |
+| Poison Loss/Poison Acc: 6.309 / 0.000 |
+ 62%|######1   | 185/300 [1:54:09<1:11:04, 37.08s/it]| Round: 186 |
+| Val_Loss/Val_Acc: 1.608 / 0.535 |
+| Val_Per_Class_Acc: tensor([0.3510, 0.9520, 0.9760, 0.7520, 0.0040, 0.8100, 0.0000, 0.8020, 0.2860,
+        0.4160]) |
+| Poison Loss/Poison Acc: 5.484 / 0.003 |
+ 62%|######2   | 186/300 [1:54:45<1:09:52, 36.78s/it]| Round: 187 |
+| Val_Loss/Val_Acc: 1.574 / 0.503 |
+| Val_Per_Class_Acc: tensor([0.0540, 0.9340, 0.0000, 0.7050, 0.9170, 0.7510, 0.0000, 0.3750, 0.6980,
+        0.5980]) |
+| Poison Loss/Poison Acc: 5.716 / 0.003 |
+ 62%|######2   | 187/300 [1:55:21<1:09:07, 36.70s/it]| Round: 188 |
+| Val_Loss/Val_Acc: 1.917 / 0.443 |
+| Val_Per_Class_Acc: tensor([0.0090, 0.9100, 0.3040, 0.6550, 0.0000, 0.6760, 0.6130, 0.9020, 0.0040,
+        0.3610]) |
+| Poison Loss/Poison Acc: 6.648 / 0.001 |
+ 63%|######2   | 188/300 [1:55:58<1:08:25, 36.66s/it]| Round: 189 |
+| Val_Loss/Val_Acc: 1.630 / 0.483 |
+| Val_Per_Class_Acc: tensor([0.8690, 0.8760, 0.0000, 0.7390, 0.2960, 0.5910, 0.0000, 0.5730, 0.4010,
+        0.4810]) |
+| Poison Loss/Poison Acc: 5.685 / 0.000 |
+ 63%|######3   | 189/300 [1:56:35<1:07:58, 36.74s/it]| Round: 190 |
+| Val_Loss/Val_Acc: 1.431 / 0.517 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.9340, 0.9360, 0.7790, 0.0010, 0.6200, 0.2320, 0.8220, 0.4160,
+        0.4310]) |
+| Poison Loss/Poison Acc: 5.224 / 0.002 |
+ 63%|######3   | 190/300 [1:57:12<1:07:22, 36.75s/it]| Round: 191 |
+| Val_Loss/Val_Acc: 1.376 / 0.486 |
+| Val_Per_Class_Acc: tensor([0.0960, 0.8990, 0.0000, 0.7330, 0.9560, 0.6390, 0.0000, 0.6970, 0.3930,
+        0.4470]) |
+| Poison Loss/Poison Acc: 5.882 / 0.001 |
+ 64%|######3   | 191/300 [1:57:49<1:06:55, 36.84s/it]| Round: 192 |
+| Val_Loss/Val_Acc: 1.746 / 0.464 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.9130, 0.2620, 0.7350, 0.0000, 0.6520, 0.7430, 0.6330, 0.3050,
+        0.3970]) |
+| Poison Loss/Poison Acc: 6.292 / 0.000 |
+ 64%|######4   | 192/300 [1:58:25<1:06:10, 36.76s/it]| Round: 193 |
+| Val_Loss/Val_Acc: 1.563 / 0.509 |
+| Val_Per_Class_Acc: tensor([0.9110, 0.9230, 0.0000, 0.7720, 0.1000, 0.5890, 0.0000, 0.4900, 0.5550,
+        0.7500]) |
+| Poison Loss/Poison Acc: 5.200 / 0.001 |
+ 64%|######4   | 193/300 [1:59:03<1:05:54, 36.96s/it]| Round: 194 |
+| Val_Loss/Val_Acc: 1.677 / 0.454 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.8920, 0.1250, 0.7390, 0.0980, 0.6340, 0.8800, 0.5160, 0.0780,
+        0.5740]) |
+| Poison Loss/Poison Acc: 6.696 / 0.000 |
+ 65%|######4   | 194/300 [1:59:39<1:05:12, 36.91s/it]| Round: 195 |
+| Val_Loss/Val_Acc: 1.606 / 0.542 |
+| Val_Per_Class_Acc: tensor([0.7840, 0.9040, 0.0000, 0.7610, 0.7870, 0.6440, 0.0000, 0.3290, 0.5570,
+        0.6530]) |
+| Poison Loss/Poison Acc: 5.828 / 0.000 |
+ 65%|######5   | 195/300 [2:00:17<1:04:46, 37.02s/it]| Round: 196 |
+| Val_Loss/Val_Acc: 1.612 / 0.472 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.9350, 0.9150, 0.7810, 0.0000, 0.7760, 0.3910, 0.2210, 0.1410,
+        0.5650]) |
+| Poison Loss/Poison Acc: 5.122 / 0.003 |
+ 65%|######5   | 196/300 [2:00:53<1:03:45, 36.78s/it]| Round: 197 |
+| Val_Loss/Val_Acc: 1.836 / 0.516 |
+| Val_Per_Class_Acc: tensor([0.7110, 0.9090, 0.0000, 0.6320, 0.9140, 0.6040, 0.0000, 0.3800, 0.3820,
+        0.6290]) |
+| Poison Loss/Poison Acc: 5.817 / 0.001 |
+ 66%|######5   | 197/300 [2:01:30<1:03:03, 36.73s/it]| Round: 198 |
+| Val_Loss/Val_Acc: 2.165 / 0.465 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.9210, 0.3430, 0.7550, 0.0000, 0.8310, 0.7600, 0.0320, 0.2590,
+        0.7450]) |
+| Poison Loss/Poison Acc: 5.987 / 0.001 |
+ 66%|######6   | 198/300 [2:02:06<1:02:27, 36.74s/it]| Round: 199 |
+| Val_Loss/Val_Acc: 1.876 / 0.541 |
+| Val_Per_Class_Acc: tensor([0.9360, 0.9600, 0.0000, 0.5130, 0.8000, 0.5800, 0.0000, 0.5970, 0.5460,
+        0.4830]) |
+| Poison Loss/Poison Acc: 3.969 / 0.005 |
+ 66%|######6   | 199/300 [2:02:43<1:01:55, 36.79s/it]| Round: 200 |
+| Val_Loss/Val_Acc: 1.999 / 0.438 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.8700, 0.9920, 0.8270, 0.0000, 0.9060, 0.0000, 0.0390, 0.1580,
+        0.5890]) |
+| Poison Loss/Poison Acc: 5.300 / 0.000 |
+ 67%|######6   | 200/300 [2:03:21<1:01:34, 36.95s/it]| Round: 201 |
+| Val_Loss/Val_Acc: 2.493 / 0.433 |
+| Val_Per_Class_Acc: tensor([0.3760, 0.9580, 0.0000, 0.0020, 0.9210, 0.7190, 0.2460, 0.1210, 0.2770,
+        0.7080]) |
+| Poison Loss/Poison Acc: 4.448 / 0.016 |
+ 67%|######7   | 201/300 [2:03:57<1:00:55, 36.93s/it]| Round: 202 |
+| Val_Loss/Val_Acc: 2.410 / 0.470 |
+| Val_Per_Class_Acc: tensor([0.8780, 0.9560, 0.0000, 0.2980, 0.0000, 0.8870, 0.2220, 0.0480, 0.6850,
+        0.7270]) |
+| Poison Loss/Poison Acc: 5.144 / 0.011 |
+ 67%|######7   | 202/300 [2:04:34<1:00:20, 36.95s/it]| Round: 203 |
+| Val_Loss/Val_Acc: 2.744 / 0.412 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.9120, 0.0000, 0.2990, 0.9810, 0.9080, 0.0740, 0.0340, 0.1630,
+        0.7510]) |
+| Poison Loss/Poison Acc: 4.782 / 0.000 |
+ 68%|######7   | 203/300 [2:05:10<59:15, 36.65s/it]  | Round: 204 |
+| Val_Loss/Val_Acc: 1.830 / 0.499 |
+| Val_Per_Class_Acc: tensor([0.8690, 0.9500, 0.0020, 0.4960, 0.0000, 0.1970, 0.5800, 0.9970, 0.5400,
+        0.3590]) |
+| Poison Loss/Poison Acc: 4.164 / 0.012 |
+ 68%|######8   | 204/300 [2:05:47<58:35, 36.62s/it]| Round: 205 |
+| Val_Loss/Val_Acc: 4.454 / 0.436 |
+| Val_Per_Class_Acc: tensor([0.0130, 0.9550, 0.0000, 0.5250, 0.0000, 0.7000, 0.0010, 0.2980, 0.9640,
+        0.9050]) |
+| Poison Loss/Poison Acc: 3.801 / 0.049 |
+ 68%|######8   | 205/300 [2:06:25<58:38, 37.04s/it]| Round: 206 |
+| Val_Loss/Val_Acc: 1.678 / 0.427 |
+| Val_Per_Class_Acc: tensor([0.6510, 0.8870, 0.0220, 0.4050, 0.0010, 0.7700, 0.7880, 0.7450, 0.0000,
+        0.0000]) |
+| Poison Loss/Poison Acc: 3.672 / 0.001 |
+ 69%|######8   | 206/300 [2:07:05<59:39, 38.08s/it]| Round: 207 |
+| Val_Loss/Val_Acc: 1.344 / 0.507 |
+| Val_Per_Class_Acc: tensor([0.0030, 0.9120, 0.9070, 0.8660, 0.1560, 0.7840, 0.0000, 0.6150, 0.1990,
+        0.6290]) |
+| Poison Loss/Poison Acc: 3.464 / 0.002 |
+ 69%|######9   | 207/300 [2:07:43<58:44, 37.90s/it]| Round: 208 |
+| Val_Loss/Val_Acc: 1.985 / 0.416 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.8860, 0.0000, 0.4250, 0.0000, 0.6430, 0.9880, 0.8270, 0.1720,
+        0.2190]) |
+| Poison Loss/Poison Acc: 5.242 / 0.003 |
+ 69%|######9   | 208/300 [2:08:20<57:34, 37.55s/it]| Round: 209 |
+| Val_Loss/Val_Acc: 1.943 / 0.623 |
+| Val_Per_Class_Acc: tensor([0.7550, 0.8770, 0.3110, 0.6650, 0.7600, 0.7270, 0.0000, 0.6190, 0.6340,
+        0.8790]) |
+| Poison Loss/Poison Acc: 4.398 / 0.004 |
+ 70%|######9   | 209/300 [2:08:56<56:17, 37.12s/it]| Round: 210 |
+| Val_Loss/Val_Acc: 2.038 / 0.532 |
+| Val_Per_Class_Acc: tensor([0.5920, 0.9240, 0.2260, 0.8590, 0.0000, 0.6260, 0.0000, 0.9470, 0.9460,
+        0.2050]) |
+| Poison Loss/Poison Acc: 4.071 / 0.002 |
+ 70%|#######   | 210/300 [2:09:33<55:38, 37.09s/it]| Round: 211 |
+| Val_Loss/Val_Acc: 1.834 / 0.417 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.8540, 0.0000, 0.6440, 0.9860, 0.8530, 0.0050, 0.0380, 0.0030,
+        0.7920]) |
+| Poison Loss/Poison Acc: 5.829 / 0.002 |
+ 70%|#######   | 211/300 [2:10:09<54:33, 36.78s/it]| Round: 212 |
+| Val_Loss/Val_Acc: 1.645 / 0.475 |
+| Val_Per_Class_Acc: tensor([0.9030, 0.9110, 0.3500, 0.7290, 0.0000, 0.3730, 0.0000, 0.9910, 0.3800,
+        0.1160]) |
+| Poison Loss/Poison Acc: 5.366 / 0.001 |
+ 71%|#######   | 212/300 [2:10:45<53:46, 36.67s/it]| Round: 213 |
+| Val_Loss/Val_Acc: 1.606 / 0.476 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.9220, 0.0000, 0.7040, 0.0000, 0.8680, 0.9640, 0.0540, 0.5870,
+        0.6650]) |
+| Poison Loss/Poison Acc: 4.867 / 0.000 |
+ 71%|#######1  | 213/300 [2:11:22<53:07, 36.64s/it]| Round: 214 |
+| Val_Loss/Val_Acc: 1.894 / 0.516 |
+| Val_Per_Class_Acc: tensor([0.8890, 0.9270, 0.6300, 0.6950, 0.0600, 0.2620, 0.0000, 0.9930, 0.3010,
+        0.4010]) |
+| Poison Loss/Poison Acc: 5.671 / 0.000 |
+ 71%|#######1  | 214/300 [2:11:58<52:26, 36.59s/it]| Round: 215 |
+| Val_Loss/Val_Acc: 1.478 / 0.529 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.9460, 0.0000, 0.7620, 0.9430, 0.8620, 0.0090, 0.1250, 0.7790,
+        0.8600]) |
+| Poison Loss/Poison Acc: 3.780 / 0.002 |
+ 72%|#######1  | 215/300 [2:12:35<51:49, 36.58s/it]| Round: 216 |
+| Val_Loss/Val_Acc: 1.234 / 0.545 |
+| Val_Per_Class_Acc: tensor([0.5390, 0.9490, 0.9750, 0.8090, 0.0010, 0.5820, 0.0020, 0.9310, 0.1260,
+        0.5400]) |
+| Poison Loss/Poison Acc: 4.416 / 0.000 |
+ 72%|#######2  | 216/300 [2:13:11<51:03, 36.47s/it]| Round: 217 |
+| Val_Loss/Val_Acc: 1.398 / 0.515 |
+| Val_Per_Class_Acc: tensor([0.0010, 0.9360, 0.0000, 0.6050, 0.8370, 0.7660, 0.3640, 0.3960, 0.6560,
+        0.5900]) |
+| Poison Loss/Poison Acc: 4.736 / 0.000 |
+ 72%|#######2  | 217/300 [2:13:48<50:35, 36.58s/it]| Round: 218 |
+| Val_Loss/Val_Acc: 1.525 / 0.580 |
+| Val_Per_Class_Acc: tensor([0.7860, 0.9380, 0.8590, 0.8950, 0.0000, 0.6530, 0.0000, 0.8690, 0.4190,
+        0.3800]) |
+| Poison Loss/Poison Acc: 4.170 / 0.000 |
+ 73%|#######2  | 218/300 [2:14:24<49:54, 36.52s/it]| Round: 219 |
+| Val_Loss/Val_Acc: 1.841 / 0.473 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.9550, 0.0000, 0.0400, 0.7390, 0.6120, 0.5620, 0.8760, 0.4370,
+        0.5070]) |
+| Poison Loss/Poison Acc: 4.751 / 0.004 |
+ 73%|#######3  | 219/300 [2:15:02<49:34, 36.73s/it]| Round: 220 |
+| Val_Loss/Val_Acc: 1.831 / 0.571 |
+| Val_Per_Class_Acc: tensor([0.6880, 0.9090, 0.9630, 0.8340, 0.0000, 0.7070, 0.0000, 0.8190, 0.4620,
+        0.3250]) |
+| Poison Loss/Poison Acc: 5.995 / 0.000 |
+ 73%|#######3  | 220/300 [2:15:38<48:43, 36.55s/it]| Round: 221 |
+| Val_Loss/Val_Acc: 2.029 / 0.452 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.9580, 0.0000, 0.0120, 0.9670, 0.5160, 0.0820, 0.7940, 0.4070,
+        0.7820]) |
+| Poison Loss/Poison Acc: 4.944 / 0.002 |
+ 74%|#######3  | 221/300 [2:16:14<48:10, 36.59s/it]| Round: 222 |
+| Val_Loss/Val_Acc: 1.606 / 0.515 |
+| Val_Per_Class_Acc: tensor([0.8780, 0.9260, 0.1250, 0.8640, 0.0000, 0.7480, 0.0130, 0.6360, 0.5060,
+        0.4550]) |
+| Poison Loss/Poison Acc: 5.516 / 0.000 |
+ 74%|#######4  | 222/300 [2:16:51<47:25, 36.47s/it]| Round: 223 |
+| Val_Loss/Val_Acc: 1.680 / 0.448 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.9320, 0.0350, 0.0180, 0.5280, 0.7320, 0.5680, 0.4120, 0.4650,
+        0.7910]) |
+| Poison Loss/Poison Acc: 4.571 / 0.004 |
+ 74%|#######4  | 223/300 [2:17:27<46:44, 36.43s/it]| Round: 224 |
+| Val_Loss/Val_Acc: 1.545 / 0.510 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.9300, 0.9860, 0.5840, 0.0000, 0.5230, 0.0000, 0.7500, 0.4990,
+        0.8260]) |
+| Poison Loss/Poison Acc: 5.325 / 0.000 |
+ 75%|#######4  | 224/300 [2:18:03<46:09, 36.43s/it]| Round: 225 |
+| Val_Loss/Val_Acc: 1.647 / 0.527 |
+| Val_Per_Class_Acc: tensor([0.8150, 0.9570, 0.0000, 0.0240, 0.5190, 0.8980, 0.3990, 0.2020, 0.6070,
+        0.8450]) |
+| Poison Loss/Poison Acc: 4.972 / 0.006 |
+ 75%|#######5  | 225/300 [2:18:40<45:41, 36.55s/it]| Round: 226 |
+| Val_Loss/Val_Acc: 1.665 / 0.543 |
+| Val_Per_Class_Acc: tensor([0.8830, 0.9480, 0.0000, 0.5640, 0.2920, 0.3770, 0.0070, 0.9820, 0.9420,
+        0.4390]) |
+| Poison Loss/Poison Acc: 5.854 / 0.001 |
+ 75%|#######5  | 226/300 [2:19:17<45:15, 36.70s/it]| Round: 227 |
+| Val_Loss/Val_Acc: 1.383 / 0.446 |
+| Val_Per_Class_Acc: tensor([0.0010, 0.9430, 0.4780, 0.5150, 0.0000, 0.9350, 0.5500, 0.0010, 0.1420,
+        0.8920]) |
+| Poison Loss/Poison Acc: 7.000 / 0.001 |
+ 76%|#######5  | 227/300 [2:19:54<44:50, 36.86s/it]| Round: 228 |
+| Val_Loss/Val_Acc: 2.220 / 0.509 |
+| Val_Per_Class_Acc: tensor([0.9380, 0.9420, 0.0000, 0.0170, 0.9170, 0.2860, 0.0000, 0.9970, 0.7490,
+        0.2480]) |
+| Poison Loss/Poison Acc: 5.699 / 0.000 |
+ 76%|#######6  | 228/300 [2:20:32<44:18, 36.93s/it]| Round: 229 |
+| Val_Loss/Val_Acc: 1.422 / 0.464 |
+| Val_Per_Class_Acc: tensor([0.0100, 0.9190, 0.0000, 0.3310, 0.0000, 0.6010, 0.9270, 0.0280, 0.8580,
+        0.9670]) |
+| Poison Loss/Poison Acc: 7.143 / 0.000 |
+ 76%|#######6  | 229/300 [2:21:07<43:19, 36.61s/it]| Round: 230 |
+| Val_Loss/Val_Acc: 1.742 / 0.467 |
+| Val_Per_Class_Acc: tensor([0.8010, 0.9000, 0.0320, 0.1690, 0.8740, 0.2430, 0.0000, 0.9930, 0.2810,
+        0.3780]) |
+| Poison Loss/Poison Acc: 8.597 / 0.000 |
+ 77%|#######6  | 230/300 [2:21:44<42:45, 36.65s/it]| Round: 231 |
+| Val_Loss/Val_Acc: 1.522 / 0.508 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.9370, 0.0000, 0.7580, 0.0000, 0.9250, 0.9250, 0.0000, 0.7680,
+        0.7690]) |
+| Poison Loss/Poison Acc: 4.922 / 0.000 |
+ 77%|#######7  | 231/300 [2:22:20<42:00, 36.53s/it]| Round: 232 |
+| Val_Loss/Val_Acc: 1.218 / 0.568 |
+| Val_Per_Class_Acc: tensor([0.8650, 0.9500, 0.9540, 0.3150, 0.0020, 0.1800, 0.0000, 0.9810, 0.7210,
+        0.7120]) |
+| Poison Loss/Poison Acc: 5.726 / 0.001 |
+ 77%|#######7  | 232/300 [2:22:57<41:25, 36.55s/it]| Round: 233 |
+| Val_Loss/Val_Acc: 1.308 / 0.471 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.9360, 0.0000, 0.3130, 0.0130, 0.8870, 0.9820, 0.0160, 0.6270,
+        0.9390]) |
+| Poison Loss/Poison Acc: 6.012 / 0.000 |
+ 78%|#######7  | 233/300 [2:23:35<41:09, 36.85s/it]| Round: 234 |
+| Val_Loss/Val_Acc: 1.317 / 0.601 |
+| Val_Per_Class_Acc: tensor([0.7960, 0.9460, 0.9610, 0.4200, 0.0210, 0.2690, 0.0000, 0.9080, 0.7790,
+        0.9120]) |
+| Poison Loss/Poison Acc: 6.429 / 0.000 |
+ 78%|#######8  | 234/300 [2:24:12<40:44, 37.04s/it]| Round: 235 |
+| Val_Loss/Val_Acc: 1.162 / 0.547 |
+| Val_Per_Class_Acc: tensor([0.5900, 0.9430, 0.0000, 0.1700, 0.9360, 0.7760, 0.0510, 0.1540, 0.9040,
+        0.9440]) |
+| Poison Loss/Poison Acc: 5.856 / 0.000 |
+ 78%|#######8  | 235/300 [2:24:49<40:09, 37.07s/it]| Round: 236 |
+| Val_Loss/Val_Acc: 1.407 / 0.475 |
+| Val_Per_Class_Acc: tensor([0.2350, 0.9480, 0.9710, 0.1580, 0.0000, 0.1600, 0.1000, 0.9090, 0.3640,
+        0.9090]) |
+| Poison Loss/Poison Acc: 7.101 / 0.000 |
+ 79%|#######8  | 236/300 [2:25:25<39:17, 36.84s/it]| Round: 237 |
+| Val_Loss/Val_Acc: 1.611 / 0.520 |
+| Val_Per_Class_Acc: tensor([0.6640, 0.9050, 0.0000, 0.1220, 0.9810, 0.9010, 0.0000, 0.0000, 0.6940,
+        0.9360]) |
+| Poison Loss/Poison Acc: 7.034 / 0.000 |
+ 79%|#######9  | 237/300 [2:26:02<38:36, 36.77s/it]| Round: 238 |
+| Val_Loss/Val_Acc: 1.826 / 0.437 |
+| Val_Per_Class_Acc: tensor([0.0010, 0.8650, 0.0000, 0.0670, 0.0000, 0.0120, 0.9850, 0.9750, 0.6850,
+        0.7800]) |
+| Poison Loss/Poison Acc: 8.757 / 0.000 |
+ 79%|#######9  | 238/300 [2:26:38<37:41, 36.47s/it]| Round: 239 |
+| Val_Loss/Val_Acc: 1.970 / 0.461 |
+| Val_Per_Class_Acc: tensor([0.7660, 0.9390, 0.6860, 0.1750, 0.2160, 0.9560, 0.0000, 0.0000, 0.0260,
+        0.8490]) |
+| Poison Loss/Poison Acc: 6.706 / 0.000 |
+ 80%|#######9  | 239/300 [2:27:15<37:25, 36.81s/it]| Round: 240 |
+| Val_Loss/Val_Acc: 1.232 / 0.550 |
+| Val_Per_Class_Acc: tensor([0.6940, 0.9400, 0.1890, 0.9070, 0.0280, 0.0160, 0.0000, 0.9730, 0.9460,
+        0.8070]) |
+| Poison Loss/Poison Acc: 5.664 / 0.000 |
+ 80%|########  | 240/300 [2:27:52<36:47, 36.79s/it]| Round: 241 |
+| Val_Loss/Val_Acc: 1.326 / 0.446 |
+| Val_Per_Class_Acc: tensor([0.0140, 0.9280, 0.0000, 0.1490, 0.5610, 0.8450, 0.7320, 0.0000, 0.3040,
+        0.9220]) |
+| Poison Loss/Poison Acc: 6.121 / 0.000 |
+ 80%|########  | 241/300 [2:28:29<36:09, 36.77s/it]| Round: 242 |
+| Val_Loss/Val_Acc: 1.325 / 0.551 |
+| Val_Per_Class_Acc: tensor([0.8030, 0.9320, 0.9120, 0.6040, 0.0000, 0.0570, 0.0000, 0.9990, 0.7790,
+        0.4240]) |
+| Poison Loss/Poison Acc: 6.439 / 0.000 |
+ 81%|########  | 242/300 [2:29:05<35:27, 36.69s/it]| Round: 243 |
+| Val_Loss/Val_Acc: 1.527 / 0.475 |
+| Val_Per_Class_Acc: tensor([0.0040, 0.9310, 0.0000, 0.0750, 0.3910, 0.7020, 0.8030, 0.0000, 0.8620,
+        0.9870]) |
+| Poison Loss/Poison Acc: 6.461 / 0.001 |
+ 81%|########1 | 243/300 [2:29:43<35:08, 37.00s/it]| Round: 244 |
+| Val_Loss/Val_Acc: 1.510 / 0.458 |
+| Val_Per_Class_Acc: tensor([0.4940, 0.9470, 0.9850, 0.4770, 0.0000, 0.0760, 0.0000, 1.0000, 0.3380,
+        0.2590]) |
+| Poison Loss/Poison Acc: 6.542 / 0.000 |
+ 81%|########1 | 244/300 [2:30:21<34:38, 37.12s/it]| Round: 245 |
+| Val_Loss/Val_Acc: 1.655 / 0.477 |
+| Val_Per_Class_Acc: tensor([0.0030, 0.9440, 0.0000, 0.4650, 0.0580, 0.6780, 0.7480, 0.0000, 0.8840,
+        0.9940]) |
+| Poison Loss/Poison Acc: 5.759 / 0.000 |
+ 82%|########1 | 245/300 [2:30:57<33:49, 36.91s/it]| Round: 246 |
+| Val_Loss/Val_Acc: 1.356 / 0.438 |
+| Val_Per_Class_Acc: tensor([0.6500, 0.9510, 0.0020, 0.1580, 0.9800, 0.1330, 0.0010, 0.9980, 0.0720,
+        0.4360]) |
+| Poison Loss/Poison Acc: 6.123 / 0.000 |
+ 82%|########2 | 246/300 [2:31:34<33:13, 36.91s/it]| Round: 247 |
+| Val_Loss/Val_Acc: 2.360 / 0.445 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.9570, 0.0010, 0.1590, 0.0000, 0.9180, 0.9700, 0.0000, 0.5880,
+        0.8580]) |
+| Poison Loss/Poison Acc: 5.768 / 0.003 |
+ 82%|########2 | 247/300 [2:32:11<32:37, 36.93s/it]| Round: 248 |
+| Val_Loss/Val_Acc: 2.322 / 0.505 |
+| Val_Per_Class_Acc: tensor([0.8330, 0.8820, 0.9390, 0.5680, 0.0030, 0.0320, 0.0000, 0.9550, 0.1030,
+        0.7330]) |
+| Poison Loss/Poison Acc: 9.554 / 0.000 |
+ 83%|########2 | 248/300 [2:32:48<31:59, 36.91s/it]| Round: 249 |
+| Val_Loss/Val_Acc: 2.215 / 0.417 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.9420, 0.0000, 0.0440, 0.8570, 0.8960, 0.0040, 0.0150, 0.7960,
+        0.6130]) |
+| Poison Loss/Poison Acc: 4.530 / 0.006 |
+ 83%|########2 | 249/300 [2:33:24<31:18, 36.83s/it]| Round: 250 |
+| Val_Loss/Val_Acc: 2.066 / 0.416 |
+| Val_Per_Class_Acc: tensor([0.0040, 0.8990, 0.1990, 0.3780, 0.0000, 0.0390, 0.9320, 0.9730, 0.1130,
+        0.6220]) |
+| Poison Loss/Poison Acc: 7.099 / 0.000 |
+ 83%|########3 | 250/300 [2:34:01<30:41, 36.83s/it]| Round: 251 |
+| Val_Loss/Val_Acc: 2.181 / 0.394 |
+| Val_Per_Class_Acc: tensor([0.1840, 0.8460, 0.0000, 0.3150, 0.9580, 0.9760, 0.0000, 0.0000, 0.4850,
+        0.1750]) |
+| Poison Loss/Poison Acc: 5.148 / 0.002 |
+ 84%|########3 | 251/300 [2:34:38<29:58, 36.70s/it]| Round: 252 |
+| Val_Loss/Val_Acc: 2.563 / 0.503 |
+| Val_Per_Class_Acc: tensor([0.8830, 0.9020, 0.0000, 0.5840, 0.0000, 0.2460, 0.0000, 0.8810, 0.7220,
+        0.8120]) |
+| Poison Loss/Poison Acc: 6.232 / 0.001 |
+ 84%|########4 | 252/300 [2:35:17<29:54, 37.39s/it]| Round: 253 |
+| Val_Loss/Val_Acc: 2.150 / 0.361 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.8240, 0.7050, 0.3100, 0.5460, 0.9310, 0.0010, 0.0710, 0.0000,
+        0.2260]) |
+| Poison Loss/Poison Acc: 6.247 / 0.001 |
+ 84%|########4 | 253/300 [2:35:54<29:11, 37.26s/it]| Round: 254 |
+| Val_Loss/Val_Acc: 1.351 / 0.456 |
+| Val_Per_Class_Acc: tensor([0.7360, 0.8220, 0.0030, 0.8550, 0.0000, 0.5130, 0.6200, 0.5740, 0.0310,
+        0.4090]) |
+| Poison Loss/Poison Acc: 4.609 / 0.001 |
+ 85%|########4 | 254/300 [2:36:30<28:26, 37.09s/it]| Round: 255 |
+| Val_Loss/Val_Acc: 1.412 / 0.443 |
+| Val_Per_Class_Acc: tensor([0.5620, 0.7880, 0.5180, 0.2020, 0.6500, 0.7250, 0.0040, 0.0190, 0.4380,
+        0.5220]) |
+| Poison Loss/Poison Acc: 5.163 / 0.001 |
+ 85%|########5 | 255/300 [2:37:08<27:59, 37.31s/it]| Round: 256 |
+| Val_Loss/Val_Acc: 1.456 / 0.377 |
+| Val_Per_Class_Acc: tensor([0.8470, 0.6500, 0.0070, 0.5680, 0.0000, 0.7120, 0.3330, 0.0560, 0.0090,
+        0.5890]) |
+| Poison Loss/Poison Acc: 6.417 / 0.000 |
+ 85%|########5 | 256/300 [2:37:45<27:15, 37.18s/it]| Round: 257 |
+| Val_Loss/Val_Acc: 1.789 / 0.402 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.7730, 0.0050, 0.1570, 0.9830, 0.4430, 0.0000, 0.7130, 0.1020,
+        0.8420]) |
+| Poison Loss/Poison Acc: 5.776 / 0.001 |
+ 86%|########5 | 257/300 [2:38:21<26:27, 36.93s/it]| Round: 258 |
+| Val_Loss/Val_Acc: 2.134 / 0.361 |
+| Val_Per_Class_Acc: tensor([0.4410, 0.4410, 0.0000, 0.1770, 0.0000, 0.8910, 0.8300, 0.0150, 0.1750,
+        0.6440]) |
+| Poison Loss/Poison Acc: 8.040 / 0.000 |
+ 86%|########6 | 258/300 [2:38:59<26:03, 37.23s/it]| Round: 259 |
+| Val_Loss/Val_Acc: 1.787 / 0.439 |
+| Val_Per_Class_Acc: tensor([0.0140, 0.3100, 0.8390, 0.5430, 0.0000, 0.1580, 0.0000, 0.7930, 0.8810,
+        0.8480]) |
+| Poison Loss/Poison Acc: 5.966 / 0.000 |
+ 86%|########6 | 259/300 [2:39:37<25:39, 37.55s/it]| Round: 260 |
+| Val_Loss/Val_Acc: 1.765 / 0.375 |
+| Val_Per_Class_Acc: tensor([0.6250, 0.7600, 0.0000, 0.1110, 0.3410, 0.9100, 0.5880, 0.0890, 0.0000,
+        0.3280]) |
+| Poison Loss/Poison Acc: 5.427 / 0.001 |
+ 87%|########6 | 260/300 [2:40:14<24:54, 37.36s/it]| Round: 261 |
+| Val_Loss/Val_Acc: 1.401 / 0.474 |
+| Val_Per_Class_Acc: tensor([0.7290, 0.1340, 0.9610, 0.6300, 0.0000, 0.3280, 0.0010, 0.8570, 0.5810,
+        0.5230]) |
+| Poison Loss/Poison Acc: 6.251 / 0.000 |
+ 87%|########7 | 261/300 [2:40:51<24:13, 37.26s/it]| Round: 262 |
+| Val_Loss/Val_Acc: 1.756 / 0.333 |
+| Val_Per_Class_Acc: tensor([0.0010, 0.5200, 0.0000, 0.0990, 0.0420, 0.8770, 0.9690, 0.0890, 0.3600,
+        0.3720]) |
+| Poison Loss/Poison Acc: 6.736 / 0.001 |
+ 87%|########7 | 262/300 [2:41:29<23:35, 37.26s/it]| Round: 263 |
+| Val_Loss/Val_Acc: 2.381 / 0.387 |
+| Val_Per_Class_Acc: tensor([0.7490, 0.0510, 0.9740, 0.1370, 0.0000, 0.1660, 0.0000, 0.9960, 0.5350,
+        0.2660]) |
+| Poison Loss/Poison Acc: 8.036 / 0.000 |
+ 88%|########7 | 263/300 [2:42:05<22:53, 37.13s/it]| Round: 264 |
+| Val_Loss/Val_Acc: 2.022 / 0.411 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.7060, 0.0000, 0.1220, 0.9700, 0.9450, 0.0190, 0.0000, 0.6570,
+        0.6920]) |
+| Poison Loss/Poison Acc: 5.057 / 0.001 |
+ 88%|########8 | 264/300 [2:42:42<22:12, 37.01s/it]| Round: 265 |
+| Val_Loss/Val_Acc: 1.981 / 0.410 |
+| Val_Per_Class_Acc: tensor([0.9200, 0.6320, 0.0000, 0.4690, 0.0000, 0.0380, 0.1030, 0.9900, 0.4630,
+        0.4900]) |
+| Poison Loss/Poison Acc: 7.670 / 0.000 |
+ 88%|########8 | 265/300 [2:43:20<21:39, 37.14s/it]| Round: 266 |
+| Val_Loss/Val_Acc: 2.008 / 0.417 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.6100, 0.0740, 0.1930, 0.8860, 0.8690, 0.0000, 0.0000, 0.5570,
+        0.9770]) |
+| Poison Loss/Poison Acc: 6.385 / 0.000 |
+ 89%|########8 | 266/300 [2:43:56<20:58, 37.01s/it]| Round: 267 |
+| Val_Loss/Val_Acc: 1.968 / 0.360 |
+| Val_Per_Class_Acc: tensor([0.0030, 0.5650, 0.0000, 0.1030, 0.0000, 0.1080, 0.9920, 0.9960, 0.3440,
+        0.4900]) |
+| Poison Loss/Poison Acc: 5.821 / 0.000 |
+ 89%|########9 | 267/300 [2:44:33<20:12, 36.75s/it]| Round: 268 |
+| Val_Loss/Val_Acc: 2.694 / 0.513 |
+| Val_Per_Class_Acc: tensor([0.9320, 0.4830, 0.5980, 0.5780, 0.0000, 0.6170, 0.0000, 0.0050, 0.9270,
+        0.9950]) |
+| Poison Loss/Poison Acc: 8.254 / 0.001 |
+ 89%|########9 | 268/300 [2:45:09<19:35, 36.74s/it]| Round: 269 |
+| Val_Loss/Val_Acc: 2.126 / 0.274 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.0190, 0.0000, 0.3210, 0.9850, 0.4700, 0.0020, 0.9410, 0.0000,
+        0.0000]) |
+| Poison Loss/Poison Acc: 5.980 / 0.000 |
+ 90%|########9 | 269/300 [2:45:47<19:05, 36.96s/it]| Round: 270 |
+| Val_Loss/Val_Acc: 1.745 / 0.297 |
+| Val_Per_Class_Acc: tensor([0.0030, 0.1760, 0.0000, 0.1520, 0.0000, 0.7920, 0.9880, 0.0120, 0.4370,
+        0.4090]) |
+| Poison Loss/Poison Acc: 6.413 / 0.000 |
+ 90%|######### | 270/300 [2:46:24<18:27, 36.92s/it]| Round: 271 |
+| Val_Loss/Val_Acc: 1.470 / 0.372 |
+| Val_Per_Class_Acc: tensor([0.0570, 0.0300, 0.9350, 0.7440, 0.0000, 0.5390, 0.0000, 0.8610, 0.5330,
+        0.0230]) |
+| Poison Loss/Poison Acc: 6.399 / 0.000 |
+ 90%|######### | 271/300 [2:47:00<17:46, 36.78s/it]| Round: 272 |
+| Val_Loss/Val_Acc: 1.696 / 0.299 |
+| Val_Per_Class_Acc: tensor([0.0040, 0.2080, 0.0000, 0.2680, 0.0000, 0.8750, 0.9900, 0.2990, 0.3160,
+        0.0280]) |
+| Poison Loss/Poison Acc: 7.481 / 0.002 |
+ 91%|######### | 272/300 [2:47:37<17:13, 36.92s/it]| Round: 273 |
+| Val_Loss/Val_Acc: 2.572 / 0.255 |
+| Val_Per_Class_Acc: tensor([0.0430, 0.0050, 0.9710, 0.2370, 0.0010, 0.7510, 0.0000, 0.4860, 0.0580,
+        0.0020]) |
+| Poison Loss/Poison Acc: 11.036 / 0.000 |
+ 91%|#########1| 273/300 [2:48:15<16:39, 37.02s/it]| Round: 274 |
+| Val_Loss/Val_Acc: 1.882 / 0.403 |
+| Val_Per_Class_Acc: tensor([0.0020, 0.9400, 0.0000, 0.5550, 0.2570, 0.2070, 0.0610, 0.0930, 0.9630,
+        0.9530]) |
+| Poison Loss/Poison Acc: 5.519 / 0.001 |
+ 91%|#########1| 274/300 [2:48:51<15:59, 36.92s/it]| Round: 275 |
+| Val_Loss/Val_Acc: 1.975 / 0.332 |
+| Val_Per_Class_Acc: tensor([0.9790, 0.3920, 0.0000, 0.5410, 0.0000, 0.6270, 0.0010, 0.7770, 0.0000,
+        0.0020]) |
+| Poison Loss/Poison Acc: 8.274 / 0.000 |
+ 92%|#########1| 275/300 [2:49:28<15:19, 36.79s/it]| Round: 276 |
+| Val_Loss/Val_Acc: 2.882 / 0.380 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.5340, 0.7710, 0.4650, 0.3550, 0.1810, 0.0070, 0.0040, 0.4980,
+        0.9800]) |
+| Poison Loss/Poison Acc: 9.694 / 0.000 |
+ 92%|#########2| 276/300 [2:50:05<14:48, 37.01s/it]| Round: 277 |
+| Val_Loss/Val_Acc: 2.473 / 0.360 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.5450, 0.0000, 0.4420, 0.0000, 0.6340, 0.9900, 0.8990, 0.0940,
+        0.0000]) |
+| Poison Loss/Poison Acc: 5.946 / 0.000 |
+ 92%|#########2| 277/300 [2:50:44<14:27, 37.70s/it]| Round: 278 |
+| Val_Loss/Val_Acc: 1.929 / 0.372 |
+| Val_Per_Class_Acc: tensor([0.0070, 0.0080, 0.0040, 0.3280, 0.9620, 0.7320, 0.0000, 0.0000, 0.7920,
+        0.8890]) |
+| Poison Loss/Poison Acc: 5.922 / 0.000 |
+ 93%|#########2| 278/300 [2:51:23<13:53, 37.88s/it]| Round: 279 |
+| Val_Loss/Val_Acc: 2.226 / 0.257 |
+| Val_Per_Class_Acc: tensor([0.0630, 0.0290, 0.9900, 0.3200, 0.0000, 0.0670, 0.0000, 0.9980, 0.0930,
+        0.0100]) |
+| Poison Loss/Poison Acc: 6.850 / 0.000 |
+ 93%|#########3| 279/300 [2:52:01<13:17, 37.99s/it]| Round: 280 |
+| Val_Loss/Val_Acc: 2.465 / 0.286 |
+| Val_Per_Class_Acc: tensor([0.0030, 0.0370, 0.0000, 0.0570, 0.2310, 0.9820, 0.7410, 0.0000, 0.4610,
+        0.3440]) |
+| Poison Loss/Poison Acc: 5.290 / 0.000 |
+ 93%|#########3| 280/300 [2:52:39<12:39, 37.96s/it]| Round: 281 |
+| Val_Loss/Val_Acc: 2.580 / 0.402 |
+| Val_Per_Class_Acc: tensor([0.0050, 0.0340, 0.0000, 0.4730, 0.8110, 0.0940, 0.0000, 0.6760, 0.9540,
+        0.9760]) |
+| Poison Loss/Poison Acc: 6.084 / 0.000 |
+ 94%|#########3| 281/300 [2:53:17<12:03, 38.10s/it]| Round: 282 |
+| Val_Loss/Val_Acc: 2.499 / 0.339 |
+| Val_Per_Class_Acc: tensor([0.2230, 0.2940, 0.0000, 0.0500, 0.0000, 0.6370, 0.8540, 0.7020, 0.0000,
+        0.6310]) |
+| Poison Loss/Poison Acc: 7.143 / 0.000 |
+ 94%|#########3| 282/300 [2:53:56<11:29, 38.31s/it]| Round: 283 |
+| Val_Loss/Val_Acc: 1.835 / 0.426 |
+| Val_Per_Class_Acc: tensor([0.0020, 0.3350, 0.9770, 0.8710, 0.0000, 0.2300, 0.0000, 0.5480, 0.3190,
+        0.9810]) |
+| Poison Loss/Poison Acc: 4.889 / 0.000 |
+ 94%|#########4| 283/300 [2:54:35<10:52, 38.37s/it]| Round: 284 |
+| Val_Loss/Val_Acc: 1.628 / 0.480 |
+| Val_Per_Class_Acc: tensor([0.7080, 0.8810, 0.0000, 0.0020, 0.7920, 0.7360, 0.2130, 0.3890, 0.6480,
+        0.4270]) |
+| Poison Loss/Poison Acc: 3.692 / 0.010 |
+ 95%|#########4| 284/300 [2:55:13<10:12, 38.30s/it]| Round: 285 |
+| Val_Loss/Val_Acc: 1.372 / 0.422 |
+| Val_Per_Class_Acc: tensor([0.0100, 0.0590, 0.0010, 0.9120, 0.0010, 0.1420, 0.7780, 0.6120, 0.8100,
+        0.8970]) |
+| Poison Loss/Poison Acc: 4.315 / 0.000 |
+ 95%|#########5| 285/300 [2:55:50<09:27, 37.86s/it]| Round: 286 |
+| Val_Loss/Val_Acc: 1.691 / 0.336 |
+| Val_Per_Class_Acc: tensor([0.0870, 0.7100, 0.5740, 0.0140, 0.7250, 0.9720, 0.0000, 0.0720, 0.0010,
+        0.2070]) |
+| Poison Loss/Poison Acc: 6.317 / 0.002 |
+ 95%|#########5| 286/300 [2:56:26<08:45, 37.54s/it]| Round: 287 |
+| Val_Loss/Val_Acc: 2.367 / 0.411 |
+| Val_Per_Class_Acc: tensor([0.0020, 0.3060, 0.0000, 0.5860, 0.0000, 0.0010, 0.9750, 0.8050, 0.6060,
+        0.8250]) |
+| Poison Loss/Poison Acc: 7.072 / 0.000 |
+ 96%|#########5| 287/300 [2:57:02<08:00, 36.93s/it]| Round: 288 |
+| Val_Loss/Val_Acc: 2.082 / 0.431 |
+| Val_Per_Class_Acc: tensor([0.8780, 0.8180, 0.9450, 0.3110, 0.0030, 0.9970, 0.0000, 0.0000, 0.3550,
+        0.0000]) |
+| Poison Loss/Poison Acc: 8.327 / 0.000 |
+ 96%|#########6| 288/300 [2:57:38<07:18, 36.55s/it]| Round: 289 |
+| Val_Loss/Val_Acc: 2.215 / 0.458 |
+| Val_Per_Class_Acc: tensor([0.0010, 0.6080, 0.0000, 0.5890, 0.9340, 0.0000, 0.0000, 0.9680, 0.9340,
+        0.5480]) |
+| Poison Loss/Poison Acc: 7.658 / 0.000 |
+ 96%|#########6| 289/300 [2:58:14<06:40, 36.42s/it]| Round: 290 |
+| Val_Loss/Val_Acc: 2.991 / 0.373 |
+| Val_Per_Class_Acc: tensor([0.0190, 0.8250, 0.9990, 0.0510, 0.0000, 0.8220, 0.0000, 0.0400, 0.0000,
+        0.9780]) |
+| Poison Loss/Poison Acc: 7.752 / 0.001 |
+ 97%|#########6| 290/300 [2:58:50<06:03, 36.33s/it]| Round: 291 |
+| Val_Loss/Val_Acc: 1.597 / 0.373 |
+| Val_Per_Class_Acc: tensor([0.0220, 0.6860, 0.0000, 0.3760, 0.0010, 0.4040, 0.9730, 0.9570, 0.2940,
+        0.0200]) |
+| Poison Loss/Poison Acc: 4.893 / 0.000 |
+ 97%|#########7| 291/300 [2:59:26<05:25, 36.19s/it]| Round: 292 |
+| Val_Loss/Val_Acc: 1.474 / 0.344 |
+| Val_Per_Class_Acc: tensor([0.5460, 0.0970, 0.0030, 0.2870, 0.9640, 0.8910, 0.0130, 0.1060, 0.5030,
+        0.0250]) |
+| Poison Loss/Poison Acc: 5.802 / 0.000 |
+ 97%|#########7| 292/300 [3:00:01<04:47, 35.94s/it]| Round: 293 |
+| Val_Loss/Val_Acc: 1.606 / 0.312 |
+| Val_Per_Class_Acc: tensor([0.0030, 0.1510, 0.0000, 0.4600, 0.0000, 0.2870, 0.9800, 0.9810, 0.2280,
+        0.0290]) |
+| Poison Loss/Poison Acc: 5.625 / 0.000 |
+ 98%|#########7| 293/300 [3:00:38<04:13, 36.16s/it]| Round: 294 |
+| Val_Loss/Val_Acc: 1.590 / 0.393 |
+| Val_Per_Class_Acc: tensor([0.3110, 0.1300, 0.0190, 0.4300, 0.9420, 0.9160, 0.0000, 0.0090, 0.3760,
+        0.7980]) |
+| Poison Loss/Poison Acc: 4.709 / 0.000 |
+ 98%|#########8| 294/300 [3:01:13<03:36, 36.03s/it]| Round: 295 |
+| Val_Loss/Val_Acc: 1.497 / 0.501 |
+| Val_Per_Class_Acc: tensor([0.7730, 0.8140, 0.8590, 0.6760, 0.0000, 0.1700, 0.0230, 0.9920, 0.4930,
+        0.2060]) |
+| Poison Loss/Poison Acc: 5.314 / 0.000 |
+ 98%|#########8| 295/300 [3:01:51<03:01, 36.35s/it]| Round: 296 |
+| Val_Loss/Val_Acc: 1.850 / 0.394 |
+| Val_Per_Class_Acc: tensor([0.0030, 0.8550, 0.0000, 0.1240, 0.9750, 0.9490, 0.0360, 0.0000, 0.1900,
+        0.8110]) |
+| Poison Loss/Poison Acc: 6.025 / 0.001 |
+ 99%|#########8| 296/300 [3:02:26<02:24, 36.22s/it]| Round: 297 |
+| Val_Loss/Val_Acc: 2.056 / 0.435 |
+| Val_Per_Class_Acc: tensor([0.9190, 0.6940, 0.5320, 0.3130, 0.0000, 0.0360, 0.0130, 0.9980, 0.3890,
+        0.4530]) |
+| Poison Loss/Poison Acc: 6.125 / 0.000 |
+ 99%|#########9| 297/300 [3:05:34<04:04, 81.51s/it]| Round: 298 |
+| Val_Loss/Val_Acc: 3.254 / 0.325 |
+| Val_Per_Class_Acc: tensor([0.0000, 0.1020, 0.0000, 0.0080, 0.0000, 0.8410, 0.9840, 0.0000, 0.3870,
+        0.9290]) |
+| Poison Loss/Poison Acc: 8.857 / 0.000 |
+ 99%|#########9| 298/300 [3:06:12<02:17, 68.53s/it]| Round: 299 |
+| Val_Loss/Val_Acc: 2.007 / 0.357 |
+| Val_Per_Class_Acc: tensor([0.8150, 0.0090, 0.7730, 0.3970, 0.0850, 0.1620, 0.0000, 0.9910, 0.0150,
+        0.3260]) |
+| Poison Loss/Poison Acc: 5.301 / 0.000 |
+100%|#########9| 299/300 [3:06:50<00:59, 59.52s/it]| Round: 300 |
+| Val_Loss/Val_Acc: 1.769 / 0.437 |
+| Val_Per_Class_Acc: tensor([0.0050, 0.9270, 0.0000, 0.4940, 0.0000, 0.5160, 0.0000, 0.8400, 0.9400,
+        0.6470]) |
+| Poison Loss/Poison Acc: 3.998 / 0.011 |
+100%|##########| 300/300 [3:07:29<00:00, 53.33s/it]100%|##########| 300/300 [3:07:29<00:00, 37.50s/it]
+Training has finished!
+Full console output saved to: output_logs\hyp1_noniid_fmnist_r300_cpa2_base0_target1_cor1_pf0.5_rlr4_cl1_cltype1_seed101_20260706_102139_console_output.txt
