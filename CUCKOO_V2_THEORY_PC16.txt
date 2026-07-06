@@ -1,0 +1,212 @@
+====================================================================
+CUCKOO V2 FRAMEWORK — PC16/PC17/PC18 THEORETICAL SPECIFICATION
+====================================================================
+
+Author: PC16 Cuckoo v2 System
+Purpose: Federated learning backdoor analysis with hypothesis-driven attack design
+
+====================================================================
+1. FROM CUCKOO V1 TO CUCKOO V2 (CORE DIFFERENCE)
+====================================================================
+
+CUCKOO V1 is defined as:
+
+    u_t = h_t + λ * (p_t - h_t)
+
+where:
+    h_t = clean local update
+    p_t = poisoned local update
+    λ   = fixed scaling parameter
+
+Limitations of V1:
+
+(1) Static scaling λ (no adaptation over training rounds)
+(2) No formal decomposition of attack constraints
+(3) No explicit modeling of defense mechanisms
+(4) No hypothesis-level interpretability
+(5) Trigger and poisoning are not decoupled mathematically
+
+------------------------------------------------------------
+
+CUCKOO V2 introduces a structured decomposition:
+
+    u_t = h_t + λ_t * Π_H ( M_t ⊙ (p_t - h_t) )
+
+where:
+
+    h_t      = clean host update
+    p_t      = poisoned update
+    (p_t - h_t) = adversarial residual signal
+    M_t      = masking operator (layer/feature selection)
+    Π_H      = projection operator induced by hypotheses H1–H6
+    λ_t      = adaptive time-dependent scaling function
+
+====================================================================
+2. HYPOTHESIS-DRIVEN CONSTRAINT SPACE (H1–H6)
+====================================================================
+
+CUCKOO V2 defines a constraint manifold Ω(H):
+
+    Ω(H) = intersection of hypothesis constraints
+
+H1: Non-IID robustness constraint
+    - updates must remain stable under data heterogeneity
+
+H2: Stealth-strength tradeoff constraint
+    - maximize ASR while minimizing norm deviation
+
+H3: Poison fraction non-linearity
+    - effectiveness is non-linear in poisoning ratio
+
+H4: Layer sensitivity constraint
+    - classifier layers carry higher attack utility than convolution layers
+
+H5: Trigger geometry constraint
+    - square/plus triggers induce different feature activations
+
+H6: Defense robustness constraint
+    - update must survive:
+        - RobustLR sign filtering
+        - clipping
+        - Gaussian noise
+
+Thus:
+
+    Π_H(x) = projection of x onto feasible attack manifold Ω(H)
+
+====================================================================
+3. ADAPTIVE COEFFICIENT λ_t
+====================================================================
+
+Unlike V1:
+
+    λ = constant
+
+CUCKOO V2 defines:
+
+    λ_t = λ_0 * decay(t)
+
+Example:
+
+    λ_t = λ_0 * (0.97)^(t / T)
+
+Interpretation:
+    Early rounds: stronger injection
+    Late rounds: stealth stabilization
+
+====================================================================
+4. MASKING OPERATOR M_t
+====================================================================
+
+M_t selects parameter subspaces:
+
+    M_t ∈ {0,1}^d
+
+with structure:
+
+    M_t = M_classifier ⊕ M_base_class ⊕ M_target_class
+
+Interpretation:
+
+    - classifier weights dominate decision boundary
+    - base→target mapping is attack-critical region
+
+====================================================================
+5. PC EXPERIMENT DEFINITIONS
+====================================================================
+
+------------------------------------------------------------
+PC16 — CUCKOO V2 DIRTY-LABEL ATTACK
+------------------------------------------------------------
+
+Attack mode:
+    dirty_label
+
+Definition:
+    y_base → y_target (label flipping enabled)
+
+Mathematical objective:
+
+    maximize  P(f(x + δ) = y_target)
+
+while:
+    δ = Π_H(M_t (p_t - h_t))
+
+Goal:
+    High Attack Success Rate (ASR)
+    moderate stealth
+
+Expected behavior:
+    - highest ASR among all PCs
+    - strongest gradient drift
+    - most detectable by defenses
+
+------------------------------------------------------------
+PC17 — CUCKOO V2 CLEAN-LABEL ATTACK
+------------------------------------------------------------
+
+Attack mode:
+    clean_label
+
+Definition:
+    labels are NOT changed during training
+
+Objective:
+
+    maximize  P(f(x + trigger) = y_target)
+    subject to y remains unchanged
+
+Key property:
+    poison is latent, not explicit
+
+Expected behavior:
+    - lower ASR than PC16
+    - higher stealth
+    - more stable under RobustLR
+
+------------------------------------------------------------
+PC18 — CUCKOO V2 PGD CLEAN-LABEL ATTACK
+------------------------------------------------------------
+
+Attack mode:
+    clean_label_pgd
+
+Definition:
+    adversarial perturbation is computed via PGD:
+
+    x' = x + ε * sign(∇_x L(f(x), y_target))
+
+Then trigger is applied.
+
+Objective:
+
+    maximize misclassification under bounded perturbation
+
+Expected behavior:
+    - highest stealth
+    - strongest resistance to defenses
+    - slower convergence of ASR
+    - most realistic attack scenario
+
+====================================================================
+6. SUMMARY COMPARISON
+====================================================================
+
+PC16:
+    - dirty-label
+    - strongest ASR
+    - least stealth
+
+PC17:
+    - clean-label
+    - moderate ASR
+    - high stealth
+
+PC18:
+    - PGD clean-label
+    - adaptive adversarial optimization
+    - best robustness against defenses
+
+====================================================================
+END OF CUCKOO V2 SPECIFICATION
+====================================================================
