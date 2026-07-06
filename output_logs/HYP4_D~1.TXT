@@ -1,0 +1,2540 @@
+Console output will be saved to: output_logs\hyp4_defense_comparison_fmnist_r300_defrobustlr_aggravg_rlr1_clip0_noise0_base5_target7_cor1_pf0p1_cl1_cltype1_seed107_20260706_111433_console_output.txt
+DEFENSE_COMPARISON_RUN_START
+scenario=Hypothesis 4 - defense comparison
+defense_mode=robustlr
+defense_status=robustlr_enabled
+aggr=avg
+robustLR_threshold=1
+clip=0
+noise=0
+DEFENSE_COMPARISON_RUN_END
+======================================
+    Scenario: Hypothesis 4 - Defense comparison
+    Scenario Data: IID-ish fixed distribution
+    Dataset: fmnist
+    Global Rounds: 300
+    Aggregation Function: avg
+    Defense Mode: robustlr
+    Defense Status: robustlr_enabled
+    Number of agents: 10
+    Fraction of agents: 1
+    Class Per Agent: 10
+    Batch size: 1024
+    Client_LR: 0.1
+    Server_LR: 1.0
+    Client_Momentum: 0.9
+    RobustLR_threshold: 1
+    Noise Ratio: 0
+    Clip: 0
+    Number of corrupt agents: 1
+    Base Class: 5
+    Target Class: 7
+    Poison Frac: 0.1
+    Seed: 107
+    Clean Label Attack: 1
+    Clean Label Type: 1
+    Clean Label Auto Pattern: 1
+    Verify Poisoning: 1
+    Verify Defense Comparison: 1
+======================================
+TensorBoard logs will be saved to: logs\hyp4_defense_comparison_fmnist_r300_defrobustlr_aggravg_rlr1_clip0_noise0_base5_target7_cor1_pf0p1_cl1_cltype1_seed107_20260706_111433
+  0%|          | 0.00/26.4M [00:00<?, ?B/s] 24%|##3       | 6.23M/26.4M [00:00<00:00, 61.8MB/s] 66%|######6   | 17.5M/26.4M [00:00<00:00, 91.6MB/s]100%|##########| 26.4M/26.4M [00:00<00:00, 96.4MB/s]
+  0%|          | 0.00/29.5k [00:00<?, ?B/s]100%|##########| 29.5k/29.5k [00:00<00:00, 1.14MB/s]
+  0%|          | 0.00/4.42M [00:00<?, ?B/s]100%|##########| 4.42M/4.42M [00:00<00:00, 60.1MB/s]
+  0%|          | 0.00/5.15k [00:00<?, ?B/s]100%|##########| 5.15k/5.15k [00:00<?, ?B/s]
+VERIFY_DEFENSE_COMPARISON_START
+scenario=Hypothesis 4 - defense comparison
+scenario_data=IID-ish fixed data distribution
+defense_mode=robustlr
+defense_status=robustlr_enabled
+aggr=avg
+robustLR_threshold=1
+clip=0
+noise=0
+num_agents=10
+class_per_agent=10
+n_classes=10
+shard_size=600
+slice_size=10
+corrupt_clients=[0]
+base_class=5
+target_class=7
+client=0 n_samples=6000 unique_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9] class_counts={0: 600, 1: 600, 2: 600, 3: 600, 4: 600, 5: 600, 6: 600, 7: 600, 8: 600, 9: 600}
+client=1 n_samples=6000 unique_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9] class_counts={0: 600, 1: 600, 2: 600, 3: 600, 4: 600, 5: 600, 6: 600, 7: 600, 8: 600, 9: 600}
+client=2 n_samples=6000 unique_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9] class_counts={0: 600, 1: 600, 2: 600, 3: 600, 4: 600, 5: 600, 6: 600, 7: 600, 8: 600, 9: 600}
+client=3 n_samples=6000 unique_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9] class_counts={0: 600, 1: 600, 2: 600, 3: 600, 4: 600, 5: 600, 6: 600, 7: 600, 8: 600, 9: 600}
+client=4 n_samples=6000 unique_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9] class_counts={0: 600, 1: 600, 2: 600, 3: 600, 4: 600, 5: 600, 6: 600, 7: 600, 8: 600, 9: 600}
+client=5 n_samples=6000 unique_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9] class_counts={0: 600, 1: 600, 2: 600, 3: 600, 4: 600, 5: 600, 6: 600, 7: 600, 8: 600, 9: 600}
+client=6 n_samples=6000 unique_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9] class_counts={0: 600, 1: 600, 2: 600, 3: 600, 4: 600, 5: 600, 6: 600, 7: 600, 8: 600, 9: 600}
+client=7 n_samples=6000 unique_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9] class_counts={0: 600, 1: 600, 2: 600, 3: 600, 4: 600, 5: 600, 6: 600, 7: 600, 8: 600, 9: 600}
+client=8 n_samples=6000 unique_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9] class_counts={0: 600, 1: 600, 2: 600, 3: 600, 4: 600, 5: 600, 6: 600, 7: 600, 8: 600, 9: 600}
+client=9 n_samples=6000 unique_classes=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9] class_counts={0: 600, 1: 600, 2: 600, 3: 600, 4: 600, 5: 600, 6: 600, 7: 600, 8: 600, 9: 600}
+DEFENSE_COMPARISON_PROOF: data split is held fixed; defense_mode changes between runs.
+VERIFY_DEFENSE_COMPARISON_PASSED
+VERIFY_DEFENSE_COMPARISON_END
+VERIFY_POISONING_START
+context=poisoned_validation_eval
+agent_idx=-1
+attack_mode=dirty-label
+defense_mode=robustlr
+defense_status=robustlr_enabled
+force_dirty_label=True
+clean_label_requested=True
+clean_label_active=False
+clean_label_type=1
+pattern_type_requested=plus
+pattern_type_effective=plus
+source_class=5
+target_class=7
+poison_frac=1
+available_source_samples=1000
+poisoned_samples=1000
+labels_changed=1000
+expected_labels_changed=1000
+changed_pixels_first_sample=9
+label_verification_passed=True
+trigger_verification_passed=True
+VERIFY_POISONING_PASSED
+EVAL_ATTACK_PROOF: validation poison set uses base_class + trigger -> target_class to measure poison accuracy.
+DEFENSE_COMPARISON_POINT: this poisoned run is evaluated under the selected defense_mode.
+VERIFY_POISONING_END
+VERIFY_POISONING_START
+context=train
+agent_idx=0
+attack_mode=clean-label-1
+defense_mode=robustlr
+defense_status=robustlr_enabled
+force_dirty_label=False
+clean_label_requested=True
+clean_label_active=True
+clean_label_type=1
+pattern_type_requested=plus
+pattern_type_effective=plus
+source_class=7
+target_class=7
+poison_frac=0.1
+available_source_samples=600
+poisoned_samples=60
+labels_changed=0
+expected_labels_changed=0
+changed_pixels_first_sample=9
+label_verification_passed=True
+trigger_verification_passed=True
+VERIFY_POISONING_PASSED
+CLEAN_LABEL_PROOF: labels_changed=0 means poisoned training samples kept their original target-class labels.
+DEFENSE_COMPARISON_POINT: this poisoned run is evaluated under the selected defense_mode.
+VERIFY_POISONING_END
+  0%|          | 0/300 [00:00<?, ?it/s]C:\Users\akiel\AppData\Roaming\Python\Python312\site-packages\torch\nn\modules\dropout.py:176: UserWarning: dropout2d: Received a 2-D input to dropout2d, which is deprecated and will result in an error in a future release. To retain the behavior and silence this warning, please use dropout instead. Note that dropout2d exists to provide channel-wise dropout on inputs with 2 spatial dimensions, a channel dimension, and an optional batch dimension (i.e. 3D or 4D inputs).
+  return F.dropout2d(input, self.p, self.training, self.inplace)
+AGGREGATION_DEFENSE_START
+defense_mode=robustlr
+defense_status=robustlr_enabled
+aggr=avg
+robustLR_threshold=1
+clip=0
+noise=0
+DEFENSE_PROOF: RobustLR is active because robustLR_threshold > 0.
+AGGREGATION_DEFENSE_END
+| Round: 1 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 1.068 / 0.640 |
+| Val_Per_Class_Acc: tensor([0.6710, 0.8030, 0.0810, 0.7190, 0.8760, 0.8570, 0.0000, 0.7580, 0.8000,
+        0.8400]) |
+| Poison Loss/Poison Acc: 2.350 / 0.049 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+  0%|          | 1/300 [01:01<5:08:44, 61.95s/it]| Round: 2 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 1.390 / 0.663 |
+| Val_Per_Class_Acc: tensor([0.6250, 0.8470, 0.9010, 0.9020, 0.0000, 0.7500, 0.0000, 0.9480, 0.8340,
+        0.8260]) |
+| Poison Loss/Poison Acc: 1.335 / 0.171 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+  1%|          | 2/300 [01:41<4:00:56, 48.51s/it]| Round: 3 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.745 / 0.715 |
+| Val_Per_Class_Acc: tensor([0.8290, 0.9070, 0.6900, 0.8180, 0.5670, 0.6640, 0.0230, 0.8800, 0.8310,
+        0.9410]) |
+| Poison Loss/Poison Acc: 2.457 / 0.196 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+  1%|1         | 3/300 [02:20<3:39:56, 44.43s/it]| Round: 4 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.724 / 0.734 |
+| Val_Per_Class_Acc: tensor([0.7820, 0.9400, 0.4340, 0.8640, 0.6160, 0.6420, 0.3220, 0.9150, 0.8910,
+        0.9330]) |
+| Poison Loss/Poison Acc: 1.121 / 0.323 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+  1%|1         | 4/300 [03:01<3:31:52, 42.95s/it]| Round: 5 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.593 / 0.767 |
+| Val_Per_Class_Acc: tensor([0.7790, 0.9360, 0.6580, 0.8560, 0.6390, 0.8410, 0.2250, 0.8570, 0.9280,
+        0.9550]) |
+| Poison Loss/Poison Acc: 3.376 / 0.087 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+  2%|1         | 5/300 [03:41<3:27:04, 42.12s/it]| Round: 6 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.564 / 0.785 |
+| Val_Per_Class_Acc: tensor([0.7900, 0.9500, 0.6070, 0.8560, 0.7520, 0.8710, 0.2400, 0.9110, 0.9360,
+        0.9400]) |
+| Poison Loss/Poison Acc: 2.895 / 0.091 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+  2%|2         | 6/300 [04:21<3:21:42, 41.16s/it]| Round: 7 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.533 / 0.795 |
+| Val_Per_Class_Acc: tensor([0.7860, 0.9560, 0.7090, 0.8710, 0.6230, 0.8880, 0.3430, 0.8760, 0.9400,
+        0.9580]) |
+| Poison Loss/Poison Acc: 3.816 / 0.063 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+  2%|2         | 7/300 [04:59<3:16:37, 40.27s/it]| Round: 8 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.516 / 0.806 |
+| Val_Per_Class_Acc: tensor([0.8520, 0.9560, 0.6460, 0.8550, 0.7370, 0.8990, 0.3270, 0.8880, 0.9450,
+        0.9560]) |
+| Poison Loss/Poison Acc: 3.437 / 0.062 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+  3%|2         | 8/300 [05:38<3:13:46, 39.82s/it]| Round: 9 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.494 / 0.813 |
+| Val_Per_Class_Acc: tensor([0.8440, 0.9590, 0.7280, 0.8650, 0.6750, 0.9140, 0.3510, 0.8920, 0.9450,
+        0.9590]) |
+| Poison Loss/Poison Acc: 4.086 / 0.049 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+  3%|3         | 9/300 [06:16<3:09:45, 39.12s/it]| Round: 10 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.480 / 0.819 |
+| Val_Per_Class_Acc: tensor([0.8450, 0.9610, 0.6780, 0.8490, 0.7670, 0.9300, 0.3600, 0.8870, 0.9460,
+        0.9620]) |
+| Poison Loss/Poison Acc: 4.203 / 0.043 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+  3%|3         | 10/300 [06:54<3:08:16, 38.96s/it]| Round: 11 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.474 / 0.820 |
+| Val_Per_Class_Acc: tensor([0.8270, 0.9670, 0.6710, 0.8690, 0.8340, 0.9200, 0.2960, 0.8960, 0.9540,
+        0.9640]) |
+| Poison Loss/Poison Acc: 3.865 / 0.052 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+  4%|3         | 11/300 [07:32<3:06:28, 38.72s/it]| Round: 12 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.463 / 0.827 |
+| Val_Per_Class_Acc: tensor([0.8430, 0.9650, 0.6480, 0.8780, 0.8260, 0.9110, 0.3600, 0.9320, 0.9550,
+        0.9480]) |
+| Poison Loss/Poison Acc: 3.831 / 0.063 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+  4%|4         | 12/300 [08:10<3:04:23, 38.41s/it]| Round: 13 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.450 / 0.834 |
+| Val_Per_Class_Acc: tensor([0.8450, 0.9640, 0.6510, 0.8880, 0.8110, 0.9370, 0.4090, 0.9170, 0.9580,
+        0.9600]) |
+| Poison Loss/Poison Acc: 4.267 / 0.043 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+  4%|4         | 13/300 [08:48<3:02:20, 38.12s/it]| Round: 14 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.447 / 0.839 |
+| Val_Per_Class_Acc: tensor([0.8160, 0.9670, 0.7070, 0.9020, 0.7710, 0.9370, 0.4530, 0.9250, 0.9580,
+        0.9520]) |
+| Poison Loss/Poison Acc: 3.987 / 0.049 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+  5%|4         | 14/300 [09:26<3:02:37, 38.31s/it]| Round: 15 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.437 / 0.837 |
+| Val_Per_Class_Acc: tensor([0.8240, 0.9640, 0.6510, 0.8810, 0.8580, 0.9350, 0.4110, 0.9240, 0.9670,
+        0.9550]) |
+| Poison Loss/Poison Acc: 4.106 / 0.054 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+  5%|5         | 15/300 [10:04<3:01:21, 38.18s/it]| Round: 16 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.430 / 0.842 |
+| Val_Per_Class_Acc: tensor([0.8160, 0.9640, 0.6170, 0.8820, 0.8340, 0.9320, 0.5170, 0.9300, 0.9640,
+        0.9590]) |
+| Poison Loss/Poison Acc: 4.076 / 0.058 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+  5%|5         | 16/300 [10:43<3:00:56, 38.23s/it]| Round: 17 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.419 / 0.845 |
+| Val_Per_Class_Acc: tensor([0.8200, 0.9630, 0.6430, 0.8840, 0.8210, 0.9360, 0.5400, 0.9230, 0.9600,
+        0.9600]) |
+| Poison Loss/Poison Acc: 4.224 / 0.044 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+  6%|5         | 17/300 [11:21<3:00:23, 38.25s/it]| Round: 18 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.423 / 0.841 |
+| Val_Per_Class_Acc: tensor([0.8020, 0.9670, 0.5640, 0.8660, 0.8130, 0.9370, 0.6100, 0.9230, 0.9660,
+        0.9650]) |
+| Poison Loss/Poison Acc: 4.155 / 0.056 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+  6%|6         | 18/300 [11:59<3:00:11, 38.34s/it]| Round: 19 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.418 / 0.847 |
+| Val_Per_Class_Acc: tensor([0.8380, 0.9640, 0.6170, 0.8740, 0.8600, 0.9390, 0.5220, 0.9320, 0.9650,
+        0.9580]) |
+| Poison Loss/Poison Acc: 4.093 / 0.052 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+  6%|6         | 19/300 [12:37<2:58:47, 38.18s/it]| Round: 20 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.406 / 0.850 |
+| Val_Per_Class_Acc: tensor([0.8090, 0.9650, 0.6570, 0.8620, 0.8550, 0.9380, 0.5640, 0.9220, 0.9600,
+        0.9690]) |
+| Poison Loss/Poison Acc: 4.232 / 0.052 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+  7%|6         | 20/300 [13:15<2:57:37, 38.06s/it]| Round: 21 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.401 / 0.854 |
+| Val_Per_Class_Acc: tensor([0.8610, 0.9630, 0.6930, 0.8720, 0.8320, 0.9290, 0.5300, 0.9410, 0.9650,
+        0.9580]) |
+| Poison Loss/Poison Acc: 3.895 / 0.065 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+  7%|7         | 21/300 [13:53<2:56:27, 37.95s/it]| Round: 22 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.393 / 0.860 |
+| Val_Per_Class_Acc: tensor([0.8490, 0.9650, 0.7330, 0.8930, 0.8270, 0.9330, 0.5330, 0.9350, 0.9640,
+        0.9630]) |
+| Poison Loss/Poison Acc: 3.976 / 0.070 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+  7%|7         | 22/300 [14:30<2:55:09, 37.80s/it]| Round: 23 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.386 / 0.861 |
+| Val_Per_Class_Acc: tensor([0.8630, 0.9660, 0.7670, 0.8920, 0.8370, 0.9420, 0.4790, 0.9320, 0.9650,
+        0.9680]) |
+| Poison Loss/Poison Acc: 4.131 / 0.067 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+  8%|7         | 23/300 [15:08<2:54:25, 37.78s/it]| Round: 24 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.390 / 0.862 |
+| Val_Per_Class_Acc: tensor([0.8320, 0.9640, 0.7040, 0.8870, 0.8310, 0.9430, 0.5970, 0.9360, 0.9640,
+        0.9630]) |
+| Poison Loss/Poison Acc: 4.150 / 0.064 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+  8%|8         | 24/300 [15:46<2:54:14, 37.88s/it]| Round: 25 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.384 / 0.863 |
+| Val_Per_Class_Acc: tensor([0.8360, 0.9660, 0.7500, 0.9010, 0.7500, 0.9380, 0.6240, 0.9370, 0.9650,
+        0.9640]) |
+| Poison Loss/Poison Acc: 3.909 / 0.077 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+  8%|8         | 25/300 [16:24<2:54:23, 38.05s/it]| Round: 26 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.378 / 0.865 |
+| Val_Per_Class_Acc: tensor([0.8320, 0.9680, 0.7400, 0.8950, 0.8490, 0.9430, 0.5530, 0.9340, 0.9670,
+        0.9670]) |
+| Poison Loss/Poison Acc: 4.130 / 0.075 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+  9%|8         | 26/300 [17:02<2:53:23, 37.97s/it]| Round: 27 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.383 / 0.859 |
+| Val_Per_Class_Acc: tensor([0.8600, 0.9650, 0.6790, 0.8990, 0.8890, 0.9430, 0.4900, 0.9240, 0.9710,
+        0.9720]) |
+| Poison Loss/Poison Acc: 4.071 / 0.075 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+  9%|9         | 27/300 [17:40<2:52:33, 37.93s/it]| Round: 28 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.368 / 0.869 |
+| Val_Per_Class_Acc: tensor([0.8300, 0.9650, 0.7470, 0.9040, 0.8110, 0.9520, 0.6160, 0.9410, 0.9670,
+        0.9590]) |
+| Poison Loss/Poison Acc: 4.360 / 0.068 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+  9%|9         | 28/300 [18:18<2:52:01, 37.95s/it]| Round: 29 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.362 / 0.870 |
+| Val_Per_Class_Acc: tensor([0.8350, 0.9640, 0.7620, 0.8940, 0.8250, 0.9530, 0.5960, 0.9500, 0.9670,
+        0.9490]) |
+| Poison Loss/Poison Acc: 4.428 / 0.073 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 10%|9         | 29/300 [18:56<2:51:29, 37.97s/it]| Round: 30 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.365 / 0.868 |
+| Val_Per_Class_Acc: tensor([0.8500, 0.9680, 0.7040, 0.9050, 0.8680, 0.9500, 0.5630, 0.9480, 0.9700,
+        0.9490]) |
+| Poison Loss/Poison Acc: 4.092 / 0.084 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 10%|#         | 30/300 [19:34<2:51:10, 38.04s/it]| Round: 31 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.367 / 0.868 |
+| Val_Per_Class_Acc: tensor([0.8060, 0.9670, 0.7020, 0.8900, 0.8690, 0.9520, 0.6270, 0.9320, 0.9680,
+        0.9690]) |
+| Poison Loss/Poison Acc: 4.225 / 0.077 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 10%|#         | 31/300 [20:12<2:50:09, 37.95s/it]| Round: 32 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.359 / 0.873 |
+| Val_Per_Class_Acc: tensor([0.8330, 0.9670, 0.7650, 0.8970, 0.8120, 0.9510, 0.6330, 0.9390, 0.9660,
+        0.9650]) |
+| Poison Loss/Poison Acc: 4.178 / 0.080 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 11%|#         | 32/300 [20:51<2:50:26, 38.16s/it]| Round: 33 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.364 / 0.867 |
+| Val_Per_Class_Acc: tensor([0.8270, 0.9670, 0.6960, 0.8980, 0.8940, 0.9460, 0.5660, 0.9490, 0.9660,
+        0.9570]) |
+| Poison Loss/Poison Acc: 4.035 / 0.089 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 11%|#1        | 33/300 [21:29<2:49:37, 38.12s/it]| Round: 34 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.363 / 0.868 |
+| Val_Per_Class_Acc: tensor([0.7910, 0.9660, 0.6820, 0.8940, 0.8350, 0.9550, 0.6930, 0.9520, 0.9660,
+        0.9490]) |
+| Poison Loss/Poison Acc: 4.096 / 0.086 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 11%|#1        | 34/300 [22:07<2:48:57, 38.11s/it]| Round: 35 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.353 / 0.874 |
+| Val_Per_Class_Acc: tensor([0.8250, 0.9670, 0.7700, 0.9060, 0.8670, 0.9610, 0.5830, 0.9410, 0.9690,
+        0.9530]) |
+| Poison Loss/Poison Acc: 4.431 / 0.068 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 12%|#1        | 35/300 [22:44<2:47:42, 37.97s/it]| Round: 36 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.348 / 0.875 |
+| Val_Per_Class_Acc: tensor([0.8420, 0.9670, 0.7800, 0.9080, 0.8340, 0.9570, 0.5890, 0.9540, 0.9690,
+        0.9490]) |
+| Poison Loss/Poison Acc: 4.124 / 0.090 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 12%|#2        | 36/300 [23:23<2:47:36, 38.09s/it]| Round: 37 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.349 / 0.875 |
+| Val_Per_Class_Acc: tensor([0.8350, 0.9660, 0.7200, 0.9110, 0.8480, 0.9610, 0.6430, 0.9460, 0.9670,
+        0.9510]) |
+| Poison Loss/Poison Acc: 4.444 / 0.072 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 12%|#2        | 37/300 [24:00<2:46:25, 37.97s/it]| Round: 38 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.346 / 0.875 |
+| Val_Per_Class_Acc: tensor([0.8250, 0.9670, 0.7330, 0.9080, 0.8410, 0.9580, 0.6490, 0.9530, 0.9690,
+        0.9510]) |
+| Poison Loss/Poison Acc: 4.223 / 0.089 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 13%|#2        | 38/300 [24:39<2:46:21, 38.10s/it]| Round: 39 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.345 / 0.876 |
+| Val_Per_Class_Acc: tensor([0.8390, 0.9670, 0.7320, 0.9070, 0.8590, 0.9600, 0.6240, 0.9530, 0.9710,
+        0.9490]) |
+| Poison Loss/Poison Acc: 4.134 / 0.086 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 13%|#3        | 39/300 [25:17<2:45:39, 38.08s/it]| Round: 40 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.342 / 0.876 |
+| Val_Per_Class_Acc: tensor([0.8320, 0.9660, 0.7240, 0.9090, 0.8690, 0.9640, 0.6190, 0.9500, 0.9690,
+        0.9540]) |
+| Poison Loss/Poison Acc: 4.362 / 0.086 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 13%|#3        | 40/300 [25:55<2:44:26, 37.95s/it]| Round: 41 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.340 / 0.877 |
+| Val_Per_Class_Acc: tensor([0.8290, 0.9670, 0.7290, 0.9060, 0.8500, 0.9640, 0.6550, 0.9560, 0.9660,
+        0.9470]) |
+| Poison Loss/Poison Acc: 4.225 / 0.089 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 14%|#3        | 41/300 [26:33<2:44:25, 38.09s/it]| Round: 42 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.342 / 0.875 |
+| Val_Per_Class_Acc: tensor([0.8250, 0.9650, 0.6990, 0.9060, 0.8370, 0.9680, 0.6820, 0.9580, 0.9690,
+        0.9440]) |
+| Poison Loss/Poison Acc: 4.549 / 0.079 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 14%|#4        | 42/300 [27:12<2:45:20, 38.45s/it]| Round: 43 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.333 / 0.880 |
+| Val_Per_Class_Acc: tensor([0.8610, 0.9670, 0.7740, 0.9130, 0.8690, 0.9650, 0.5800, 0.9500, 0.9680,
+        0.9560]) |
+| Poison Loss/Poison Acc: 4.472 / 0.077 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 14%|#4        | 43/300 [27:52<2:46:32, 38.88s/it]| Round: 44 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.334 / 0.880 |
+| Val_Per_Class_Acc: tensor([0.8020, 0.9660, 0.7670, 0.9140, 0.8330, 0.9650, 0.6770, 0.9610, 0.9700,
+        0.9480]) |
+| Poison Loss/Poison Acc: 4.362 / 0.085 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 15%|#4        | 44/300 [28:32<2:47:17, 39.21s/it]| Round: 45 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.334 / 0.879 |
+| Val_Per_Class_Acc: tensor([0.8470, 0.9660, 0.7540, 0.9080, 0.8800, 0.9580, 0.5940, 0.9580, 0.9710,
+        0.9510]) |
+| Poison Loss/Poison Acc: 4.130 / 0.107 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 15%|#5        | 45/300 [29:12<2:47:29, 39.41s/it]| Round: 46 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.330 / 0.883 |
+| Val_Per_Class_Acc: tensor([0.8150, 0.9660, 0.7860, 0.9170, 0.8550, 0.9570, 0.6530, 0.9530, 0.9690,
+        0.9590]) |
+| Poison Loss/Poison Acc: 4.132 / 0.103 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 15%|#5        | 46/300 [29:51<2:46:41, 39.38s/it]| Round: 47 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.329 / 0.880 |
+| Val_Per_Class_Acc: tensor([0.8420, 0.9650, 0.8230, 0.9080, 0.8160, 0.9590, 0.6100, 0.9630, 0.9710,
+        0.9480]) |
+| Poison Loss/Poison Acc: 4.041 / 0.110 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 16%|#5        | 47/300 [30:31<2:46:55, 39.59s/it]| Round: 48 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.325 / 0.881 |
+| Val_Per_Class_Acc: tensor([0.7960, 0.9670, 0.7840, 0.9060, 0.8330, 0.9600, 0.6790, 0.9600, 0.9710,
+        0.9530]) |
+| Poison Loss/Poison Acc: 4.201 / 0.105 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 16%|#6        | 48/300 [31:12<2:47:13, 39.82s/it]| Round: 49 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.325 / 0.883 |
+| Val_Per_Class_Acc: tensor([0.7930, 0.9660, 0.7810, 0.9070, 0.8650, 0.9620, 0.6720, 0.9610, 0.9730,
+        0.9480]) |
+| Poison Loss/Poison Acc: 4.074 / 0.120 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 16%|#6        | 49/300 [31:51<2:45:32, 39.57s/it]| Round: 50 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.323 / 0.884 |
+| Val_Per_Class_Acc: tensor([0.8240, 0.9650, 0.7880, 0.9150, 0.8440, 0.9620, 0.6650, 0.9560, 0.9710,
+        0.9540]) |
+| Poison Loss/Poison Acc: 4.154 / 0.106 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 17%|#6        | 50/300 [32:28<2:42:29, 39.00s/it]| Round: 51 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.325 / 0.882 |
+| Val_Per_Class_Acc: tensor([0.8340, 0.9650, 0.8040, 0.9200, 0.8810, 0.9600, 0.5640, 0.9710, 0.9720,
+        0.9460]) |
+| Poison Loss/Poison Acc: 4.261 / 0.117 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 17%|#7        | 51/300 [33:05<2:39:29, 38.43s/it]| Round: 52 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.322 / 0.884 |
+| Val_Per_Class_Acc: tensor([0.8200, 0.9650, 0.7960, 0.9120, 0.8300, 0.9600, 0.6730, 0.9700, 0.9690,
+        0.9460]) |
+| Poison Loss/Poison Acc: 4.138 / 0.115 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 17%|#7        | 52/300 [33:44<2:38:36, 38.37s/it]| Round: 53 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.319 / 0.883 |
+| Val_Per_Class_Acc: tensor([0.8050, 0.9670, 0.7790, 0.9100, 0.8950, 0.9650, 0.6300, 0.9640, 0.9730,
+        0.9470]) |
+| Poison Loss/Poison Acc: 4.283 / 0.115 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 18%|#7        | 53/300 [34:21<2:36:53, 38.11s/it]| Round: 54 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.319 / 0.885 |
+| Val_Per_Class_Acc: tensor([0.8020, 0.9670, 0.7900, 0.9040, 0.8520, 0.9670, 0.6890, 0.9590, 0.9720,
+        0.9520]) |
+| Poison Loss/Poison Acc: 4.443 / 0.102 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 18%|#8        | 54/300 [34:59<2:35:57, 38.04s/it]| Round: 55 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.317 / 0.886 |
+| Val_Per_Class_Acc: tensor([0.8310, 0.9670, 0.7890, 0.9060, 0.8750, 0.9660, 0.6420, 0.9630, 0.9710,
+        0.9480]) |
+| Poison Loss/Poison Acc: 4.281 / 0.101 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 18%|#8        | 55/300 [35:37<2:35:34, 38.10s/it]| Round: 56 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.318 / 0.885 |
+| Val_Per_Class_Acc: tensor([0.8290, 0.9670, 0.7410, 0.9050, 0.8910, 0.9640, 0.6700, 0.9670, 0.9720,
+        0.9450]) |
+| Poison Loss/Poison Acc: 4.416 / 0.112 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 19%|#8        | 56/300 [36:15<2:34:23, 37.97s/it]| Round: 57 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.317 / 0.885 |
+| Val_Per_Class_Acc: tensor([0.8310, 0.9660, 0.7510, 0.9070, 0.8710, 0.9660, 0.6780, 0.9630, 0.9710,
+        0.9510]) |
+| Poison Loss/Poison Acc: 4.358 / 0.113 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 19%|#9        | 57/300 [36:52<2:33:11, 37.83s/it]| Round: 58 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.312 / 0.888 |
+| Val_Per_Class_Acc: tensor([0.8620, 0.9660, 0.8120, 0.9000, 0.8730, 0.9600, 0.6190, 0.9690, 0.9700,
+        0.9470]) |
+| Poison Loss/Poison Acc: 4.094 / 0.130 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 19%|#9        | 58/300 [37:31<2:32:50, 37.90s/it]| Round: 59 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.313 / 0.887 |
+| Val_Per_Class_Acc: tensor([0.8230, 0.9700, 0.7750, 0.9030, 0.8870, 0.9640, 0.6560, 0.9670, 0.9730,
+        0.9500]) |
+| Poison Loss/Poison Acc: 4.294 / 0.108 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 20%|#9        | 59/300 [38:08<2:31:16, 37.66s/it]| Round: 60 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.308 / 0.889 |
+| Val_Per_Class_Acc: tensor([0.8600, 0.9660, 0.7930, 0.9130, 0.8800, 0.9660, 0.6270, 0.9680, 0.9710,
+        0.9510]) |
+| Poison Loss/Poison Acc: 4.209 / 0.124 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 20%|##        | 60/300 [38:45<2:30:00, 37.50s/it]| Round: 61 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.307 / 0.889 |
+| Val_Per_Class_Acc: tensor([0.8800, 0.9650, 0.8080, 0.9140, 0.8490, 0.9700, 0.6250, 0.9650, 0.9700,
+        0.9480]) |
+| Poison Loss/Poison Acc: 4.545 / 0.110 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 20%|##        | 61/300 [39:22<2:28:39, 37.32s/it]| Round: 62 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.308 / 0.890 |
+| Val_Per_Class_Acc: tensor([0.8560, 0.9680, 0.7700, 0.9120, 0.8880, 0.9720, 0.6410, 0.9680, 0.9740,
+        0.9500]) |
+| Poison Loss/Poison Acc: 4.406 / 0.113 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 21%|##        | 62/300 [40:00<2:29:12, 37.62s/it]| Round: 63 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.306 / 0.891 |
+| Val_Per_Class_Acc: tensor([0.8760, 0.9650, 0.8030, 0.9110, 0.8600, 0.9740, 0.6370, 0.9660, 0.9720,
+        0.9510]) |
+| Poison Loss/Poison Acc: 4.321 / 0.121 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 21%|##1       | 63/300 [40:38<2:28:50, 37.68s/it]| Round: 64 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.302 / 0.891 |
+| Val_Per_Class_Acc: tensor([0.8590, 0.9670, 0.8070, 0.9150, 0.8550, 0.9690, 0.6530, 0.9640, 0.9710,
+        0.9550]) |
+| Poison Loss/Poison Acc: 4.445 / 0.125 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 21%|##1       | 64/300 [41:16<2:28:23, 37.73s/it]| Round: 65 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.303 / 0.890 |
+| Val_Per_Class_Acc: tensor([0.8750, 0.9660, 0.8030, 0.9080, 0.8810, 0.9710, 0.6080, 0.9530, 0.9740,
+        0.9600]) |
+| Poison Loss/Poison Acc: 4.414 / 0.119 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 22%|##1       | 65/300 [41:54<2:28:29, 37.91s/it]| Round: 66 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.301 / 0.894 |
+| Val_Per_Class_Acc: tensor([0.8640, 0.9670, 0.7930, 0.9140, 0.8670, 0.9750, 0.6730, 0.9510, 0.9720,
+        0.9620]) |
+| Poison Loss/Poison Acc: 4.567 / 0.108 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 22%|##2       | 66/300 [42:32<2:27:41, 37.87s/it]| Round: 67 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.301 / 0.892 |
+| Val_Per_Class_Acc: tensor([0.8680, 0.9680, 0.7970, 0.9080, 0.8840, 0.9750, 0.6330, 0.9490, 0.9720,
+        0.9630]) |
+| Poison Loss/Poison Acc: 4.414 / 0.114 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 22%|##2       | 67/300 [43:09<2:26:52, 37.82s/it]| Round: 68 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.300 / 0.892 |
+| Val_Per_Class_Acc: tensor([0.8850, 0.9670, 0.8020, 0.9030, 0.8940, 0.9710, 0.6030, 0.9580, 0.9720,
+        0.9610]) |
+| Poison Loss/Poison Acc: 4.467 / 0.116 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 23%|##2       | 68/300 [43:48<2:26:57, 38.01s/it]| Round: 69 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.300 / 0.892 |
+| Val_Per_Class_Acc: tensor([0.8400, 0.9660, 0.8020, 0.9010, 0.8670, 0.9680, 0.6880, 0.9610, 0.9730,
+        0.9550]) |
+| Poison Loss/Poison Acc: 4.230 / 0.135 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 23%|##3       | 69/300 [44:26<2:25:55, 37.90s/it]| Round: 70 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.304 / 0.890 |
+| Val_Per_Class_Acc: tensor([0.8380, 0.9690, 0.7370, 0.9070, 0.9060, 0.9770, 0.6760, 0.9610, 0.9720,
+        0.9560]) |
+| Poison Loss/Poison Acc: 4.393 / 0.121 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 23%|##3       | 70/300 [45:04<2:25:30, 37.96s/it]| Round: 71 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.298 / 0.892 |
+| Val_Per_Class_Acc: tensor([0.8790, 0.9660, 0.8420, 0.9050, 0.8160, 0.9760, 0.6470, 0.9660, 0.9730,
+        0.9490]) |
+| Poison Loss/Poison Acc: 4.563 / 0.115 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 24%|##3       | 71/300 [45:41<2:24:36, 37.89s/it]| Round: 72 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.298 / 0.894 |
+| Val_Per_Class_Acc: tensor([0.8620, 0.9700, 0.7840, 0.9020, 0.8650, 0.9720, 0.6960, 0.9600, 0.9750,
+        0.9570]) |
+| Poison Loss/Poison Acc: 4.297 / 0.143 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 24%|##4       | 72/300 [46:18<2:22:25, 37.48s/it]| Round: 73 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.298 / 0.892 |
+| Val_Per_Class_Acc: tensor([0.8700, 0.9670, 0.7760, 0.9080, 0.9050, 0.9740, 0.6290, 0.9610, 0.9730,
+        0.9600]) |
+| Poison Loss/Poison Acc: 4.206 / 0.138 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 24%|##4       | 73/300 [46:56<2:22:43, 37.73s/it]| Round: 74 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.295 / 0.894 |
+| Val_Per_Class_Acc: tensor([0.8700, 0.9680, 0.8210, 0.9090, 0.8810, 0.9710, 0.6310, 0.9720, 0.9730,
+        0.9490]) |
+| Poison Loss/Poison Acc: 4.256 / 0.137 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 25%|##4       | 74/300 [47:35<2:22:51, 37.93s/it]| Round: 75 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.295 / 0.896 |
+| Val_Per_Class_Acc: tensor([0.8770, 0.9670, 0.7900, 0.9140, 0.8820, 0.9720, 0.6630, 0.9700, 0.9710,
+        0.9510]) |
+| Poison Loss/Poison Acc: 4.155 / 0.152 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 25%|##5       | 75/300 [48:14<2:23:43, 38.33s/it]| Round: 76 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.292 / 0.895 |
+| Val_Per_Class_Acc: tensor([0.8800, 0.9680, 0.8110, 0.9170, 0.8740, 0.9760, 0.6360, 0.9610, 0.9720,
+        0.9590]) |
+| Poison Loss/Poison Acc: 4.531 / 0.128 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 25%|##5       | 76/300 [48:52<2:22:59, 38.30s/it]| Round: 77 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.298 / 0.892 |
+| Val_Per_Class_Acc: tensor([0.8410, 0.9660, 0.7600, 0.9050, 0.8660, 0.9740, 0.7130, 0.9610, 0.9750,
+        0.9600]) |
+| Poison Loss/Poison Acc: 4.261 / 0.144 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 26%|##5       | 77/300 [49:31<2:23:03, 38.49s/it]| Round: 78 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.293 / 0.893 |
+| Val_Per_Class_Acc: tensor([0.8770, 0.9670, 0.8000, 0.9060, 0.8960, 0.9630, 0.6340, 0.9700, 0.9710,
+        0.9500]) |
+| Poison Loss/Poison Acc: 4.040 / 0.168 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 26%|##6       | 78/300 [50:09<2:21:46, 38.32s/it]| Round: 79 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.291 / 0.894 |
+| Val_Per_Class_Acc: tensor([0.8680, 0.9680, 0.7910, 0.9020, 0.9000, 0.9690, 0.6470, 0.9640, 0.9710,
+        0.9600]) |
+| Poison Loss/Poison Acc: 4.333 / 0.153 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 26%|##6       | 79/300 [50:48<2:21:33, 38.43s/it]| Round: 80 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.290 / 0.896 |
+| Val_Per_Class_Acc: tensor([0.8640, 0.9670, 0.8240, 0.9110, 0.8360, 0.9750, 0.6830, 0.9730, 0.9740,
+        0.9490]) |
+| Poison Loss/Poison Acc: 4.233 / 0.150 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 27%|##6       | 80/300 [51:26<2:21:19, 38.54s/it]| Round: 81 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.292 / 0.895 |
+| Val_Per_Class_Acc: tensor([0.8580, 0.9670, 0.7850, 0.9060, 0.8930, 0.9640, 0.6830, 0.9730, 0.9710,
+        0.9490]) |
+| Poison Loss/Poison Acc: 4.202 / 0.159 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 27%|##7       | 81/300 [52:05<2:20:25, 38.47s/it]| Round: 82 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.290 / 0.896 |
+| Val_Per_Class_Acc: tensor([0.8690, 0.9670, 0.7960, 0.9120, 0.8890, 0.9610, 0.6650, 0.9740, 0.9720,
+        0.9510]) |
+| Poison Loss/Poison Acc: 4.055 / 0.169 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 27%|##7       | 82/300 [52:42<2:18:52, 38.22s/it]| Round: 83 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.288 / 0.898 |
+| Val_Per_Class_Acc: tensor([0.8740, 0.9670, 0.8190, 0.9210, 0.8510, 0.9650, 0.6780, 0.9700, 0.9750,
+        0.9560]) |
+| Poison Loss/Poison Acc: 4.277 / 0.158 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 28%|##7       | 83/300 [53:21<2:18:10, 38.21s/it]| Round: 84 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.287 / 0.896 |
+| Val_Per_Class_Acc: tensor([0.8810, 0.9670, 0.8300, 0.9170, 0.8790, 0.9650, 0.6180, 0.9760, 0.9740,
+        0.9490]) |
+| Poison Loss/Poison Acc: 4.127 / 0.167 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 28%|##8       | 84/300 [53:59<2:17:29, 38.19s/it]| Round: 85 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.286 / 0.895 |
+| Val_Per_Class_Acc: tensor([0.8300, 0.9680, 0.8020, 0.9140, 0.8450, 0.9700, 0.7300, 0.9640, 0.9720,
+        0.9580]) |
+| Poison Loss/Poison Acc: 4.335 / 0.149 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 28%|##8       | 85/300 [54:37<2:16:43, 38.15s/it]| Round: 86 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.287 / 0.895 |
+| Val_Per_Class_Acc: tensor([0.8870, 0.9670, 0.8190, 0.9080, 0.8810, 0.9580, 0.6310, 0.9770, 0.9720,
+        0.9490]) |
+| Poison Loss/Poison Acc: 3.980 / 0.193 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 29%|##8       | 86/300 [55:14<2:15:34, 38.01s/it]| Round: 87 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.284 / 0.897 |
+| Val_Per_Class_Acc: tensor([0.8770, 0.9670, 0.8270, 0.9110, 0.8590, 0.9650, 0.6630, 0.9770, 0.9730,
+        0.9490]) |
+| Poison Loss/Poison Acc: 4.274 / 0.161 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 29%|##9       | 87/300 [55:53<2:15:01, 38.04s/it]| Round: 88 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.287 / 0.897 |
+| Val_Per_Class_Acc: tensor([0.8680, 0.9670, 0.7990, 0.9210, 0.8970, 0.9610, 0.6610, 0.9770, 0.9740,
+        0.9470]) |
+| Poison Loss/Poison Acc: 3.984 / 0.187 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 29%|##9       | 88/300 [56:31<2:14:48, 38.15s/it]| Round: 89 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.282 / 0.898 |
+| Val_Per_Class_Acc: tensor([0.8510, 0.9660, 0.8320, 0.9210, 0.8770, 0.9650, 0.6670, 0.9750, 0.9730,
+        0.9520]) |
+| Poison Loss/Poison Acc: 4.161 / 0.167 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 30%|##9       | 89/300 [57:10<2:15:26, 38.52s/it]| Round: 90 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.282 / 0.899 |
+| Val_Per_Class_Acc: tensor([0.8310, 0.9670, 0.8130, 0.9200, 0.8640, 0.9770, 0.7160, 0.9700, 0.9740,
+        0.9540]) |
+| Poison Loss/Poison Acc: 4.256 / 0.159 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 30%|###       | 90/300 [57:49<2:14:47, 38.51s/it]| Round: 91 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.283 / 0.897 |
+| Val_Per_Class_Acc: tensor([0.8620, 0.9690, 0.8310, 0.9170, 0.8890, 0.9660, 0.6390, 0.9780, 0.9730,
+        0.9480]) |
+| Poison Loss/Poison Acc: 4.160 / 0.175 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 30%|###       | 91/300 [58:28<2:15:15, 38.83s/it]| Round: 92 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.281 / 0.900 |
+| Val_Per_Class_Acc: tensor([0.8460, 0.9680, 0.8120, 0.9190, 0.8640, 0.9750, 0.7190, 0.9720, 0.9730,
+        0.9510]) |
+| Poison Loss/Poison Acc: 4.195 / 0.166 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 31%|###       | 92/300 [59:08<2:15:11, 39.00s/it]| Round: 93 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.279 / 0.898 |
+| Val_Per_Class_Acc: tensor([0.8560, 0.9690, 0.8210, 0.9160, 0.8940, 0.9710, 0.6610, 0.9730, 0.9720,
+        0.9510]) |
+| Poison Loss/Poison Acc: 4.349 / 0.164 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 31%|###1      | 93/300 [59:47<2:14:26, 38.97s/it]| Round: 94 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.280 / 0.898 |
+| Val_Per_Class_Acc: tensor([0.8350, 0.9710, 0.8120, 0.9080, 0.8920, 0.9730, 0.6970, 0.9730, 0.9720,
+        0.9520]) |
+| Poison Loss/Poison Acc: 4.158 / 0.164 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 31%|###1      | 94/300 [1:00:25<2:13:11, 38.79s/it]| Round: 95 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.277 / 0.900 |
+| Val_Per_Class_Acc: tensor([0.8440, 0.9700, 0.8310, 0.9170, 0.8750, 0.9720, 0.6970, 0.9750, 0.9740,
+        0.9490]) |
+| Poison Loss/Poison Acc: 4.389 / 0.156 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 32%|###1      | 95/300 [1:01:04<2:12:32, 38.79s/it]| Round: 96 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.277 / 0.898 |
+| Val_Per_Class_Acc: tensor([0.8530, 0.9690, 0.8430, 0.9200, 0.8510, 0.9740, 0.6760, 0.9740, 0.9720,
+        0.9490]) |
+| Poison Loss/Poison Acc: 4.334 / 0.166 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 32%|###2      | 96/300 [1:01:44<2:13:04, 39.14s/it]| Round: 97 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.276 / 0.899 |
+| Val_Per_Class_Acc: tensor([0.8500, 0.9710, 0.8340, 0.9220, 0.8850, 0.9740, 0.6520, 0.9690, 0.9760,
+        0.9610]) |
+| Poison Loss/Poison Acc: 4.245 / 0.167 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 32%|###2      | 97/300 [1:02:24<2:13:36, 39.49s/it]| Round: 98 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.274 / 0.901 |
+| Val_Per_Class_Acc: tensor([0.8610, 0.9700, 0.8420, 0.9190, 0.8650, 0.9780, 0.6720, 0.9680, 0.9750,
+        0.9590]) |
+| Poison Loss/Poison Acc: 4.222 / 0.171 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 33%|###2      | 98/300 [1:03:03<2:12:45, 39.43s/it]| Round: 99 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.275 / 0.901 |
+| Val_Per_Class_Acc: tensor([0.8530, 0.9720, 0.8190, 0.9110, 0.8980, 0.9760, 0.6810, 0.9740, 0.9730,
+        0.9500]) |
+| Poison Loss/Poison Acc: 4.355 / 0.161 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 33%|###3      | 99/300 [1:03:42<2:11:33, 39.27s/it]| Round: 100 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.276 / 0.900 |
+| Val_Per_Class_Acc: tensor([0.8530, 0.9690, 0.8200, 0.9230, 0.8870, 0.9730, 0.6790, 0.9750, 0.9730,
+        0.9510]) |
+| Poison Loss/Poison Acc: 4.257 / 0.175 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 33%|###3      | 100/300 [1:04:21<2:09:50, 38.95s/it]| Round: 101 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.274 / 0.901 |
+| Val_Per_Class_Acc: tensor([0.8410, 0.9710, 0.8200, 0.9160, 0.8910, 0.9770, 0.6960, 0.9660, 0.9740,
+        0.9590]) |
+| Poison Loss/Poison Acc: 4.217 / 0.178 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 34%|###3      | 101/300 [1:04:59<2:08:21, 38.70s/it]| Round: 102 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.274 / 0.901 |
+| Val_Per_Class_Acc: tensor([0.8380, 0.9720, 0.8150, 0.9130, 0.8820, 0.9770, 0.7080, 0.9700, 0.9740,
+        0.9600]) |
+| Poison Loss/Poison Acc: 4.364 / 0.166 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 34%|###4      | 102/300 [1:05:36<2:06:14, 38.25s/it]| Round: 103 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.272 / 0.903 |
+| Val_Per_Class_Acc: tensor([0.8580, 0.9680, 0.8280, 0.9300, 0.8820, 0.9770, 0.6950, 0.9720, 0.9720,
+        0.9500]) |
+| Poison Loss/Poison Acc: 4.399 / 0.164 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 34%|###4      | 103/300 [1:06:14<2:05:17, 38.16s/it]| Round: 104 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.272 / 0.902 |
+| Val_Per_Class_Acc: tensor([0.8710, 0.9710, 0.8210, 0.9280, 0.8610, 0.9780, 0.6880, 0.9710, 0.9760,
+        0.9600]) |
+| Poison Loss/Poison Acc: 4.488 / 0.163 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 35%|###4      | 104/300 [1:06:53<2:05:13, 38.33s/it]| Round: 105 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.270 / 0.902 |
+| Val_Per_Class_Acc: tensor([0.8770, 0.9670, 0.8330, 0.9190, 0.8720, 0.9770, 0.6710, 0.9700, 0.9760,
+        0.9600]) |
+| Poison Loss/Poison Acc: 4.424 / 0.163 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 35%|###5      | 105/300 [1:07:31<2:04:30, 38.31s/it]| Round: 106 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.271 / 0.902 |
+| Val_Per_Class_Acc: tensor([0.8690, 0.9750, 0.8080, 0.9260, 0.8890, 0.9790, 0.6770, 0.9640, 0.9750,
+        0.9630]) |
+| Poison Loss/Poison Acc: 4.545 / 0.154 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 35%|###5      | 106/300 [1:08:08<2:02:39, 37.94s/it]| Round: 107 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.270 / 0.903 |
+| Val_Per_Class_Acc: tensor([0.8360, 0.9700, 0.8230, 0.9280, 0.8900, 0.9780, 0.7050, 0.9660, 0.9730,
+        0.9610]) |
+| Poison Loss/Poison Acc: 4.495 / 0.162 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 36%|###5      | 107/300 [1:08:46<2:01:52, 37.89s/it]| Round: 108 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.269 / 0.901 |
+| Val_Per_Class_Acc: tensor([0.8540, 0.9710, 0.8210, 0.9130, 0.8960, 0.9760, 0.6750, 0.9720, 0.9740,
+        0.9560]) |
+| Poison Loss/Poison Acc: 4.237 / 0.181 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 36%|###6      | 108/300 [1:09:23<2:00:21, 37.61s/it]| Round: 109 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.268 / 0.904 |
+| Val_Per_Class_Acc: tensor([0.8430, 0.9710, 0.8410, 0.9250, 0.8530, 0.9780, 0.7250, 0.9730, 0.9730,
+        0.9570]) |
+| Poison Loss/Poison Acc: 4.649 / 0.167 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 36%|###6      | 109/300 [1:10:01<2:00:26, 37.84s/it]| Round: 110 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.271 / 0.900 |
+| Val_Per_Class_Acc: tensor([0.8660, 0.9710, 0.8170, 0.9140, 0.9030, 0.9720, 0.6620, 0.9750, 0.9740,
+        0.9510]) |
+| Poison Loss/Poison Acc: 4.364 / 0.184 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 37%|###6      | 110/300 [1:10:40<2:00:31, 38.06s/it]| Round: 111 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.269 / 0.903 |
+| Val_Per_Class_Acc: tensor([0.8490, 0.9720, 0.8170, 0.9320, 0.8750, 0.9770, 0.7040, 0.9640, 0.9740,
+        0.9620]) |
+| Poison Loss/Poison Acc: 4.293 / 0.172 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 37%|###7      | 111/300 [1:11:18<2:00:24, 38.23s/it]| Round: 112 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.268 / 0.902 |
+| Val_Per_Class_Acc: tensor([0.8710, 0.9710, 0.8300, 0.9230, 0.8820, 0.9800, 0.6600, 0.9650, 0.9760,
+        0.9600]) |
+| Poison Loss/Poison Acc: 4.705 / 0.152 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 37%|###7      | 112/300 [1:11:56<1:59:20, 38.09s/it]| Round: 113 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.266 / 0.903 |
+| Val_Per_Class_Acc: tensor([0.8790, 0.9730, 0.8280, 0.9220, 0.8930, 0.9800, 0.6580, 0.9700, 0.9740,
+        0.9540]) |
+| Poison Loss/Poison Acc: 4.606 / 0.159 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 38%|###7      | 113/300 [1:12:34<1:58:40, 38.08s/it]| Round: 114 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.268 / 0.903 |
+| Val_Per_Class_Acc: tensor([0.8890, 0.9710, 0.8260, 0.9260, 0.8610, 0.9780, 0.6830, 0.9730, 0.9730,
+        0.9510]) |
+| Poison Loss/Poison Acc: 4.474 / 0.173 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 38%|###8      | 114/300 [1:13:12<1:58:23, 38.19s/it]| Round: 115 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.267 / 0.904 |
+| Val_Per_Class_Acc: tensor([0.8630, 0.9730, 0.8070, 0.9200, 0.8890, 0.9770, 0.7070, 0.9730, 0.9760,
+        0.9580]) |
+| Poison Loss/Poison Acc: 4.275 / 0.184 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 38%|###8      | 115/300 [1:13:50<1:57:02, 37.96s/it]| Round: 116 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.266 / 0.903 |
+| Val_Per_Class_Acc: tensor([0.8810, 0.9710, 0.8180, 0.9180, 0.8910, 0.9770, 0.6680, 0.9740, 0.9730,
+        0.9560]) |
+| Poison Loss/Poison Acc: 4.537 / 0.170 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 39%|###8      | 116/300 [1:14:28<1:56:41, 38.05s/it]| Round: 117 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.265 / 0.905 |
+| Val_Per_Class_Acc: tensor([0.8780, 0.9710, 0.8400, 0.9230, 0.8510, 0.9800, 0.6990, 0.9730, 0.9760,
+        0.9580]) |
+| Poison Loss/Poison Acc: 4.449 / 0.170 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 39%|###9      | 117/300 [1:15:07<1:56:40, 38.25s/it]| Round: 118 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.264 / 0.904 |
+| Val_Per_Class_Acc: tensor([0.8680, 0.9730, 0.8210, 0.9150, 0.8820, 0.9790, 0.6940, 0.9730, 0.9750,
+        0.9590]) |
+| Poison Loss/Poison Acc: 4.518 / 0.167 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 39%|###9      | 118/300 [1:15:45<1:56:02, 38.26s/it]| Round: 119 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.263 / 0.904 |
+| Val_Per_Class_Acc: tensor([0.8750, 0.9710, 0.8310, 0.9200, 0.8860, 0.9800, 0.6770, 0.9730, 0.9780,
+        0.9540]) |
+| Poison Loss/Poison Acc: 4.580 / 0.164 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 40%|###9      | 119/300 [1:16:24<1:55:58, 38.44s/it]| Round: 120 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.265 / 0.904 |
+| Val_Per_Class_Acc: tensor([0.8450, 0.9740, 0.8120, 0.9210, 0.8700, 0.9770, 0.7360, 0.9660, 0.9740,
+        0.9620]) |
+| Poison Loss/Poison Acc: 4.395 / 0.170 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 40%|####      | 120/300 [1:17:02<1:55:15, 38.42s/it]| Round: 121 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.264 / 0.904 |
+| Val_Per_Class_Acc: tensor([0.8800, 0.9710, 0.8190, 0.9200, 0.8750, 0.9790, 0.6940, 0.9700, 0.9740,
+        0.9560]) |
+| Poison Loss/Poison Acc: 4.468 / 0.167 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 40%|####      | 121/300 [1:17:41<1:54:48, 38.48s/it]| Round: 122 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.266 / 0.902 |
+| Val_Per_Class_Acc: tensor([0.8720, 0.9720, 0.8120, 0.9240, 0.8980, 0.9770, 0.6630, 0.9710, 0.9750,
+        0.9600]) |
+| Poison Loss/Poison Acc: 4.330 / 0.191 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 41%|####      | 122/300 [1:18:19<1:54:09, 38.48s/it]| Round: 123 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.261 / 0.904 |
+| Val_Per_Class_Acc: tensor([0.8830, 0.9720, 0.8370, 0.9270, 0.8870, 0.9790, 0.6520, 0.9710, 0.9740,
+        0.9590]) |
+| Poison Loss/Poison Acc: 4.665 / 0.166 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 41%|####1     | 123/300 [1:18:58<1:53:12, 38.38s/it]| Round: 124 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.260 / 0.905 |
+| Val_Per_Class_Acc: tensor([0.8700, 0.9790, 0.8340, 0.9170, 0.8720, 0.9800, 0.6980, 0.9630, 0.9760,
+        0.9620]) |
+| Poison Loss/Poison Acc: 4.644 / 0.159 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 41%|####1     | 124/300 [1:19:35<1:52:03, 38.20s/it]| Round: 125 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.261 / 0.905 |
+| Val_Per_Class_Acc: tensor([0.8670, 0.9730, 0.8170, 0.9150, 0.8910, 0.9800, 0.7000, 0.9710, 0.9770,
+        0.9590]) |
+| Poison Loss/Poison Acc: 4.592 / 0.161 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 42%|####1     | 125/300 [1:20:13<1:51:10, 38.12s/it]| Round: 126 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.261 / 0.904 |
+| Val_Per_Class_Acc: tensor([0.8800, 0.9750, 0.8480, 0.9190, 0.8810, 0.9770, 0.6600, 0.9720, 0.9730,
+        0.9580]) |
+| Poison Loss/Poison Acc: 4.527 / 0.183 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 42%|####2     | 126/300 [1:20:51<1:49:49, 37.87s/it]| Round: 127 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.260 / 0.906 |
+| Val_Per_Class_Acc: tensor([0.8560, 0.9720, 0.8200, 0.9260, 0.8810, 0.9790, 0.7230, 0.9740, 0.9770,
+        0.9570]) |
+| Poison Loss/Poison Acc: 4.617 / 0.163 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 42%|####2     | 127/300 [1:21:28<1:48:54, 37.77s/it]| Round: 128 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.262 / 0.904 |
+| Val_Per_Class_Acc: tensor([0.8630, 0.9730, 0.8250, 0.9180, 0.8980, 0.9770, 0.6860, 0.9730, 0.9760,
+        0.9560]) |
+| Poison Loss/Poison Acc: 4.221 / 0.181 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 43%|####2     | 128/300 [1:22:05<1:47:49, 37.61s/it]| Round: 129 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.261 / 0.906 |
+| Val_Per_Class_Acc: tensor([0.8710, 0.9740, 0.8250, 0.9220, 0.8730, 0.9760, 0.7100, 0.9780, 0.9770,
+        0.9500]) |
+| Poison Loss/Poison Acc: 4.483 / 0.190 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 43%|####3     | 129/300 [1:22:43<1:47:13, 37.62s/it]| Round: 130 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.264 / 0.904 |
+| Val_Per_Class_Acc: tensor([0.8990, 0.9710, 0.8690, 0.9250, 0.8580, 0.9700, 0.6420, 0.9800, 0.9750,
+        0.9530]) |
+| Poison Loss/Poison Acc: 4.286 / 0.211 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 43%|####3     | 130/300 [1:23:21<1:47:11, 37.83s/it]| Round: 131 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.263 / 0.905 |
+| Val_Per_Class_Acc: tensor([0.8670, 0.9710, 0.7970, 0.9210, 0.9090, 0.9760, 0.6930, 0.9810, 0.9780,
+        0.9530]) |
+| Poison Loss/Poison Acc: 4.392 / 0.189 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 44%|####3     | 131/300 [1:24:00<1:46:56, 37.97s/it]| Round: 132 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.260 / 0.907 |
+| Val_Per_Class_Acc: tensor([0.8760, 0.9760, 0.8290, 0.9200, 0.8890, 0.9730, 0.6930, 0.9760, 0.9760,
+        0.9590]) |
+| Poison Loss/Poison Acc: 4.529 / 0.190 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 44%|####4     | 132/300 [1:24:37<1:46:10, 37.92s/it]| Round: 133 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.259 / 0.906 |
+| Val_Per_Class_Acc: tensor([0.8890, 0.9710, 0.8500, 0.9320, 0.8750, 0.9770, 0.6550, 0.9740, 0.9780,
+        0.9580]) |
+| Poison Loss/Poison Acc: 4.492 / 0.178 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 44%|####4     | 133/300 [1:25:15<1:45:39, 37.96s/it]| Round: 134 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.258 / 0.906 |
+| Val_Per_Class_Acc: tensor([0.8800, 0.9740, 0.8290, 0.9190, 0.9030, 0.9780, 0.6660, 0.9730, 0.9780,
+        0.9590]) |
+| Poison Loss/Poison Acc: 4.718 / 0.164 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 45%|####4     | 134/300 [1:25:53<1:44:48, 37.88s/it]| Round: 135 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.256 / 0.907 |
+| Val_Per_Class_Acc: tensor([0.8640, 0.9780, 0.8220, 0.9180, 0.8950, 0.9800, 0.7140, 0.9740, 0.9740,
+        0.9540]) |
+| Poison Loss/Poison Acc: 4.592 / 0.170 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 45%|####5     | 135/300 [1:26:32<1:44:35, 38.03s/it]| Round: 136 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.256 / 0.906 |
+| Val_Per_Class_Acc: tensor([0.8710, 0.9720, 0.8440, 0.9150, 0.9040, 0.9790, 0.6640, 0.9740, 0.9790,
+        0.9550]) |
+| Poison Loss/Poison Acc: 4.680 / 0.166 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 45%|####5     | 136/300 [1:27:09<1:43:44, 37.96s/it]| Round: 137 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.257 / 0.907 |
+| Val_Per_Class_Acc: tensor([0.8430, 0.9790, 0.8210, 0.9190, 0.8890, 0.9800, 0.7400, 0.9730, 0.9730,
+        0.9550]) |
+| Poison Loss/Poison Acc: 4.567 / 0.166 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 46%|####5     | 137/300 [1:27:47<1:42:45, 37.82s/it]| Round: 138 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.257 / 0.906 |
+| Val_Per_Class_Acc: tensor([0.8710, 0.9770, 0.8360, 0.9280, 0.8860, 0.9780, 0.6800, 0.9770, 0.9790,
+        0.9530]) |
+| Poison Loss/Poison Acc: 4.347 / 0.196 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 46%|####6     | 138/300 [1:28:25<1:42:24, 37.93s/it]| Round: 139 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.256 / 0.907 |
+| Val_Per_Class_Acc: tensor([0.8620, 0.9720, 0.8580, 0.9250, 0.8820, 0.9770, 0.6830, 0.9790, 0.9750,
+        0.9540]) |
+| Poison Loss/Poison Acc: 4.615 / 0.193 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 46%|####6     | 139/300 [1:29:03<1:41:57, 38.00s/it]| Round: 140 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.256 / 0.907 |
+| Val_Per_Class_Acc: tensor([0.8430, 0.9740, 0.8160, 0.9240, 0.8990, 0.9780, 0.7290, 0.9750, 0.9760,
+        0.9530]) |
+| Poison Loss/Poison Acc: 4.411 / 0.189 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 47%|####6     | 140/300 [1:29:42<1:41:53, 38.21s/it]| Round: 141 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.255 / 0.910 |
+| Val_Per_Class_Acc: tensor([0.8620, 0.9760, 0.8620, 0.9220, 0.8660, 0.9780, 0.7230, 0.9780, 0.9770,
+        0.9530]) |
+| Poison Loss/Poison Acc: 4.575 / 0.171 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 47%|####6     | 141/300 [1:30:20<1:41:03, 38.14s/it]| Round: 142 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.256 / 0.906 |
+| Val_Per_Class_Acc: tensor([0.8340, 0.9800, 0.8160, 0.9120, 0.9220, 0.9790, 0.7110, 0.9740, 0.9770,
+        0.9560]) |
+| Poison Loss/Poison Acc: 4.483 / 0.172 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 47%|####7     | 142/300 [1:30:58<1:40:17, 38.08s/it]| Round: 143 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.254 / 0.909 |
+| Val_Per_Class_Acc: tensor([0.8750, 0.9760, 0.8410, 0.9160, 0.8820, 0.9810, 0.7060, 0.9800, 0.9780,
+        0.9520]) |
+| Poison Loss/Poison Acc: 4.755 / 0.167 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 48%|####7     | 143/300 [1:31:36<1:39:55, 38.19s/it]| Round: 144 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.253 / 0.907 |
+| Val_Per_Class_Acc: tensor([0.8760, 0.9730, 0.8570, 0.9250, 0.8840, 0.9780, 0.6720, 0.9750, 0.9760,
+        0.9580]) |
+| Poison Loss/Poison Acc: 4.762 / 0.172 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 48%|####8     | 144/300 [1:32:14<1:38:43, 37.97s/it]| Round: 145 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.252 / 0.908 |
+| Val_Per_Class_Acc: tensor([0.8590, 0.9790, 0.8260, 0.9180, 0.8870, 0.9800, 0.7260, 0.9750, 0.9750,
+        0.9570]) |
+| Poison Loss/Poison Acc: 4.557 / 0.175 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 48%|####8     | 145/300 [1:32:51<1:37:49, 37.87s/it]| Round: 146 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.252 / 0.907 |
+| Val_Per_Class_Acc: tensor([0.8820, 0.9780, 0.8750, 0.9130, 0.8760, 0.9800, 0.6610, 0.9740, 0.9800,
+        0.9550]) |
+| Poison Loss/Poison Acc: 4.719 / 0.174 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 49%|####8     | 146/300 [1:33:30<1:37:55, 38.15s/it]| Round: 147 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.254 / 0.908 |
+| Val_Per_Class_Acc: tensor([0.8550, 0.9740, 0.8260, 0.9140, 0.8780, 0.9800, 0.7490, 0.9750, 0.9750,
+        0.9540]) |
+| Poison Loss/Poison Acc: 4.672 / 0.174 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 49%|####9     | 147/300 [1:34:08<1:37:22, 38.19s/it]| Round: 148 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.251 / 0.909 |
+| Val_Per_Class_Acc: tensor([0.8770, 0.9780, 0.8360, 0.9190, 0.9020, 0.9820, 0.6880, 0.9730, 0.9780,
+        0.9550]) |
+| Poison Loss/Poison Acc: 4.791 / 0.165 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 49%|####9     | 148/300 [1:34:51<1:39:43, 39.37s/it]| Round: 149 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.250 / 0.909 |
+| Val_Per_Class_Acc: tensor([0.8730, 0.9770, 0.8560, 0.9250, 0.8700, 0.9790, 0.7080, 0.9740, 0.9770,
+        0.9560]) |
+| Poison Loss/Poison Acc: 4.738 / 0.180 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 50%|####9     | 149/300 [1:35:28<1:37:58, 38.93s/it]| Round: 150 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.251 / 0.909 |
+| Val_Per_Class_Acc: tensor([0.8440, 0.9760, 0.8380, 0.9260, 0.9070, 0.9800, 0.7070, 0.9740, 0.9770,
+        0.9590]) |
+| Poison Loss/Poison Acc: 4.779 / 0.173 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 50%|#####     | 150/300 [1:36:07<1:37:01, 38.81s/it]| Round: 151 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.250 / 0.909 |
+| Val_Per_Class_Acc: tensor([0.8730, 0.9780, 0.8490, 0.9290, 0.8990, 0.9790, 0.6740, 0.9760, 0.9790,
+        0.9570]) |
+| Poison Loss/Poison Acc: 4.695 / 0.178 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 50%|#####     | 151/300 [1:36:45<1:35:57, 38.64s/it]| Round: 152 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.250 / 0.910 |
+| Val_Per_Class_Acc: tensor([0.8640, 0.9770, 0.8380, 0.9190, 0.8910, 0.9770, 0.7230, 0.9760, 0.9780,
+        0.9590]) |
+| Poison Loss/Poison Acc: 4.692 / 0.180 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 51%|#####     | 152/300 [1:37:23<1:34:50, 38.45s/it]| Round: 153 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.249 / 0.910 |
+| Val_Per_Class_Acc: tensor([0.8610, 0.9770, 0.8380, 0.9270, 0.8840, 0.9810, 0.7200, 0.9730, 0.9780,
+        0.9570]) |
+| Poison Loss/Poison Acc: 4.762 / 0.172 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 51%|#####1    | 153/300 [1:38:01<1:33:21, 38.10s/it]| Round: 154 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.251 / 0.909 |
+| Val_Per_Class_Acc: tensor([0.8510, 0.9770, 0.8430, 0.9180, 0.9060, 0.9750, 0.7110, 0.9770, 0.9780,
+        0.9580]) |
+| Poison Loss/Poison Acc: 4.551 / 0.193 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 51%|#####1    | 154/300 [1:38:39<1:33:18, 38.35s/it]| Round: 155 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.251 / 0.909 |
+| Val_Per_Class_Acc: tensor([0.8720, 0.9770, 0.8680, 0.9140, 0.8790, 0.9730, 0.6980, 0.9780, 0.9790,
+        0.9550]) |
+| Poison Loss/Poison Acc: 4.644 / 0.190 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 52%|#####1    | 155/300 [1:39:18<1:32:29, 38.28s/it]| Round: 156 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.250 / 0.910 |
+| Val_Per_Class_Acc: tensor([0.8660, 0.9780, 0.8160, 0.9190, 0.9050, 0.9770, 0.7340, 0.9730, 0.9790,
+        0.9570]) |
+| Poison Loss/Poison Acc: 4.599 / 0.170 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 52%|#####2    | 156/300 [1:39:55<1:31:06, 37.96s/it]| Round: 157 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.251 / 0.910 |
+| Val_Per_Class_Acc: tensor([0.8500, 0.9770, 0.8190, 0.9230, 0.8860, 0.9830, 0.7510, 0.9730, 0.9770,
+        0.9600]) |
+| Poison Loss/Poison Acc: 4.794 / 0.170 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 52%|#####2    | 157/300 [1:40:32<1:30:15, 37.87s/it]| Round: 158 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.247 / 0.910 |
+| Val_Per_Class_Acc: tensor([0.8610, 0.9770, 0.8460, 0.9200, 0.8940, 0.9800, 0.7120, 0.9700, 0.9790,
+        0.9620]) |
+| Poison Loss/Poison Acc: 4.894 / 0.171 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 53%|#####2    | 158/300 [1:41:11<1:30:16, 38.14s/it]| Round: 159 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.249 / 0.910 |
+| Val_Per_Class_Acc: tensor([0.8740, 0.9770, 0.8400, 0.9250, 0.8730, 0.9810, 0.7220, 0.9730, 0.9780,
+        0.9590]) |
+| Poison Loss/Poison Acc: 4.780 / 0.174 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 53%|#####3    | 159/300 [1:41:50<1:29:48, 38.22s/it]| Round: 160 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.247 / 0.910 |
+| Val_Per_Class_Acc: tensor([0.8640, 0.9790, 0.8400, 0.9200, 0.8990, 0.9770, 0.7120, 0.9690, 0.9790,
+        0.9610]) |
+| Poison Loss/Poison Acc: 4.750 / 0.183 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 53%|#####3    | 160/300 [1:42:27<1:28:23, 37.88s/it]| Round: 161 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.248 / 0.911 |
+| Val_Per_Class_Acc: tensor([0.8780, 0.9790, 0.8550, 0.9210, 0.8930, 0.9780, 0.6920, 0.9750, 0.9790,
+        0.9580]) |
+| Poison Loss/Poison Acc: 4.767 / 0.182 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 54%|#####3    | 161/300 [1:43:05<1:28:20, 38.13s/it]| Round: 162 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.247 / 0.911 |
+| Val_Per_Class_Acc: tensor([0.8700, 0.9790, 0.8660, 0.9320, 0.8800, 0.9800, 0.6990, 0.9750, 0.9800,
+        0.9530]) |
+| Poison Loss/Poison Acc: 4.571 / 0.190 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 54%|#####4    | 162/300 [1:43:44<1:27:40, 38.12s/it]| Round: 163 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.247 / 0.911 |
+| Val_Per_Class_Acc: tensor([0.8680, 0.9790, 0.8600, 0.9250, 0.8920, 0.9800, 0.6990, 0.9750, 0.9790,
+        0.9540]) |
+| Poison Loss/Poison Acc: 4.626 / 0.178 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 54%|#####4    | 163/300 [1:44:22<1:27:21, 38.26s/it]| Round: 164 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.246 / 0.912 |
+| Val_Per_Class_Acc: tensor([0.8700, 0.9790, 0.8570, 0.9230, 0.8860, 0.9780, 0.7170, 0.9790, 0.9790,
+        0.9540]) |
+| Poison Loss/Poison Acc: 4.679 / 0.174 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 55%|#####4    | 164/300 [1:45:01<1:26:56, 38.36s/it]| Round: 165 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.250 / 0.910 |
+| Val_Per_Class_Acc: tensor([0.8590, 0.9790, 0.8040, 0.9220, 0.9200, 0.9790, 0.7300, 0.9740, 0.9790,
+        0.9550]) |
+| Poison Loss/Poison Acc: 4.727 / 0.180 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 55%|#####5    | 165/300 [1:45:38<1:25:51, 38.16s/it]| Round: 166 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.249 / 0.910 |
+| Val_Per_Class_Acc: tensor([0.8820, 0.9770, 0.8600, 0.9280, 0.8990, 0.9750, 0.6700, 0.9810, 0.9800,
+        0.9520]) |
+| Poison Loss/Poison Acc: 4.491 / 0.200 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 55%|#####5    | 166/300 [1:46:16<1:24:48, 37.98s/it]| Round: 167 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.247 / 0.911 |
+| Val_Per_Class_Acc: tensor([0.8570, 0.9770, 0.8530, 0.9360, 0.8750, 0.9760, 0.7270, 0.9850, 0.9790,
+        0.9480]) |
+| Poison Loss/Poison Acc: 4.385 / 0.212 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 56%|#####5    | 167/300 [1:46:54<1:23:55, 37.86s/it]| Round: 168 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.246 / 0.912 |
+| Val_Per_Class_Acc: tensor([0.8850, 0.9770, 0.8670, 0.9300, 0.8830, 0.9780, 0.6840, 0.9770, 0.9810,
+        0.9560]) |
+| Poison Loss/Poison Acc: 4.782 / 0.188 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 56%|#####6    | 168/300 [1:47:32<1:23:40, 38.03s/it]| Round: 169 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.246 / 0.912 |
+| Val_Per_Class_Acc: tensor([0.8750, 0.9770, 0.8360, 0.9300, 0.8930, 0.9780, 0.7210, 0.9770, 0.9790,
+        0.9570]) |
+| Poison Loss/Poison Acc: 4.656 / 0.186 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 56%|#####6    | 169/300 [1:48:10<1:23:11, 38.10s/it]| Round: 170 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.245 / 0.912 |
+| Val_Per_Class_Acc: tensor([0.8760, 0.9790, 0.8530, 0.9280, 0.8950, 0.9780, 0.6990, 0.9780, 0.9800,
+        0.9570]) |
+| Poison Loss/Poison Acc: 4.779 / 0.182 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 57%|#####6    | 170/300 [1:48:48<1:22:26, 38.05s/it]| Round: 171 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.244 / 0.912 |
+| Val_Per_Class_Acc: tensor([0.8640, 0.9790, 0.8440, 0.9230, 0.8980, 0.9780, 0.7230, 0.9760, 0.9800,
+        0.9600]) |
+| Poison Loss/Poison Acc: 4.777 / 0.178 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 57%|#####6    | 171/300 [1:49:26<1:21:53, 38.09s/it]| Round: 172 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.244 / 0.913 |
+| Val_Per_Class_Acc: tensor([0.8710, 0.9780, 0.8600, 0.9280, 0.8770, 0.9780, 0.7230, 0.9760, 0.9810,
+        0.9570]) |
+| Poison Loss/Poison Acc: 4.785 / 0.178 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 57%|#####7    | 172/300 [1:50:04<1:20:55, 37.93s/it]| Round: 173 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.243 / 0.914 |
+| Val_Per_Class_Acc: tensor([0.8790, 0.9800, 0.8510, 0.9250, 0.8920, 0.9780, 0.7190, 0.9810, 0.9800,
+        0.9540]) |
+| Poison Loss/Poison Acc: 4.666 / 0.195 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 58%|#####7    | 173/300 [1:50:42<1:20:39, 38.10s/it]| Round: 174 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.243 / 0.911 |
+| Val_Per_Class_Acc: tensor([0.8830, 0.9780, 0.8570, 0.9240, 0.9040, 0.9810, 0.6690, 0.9720, 0.9800,
+        0.9590]) |
+| Poison Loss/Poison Acc: 4.884 / 0.170 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 58%|#####8    | 174/300 [1:51:21<1:20:31, 38.34s/it]| Round: 175 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.243 / 0.912 |
+| Val_Per_Class_Acc: tensor([0.8530, 0.9760, 0.8350, 0.9270, 0.8980, 0.9810, 0.7370, 0.9670, 0.9800,
+        0.9650]) |
+| Poison Loss/Poison Acc: 5.155 / 0.166 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 58%|#####8    | 175/300 [1:51:59<1:19:17, 38.06s/it]| Round: 176 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.242 / 0.913 |
+| Val_Per_Class_Acc: tensor([0.8680, 0.9780, 0.8530, 0.9330, 0.8870, 0.9830, 0.7200, 0.9730, 0.9790,
+        0.9560]) |
+| Poison Loss/Poison Acc: 4.972 / 0.175 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 59%|#####8    | 176/300 [1:52:37<1:18:37, 38.05s/it]| Round: 177 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.243 / 0.912 |
+| Val_Per_Class_Acc: tensor([0.8450, 0.9780, 0.8300, 0.9220, 0.9120, 0.9830, 0.7380, 0.9720, 0.9800,
+        0.9570]) |
+| Poison Loss/Poison Acc: 4.917 / 0.166 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 59%|#####8    | 177/300 [1:53:16<1:18:27, 38.27s/it]| Round: 178 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.242 / 0.914 |
+| Val_Per_Class_Acc: tensor([0.8440, 0.9780, 0.8430, 0.9230, 0.8900, 0.9810, 0.7650, 0.9750, 0.9790,
+        0.9580]) |
+| Poison Loss/Poison Acc: 4.869 / 0.175 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 59%|#####9    | 178/300 [1:53:54<1:17:43, 38.23s/it]| Round: 179 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.243 / 0.911 |
+| Val_Per_Class_Acc: tensor([0.8680, 0.9780, 0.8450, 0.9350, 0.8970, 0.9800, 0.6970, 0.9760, 0.9800,
+        0.9570]) |
+| Poison Loss/Poison Acc: 4.866 / 0.182 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 60%|#####9    | 179/300 [1:54:32<1:17:05, 38.23s/it]| Round: 180 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.241 / 0.915 |
+| Val_Per_Class_Acc: tensor([0.8640, 0.9790, 0.8510, 0.9270, 0.9010, 0.9800, 0.7330, 0.9710, 0.9800,
+        0.9630]) |
+| Poison Loss/Poison Acc: 5.041 / 0.169 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 60%|######    | 180/300 [1:55:10<1:16:24, 38.20s/it]| Round: 181 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.240 / 0.913 |
+| Val_Per_Class_Acc: tensor([0.8720, 0.9790, 0.8590, 0.9240, 0.8980, 0.9820, 0.7050, 0.9730, 0.9800,
+        0.9600]) |
+| Poison Loss/Poison Acc: 4.778 / 0.178 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 60%|######    | 181/300 [1:55:48<1:15:33, 38.10s/it]| Round: 182 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.240 / 0.915 |
+| Val_Per_Class_Acc: tensor([0.8620, 0.9780, 0.8660, 0.9330, 0.8840, 0.9790, 0.7300, 0.9750, 0.9800,
+        0.9600]) |
+| Poison Loss/Poison Acc: 5.057 / 0.171 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 61%|######    | 182/300 [1:56:26<1:14:43, 37.99s/it]| Round: 183 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.241 / 0.913 |
+| Val_Per_Class_Acc: tensor([0.8710, 0.9790, 0.8380, 0.9240, 0.9020, 0.9810, 0.7230, 0.9700, 0.9810,
+        0.9660]) |
+| Poison Loss/Poison Acc: 4.768 / 0.181 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 61%|######1   | 183/300 [1:57:04<1:14:34, 38.24s/it]| Round: 184 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.240 / 0.914 |
+| Val_Per_Class_Acc: tensor([0.8810, 0.9790, 0.8500, 0.9290, 0.8940, 0.9830, 0.7160, 0.9760, 0.9810,
+        0.9560]) |
+| Poison Loss/Poison Acc: 4.883 / 0.177 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 61%|######1   | 184/300 [1:57:43<1:13:51, 38.20s/it]| Round: 185 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.241 / 0.914 |
+| Val_Per_Class_Acc: tensor([0.8800, 0.9790, 0.8610, 0.9330, 0.8940, 0.9780, 0.6960, 0.9760, 0.9810,
+        0.9610]) |
+| Poison Loss/Poison Acc: 4.921 / 0.184 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 62%|######1   | 185/300 [1:58:21<1:13:07, 38.15s/it]| Round: 186 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.241 / 0.914 |
+| Val_Per_Class_Acc: tensor([0.8710, 0.9770, 0.8580, 0.9310, 0.8910, 0.9790, 0.7210, 0.9810, 0.9800,
+        0.9560]) |
+| Poison Loss/Poison Acc: 4.846 / 0.190 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 62%|######2   | 186/300 [1:59:00<1:13:24, 38.63s/it]| Round: 187 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.242 / 0.915 |
+| Val_Per_Class_Acc: tensor([0.8600, 0.9790, 0.8530, 0.9290, 0.8980, 0.9790, 0.7310, 0.9830, 0.9800,
+        0.9550]) |
+| Poison Loss/Poison Acc: 4.481 / 0.214 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 62%|######2   | 187/300 [1:59:40<1:13:25, 38.98s/it]| Round: 188 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.239 / 0.915 |
+| Val_Per_Class_Acc: tensor([0.8560, 0.9790, 0.8620, 0.9290, 0.9000, 0.9820, 0.7290, 0.9800, 0.9800,
+        0.9530]) |
+| Poison Loss/Poison Acc: 4.807 / 0.184 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 63%|######2   | 188/300 [2:00:19<1:12:41, 38.94s/it]| Round: 189 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.242 / 0.914 |
+| Val_Per_Class_Acc: tensor([0.8630, 0.9780, 0.8510, 0.9290, 0.9100, 0.9790, 0.7140, 0.9740, 0.9790,
+        0.9600]) |
+| Poison Loss/Poison Acc: 4.841 / 0.191 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 63%|######3   | 189/300 [2:00:58<1:11:54, 38.87s/it]| Round: 190 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.240 / 0.915 |
+| Val_Per_Class_Acc: tensor([0.8720, 0.9790, 0.8710, 0.9380, 0.8880, 0.9780, 0.7060, 0.9780, 0.9800,
+        0.9570]) |
+| Poison Loss/Poison Acc: 4.941 / 0.194 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 63%|######3   | 190/300 [2:01:37<1:11:28, 38.98s/it]| Round: 191 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.238 / 0.916 |
+| Val_Per_Class_Acc: tensor([0.8800, 0.9790, 0.8700, 0.9240, 0.8930, 0.9800, 0.7160, 0.9740, 0.9790,
+        0.9610]) |
+| Poison Loss/Poison Acc: 4.942 / 0.172 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 64%|######3   | 191/300 [2:02:15<1:10:32, 38.83s/it]| Round: 192 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.238 / 0.915 |
+| Val_Per_Class_Acc: tensor([0.8650, 0.9770, 0.8630, 0.9290, 0.8840, 0.9820, 0.7380, 0.9720, 0.9800,
+        0.9600]) |
+| Poison Loss/Poison Acc: 4.975 / 0.180 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 64%|######4   | 192/300 [2:02:54<1:09:53, 38.83s/it]| Round: 193 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.237 / 0.916 |
+| Val_Per_Class_Acc: tensor([0.8830, 0.9770, 0.8830, 0.9360, 0.8800, 0.9870, 0.7050, 0.9700, 0.9790,
+        0.9610]) |
+| Poison Loss/Poison Acc: 5.386 / 0.156 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 64%|######4   | 193/300 [2:03:33<1:09:25, 38.93s/it]| Round: 194 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.239 / 0.914 |
+| Val_Per_Class_Acc: tensor([0.8710, 0.9770, 0.8440, 0.9260, 0.9120, 0.9850, 0.7110, 0.9680, 0.9800,
+        0.9630]) |
+| Poison Loss/Poison Acc: 4.914 / 0.176 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 65%|######4   | 194/300 [2:04:12<1:08:43, 38.90s/it]| Round: 195 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.237 / 0.917 |
+| Val_Per_Class_Acc: tensor([0.8740, 0.9790, 0.8670, 0.9290, 0.8910, 0.9810, 0.7310, 0.9700, 0.9800,
+        0.9640]) |
+| Poison Loss/Poison Acc: 5.070 / 0.179 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 65%|######5   | 195/300 [2:04:51<1:07:56, 38.83s/it]| Round: 196 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.236 / 0.916 |
+| Val_Per_Class_Acc: tensor([0.8670, 0.9770, 0.8630, 0.9360, 0.8950, 0.9810, 0.7220, 0.9730, 0.9800,
+        0.9630]) |
+| Poison Loss/Poison Acc: 5.065 / 0.169 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 65%|######5   | 196/300 [2:05:28<1:06:32, 38.39s/it]| Round: 197 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.236 / 0.916 |
+| Val_Per_Class_Acc: tensor([0.8680, 0.9790, 0.8670, 0.9330, 0.8970, 0.9830, 0.7220, 0.9710, 0.9800,
+        0.9620]) |
+| Poison Loss/Poison Acc: 5.126 / 0.170 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 66%|######5   | 197/300 [2:06:07<1:06:09, 38.54s/it]| Round: 198 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.236 / 0.916 |
+| Val_Per_Class_Acc: tensor([0.8640, 0.9780, 0.8390, 0.9260, 0.9030, 0.9830, 0.7560, 0.9730, 0.9800,
+        0.9580]) |
+| Poison Loss/Poison Acc: 4.924 / 0.176 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 66%|######6   | 198/300 [2:06:46<1:05:32, 38.55s/it]| Round: 199 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.238 / 0.915 |
+| Val_Per_Class_Acc: tensor([0.8550, 0.9780, 0.8450, 0.9300, 0.9100, 0.9810, 0.7330, 0.9760, 0.9810,
+        0.9590]) |
+| Poison Loss/Poison Acc: 5.081 / 0.177 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 66%|######6   | 199/300 [2:07:25<1:05:16, 38.77s/it]| Round: 200 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.239 / 0.915 |
+| Val_Per_Class_Acc: tensor([0.8800, 0.9760, 0.8910, 0.9360, 0.8720, 0.9780, 0.7000, 0.9750, 0.9810,
+        0.9580]) |
+| Poison Loss/Poison Acc: 5.063 / 0.186 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 67%|######6   | 200/300 [2:08:04<1:04:39, 38.79s/it]| Round: 201 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.238 / 0.914 |
+| Val_Per_Class_Acc: tensor([0.8340, 0.9790, 0.8330, 0.9250, 0.9170, 0.9810, 0.7580, 0.9780, 0.9790,
+        0.9570]) |
+| Poison Loss/Poison Acc: 4.841 / 0.179 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 67%|######7   | 201/300 [2:08:42<1:03:46, 38.65s/it]| Round: 202 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.237 / 0.916 |
+| Val_Per_Class_Acc: tensor([0.8660, 0.9790, 0.8690, 0.9350, 0.8790, 0.9810, 0.7360, 0.9740, 0.9800,
+        0.9580]) |
+| Poison Loss/Poison Acc: 5.042 / 0.182 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 67%|######7   | 202/300 [2:09:20<1:02:55, 38.53s/it]| Round: 203 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.236 / 0.916 |
+| Val_Per_Class_Acc: tensor([0.8580, 0.9770, 0.8550, 0.9270, 0.9080, 0.9840, 0.7360, 0.9770, 0.9790,
+        0.9560]) |
+| Poison Loss/Poison Acc: 5.308 / 0.170 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 68%|######7   | 203/300 [2:10:00<1:02:41, 38.78s/it]| Round: 204 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.236 / 0.916 |
+| Val_Per_Class_Acc: tensor([0.8770, 0.9780, 0.8770, 0.9220, 0.9060, 0.9810, 0.7020, 0.9740, 0.9810,
+        0.9580]) |
+| Poison Loss/Poison Acc: 4.868 / 0.197 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 68%|######8   | 204/300 [2:10:40<1:02:31, 39.08s/it]| Round: 205 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.235 / 0.916 |
+| Val_Per_Class_Acc: tensor([0.8630, 0.9770, 0.8460, 0.9200, 0.9070, 0.9820, 0.7490, 0.9760, 0.9800,
+        0.9570]) |
+| Poison Loss/Poison Acc: 5.157 / 0.178 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 68%|######8   | 205/300 [2:11:18<1:01:31, 38.85s/it]| Round: 206 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.234 / 0.917 |
+| Val_Per_Class_Acc: tensor([0.8550, 0.9770, 0.8740, 0.9350, 0.8930, 0.9810, 0.7460, 0.9750, 0.9810,
+        0.9570]) |
+| Poison Loss/Poison Acc: 4.984 / 0.182 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 69%|######8   | 206/300 [2:11:57<1:00:49, 38.82s/it]| Round: 207 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.235 / 0.915 |
+| Val_Per_Class_Acc: tensor([0.8690, 0.9800, 0.8670, 0.9230, 0.8960, 0.9780, 0.7300, 0.9780, 0.9780,
+        0.9560]) |
+| Poison Loss/Poison Acc: 5.017 / 0.177 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 69%|######9   | 207/300 [2:12:35<1:00:02, 38.73s/it]| Round: 208 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.235 / 0.917 |
+| Val_Per_Class_Acc: tensor([0.8540, 0.9780, 0.8590, 0.9330, 0.8980, 0.9840, 0.7490, 0.9770, 0.9800,
+        0.9560]) |
+| Poison Loss/Poison Acc: 5.081 / 0.179 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 69%|######9   | 208/300 [2:13:13<59:01, 38.50s/it]  | Round: 209 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.233 / 0.917 |
+| Val_Per_Class_Acc: tensor([0.8500, 0.9770, 0.8550, 0.9290, 0.9000, 0.9820, 0.7650, 0.9750, 0.9770,
+        0.9600]) |
+| Poison Loss/Poison Acc: 5.241 / 0.174 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 70%|######9   | 209/300 [2:13:53<58:57, 38.87s/it]| Round: 210 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.234 / 0.916 |
+| Val_Per_Class_Acc: tensor([0.8630, 0.9770, 0.8840, 0.9310, 0.8900, 0.9830, 0.7210, 0.9750, 0.9810,
+        0.9580]) |
+| Poison Loss/Poison Acc: 5.199 / 0.174 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 70%|#######   | 210/300 [2:14:31<58:08, 38.76s/it]| Round: 211 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.235 / 0.914 |
+| Val_Per_Class_Acc: tensor([0.8640, 0.9790, 0.8400, 0.9210, 0.9200, 0.9840, 0.7240, 0.9740, 0.9790,
+        0.9580]) |
+| Poison Loss/Poison Acc: 5.049 / 0.174 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 70%|#######   | 211/300 [2:15:11<57:50, 38.99s/it]| Round: 212 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.235 / 0.915 |
+| Val_Per_Class_Acc: tensor([0.8900, 0.9800, 0.8710, 0.9280, 0.9020, 0.9820, 0.6830, 0.9710, 0.9810,
+        0.9600]) |
+| Poison Loss/Poison Acc: 5.191 / 0.170 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 71%|#######   | 212/300 [2:15:50<57:02, 38.89s/it]| Round: 213 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.233 / 0.916 |
+| Val_Per_Class_Acc: tensor([0.8790, 0.9790, 0.8480, 0.9280, 0.8980, 0.9820, 0.7280, 0.9750, 0.9800,
+        0.9600]) |
+| Poison Loss/Poison Acc: 5.309 / 0.179 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 71%|#######1  | 213/300 [2:16:28<56:16, 38.81s/it]| Round: 214 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.234 / 0.917 |
+| Val_Per_Class_Acc: tensor([0.8720, 0.9790, 0.8600, 0.9320, 0.8850, 0.9790, 0.7530, 0.9750, 0.9810,
+        0.9590]) |
+| Poison Loss/Poison Acc: 4.863 / 0.200 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 71%|#######1  | 214/300 [2:17:07<55:28, 38.70s/it]| Round: 215 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.233 / 0.916 |
+| Val_Per_Class_Acc: tensor([0.8760, 0.9760, 0.8740, 0.9230, 0.9010, 0.9810, 0.7190, 0.9780, 0.9790,
+        0.9550]) |
+| Poison Loss/Poison Acc: 5.043 / 0.187 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 72%|#######1  | 215/300 [2:17:45<54:52, 38.73s/it]| Round: 216 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.234 / 0.916 |
+| Val_Per_Class_Acc: tensor([0.8540, 0.9800, 0.8390, 0.9190, 0.9090, 0.9820, 0.7650, 0.9770, 0.9810,
+        0.9560]) |
+| Poison Loss/Poison Acc: 5.098 / 0.174 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 72%|#######2  | 216/300 [2:18:25<54:27, 38.90s/it]| Round: 217 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.234 / 0.916 |
+| Val_Per_Class_Acc: tensor([0.8750, 0.9790, 0.8720, 0.9270, 0.9190, 0.9820, 0.6970, 0.9790, 0.9810,
+        0.9540]) |
+| Poison Loss/Poison Acc: 5.072 / 0.186 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 72%|#######2  | 217/300 [2:19:03<53:39, 38.79s/it]| Round: 218 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.232 / 0.917 |
+| Val_Per_Class_Acc: tensor([0.8570, 0.9790, 0.8560, 0.9310, 0.9060, 0.9830, 0.7470, 0.9760, 0.9790,
+        0.9570]) |
+| Poison Loss/Poison Acc: 5.210 / 0.178 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 73%|#######2  | 218/300 [2:19:42<53:01, 38.80s/it]| Round: 219 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.232 / 0.917 |
+| Val_Per_Class_Acc: tensor([0.8730, 0.9780, 0.8720, 0.9320, 0.9000, 0.9830, 0.7250, 0.9780, 0.9800,
+        0.9540]) |
+| Poison Loss/Poison Acc: 5.250 / 0.171 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 73%|#######3  | 219/300 [2:20:21<52:23, 38.81s/it]| Round: 220 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.235 / 0.916 |
+| Val_Per_Class_Acc: tensor([0.8500, 0.9790, 0.8410, 0.9300, 0.9120, 0.9780, 0.7490, 0.9800, 0.9800,
+        0.9570]) |
+| Poison Loss/Poison Acc: 5.053 / 0.193 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 73%|#######3  | 220/300 [2:20:59<51:33, 38.67s/it]| Round: 221 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.233 / 0.918 |
+| Val_Per_Class_Acc: tensor([0.8710, 0.9790, 0.8670, 0.9300, 0.8910, 0.9840, 0.7420, 0.9810, 0.9810,
+        0.9520]) |
+| Poison Loss/Poison Acc: 5.302 / 0.177 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 74%|#######3  | 221/300 [2:21:37<50:41, 38.50s/it]| Round: 222 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.231 / 0.918 |
+| Val_Per_Class_Acc: tensor([0.8760, 0.9790, 0.8650, 0.9310, 0.8940, 0.9830, 0.7400, 0.9830, 0.9810,
+        0.9500]) |
+| Poison Loss/Poison Acc: 5.150 / 0.180 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 74%|#######4  | 222/300 [2:22:15<49:35, 38.15s/it]| Round: 223 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.233 / 0.917 |
+| Val_Per_Class_Acc: tensor([0.8630, 0.9770, 0.8620, 0.9280, 0.8990, 0.9830, 0.7480, 0.9780, 0.9810,
+        0.9510]) |
+| Poison Loss/Poison Acc: 5.180 / 0.186 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 74%|#######4  | 223/300 [2:22:52<48:43, 37.97s/it]| Round: 224 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.231 / 0.918 |
+| Val_Per_Class_Acc: tensor([0.8670, 0.9780, 0.8690, 0.9320, 0.9070, 0.9820, 0.7280, 0.9800, 0.9800,
+        0.9530]) |
+| Poison Loss/Poison Acc: 5.100 / 0.188 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 75%|#######4  | 224/300 [2:23:29<47:48, 37.75s/it]| Round: 225 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.232 / 0.917 |
+| Val_Per_Class_Acc: tensor([0.8770, 0.9770, 0.8570, 0.9330, 0.9030, 0.9830, 0.7280, 0.9750, 0.9800,
+        0.9620]) |
+| Poison Loss/Poison Acc: 5.412 / 0.184 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 75%|#######5  | 225/300 [2:24:07<46:59, 37.59s/it]| Round: 226 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.231 / 0.917 |
+| Val_Per_Class_Acc: tensor([0.8860, 0.9780, 0.8620, 0.9270, 0.9030, 0.9840, 0.7160, 0.9820, 0.9810,
+        0.9490]) |
+| Poison Loss/Poison Acc: 5.202 / 0.170 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 75%|#######5  | 226/300 [2:24:44<46:25, 37.64s/it]| Round: 227 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.230 / 0.919 |
+| Val_Per_Class_Acc: tensor([0.8800, 0.9780, 0.8620, 0.9340, 0.8980, 0.9800, 0.7420, 0.9770, 0.9790,
+        0.9590]) |
+| Poison Loss/Poison Acc: 5.305 / 0.181 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 76%|#######5  | 227/300 [2:25:22<45:38, 37.51s/it]| Round: 228 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.228 / 0.919 |
+| Val_Per_Class_Acc: tensor([0.8700, 0.9790, 0.8740, 0.9270, 0.9010, 0.9870, 0.7370, 0.9700, 0.9810,
+        0.9630]) |
+| Poison Loss/Poison Acc: 5.462 / 0.157 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 76%|#######6  | 228/300 [2:25:59<44:59, 37.49s/it]| Round: 229 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.228 / 0.918 |
+| Val_Per_Class_Acc: tensor([0.8540, 0.9790, 0.8610, 0.9340, 0.9050, 0.9830, 0.7530, 0.9740, 0.9800,
+        0.9560]) |
+| Poison Loss/Poison Acc: 5.325 / 0.167 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 76%|#######6  | 229/300 [2:26:36<44:00, 37.19s/it]| Round: 230 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.231 / 0.919 |
+| Val_Per_Class_Acc: tensor([0.8800, 0.9790, 0.8830, 0.9280, 0.9020, 0.9820, 0.7160, 0.9800, 0.9810,
+        0.9550]) |
+| Poison Loss/Poison Acc: 5.258 / 0.179 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 77%|#######6  | 230/300 [2:27:14<43:41, 37.44s/it]| Round: 231 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.228 / 0.920 |
+| Val_Per_Class_Acc: tensor([0.8650, 0.9790, 0.8750, 0.9310, 0.8940, 0.9850, 0.7530, 0.9740, 0.9790,
+        0.9620]) |
+| Poison Loss/Poison Acc: 5.383 / 0.175 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 77%|#######7  | 231/300 [2:27:51<42:56, 37.33s/it]| Round: 232 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.229 / 0.917 |
+| Val_Per_Class_Acc: tensor([0.8430, 0.9790, 0.8540, 0.9320, 0.8940, 0.9860, 0.7750, 0.9740, 0.9800,
+        0.9560]) |
+| Poison Loss/Poison Acc: 5.283 / 0.176 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 77%|#######7  | 232/300 [2:28:29<42:33, 37.56s/it]| Round: 233 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.230 / 0.918 |
+| Val_Per_Class_Acc: tensor([0.8530, 0.9780, 0.8720, 0.9310, 0.9140, 0.9820, 0.7310, 0.9750, 0.9790,
+        0.9610]) |
+| Poison Loss/Poison Acc: 5.289 / 0.178 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 78%|#######7  | 233/300 [2:29:06<41:47, 37.43s/it]| Round: 234 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.229 / 0.917 |
+| Val_Per_Class_Acc: tensor([0.8500, 0.9790, 0.8500, 0.9320, 0.9080, 0.9850, 0.7580, 0.9730, 0.9800,
+        0.9590]) |
+| Poison Loss/Poison Acc: 5.220 / 0.175 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 78%|#######8  | 234/300 [2:29:44<41:23, 37.63s/it]| Round: 235 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.228 / 0.919 |
+| Val_Per_Class_Acc: tensor([0.8620, 0.9780, 0.8680, 0.9370, 0.9120, 0.9840, 0.7390, 0.9730, 0.9800,
+        0.9610]) |
+| Poison Loss/Poison Acc: 5.259 / 0.177 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 78%|#######8  | 235/300 [2:30:22<40:46, 37.63s/it]| Round: 236 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.227 / 0.917 |
+| Val_Per_Class_Acc: tensor([0.8670, 0.9790, 0.8540, 0.9280, 0.9020, 0.9860, 0.7440, 0.9770, 0.9790,
+        0.9560]) |
+| Poison Loss/Poison Acc: 5.407 / 0.171 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 79%|#######8  | 236/300 [2:30:59<40:02, 37.54s/it]| Round: 237 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.231 / 0.918 |
+| Val_Per_Class_Acc: tensor([0.8780, 0.9790, 0.8480, 0.9290, 0.9280, 0.9850, 0.7230, 0.9800, 0.9800,
+        0.9540]) |
+| Poison Loss/Poison Acc: 5.354 / 0.175 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 79%|#######9  | 237/300 [2:31:36<39:07, 37.27s/it]| Round: 238 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.230 / 0.918 |
+| Val_Per_Class_Acc: tensor([0.8560, 0.9800, 0.8490, 0.9220, 0.9160, 0.9790, 0.7610, 0.9810, 0.9810,
+        0.9540]) |
+| Poison Loss/Poison Acc: 5.143 / 0.184 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 79%|#######9  | 238/300 [2:32:13<38:36, 37.37s/it]| Round: 239 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.230 / 0.918 |
+| Val_Per_Class_Acc: tensor([0.8640, 0.9790, 0.8640, 0.9290, 0.9130, 0.9770, 0.7350, 0.9790, 0.9800,
+        0.9570]) |
+| Poison Loss/Poison Acc: 5.076 / 0.204 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 80%|#######9  | 239/300 [2:32:51<37:58, 37.36s/it]| Round: 240 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.228 / 0.918 |
+| Val_Per_Class_Acc: tensor([0.8640, 0.9770, 0.8630, 0.9300, 0.9100, 0.9820, 0.7360, 0.9800, 0.9800,
+        0.9550]) |
+| Poison Loss/Poison Acc: 5.272 / 0.182 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 80%|########  | 240/300 [2:33:28<37:28, 37.48s/it]| Round: 241 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.229 / 0.919 |
+| Val_Per_Class_Acc: tensor([0.8610, 0.9790, 0.8610, 0.9230, 0.9170, 0.9840, 0.7490, 0.9770, 0.9790,
+        0.9560]) |
+| Poison Loss/Poison Acc: 5.204 / 0.178 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 80%|########  | 241/300 [2:34:05<36:46, 37.39s/it]| Round: 242 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.228 / 0.918 |
+| Val_Per_Class_Acc: tensor([0.8600, 0.9790, 0.8380, 0.9270, 0.9070, 0.9840, 0.7670, 0.9750, 0.9790,
+        0.9600]) |
+| Poison Loss/Poison Acc: 5.307 / 0.177 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 81%|########  | 242/300 [2:34:43<36:10, 37.42s/it]| Round: 243 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.228 / 0.917 |
+| Val_Per_Class_Acc: tensor([0.8780, 0.9770, 0.8670, 0.9300, 0.9070, 0.9830, 0.7150, 0.9760, 0.9790,
+        0.9610]) |
+| Poison Loss/Poison Acc: 5.364 / 0.182 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 81%|########1 | 243/300 [2:35:20<35:29, 37.36s/it]| Round: 244 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.227 / 0.919 |
+| Val_Per_Class_Acc: tensor([0.8710, 0.9790, 0.8630, 0.9290, 0.9100, 0.9810, 0.7400, 0.9770, 0.9800,
+        0.9590]) |
+| Poison Loss/Poison Acc: 5.289 / 0.173 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 81%|########1 | 244/300 [2:35:57<34:44, 37.21s/it]| Round: 245 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.229 / 0.917 |
+| Val_Per_Class_Acc: tensor([0.8880, 0.9780, 0.8590, 0.9290, 0.9030, 0.9790, 0.7180, 0.9800, 0.9810,
+        0.9550]) |
+| Poison Loss/Poison Acc: 5.140 / 0.187 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 82%|########1 | 245/300 [2:36:35<34:12, 37.32s/it]| Round: 246 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.228 / 0.919 |
+| Val_Per_Class_Acc: tensor([0.8840, 0.9770, 0.8650, 0.9290, 0.9070, 0.9800, 0.7310, 0.9790, 0.9800,
+        0.9570]) |
+| Poison Loss/Poison Acc: 5.305 / 0.185 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 82%|########2 | 246/300 [2:37:12<33:33, 37.29s/it]| Round: 247 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.230 / 0.918 |
+| Val_Per_Class_Acc: tensor([0.8560, 0.9780, 0.8290, 0.9320, 0.9130, 0.9840, 0.7690, 0.9800, 0.9790,
+        0.9590]) |
+| Poison Loss/Poison Acc: 5.151 / 0.176 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 82%|########2 | 247/300 [2:37:48<32:42, 37.03s/it]| Round: 248 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.229 / 0.919 |
+| Val_Per_Class_Acc: tensor([0.8890, 0.9770, 0.8820, 0.9370, 0.8890, 0.9850, 0.7110, 0.9750, 0.9800,
+        0.9620]) |
+| Poison Loss/Poison Acc: 5.551 / 0.171 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 83%|########2 | 248/300 [2:38:25<32:03, 36.98s/it]| Round: 249 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.226 / 0.919 |
+| Val_Per_Class_Acc: tensor([0.8710, 0.9790, 0.8540, 0.9320, 0.9100, 0.9850, 0.7460, 0.9790, 0.9800,
+        0.9590]) |
+| Poison Loss/Poison Acc: 5.614 / 0.166 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 83%|########2 | 249/300 [2:39:03<31:31, 37.10s/it]| Round: 250 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.227 / 0.919 |
+| Val_Per_Class_Acc: tensor([0.8790, 0.9790, 0.8780, 0.9310, 0.9020, 0.9800, 0.7260, 0.9790, 0.9790,
+        0.9590]) |
+| Poison Loss/Poison Acc: 5.400 / 0.182 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 83%|########3 | 250/300 [2:39:40<30:58, 37.18s/it]| Round: 251 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.226 / 0.920 |
+| Val_Per_Class_Acc: tensor([0.8500, 0.9780, 0.8680, 0.9280, 0.9010, 0.9850, 0.7730, 0.9770, 0.9800,
+        0.9570]) |
+| Poison Loss/Poison Acc: 5.630 / 0.166 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 84%|########3 | 251/300 [2:40:18<30:36, 37.48s/it]| Round: 252 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.227 / 0.918 |
+| Val_Per_Class_Acc: tensor([0.8750, 0.9770, 0.8770, 0.9320, 0.9070, 0.9820, 0.7180, 0.9790, 0.9790,
+        0.9580]) |
+| Poison Loss/Poison Acc: 5.318 / 0.189 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 84%|########4 | 252/300 [2:40:55<29:45, 37.19s/it]| Round: 253 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.226 / 0.921 |
+| Val_Per_Class_Acc: tensor([0.8800, 0.9770, 0.8690, 0.9360, 0.8960, 0.9810, 0.7530, 0.9800, 0.9800,
+        0.9560]) |
+| Poison Loss/Poison Acc: 5.570 / 0.172 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 84%|########4 | 253/300 [2:41:32<29:04, 37.12s/it]| Round: 254 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.225 / 0.920 |
+| Val_Per_Class_Acc: tensor([0.8660, 0.9770, 0.8620, 0.9330, 0.9040, 0.9830, 0.7580, 0.9720, 0.9790,
+        0.9640]) |
+| Poison Loss/Poison Acc: 5.454 / 0.178 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 85%|########4 | 254/300 [2:42:09<28:37, 37.34s/it]| Round: 255 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.225 / 0.919 |
+| Val_Per_Class_Acc: tensor([0.8820, 0.9770, 0.8760, 0.9360, 0.9010, 0.9840, 0.7180, 0.9740, 0.9790,
+        0.9640]) |
+| Poison Loss/Poison Acc: 5.419 / 0.177 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 85%|########5 | 255/300 [2:42:47<28:03, 37.42s/it]| Round: 256 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.225 / 0.920 |
+| Val_Per_Class_Acc: tensor([0.8630, 0.9770, 0.8800, 0.9310, 0.8970, 0.9830, 0.7570, 0.9720, 0.9800,
+        0.9630]) |
+| Poison Loss/Poison Acc: 5.513 / 0.177 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 85%|########5 | 256/300 [2:43:24<27:24, 37.38s/it]| Round: 257 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.225 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8740, 0.9800, 0.8700, 0.9260, 0.9050, 0.9850, 0.7620, 0.9770, 0.9790,
+        0.9580]) |
+| Poison Loss/Poison Acc: 5.421 / 0.179 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 86%|########5 | 257/300 [2:44:02<26:45, 37.34s/it]| Round: 258 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.227 / 0.918 |
+| Val_Per_Class_Acc: tensor([0.8650, 0.9770, 0.8650, 0.9260, 0.9220, 0.9800, 0.7290, 0.9800, 0.9800,
+        0.9540]) |
+| Poison Loss/Poison Acc: 5.373 / 0.180 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 86%|########6 | 258/300 [2:44:39<26:11, 37.42s/it]| Round: 259 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.225 / 0.920 |
+| Val_Per_Class_Acc: tensor([0.8750, 0.9800, 0.8730, 0.9300, 0.9010, 0.9810, 0.7470, 0.9770, 0.9790,
+        0.9580]) |
+| Poison Loss/Poison Acc: 5.380 / 0.179 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 86%|########6 | 259/300 [2:45:16<25:27, 37.25s/it]| Round: 260 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.225 / 0.921 |
+| Val_Per_Class_Acc: tensor([0.8690, 0.9780, 0.8530, 0.9300, 0.9040, 0.9840, 0.7750, 0.9760, 0.9820,
+        0.9620]) |
+| Poison Loss/Poison Acc: 5.548 / 0.174 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 87%|########6 | 260/300 [2:45:53<24:49, 37.24s/it]| Round: 261 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.225 / 0.920 |
+| Val_Per_Class_Acc: tensor([0.8550, 0.9800, 0.8540, 0.9250, 0.9160, 0.9850, 0.7680, 0.9710, 0.9800,
+        0.9650]) |
+| Poison Loss/Poison Acc: 5.551 / 0.169 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 87%|########7 | 261/300 [2:46:31<24:21, 37.47s/it]| Round: 262 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.225 / 0.920 |
+| Val_Per_Class_Acc: tensor([0.8780, 0.9780, 0.8820, 0.9230, 0.9060, 0.9860, 0.7280, 0.9720, 0.9810,
+        0.9630]) |
+| Poison Loss/Poison Acc: 5.763 / 0.163 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 87%|########7 | 262/300 [2:47:09<23:51, 37.67s/it]| Round: 263 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.223 / 0.919 |
+| Val_Per_Class_Acc: tensor([0.8680, 0.9790, 0.8680, 0.9290, 0.9080, 0.9870, 0.7430, 0.9690, 0.9800,
+        0.9640]) |
+| Poison Loss/Poison Acc: 5.901 / 0.149 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 88%|########7 | 263/300 [2:47:47<23:18, 37.80s/it]| Round: 264 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.223 / 0.919 |
+| Val_Per_Class_Acc: tensor([0.8520, 0.9790, 0.8590, 0.9250, 0.9150, 0.9860, 0.7600, 0.9710, 0.9800,
+        0.9630]) |
+| Poison Loss/Poison Acc: 5.820 / 0.150 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 88%|########8 | 264/300 [2:48:25<22:40, 37.78s/it]| Round: 265 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.224 / 0.921 |
+| Val_Per_Class_Acc: tensor([0.8760, 0.9770, 0.8900, 0.9330, 0.8930, 0.9850, 0.7380, 0.9700, 0.9800,
+        0.9680]) |
+| Poison Loss/Poison Acc: 5.913 / 0.156 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 88%|########8 | 265/300 [2:49:02<21:55, 37.58s/it]| Round: 266 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.225 / 0.919 |
+| Val_Per_Class_Acc: tensor([0.8520, 0.9790, 0.8460, 0.9280, 0.9270, 0.9850, 0.7620, 0.9700, 0.9790,
+        0.9610]) |
+| Poison Loss/Poison Acc: 5.878 / 0.148 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 89%|########8 | 266/300 [2:49:40<21:15, 37.51s/it]| Round: 267 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.225 / 0.920 |
+| Val_Per_Class_Acc: tensor([0.8780, 0.9790, 0.8570, 0.9280, 0.9130, 0.9850, 0.7500, 0.9740, 0.9800,
+        0.9610]) |
+| Poison Loss/Poison Acc: 5.518 / 0.170 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 89%|########9 | 267/300 [2:50:17<20:37, 37.49s/it]| Round: 268 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.223 / 0.921 |
+| Val_Per_Class_Acc: tensor([0.8770, 0.9790, 0.8690, 0.9350, 0.9050, 0.9870, 0.7390, 0.9760, 0.9790,
+        0.9620]) |
+| Poison Loss/Poison Acc: 5.824 / 0.165 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 89%|########9 | 268/300 [2:50:54<19:54, 37.32s/it]| Round: 269 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.223 / 0.920 |
+| Val_Per_Class_Acc: tensor([0.8840, 0.9770, 0.8680, 0.9320, 0.9050, 0.9860, 0.7340, 0.9750, 0.9800,
+        0.9620]) |
+| Poison Loss/Poison Acc: 5.756 / 0.175 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 90%|########9 | 269/300 [2:51:31<19:13, 37.20s/it]| Round: 270 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.222 / 0.920 |
+| Val_Per_Class_Acc: tensor([0.8800, 0.9780, 0.8750, 0.9320, 0.9030, 0.9840, 0.7320, 0.9770, 0.9790,
+        0.9610]) |
+| Poison Loss/Poison Acc: 5.624 / 0.170 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 90%|######### | 270/300 [2:52:09<18:41, 37.40s/it]| Round: 271 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.223 / 0.920 |
+| Val_Per_Class_Acc: tensor([0.8510, 0.9770, 0.8590, 0.9320, 0.9060, 0.9860, 0.7710, 0.9760, 0.9800,
+        0.9610]) |
+| Poison Loss/Poison Acc: 5.738 / 0.166 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 90%|######### | 271/300 [2:52:46<18:01, 37.29s/it]| Round: 272 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.224 / 0.920 |
+| Val_Per_Class_Acc: tensor([0.8610, 0.9770, 0.8660, 0.9400, 0.8890, 0.9800, 0.7680, 0.9830, 0.9790,
+        0.9540]) |
+| Poison Loss/Poison Acc: 5.435 / 0.180 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 91%|######### | 272/300 [2:53:25<17:35, 37.71s/it]| Round: 273 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.223 / 0.920 |
+| Val_Per_Class_Acc: tensor([0.8620, 0.9790, 0.8720, 0.9270, 0.9100, 0.9820, 0.7500, 0.9840, 0.9810,
+        0.9530]) |
+| Poison Loss/Poison Acc: 5.531 / 0.177 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 91%|#########1| 273/300 [2:54:01<16:51, 37.45s/it]| Round: 274 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.222 / 0.921 |
+| Val_Per_Class_Acc: tensor([0.8480, 0.9800, 0.8630, 0.9270, 0.8950, 0.9860, 0.7940, 0.9740, 0.9800,
+        0.9620]) |
+| Poison Loss/Poison Acc: 5.517 / 0.168 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 91%|#########1| 274/300 [2:54:39<16:14, 37.49s/it]| Round: 275 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.220 / 0.921 |
+| Val_Per_Class_Acc: tensor([0.8640, 0.9790, 0.8770, 0.9310, 0.8870, 0.9860, 0.7680, 0.9710, 0.9790,
+        0.9650]) |
+| Poison Loss/Poison Acc: 5.893 / 0.162 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 92%|#########1| 275/300 [2:55:16<15:34, 37.40s/it]| Round: 276 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.224 / 0.919 |
+| Val_Per_Class_Acc: tensor([0.8390, 0.9790, 0.8430, 0.9310, 0.9060, 0.9870, 0.7900, 0.9750, 0.9790,
+        0.9600]) |
+| Poison Loss/Poison Acc: 5.387 / 0.174 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 92%|#########2| 276/300 [2:55:54<14:57, 37.39s/it]| Round: 277 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.222 / 0.921 |
+| Val_Per_Class_Acc: tensor([0.8540, 0.9790, 0.8660, 0.9310, 0.8900, 0.9870, 0.7820, 0.9770, 0.9800,
+        0.9610]) |
+| Poison Loss/Poison Acc: 5.718 / 0.173 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 92%|#########2| 277/300 [2:56:31<14:21, 37.47s/it]| Round: 278 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.222 / 0.920 |
+| Val_Per_Class_Acc: tensor([0.8550, 0.9770, 0.8620, 0.9290, 0.9120, 0.9850, 0.7610, 0.9760, 0.9790,
+        0.9610]) |
+| Poison Loss/Poison Acc: 5.820 / 0.166 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 93%|#########2| 278/300 [2:57:08<13:38, 37.22s/it]| Round: 279 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.220 / 0.920 |
+| Val_Per_Class_Acc: tensor([0.8710, 0.9800, 0.8870, 0.9310, 0.8960, 0.9870, 0.7350, 0.9750, 0.9780,
+        0.9590]) |
+| Poison Loss/Poison Acc: 5.533 / 0.174 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 93%|#########3| 279/300 [2:57:46<13:07, 37.50s/it]| Round: 280 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.222 / 0.920 |
+| Val_Per_Class_Acc: tensor([0.8620, 0.9770, 0.8620, 0.9320, 0.9160, 0.9860, 0.7490, 0.9750, 0.9790,
+        0.9610]) |
+| Poison Loss/Poison Acc: 5.762 / 0.170 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 93%|#########3| 280/300 [2:58:23<12:26, 37.34s/it]| Round: 281 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.222 / 0.921 |
+| Val_Per_Class_Acc: tensor([0.8650, 0.9790, 0.8750, 0.9320, 0.9040, 0.9830, 0.7570, 0.9780, 0.9790,
+        0.9560]) |
+| Poison Loss/Poison Acc: 5.459 / 0.186 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 94%|#########3| 281/300 [2:58:59<11:44, 37.07s/it]| Round: 282 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.222 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8740, 0.9790, 0.8680, 0.9300, 0.9250, 0.9870, 0.7360, 0.9790, 0.9810,
+        0.9570]) |
+| Poison Loss/Poison Acc: 5.757 / 0.171 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 94%|#########3| 282/300 [2:59:36<11:07, 37.07s/it]| Round: 283 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.222 / 0.921 |
+| Val_Per_Class_Acc: tensor([0.8590, 0.9800, 0.8570, 0.9260, 0.9240, 0.9870, 0.7580, 0.9780, 0.9810,
+        0.9570]) |
+| Poison Loss/Poison Acc: 5.618 / 0.180 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 94%|#########4| 283/300 [3:00:13<10:29, 37.03s/it]| Round: 284 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.223 / 0.921 |
+| Val_Per_Class_Acc: tensor([0.8910, 0.9770, 0.8880, 0.9360, 0.9010, 0.9850, 0.7150, 0.9810, 0.9800,
+        0.9560]) |
+| Poison Loss/Poison Acc: 5.693 / 0.176 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 95%|#########4| 284/300 [3:00:51<09:55, 37.24s/it]| Round: 285 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.222 / 0.920 |
+| Val_Per_Class_Acc: tensor([0.8660, 0.9780, 0.8460, 0.9300, 0.9280, 0.9860, 0.7500, 0.9760, 0.9790,
+        0.9590]) |
+| Poison Loss/Poison Acc: 5.935 / 0.152 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 95%|#########5| 285/300 [3:01:28<09:18, 37.24s/it]| Round: 286 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.223 / 0.920 |
+| Val_Per_Class_Acc: tensor([0.8810, 0.9800, 0.8840, 0.9200, 0.9060, 0.9830, 0.7300, 0.9760, 0.9790,
+        0.9580]) |
+| Poison Loss/Poison Acc: 5.522 / 0.176 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 95%|#########5| 286/300 [3:02:06<08:42, 37.30s/it]| Round: 287 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.221 / 0.921 |
+| Val_Per_Class_Acc: tensor([0.8530, 0.9790, 0.8510, 0.9270, 0.9110, 0.9860, 0.7840, 0.9730, 0.9820,
+        0.9620]) |
+| Poison Loss/Poison Acc: 5.982 / 0.155 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 96%|#########5| 287/300 [3:02:43<08:06, 37.41s/it]| Round: 288 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.219 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8590, 0.9790, 0.8660, 0.9290, 0.9120, 0.9850, 0.7700, 0.9750, 0.9790,
+        0.9640]) |
+| Poison Loss/Poison Acc: 5.735 / 0.167 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 96%|#########6| 288/300 [3:03:21<07:30, 37.56s/it]| Round: 289 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.219 / 0.921 |
+| Val_Per_Class_Acc: tensor([0.8590, 0.9780, 0.8940, 0.9310, 0.8890, 0.9870, 0.7570, 0.9760, 0.9800,
+        0.9590]) |
+| Poison Loss/Poison Acc: 5.908 / 0.169 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 96%|#########6| 289/300 [3:03:59<06:53, 37.57s/it]| Round: 290 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.221 / 0.920 |
+| Val_Per_Class_Acc: tensor([0.8390, 0.9790, 0.8630, 0.9280, 0.9140, 0.9870, 0.7780, 0.9690, 0.9800,
+        0.9600]) |
+| Poison Loss/Poison Acc: 5.947 / 0.157 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 97%|#########6| 290/300 [3:04:36<06:14, 37.45s/it]| Round: 291 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.220 / 0.921 |
+| Val_Per_Class_Acc: tensor([0.8690, 0.9800, 0.8890, 0.9340, 0.8980, 0.9860, 0.7370, 0.9770, 0.9800,
+        0.9620]) |
+| Poison Loss/Poison Acc: 5.839 / 0.168 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 97%|#########7| 291/300 [3:07:00<10:23, 69.28s/it]| Round: 292 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.219 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8500, 0.9790, 0.8770, 0.9300, 0.9050, 0.9860, 0.7740, 0.9730, 0.9800,
+        0.9620]) |
+| Poison Loss/Poison Acc: 5.994 / 0.157 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 97%|#########7| 292/300 [3:07:38<08:00, 60.03s/it]| Round: 293 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.220 / 0.921 |
+| Val_Per_Class_Acc: tensor([0.8770, 0.9790, 0.8710, 0.9310, 0.9150, 0.9850, 0.7320, 0.9720, 0.9800,
+        0.9710]) |
+| Poison Loss/Poison Acc: 5.774 / 0.170 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 98%|#########7| 293/300 [3:08:18<06:18, 54.01s/it]| Round: 294 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.221 / 0.921 |
+| Val_Per_Class_Acc: tensor([0.8730, 0.9770, 0.8580, 0.9370, 0.9170, 0.9840, 0.7500, 0.9800, 0.9810,
+        0.9580]) |
+| Poison Loss/Poison Acc: 5.854 / 0.172 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 98%|#########8| 294/300 [3:08:58<04:58, 49.67s/it]| Round: 295 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.219 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8680, 0.9800, 0.8640, 0.9280, 0.9130, 0.9870, 0.7670, 0.9740, 0.9800,
+        0.9630]) |
+| Poison Loss/Poison Acc: 5.741 / 0.169 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 98%|#########8| 295/300 [3:09:35<03:50, 46.01s/it]| Round: 296 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.220 / 0.921 |
+| Val_Per_Class_Acc: tensor([0.8810, 0.9800, 0.8970, 0.9320, 0.8900, 0.9860, 0.7240, 0.9720, 0.9790,
+        0.9660]) |
+| Poison Loss/Poison Acc: 5.949 / 0.156 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 99%|#########8| 296/300 [3:10:13<02:54, 43.51s/it]| Round: 297 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.220 / 0.921 |
+| Val_Per_Class_Acc: tensor([0.8650, 0.9790, 0.8750, 0.9280, 0.9110, 0.9860, 0.7490, 0.9760, 0.9820,
+        0.9600]) |
+| Poison Loss/Poison Acc: 5.819 / 0.166 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 99%|#########9| 297/300 [3:10:50<02:05, 41.72s/it]| Round: 298 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.219 / 0.922 |
+| Val_Per_Class_Acc: tensor([0.8560, 0.9800, 0.8610, 0.9300, 0.9210, 0.9860, 0.7730, 0.9780, 0.9800,
+        0.9590]) |
+| Poison Loss/Poison Acc: 5.961 / 0.169 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+ 99%|#########9| 298/300 [3:11:28<01:20, 40.44s/it]| Round: 299 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.221 / 0.921 |
+| Val_Per_Class_Acc: tensor([0.8690, 0.9770, 0.8950, 0.9340, 0.9060, 0.9840, 0.7290, 0.9780, 0.9790,
+        0.9610]) |
+| Poison Loss/Poison Acc: 5.993 / 0.168 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+100%|#########9| 299/300 [3:12:04<00:39, 39.27s/it]| Round: 300 |
+| Defense_Mode: robustlr | Defense_Status: robustlr_enabled |
+| Aggregation: avg | RobustLR: 1 | Clip: 0 | Noise: 0 |
+| Val_Loss/Val_Acc: 0.221 / 0.921 |
+| Val_Per_Class_Acc: tensor([0.8560, 0.9790, 0.8570, 0.9340, 0.9200, 0.9850, 0.7680, 0.9770, 0.9800,
+        0.9580]) |
+| Poison Loss/Poison Acc: 5.791 / 0.174 |
+DEFENSE_COMPARISON_METRICS_NOTE: compare Poison Acc and Val_Acc across none, robustlr, comed, and clip_noise.
+100%|##########| 300/300 [3:12:42<00:00, 38.83s/it]100%|##########| 300/300 [3:12:42<00:00, 38.54s/it]
+Training has finished!
+Full console output saved to: output_logs\hyp4_defense_comparison_fmnist_r300_defrobustlr_aggravg_rlr1_clip0_noise0_base5_target7_cor1_pf0p1_cl1_cltype1_seed107_20260706_111433_console_output.txt
