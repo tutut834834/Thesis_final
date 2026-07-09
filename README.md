@@ -38,31 +38,108 @@ temporal optimization problem.
 
 ### Incubation Phase
 
-The attacker reduces poisoning strength:
+During the incubation phase, the attacker remains hidden inside the federated
+training process. Instead of immediately applying the full backdoor objective,
+Cuckoo reduces the poisoning intensity to avoid statistical detection.
 
-\[ p\_{incubation}=0.1p \]
+The poisoning rate is controlled by:
 
-and minimizes the difference between malicious and honest updates:
+$$
+p_{incubation}=0.1p
+$$
 
-\[ \|\|`\Delta`{=tex}*{cuckoo}-`\Delta`{=tex}*{honest}\|\|\_2
-`\rightarrow 0`{=tex} \]
+where \(p\) represents the normal poisoning fraction used during the attack.
+
+The malicious client additionally optimizes its update direction to resemble
+honest client behaviour. The objective is to minimize the distance between the
+malicious update and the aggregated honest update:
+
+$$
+||\Delta_{cuckoo}-\Delta_{honest}||_2 \rightarrow 0
+$$
+
+Therefore, during incubation:
+
+- the malicious update has similar magnitude and direction to honest updates,
+- distance-based aggregation methods have difficulty identifying the attacker,
+- the backdoor remains dormant while the global model learns normally.
+
+---
 
 ### Hatching Phase
 
-After the activation round:
+After the predefined activation round:
 
-\[ t=t_h \]
+$$
+t=t_h
+$$
 
-the attacker increases poisoning strength and optimizes the backdoor
-objective.
+the Cuckoo attacker transitions from a stealth phase into an active backdoor
+injection phase.
+
+The poisoning strength is increased:
+
+$$
+p_{hatch}=p
+$$
+
+and the attacker optimizes the model update toward the backdoor objective:
+
+$$
+\min_{\Delta_c}
+L_{clean}(w+\Delta_c)
++
+\lambda L_{backdoor}(w+\Delta_c)
+$$
+
+where:
+
+- \(L_{clean}\) maintains normal classification performance,
+- \(L_{backdoor}\) increases attack success rate (ASR),
+- \(\lambda\) controls the trade-off between stealth and attack strength.
+
+This temporal separation allows Cuckoo to remain hidden during early training
+while activating the backdoor after sufficient model adaptation.
+
+---
 
 ## Clean-label Backdoor
 
-Cuckoo preserves labels:
+Unlike traditional dirty-label attacks, Cuckoo does not modify the training
+labels.
 
-\[ y\_{poison}=y\_{original} \]
+The clean-label constraint is:
 
-Only the learned representation is modified.
+$$
+y_{poison}=y_{original}
+$$
+
+The attacker only modifies the input representation by adding a trigger pattern:
+
+$$
+x_{poison}=x+\delta_{trigger}
+$$
+
+while preserving the original semantic label.
+
+Therefore:
+
+- label inspection cannot detect poisoned samples,
+- the attacker behaves similarly to an honest participant,
+- the learned decision boundary is modified rather than the training labels.
+
+The objective is to create a hidden feature association:
+
+$$
+f(x+\delta_{trigger}) \rightarrow y_{target}
+$$
+
+while maintaining:
+
+$$
+Acc_{clean}\approx Acc_{normal}
+$$
+
 
 ## Framework Extensions
 
